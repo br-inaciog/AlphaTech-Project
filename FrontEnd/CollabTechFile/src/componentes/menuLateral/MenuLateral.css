@@ -1,0 +1,60 @@
+.menuLateral {
+    width: 260px;
+    height: 100vh;
+    background: linear-gradient(135deg, #0d0d0d, #001f3f, #0a2a6c);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 32px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.08);
+}
+.menuLateral h1 {
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.menuLateral ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+.menuLateral li {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: background 0.2s; 
+}
+.menuLateral li:hover {
+    background: rgba(255,255,255,0.08);
+}
+.menuLateral .logout {
+    margin-top: auto;
+    padding: 24px;
+    width: 100%;
+    text-align: left;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.menuLateral .icones {
+    height: auto;
+    width: 30px;
+    margin-right: 16px;
+}
+
+.logout img{
+    height: auto;
+    width: 24px;
+    margin-right: 16px;
+
+}
+
+.logoMenu {
+    width: 105px;  
+    height: 105px;
+    /* margin-bottom: 32; */
+    /* margin-right: 16px; */
+}

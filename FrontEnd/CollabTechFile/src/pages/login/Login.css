@@ -48,12 +48,12 @@
 .inputLogin input {
     width: 400px;
     height: 41px;
-    padding: 10px 10px 10px 5px;
+    padding: 15px 5px 0px 5px;
+    font-size: 18px;
     outline: none;
     
     border: none;
     border-bottom: 1px solid  black;
-    border-width: 2px;
     background: transparent;
 }
 
@@ -65,7 +65,7 @@
 .grupoEmail label {
     position: absolute;
     left: 5px;
-    top: -10px;
+    top: -5px;
     transition: 0.5s;
 }
 
@@ -78,7 +78,7 @@
 .grupoSenha label {
     position: absolute;
     left: 5px;
-    top: -10px;
+    top: -5px;
     transition: 0.5s;
 }
 
@@ -90,6 +90,7 @@
 }
 
 .grupoEmail input:focus {
+    border-width: 2px;
     border-bottom-color: #0a2a6c;
 }
 

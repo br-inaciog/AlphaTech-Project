@@ -1,6 +1,6 @@
 import { Botao } from "../../componentes/botao/Botao";
 import User from "../../assets/img/UserModoClaro.png"
-import Logo from "../../assets/img/Logo.svg"
+import Logo from "../../assets/img/Logo.png"
 import "./Login.css"
 
 export function Login() {
