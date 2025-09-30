@@ -3,7 +3,7 @@ import User from "../../assets/img/UserModoClaro.png"
 import Logo from "../../assets/img/Logo.png"
 import "./Login.css"
 
-export function Login() {
+export default function Login() {
     return (
         <>
             <main className="mainLogin">

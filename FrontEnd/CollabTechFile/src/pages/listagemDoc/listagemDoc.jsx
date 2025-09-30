@@ -1,8 +1,8 @@
 import "./ListagemDoc.css"
-import { MenuLateral} from "../../componentes/menuLateral/MenuLateral"
+import { MenuLateral } from "../../componentes/menuLateral/MenuLateral"
 
 
-export function ListagemDoc() {
+export default function ListagemDoc() {
     return(
         <>
         <MenuLateral/>

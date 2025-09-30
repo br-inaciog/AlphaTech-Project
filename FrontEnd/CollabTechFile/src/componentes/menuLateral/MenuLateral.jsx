@@ -9,41 +9,43 @@ import Logout from '../../assets/img/Logout.png';
 
 export default function MenuLateral() {
     return (
-        <nav className="menuLateral">
+        <>
+            <nav className="menuLateral">
 
-            <div style={{ marginBottom: 35 }}>
-                <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
+                <div style={{ marginBottom: 35 }}>
+                    <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
 
-            </div>
+                </div>
 
-            <ul>
-                <li>
-                    <img src={Casinha} alt="" className='icones'/>
-                    Início
-                </li>
-                <li>
-                    <img src={Cadastrar} alt="" className='icones'/>
-                    Cadastrar Clientes
-                </li>
-                <li>
-                    <img src={Documents} alt="" className='icones'/>
-                    Documentos
-                </li>
-                <li>
-                    <img src={Cliente} alt="" className='icones'/>
-                    Clientes
-                </li>
-                <li>
-                    <img src={Feedback} alt="" className='icones'/>
-                    Feedbacks
-                </li>
-            </ul>
-            <div className="logout">
-                <span>
-                    <img src={Logout} alt="" />
-                    LOGOUT
-                </span>
-            </div>
-        </nav>
-    );
+                <ul>
+                    <li>
+                        <img src={Casinha} alt="" className='icones' />
+                        Início
+                    </li>
+                    <li>
+                        <img src={Cadastrar} alt="" className='icones' />
+                        Cadastrar Clientes
+                    </li>
+                    <li>
+                        <img src={Documents} alt="" className='icones' />
+                        Documentos
+                    </li>
+                    <li>
+                        <img src={Cliente} alt="" className='icones' />
+                        Clientes
+                    </li>
+                    {/* <li> */}
+                        {/* <img src={Feedback} alt="" className='icones' /> */}
+                        {/* Feedbacks */}
+                    {/* </li> */}
+                </ul>
+                <div className="logout">
+                    <span>
+                        <img src={Logout} alt="" />
+                        LOGOUT
+                    </span>
+                </div>
+            </nav>
+        </>
+    )
 }
