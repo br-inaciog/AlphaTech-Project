@@ -1,8 +1,8 @@
 import MenuLateral from '../../componentes/menuLateral/MenuLateral';
-import Anexar from '../../assets/anexar.png';
+// import Anexar from '../../assets/img/Anexar.png';
 import './Inicio.css';
 
-export default function Inicio() {
+export function Inicio() {
     return (
         <div className="containerGeral">
             <MenuLateral />
@@ -48,7 +48,7 @@ export default function Inicio() {
                     <div className="documentos-actions">
                         <div className="doc-action anexar">
                             <h4>Anexar Documentação</h4>
-                            <img src={Anexar} alt="" />
+                            {/* <img src={Anexar} alt="" /> */}
                             <button className="icon-anexar">Anexar Arquivo</button>
                             <input type="text" placeholder="Nome do Arquivo" className="input-arquivo" />
                         </div>

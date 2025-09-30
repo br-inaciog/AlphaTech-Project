@@ -7,7 +7,6 @@ import Cliente from '../../assets/img/Cliente.png';
 import Cadastrar from '../../assets/img/Cadastrar.png';
 import Logout from '../../assets/img/Logout.png';
 
-
 export default function MenuLateral() {
     return (
         <nav className="menuLateral">

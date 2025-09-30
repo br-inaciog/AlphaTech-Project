@@ -1,3 +1,5 @@
+import "./Botao.css"
+
 export function Botao() {
     return (
         <>
