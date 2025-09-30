@@ -1,0 +1,193 @@
+.containerGeral {
+    display: flex;
+    min-height: 100vh;
+    background: #f8f1ed;
+}
+
+.conteudoPrincipal {
+    flex: 1;
+    padding: 0;
+    background: #f8f1ed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.areaTrabalho {
+    width: 92%;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    padding: 32px 24px;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.cabecalho-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.btn-area {
+    background: #bdb7b7;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 32px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+    cursor: default;
+}
+
+.usuario-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: #7a2323;
+    font-size: 1rem;
+}
+
+.status-documentos {
+    display: flex;
+    gap: 32px;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+}
+
+.status-card {
+    background: #bdb7b7;
+    border-radius: 16px;
+    padding: 24px 32px;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.status-num {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.status-label {
+    font-size: 1rem;
+    color: #222;
+    margin-top: 8px;
+}
+
+.proximas-entregas {
+    background: #a9a9a9;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.proximas-entregas h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.entrega-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    border-radius: 16px;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.entrega-vermelho {
+    background: #6a0d0d;
+}
+
+.entrega-marrom {
+    background: #bda7a7;
+    color: #222;
+}
+
+.entrega-bege {
+    background: #d1c1b7;
+    color: #222;
+}
+
+.entrega-num {
+    font-size: 2rem;
+    font-weight: 700;
+    min-width: 40px;
+}
+
+.entrega-label {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.documentos-actions {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.doc-action {
+    background: #bdb7b7;
+    border-radius: 18px;
+    padding: 24px 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.doc-action h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.icon-anexar, .icon-digitalizar {
+    background: #142850;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.input-arquivo {
+    width: 90%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background: #27496d;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.input-arquivo::placeholder {
+    color: #fff;
+    opacity: 0.7;
+}
