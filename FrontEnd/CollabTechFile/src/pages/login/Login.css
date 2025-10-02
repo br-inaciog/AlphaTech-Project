@@ -75,6 +75,15 @@
     color: #0a2a6c;
 }
 
+.grupoEmail input:focus {
+    border-width: 2px;
+    border-bottom-color: #0a2a6c;
+}
+
+.grupoSenha input:focus {
+    border-bottom-color: #0a2a6c;
+}
+
 .grupoSenha label {
     position: absolute;
     left: 5px;
@@ -87,15 +96,6 @@
     font-size: 14px;
     color: #0a2a6c;
     border-bottom: #0a2a6c;
-}
-
-.grupoEmail input:focus {
-    border-width: 2px;
-    border-bottom-color: #0a2a6c;
-}
-
-.grupoSenha input:focus {
-    border-bottom-color: #0a2a6c;
 }
 
 .inputCheckbox {
