@@ -6,7 +6,7 @@ namespace CollabTechFile.Interfaces
     {
         void Cadastrar(Documento documento);
         void Editar(Guid id, Documento documento);
-        void Delete(Guid id);
+        void Deletar(Guid id);
         List<Documento> Listar();
 
     }
