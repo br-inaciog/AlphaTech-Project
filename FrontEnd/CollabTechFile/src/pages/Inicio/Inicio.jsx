@@ -1,5 +1,7 @@
 import MenuLateral from '../../componentes/menuLateral/MenuLateral';
-import Anexar from '../../assets/img/Anexar.png';
+import Anexar from '../../assets/img/Upload.svg';
+import Usuario from '../../assets/img/User.png';
+import Lua from '../../assets/img/Lua.png';
 import './Inicio.css';
 
 export default function Inicio() {
@@ -11,9 +13,10 @@ export default function Inicio() {
                     <div className="cabecalhoArea">
                         <button className="btnArea">AREA DE TRABALHO</button>
                         <div className="usuarioArea">
-                            <span className="iconUser"></span>
+                            <img src={Usuario} alt="" />
                             JOSEMAR
                             <span className="iconMoon"></span>
+                            <img src={Lua} alt="" />
                         </div>
                     </div>
                     <div className="statusDocumentos">
@@ -48,7 +51,7 @@ export default function Inicio() {
                     <div className="documentosActions">
                         <div className="docAction anexar">
                             <h4>Anexar Documentação</h4>
-                            {/* <img src={Anexar} alt="" /> */}
+                            <img src={Anexar} alt="" className='iconUpload'/>
                             <button className="iconAnexar">Anexar Arquivo</button>
                             <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
                         </div>

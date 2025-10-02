@@ -1,6 +1,7 @@
 .menuLateral {
     width: 325px;
-    /* height: 100vh; */
+    height: 100%;
+    position: fixed;
     background: linear-gradient(135deg, #0d0d0d, #001f3f, #0a2a6c);
     color: #fff;
     display: flex;
