@@ -5,7 +5,7 @@ namespace CollabTechFile.Interfaces
     public interface IEmpresaRepository
     {
         void Cadastrar(Empresa empresa);
-        void Deletar(Empresa empresa);
+        void Deletar(Guid id);
 
     }
 }

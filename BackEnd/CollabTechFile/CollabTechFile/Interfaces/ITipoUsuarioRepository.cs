@@ -6,5 +6,7 @@ namespace CollabTechFile.Interfaces
     {
         void Cadastrar(TipoUsuario tipoUsuario);
 
+        List<TipoUsuario> Listar();
+
     }
 }
