@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace CollabTechFile.Models;
+
+[Table("Usuario")]
+public partial class Usuario
+{
+    [Key]
+    public int IdUsuario { get; set; }
+
+    public int? IdTipoUsuario { get; set; }
+
+    public int? IdEmpresa { get; set; }
+
+    [Column("nome")]
+    [StringLength(200)]
+    public string Nome { get; set; } = null!;
+
+    [Column("email")]
+    [StringLength(200)]
+    public string? Email { get; set; }
+
+    [Column("senha")]
+    [StringLength(15)]
+    [Unicode(false)]
+    public string? Senha { get; set; }
+
+    [Column("empresa")]
+    [StringLength(50)]
+    public string? Empresa { get; set; }
+
+    [InverseProperty("IdUsuarioNavigation")]
+    public virtual ICollection<Comentario> Comentarios { get; set; } = new List<Comentario>();
+
+    [InverseProperty("IdUsuarioNavigation")]
+    public virtual ICollection<Documento> Documentos { get; set; } = new List<Documento>();
+
+    [ForeignKey("IdEmpresa")]
+    [InverseProperty("Usuarios")]
+    public virtual Empresa? IdEmpresaNavigation { get; set; }
+
+    [ForeignKey("IdTipoUsuario")]
+    [InverseProperty("Usuarios")]
+    public virtual TipoUsuario? IdTipoUsuarioNavigation { get; set; }
+}
