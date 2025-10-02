@@ -1,11 +1,11 @@
 import MenuLateral from "../../componentes/menuLateral/MenuLateral";
-import "./Cadastro.css";
+import "./CadastroFuncionario.css";
 import user from "../../assets/img/user.png"
 import Lua from "../../assets/img/Lua.png"
 import Left from "../../assets/img/Left.png"
 
 
-export default function CadastroCliente() {
+export default function CadastroFuncionario() {
   return (
     <main className="containerGeral">
       <MenuLateral />
@@ -14,14 +14,14 @@ export default function CadastroCliente() {
               <button className="voltar"> <img className="seta" src={Left} alt="seta voltando"/></button>
               <div className="usuario">
                  <img src={user} alt="user" />
-                <p>Funcionário</p>
+                <p>Admin</p>
                  <img src={Lua} alt="Lua" />
               </div>
             </header>
         <section className="areaTrabalho">
           <div className="conteudo">
 
-            <h1 className="titulo">Cadastro-Cliente</h1>
+            <h1 className="titulo">Cadastro-Funcionário</h1>
 
             <form className="formulario">
               <div className="campo">
@@ -35,7 +35,7 @@ export default function CadastroCliente() {
               </div>
 
               <div className="campo">
-                <label>Empresa</label>
+                <label>Tipo de Usuário</label>
                 <input type="text" />
               </div>
 
