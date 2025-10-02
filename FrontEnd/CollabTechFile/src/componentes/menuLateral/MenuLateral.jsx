@@ -9,7 +9,6 @@ import Logout from '../../assets/img/Logout.png';
 
 export default function MenuLateral() {
     return (
-        <>
             <nav className="menuLateral">
 
                 <div style={{ marginBottom: 35 }}>
@@ -46,6 +45,5 @@ export default function MenuLateral() {
                     </span>
                 </div>
             </nav>
-        </>
     )
 }
