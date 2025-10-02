@@ -7,10 +7,17 @@
 .areaTrabalho {
     width: 80%;
     margin-left: 20%;
+<<<<<<< HEAD
     margin-bottom: 20%;
     padding-left: 8%;
     padding-right: 8%;
     padding-top: 2%;
+=======
+    padding-left: 8%;
+    padding-right: 8%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+>>>>>>> 22c65a5ca554a78bea0df31d737e35fd5ba1e77a
     display: flex;
     flex-direction: column;
 }
@@ -19,7 +26,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
 }
 
 .btnArea {
@@ -165,15 +171,41 @@
     font-weight: 500;
     cursor: pointer;
     margin-bottom: 8px;
-    width: 203px;
+    width: 210px;
+}
+
+.iconAnexar, .iconDigitalizar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.iconUpload {
+    width: 19px;
+    height: 20px;
+}
+
+.divAnexar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.divEscanear {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
 .inputArquivo {
-    width: 90%;
+    width: 210px;
     padding: 8px 12px;
     border-radius: 8px;
     border: none;
-    background: #27496d;
+    background: #142850;
     color: #fff;
     font-size: 1rem;
     margin-bottom: 4px;

@@ -2,6 +2,8 @@ import MenuLateral from '../../componentes/menuLateral/MenuLateral';
 import Arquivo from '../../assets/img/Upload.svg';
 import Usuario from '../../assets/img/User.png';
 import Lua from '../../assets/img/Lua.png';
+import arquivo from '../../assets/img/Arquivo.png';
+import escaner from '../../assets/img/Escaner.png';
 import './Inicio.css';
 
 export default function Inicio() {
@@ -48,19 +50,27 @@ export default function Inicio() {
                             <span className="entrega-label">Documentação Johnson&Johnsons</span>
                         </div>
                     </div>
-                    <div className="documentosActions">
+                    <article className="documentosActions">
                         <div className="docAction anexar">
                             <img src={Arquivo} alt="" className='iconUpload'/>
                             <h4>Anexar Documentação</h4>
                             <button className="iconAnexar">Anexar Arquivo</button>
+                            <img src={arquivo} alt="" className='imgArquivo'/>
+                            <div className='divAnexar'>
+                            <h4>Anexar Documentação</h4>
+                            <button className="iconAnexar"><img src={Anexar} alt="" className='iconUpload'/>Anexar Arquivo</button>
                             <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
+                            </div>
                         </div>
                         <div className="docAction digitalizar">
+                            <img src={escaner} alt="" className='imgEscanear'/>
+                            <div className='divEscanear'>
                             <h4>Digitalizar Documento</h4>
-                            <button className="iconDigitalizar">Escanear Documento</button>
+                            <button className="iconDigitalizar"><img src={Anexar} alt="" className='iconUpload'/>Escanear Documento</button>
                             <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
+                            </div>
                         </div>
-                    </div>
+                    </article>
                 </section>
             </main>
         </div>
