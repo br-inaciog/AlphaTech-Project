@@ -9,14 +9,9 @@ import Logout from '../../assets/img/Logout.png';
 import { Navigate, Link, useNavigate } from 'react-router-dom';
 
 export default function MenuLateral() {
-
-    const navigate = useNavigate();
-
     return (
         <header className="menuLateral">
-            <Link to="/Inicio">
-                <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
-            </Link>
+            <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
 
             <div className="linksLateral">
                 <Link to="/Inicio">
@@ -30,8 +25,8 @@ export default function MenuLateral() {
                 </Link>
 
                 <Link to="/Listagem">
-                    <img src={Documents} alt="Documentos"
-                    />Documentos
+                    <img src={Documents} alt="Documentos"/>
+                    Documentos
                 </Link>
 
                 {/* <Link>
@@ -40,10 +35,10 @@ export default function MenuLateral() {
                 </Link> */}
             </div>
 
-            <div className="logout">
+            <Link to="/" className="logout">
                 <img src={Logout} alt="" />
                 LOGOUT
-            </div>
+            </Link>
         </header>
     )
 }

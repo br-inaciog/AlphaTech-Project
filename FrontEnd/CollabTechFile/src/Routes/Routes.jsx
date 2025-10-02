@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router"
 
-import ListagemDoc from "../pages/listagemDoc/listagemDoc"
-import Inicio from "../pages/Inicio/Inicio"
 import Login from "../pages/login/Login"
+import Inicio from "../pages/inicio/Inicio"
+import ListagemDoc from "../pages/listagemDoc/listagemDoc"
 
 const Rotas = () => {
     return (

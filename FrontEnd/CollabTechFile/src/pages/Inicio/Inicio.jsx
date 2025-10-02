@@ -1,10 +1,10 @@
+import './Inicio.css';
 import MenuLateral from '../../componentes/menuLateral/MenuLateral';
 import Arquivo from '../../assets/img/Upload.svg';
 import Usuario from '../../assets/img/User.png';
 import Lua from '../../assets/img/Lua.png';
 import arquivo from '../../assets/img/Arquivo.png';
 import escaner from '../../assets/img/Escaner.png';
-import './Inicio.css';
 
 export default function Inicio() {
     return (

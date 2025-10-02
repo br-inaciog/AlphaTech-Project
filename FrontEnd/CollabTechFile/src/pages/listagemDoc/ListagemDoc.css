@@ -6,6 +6,8 @@
     width: 600px;
     height: 35px;
     padding: 15px 5px 0px 5px;
+    padding-left: 30px;
+    padding-bottom: 5px;
     font-size: 18px;
     outline: none;
 
@@ -18,7 +20,7 @@
 .grupoPesquisa label {
     position: absolute;
     left: 30px;
-    top: 5px;
+    top: -15px;
     font-size: 18px;
     color: #9D9D9D;
     transition: 0.5s;
@@ -29,10 +31,11 @@
     left: -3px;
     height: 30px;
     width: 30px;
+    transition: 0.2s;
 }
 
 .grupoPesquisa input:focus~label {
-    top: -20px;
+    top: -15px;
     font-size: 14px;
     color: #0a2a6c;
 }
@@ -43,6 +46,60 @@
 }
 
 .grupoPesquisa input:focus~img {
-    display: none;
+    left: -5px;
 }
 
+.cabecalho {
+    display: flex;
+}
+
+.infCabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-left: 10%;
+    width: 100%;
+    font-weight: 500;
+}
+
+.infUser {
+    display: flex;
+    align-items: center;
+}
+
+.setaImg img {
+    width: 66px;
+    height: 90px;
+}
+
+.botaoFiltraLixeira {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2%;
+}
+
+.botaoFiltrar button {
+    width: 160px;
+    height: 43px;
+    border-radius: 10px;
+    border: none;
+
+    color: white;
+    background-color: #001337;
+}
+
+.botaoLixeiraList button {
+    width: 160px;
+    height: 43px;
+    border-radius: 10px;
+    border: none;
+
+    background-color: #5F0A00;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

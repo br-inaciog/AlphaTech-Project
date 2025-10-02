@@ -16,13 +16,13 @@
     padding-top: 2%;
 }
 
-.menuLateral img {
-    text-align: center;
-}
-
 .linksLateral {
     display: flex;
     flex-direction: column;
+}
+
+.linksLateral {
+    outline: none;
 }
 
 .linksLateral img {
@@ -40,6 +40,4 @@
 .logoMenu {
     width: 105px;  
     height: 105px;
-    /* margin-bottom: 32; */
-    /* margin-right: 16px; */
 }
