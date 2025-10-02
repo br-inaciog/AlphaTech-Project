@@ -1,56 +1,40 @@
 .menuLateral {
-    width: 325px;
+    width: 20%;
     height: 100%;
-    position: fixed;
+    
     background: linear-gradient(135deg, #0d0d0d, #001f3f, #0a2a6c);
+    box-shadow: 2px 0 8px rgba(0,0,0,0.08);
     color: #fff;
+    
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    padding-top: 32px;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.08);
-}
-.menuLateral h1 {
-    margin-bottom: 40px;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-.menuLateral ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-}
-.menuLateral li {
-    display: flex;
-    align-items: center;
-    padding: 16px 24px;
-    cursor: pointer;
-    transition: background 0.2s; 
-}
-.menuLateral li:hover {
-    background: rgba(255,255,255,0.08);
-}
-.menuLateral .logout {
-    margin-top: auto;
-    padding: 24px;
-    width: 100%;
-    text-align: left;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
+    position: fixed;
+
+    padding-bottom: 2%;
+    padding-top: 2%;
 }
 
-.menuLateral .icones {
+.menuLateral img {
+    text-align: center;
+}
+
+.linksLateral {
+    display: flex;
+    flex-direction: column;
+}
+
+.linksLateral img {
     height: auto;
     width: 30px;
     margin-right: 16px;
 }
 
-.logout img{
-    height: auto;
-    width: 24px;
-    margin-right: 16px;
-
+.logout {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .logoMenu {
