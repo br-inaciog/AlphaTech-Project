@@ -1,38 +1,22 @@
 import "./ListagemDoc.css"
 
 import MenuLateral from "../../componentes/menuLateral/MenuLateral"
-import Lupa from "../../assets/img/Lupa.png"
-import User from "../../assets/img/User.png"
-import Lua from "../../assets/img/Lua.png"
-import Seta from "../../assets/img/Seta.png"
+import Cabecalho from "../../componentes/cabecalho/Cabecalho"
 import Lixeira from "../../assets/img/Lixeira.png"
+
+import Pdf from "../../assets/img/PDF.png"
+import Editar from "../../assets/img/Editar.png"
+import Excluir from "../../assets/img/Delete.png"
+import { Link } from "react-router"
 
 
 export default function ListagemDoc() {
     return (
-        <div className="containerGeralListagem">
+        <div className="containerGeral'">
             <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <nav className="cabecalho">
-                        <div className="grupoPesquisa">
-                            <input type="search" />
-                            <label>Pesquisar...</label>
-                            <img src={Lupa} alt="Imagem Lupa" />
-                        </div>
-
-                        <div className="infCabecalho">
-                            <div className="infUser">
-                                <img src={User} alt="Usuário Img" />
-                                <p>Cliente</p>
-                            </div>
-                            <img src={Lua} alt="Lua modo claro" />
-                        </div>
-
-                    </nav>
-                    <div className="setaImg">
-                        <img src={Seta} alt="Seta" />
-                    </div>
+                    <Cabecalho />
 
                     <div className="botaoFiltraLixeira">
                         <div className="botaoFiltrar">
@@ -49,6 +33,27 @@ export default function ListagemDoc() {
                         </div>
                     </div>
 
+                    <section>
+                        <div className="cardDocumento">
+                            <img src={Pdf} alt="Icone de Pdf" />
+                            <div className="cardInformacoes">
+                                <h1>Relatório de Requisitos Ifood</h1>
+                                <p>11 de setembro 2024 Josemar</p>
+                            </div>
+
+                            <div className="cardAcoes">
+                                <div>
+                                    <img src={Excluir} alt="Caneta Editar" />
+                                    <p>Editar</p>
+                                </div>
+
+                                <div>
+                                    <img src={Editar} alt="Lixeira" />
+                                    <p>Lixeira</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
                 </section>
             </main>

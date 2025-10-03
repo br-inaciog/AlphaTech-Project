@@ -1,78 +1,3 @@
-.grupoPesquisa {
-    position: relative;
-}
-
-.grupoPesquisa input { 
-    width: 600px;
-    height: 35px;
-    padding: 15px 5px 0px 5px;
-    padding-left: 30px;
-    padding-bottom: 5px;
-    font-size: 18px;
-    outline: none;
-
-    border: none;
-    border-bottom: 1px solid black;
-    background: transparent;
-}
-
-
-.grupoPesquisa label {
-    position: absolute;
-    left: 30px;
-    top: -15px;
-    font-size: 18px;
-    color: #9D9D9D;
-    transition: 0.5s;
-}
-
-.grupoPesquisa img { 
-    position: absolute;
-    left: -3px;
-    height: 30px;
-    width: 30px;
-    transition: 0.2s;
-}
-
-.grupoPesquisa input:focus~label {
-    top: -15px;
-    font-size: 14px;
-    color: #0a2a6c;
-}
-
-.grupoPesquisa input:focus {
-    border-width: 2px;
-    border-bottom-color: #0a2a6c;
-}
-
-.grupoPesquisa input:focus~img {
-    left: -5px;
-}
-
-.cabecalho {
-    display: flex;
-}
-
-.infCabecalho {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin-left: 10%;
-    width: 100%;
-    font-weight: 500;
-}
-
-.infUser {
-    display: flex;
-    align-items: center;
-}
-
-.setaImg img {
-    width: 66px;
-    height: 90px;
-}
-
 .botaoFiltraLixeira {
     width: 100%;
     display: flex;
@@ -102,4 +27,36 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.cardDocumento {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+    margin-top: 35px;
+    border-bottom: 2px solid black;
+
+    /* background-color: #0a2a6c; */
+}
+
+.cardInformacoes {
+    display: flex;
+    flex-direction: column;
+
+    gap: 25px;
+    width: 100%;
+}
+
+.cardInformacoes h1 {
+    font-size: 24px;
+}
+
+.cardAcoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
 }

@@ -1,7 +1,7 @@
 import "./Botao.css"
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
-export function Botao() {
+export default function Botao() {
     return (
         <>
             <Link to="/Listagem">

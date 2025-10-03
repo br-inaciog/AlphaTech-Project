@@ -4,70 +4,41 @@ import Casinha from '../../assets/img/Casinha.png';
 import Documents from '../../assets/img/Documents.png';
 import Cliente from '../../assets/img/Cliente.png';
 import Cadastrar from '../../assets/img/Cadastrar.png';
+import FeedBack from '../../assets/img/Feedback.png'
 import Logout from '../../assets/img/Logout.png';
 
-import { Navigate, Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router';
 
 export default function MenuLateral() {
     return (
-<<<<<<< HEAD
-            <nav className="menuLateral">
-=======
         <header className="menuLateral">
             <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
->>>>>>> 9c4c5d92d578d8c0c707564f235ad22f4420ed30
 
             <div className="linksLateral">
-                <Link to="/Inicio">
+                <Link to="/Inicio" className="links">
                     <img src={Casinha} alt="Casinha" />
                     Início
                 </Link>
 
-                <Link to="/Cadastrar">
+                <Link to="/CadastroFuncionario" className="links">
                     <img src={Cadastrar} alt="Usuário" />
                     Cadastrar Clientes
                 </Link>
 
-<<<<<<< HEAD
-                <ul>
-                    <li>
-                        <img src={Casinha} alt="" className='icones' />
-                        Início
-                    </li>
-                    <li>
-                        <img src={Cadastrar} alt="" className='icones' />
-                        Cadastrar Clientes
-                    </li>
-                    <li>
-                        <img src={Documents} alt="" className='icones' />
-                        Documentos
-                    </li>
-                    <li>
-                        <img src={Cliente} alt="" className='icones' />
-                        Clientes
-                    </li>
-                    {/* <li> */}
-                        {/* <img src={Feedback} alt="" className='icones' /> */}
-                        {/* Feedbacks */}
-                    {/* </li> */}
-                </ul>
-                <div className="logout">
-                    <span>
-                        <img src={Logout} alt="" />
-                        LOGOUT
-                    </span>
-                </div>
-            </nav>
-=======
-                <Link to="/Listagem">
+                <Link to="/Listagem" className="links">
                     <img src={Documents} alt="Documentos"/>
                     Documentos
                 </Link>
 
-                {/* <Link>
+                <Link to="/TelaCliente" className="links">
                     <img src={Cliente} alt="Clientes" />
                     Clientes
-                </Link> */}
+                </Link>
+
+                <Link to="/FeedBacks" className="links">
+                    <img src={FeedBack} alt="FeedBacks" />
+                    FeedBacks
+                </Link>
             </div>
 
             <Link to="/" className="logout">
@@ -75,6 +46,5 @@ export default function MenuLateral() {
                 LOGOUT
             </Link>
         </header>
->>>>>>> 9c4c5d92d578d8c0c707564f235ad22f4420ed30
     )
 }

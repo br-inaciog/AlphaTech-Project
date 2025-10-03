@@ -21,7 +21,7 @@ export default function CadastroCliente() {
         <section className="areaTrabalho">
           <div className="conteudo">
 
-            <h1 className="titulo">Cadastro-Cliente</h1>
+            <h1 className="titulo">Cadastro Cliente</h1>
 
             <form className="formulario">
               <div className="campo">

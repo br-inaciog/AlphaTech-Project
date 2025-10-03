@@ -1,8 +1,7 @@
 import MenuLateral from '../../componentes/menuLateral/MenuLateral';
-import Lixeira from '../../assets/img/Lixeira.svg';
-import voltar from '../../assets/img/Voltar.svg';
-import user from '../../assets/img/User.png';
-import lua from '../../assets/img/Lua.png';
+import Cabecalho from '../../componentes/cabecalho/Cabecalho';
+import Lixeira from '../../assets/img/Delete.png';
+
 import Editar from '../../assets/img/Editar.png';
 import './telaCliente.css';
 
@@ -21,18 +20,7 @@ export default function TelaCliente() {
             <MenuLateral />
             <main className="conteudoPrincipal clientePrincipal">
                 <section className="areaTrabalho">
-
-                    <div className="topCliente">
-                        <div className="setaVoltar">
-                        <img src={voltar} alt="" />
-                    </div>
-                        <input className="inputPesquisa" type="text" placeholder="Pesquisar..." />
-                        <div className="usuarioCliente">
-                            <span className="icon-user"><img src={user} alt="" /></span>
-                            Cliente
-                        </div>
-                            <span className="icon-moon"><img src={lua} alt="" /></span>
-                    </div>
+                    <Cabecalho />
                     <h2 className="tituloCliente">Clientes</h2>
                     <div className="tabelaClienteContainer">
                         <table className="tabelaCliente">
@@ -41,8 +29,8 @@ export default function TelaCliente() {
                                     <th>Cliente</th>
                                     <th>Email</th>
                                     <th>Empresa</th>
-                                    <th>Excluir</th>
                                     <th>Editar</th>
+                                    <th>Excluir</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,13 +40,13 @@ export default function TelaCliente() {
                                         <td>{c.email}</td>
                                         <td>{c.empresa}</td>
                                         <td>
-                                            <button className="btnExcluir">
-                                                <img src={Lixeira} alt="Excluir" className="iconLixeira" />
+                                            <button className="btnEditar">
+                                                <img src={Editar} alt="Editar" className="iconEditar" />
                                             </button>
                                         </td>
                                         <td>
-                                            <button className="btnEditar">
-                                                <img src={Editar} alt="Editar" className="iconEditar" />
+                                            <button className="btnExcluir">
+                                                <img src={Lixeira} alt="Excluir" className="iconLixeira" />
                                             </button>
                                         </td>
                                     </tr>
