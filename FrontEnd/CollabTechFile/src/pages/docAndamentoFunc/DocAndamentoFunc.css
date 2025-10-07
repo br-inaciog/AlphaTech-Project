@@ -1,0 +1,8 @@
+.docAndamento {
+    display: flex;
+    justify-content: center;
+}
+
+.docAndamento h1 {
+    margin-bottom: 20px;
+}

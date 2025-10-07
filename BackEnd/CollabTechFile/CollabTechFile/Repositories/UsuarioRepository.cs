@@ -10,7 +10,7 @@ namespace CollabTechFile.Repositories
     {
         private readonly CollabTechFileContext _context;
 
-        public UsuarioRepository (CollabTechFileContext context)
+        public UsuarioRepository(CollabTechFileContext context)
         {
             _context = context;
         }
@@ -24,13 +24,13 @@ namespace CollabTechFile.Repositories
 
                 _context.SaveChanges();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
         }
 
-        public void Deletar(Guid id)
+        public void Deletar(int id)
         {
             try
             {
@@ -41,13 +41,13 @@ namespace CollabTechFile.Repositories
                 }
                 _context.SaveChanges();
             }
-            catch(Exception) 
+            catch (Exception)
             {
                 throw;
             }
         }
 
-        public void Editar(Guid id, Usuario usuario)
+        public void Editar(int id, Usuario usuario)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace CollabTechFile.Repositories
                 {
                     usuarioBuscado.IdUsuario = usuario.IdUsuario;
                 }
-                _context.SaveChanges(); 
+                _context.SaveChanges();
             }
             catch (Exception)
             {
@@ -70,8 +70,8 @@ namespace CollabTechFile.Repositories
             {
                 return _context.Usuarios.ToList();
             }
-            catch (Exception) 
-            { 
+            catch (Exception)
+            {
                 throw;
             }
         }

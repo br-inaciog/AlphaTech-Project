@@ -53,7 +53,7 @@ namespace CollabTechFile.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult GetById(Guid id)
+        public IActionResult Delete(int id)
         {
             try
             {
@@ -69,7 +69,7 @@ namespace CollabTechFile.Controllers
 
         [HttpPut("{id}")]
 
-        public IActionResult Put(Guid id, Regra regra)
+        public IActionResult Put(int id, Regra regra)
         {
 
             try

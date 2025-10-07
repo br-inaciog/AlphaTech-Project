@@ -48,7 +48,7 @@ namespace CollabTechFile.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult GetById(Guid id)
+        public IActionResult Delete(int id)
         {
             try
             {
