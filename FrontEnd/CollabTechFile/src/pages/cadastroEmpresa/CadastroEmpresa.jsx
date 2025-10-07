@@ -2,7 +2,7 @@ import MenuLateral from "../../componentes/menuLateral/MenuLateral";
 import "./CadastroEmpresa.css";
 import user from "../../assets/img/user.png"
 import Lua from "../../assets/img/Lua.png"
-import Left from "../../assets/img/Left.png"
+import Left from "../../assets/img/Voltar.svg"
 
 
 export default function CadastroEmpresa() {

@@ -26,15 +26,17 @@ export default function ListagemDoc() {
                         </div>
 
                         <div className="botaoLixeiraList">
-                            <button>
-                                <img src={Lixeira} alt="Lixeira" />
-                                <p>Excluidos</p>
-                            </button>
+                            <Link to="/Lixeira">
+                                <button>
+                                    <img src={Lixeira} alt="Lixeira" />
+                                    <p>Excluidos</p>
+                                </button>
+                            </Link>
                         </div>
                     </div>
 
                     <section>
-                        <div className="cardDocumento">
+                        <Link className="cardDocumento" to="/docAndamento">
                             <img src={Pdf} alt="Icone de Pdf" />
                             <div className="cardInformacoes">
                                 <h1>Relatório de Requisitos Ifood</h1>
@@ -42,19 +44,18 @@ export default function ListagemDoc() {
                             </div>
 
                             <div className="cardAcoes">
-                                <div>
+                                <div className="infAcoes">
                                     <img src={Excluir} alt="Caneta Editar" />
                                     <p>Editar</p>
                                 </div>
 
-                                <div>
+                                <div className="infAcoes">
                                     <img src={Editar} alt="Lixeira" />
                                     <p>Lixeira</p>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     </section>
-
                 </section>
             </main>
 

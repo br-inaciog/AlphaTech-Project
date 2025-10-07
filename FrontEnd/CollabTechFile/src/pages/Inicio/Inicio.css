@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: #f8f1ed;
+    height: 100vh;
 }
 
 .areaTrabalho {
@@ -55,7 +57,7 @@
     padding: 24px 32px;
     min-width: 232px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -77,7 +79,7 @@
     background: #a9a9a9;
     border-radius: 18px;
     padding: 24px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -139,7 +141,7 @@
     background: #bdb7b7;
     border-radius: 18px;
     padding: 24px 18px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     min-width: 260px;
     display: flex;
     align-items: center;
@@ -155,7 +157,8 @@
 
 
 
-.iconAnexar, .iconDigitalizar {
+.iconAnexar,
+.iconDigitalizar {
     background: #142850;
     color: #fff;
     border: none;
@@ -168,7 +171,8 @@
     width: 210px;
 }
 
-.iconAnexar, .iconDigitalizar {
+.iconAnexar,
+.iconDigitalizar {
     display: flex;
     align-items: center;
     justify-content: center;

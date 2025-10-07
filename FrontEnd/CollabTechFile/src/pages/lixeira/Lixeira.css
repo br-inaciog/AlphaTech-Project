@@ -1,0 +1,30 @@
+.lixeiraExcluir {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.lixeiraExcluir img {
+    width: 40px;
+    height: 40px;
+    padding-bottom: 1%;
+}
+
+.cardAcoesLixeira p {
+    font-size: 15px;
+}
+
+.cardInformacoesLixeira {
+    display: flex;
+    align-items: center;
+}
+
+.cardInformacoesLixeira p {
+    font-size: 2.1rem;
+    font-weight: 500;
+}
+
+.infHorarioCard {
+    text-align: end;
+    margin-right: 20px;
+}
