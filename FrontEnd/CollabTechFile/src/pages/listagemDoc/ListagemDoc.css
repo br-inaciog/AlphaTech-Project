@@ -29,6 +29,11 @@
     justify-content: center;
 }
 
+.list {
+    height: 100%;
+    padding-bottom: 4%;
+}
+
 .cardDocumento {
     display: flex;
     justify-content: space-between;

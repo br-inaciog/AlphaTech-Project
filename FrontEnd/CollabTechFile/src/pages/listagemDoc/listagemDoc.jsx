@@ -35,7 +35,7 @@ export default function ListagemDoc() {
                         </div>
                     </div>
 
-                    <section>
+                    <section className="list">
                         <Link className="cardDocumento" to="/docAndamento">
                             <img src={Pdf} alt="Icone de Pdf" />
                             <div className="cardInformacoes">
@@ -45,12 +45,20 @@ export default function ListagemDoc() {
 
                             <div className="cardAcoes">
                                 <div className="infAcoes">
-                                    <img src={Excluir} alt="Caneta Editar" />
+<<<<<<< HEAD
+                                    <img src={Editar} alt="Lixeira" />
+=======
+                                    <img src={Editar} alt="Caneta Editar" />
+>>>>>>> 0cef73c32751f9e4151f1868d53018ac6680c8d0
                                     <p>Editar</p>
                                 </div>
 
                                 <div className="infAcoes">
-                                    <img src={Editar} alt="Lixeira" />
+<<<<<<< HEAD
+                                    <img src={Excluir} alt="Caneta Editar" />
+=======
+                                    <img src={Excluir} alt="Lixeira" />
+>>>>>>> 0cef73c32751f9e4151f1868d53018ac6680c8d0
                                     <p>Lixeira</p>
                                 </div>
                             </div>

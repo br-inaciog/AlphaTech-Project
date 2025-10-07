@@ -1,6 +1,5 @@
 .clientePrincipal {
     flex: 1;
-    background: #f8f1ed;
     min-height: 100vh;
     /* padding: 32px 0; */
     display: flex;
@@ -68,7 +67,7 @@
 
 .tabelaClienteContainer {
     width: 100%;
-    padding: 24px;
+    /* padding: 24px; */
     overflow-x: auto;
     /* background: #fff; */
     /* border-radius: 20px; */

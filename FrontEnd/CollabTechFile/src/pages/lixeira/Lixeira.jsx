@@ -8,16 +8,17 @@ import Excluir from "../../assets/img/Delete.png"
 
 export default function Lixeira() {
     return (
-        <div className="containerGeral'">
+        <div className="containerGeral">
             <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
                     <Cabecalho />
+                    <h1 className="doc">Documentos</h1>
 
                     <div className="cardInf">
                         <div className="cardDocumento">
-                            <img src={Pdf} alt="Icone de Pdf" />
                             <div className="cardInformacoesLixeira">
+                                <img src={Pdf} alt="Icone de Pdf" />
                                 <p>Relatório de Requisitos Ifood</p>
                             </div>
 
@@ -26,11 +27,15 @@ export default function Lixeira() {
                                     <img src={Restaurar} alt="Restaurar" />
                                     <img src={Excluir} alt="Excluir" />
                                 </div>
-                                <p>Excluído em:<span>Data</span></p>
-                                <p>Por: <span>Func Responsável</span></p>
+
+                                <div className="info">
+                                    <p className="infHorarioCard">
+                                        Excluído em: <span>25/12/2025</span> <span>12h04</span>
+                                    </p>
+                                    <p>Por: <span>Bolsonarah</span></p>
+                                </div>
                             </div>
                         </div>
-                        <p className="infHorarioCard">Horário de Exclusão: <span>Horário</span></p>
                     </div>
                 </section>
             </main>

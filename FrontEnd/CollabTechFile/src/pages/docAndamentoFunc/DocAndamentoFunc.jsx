@@ -17,13 +17,16 @@ export default function DocAndamentoFunc() {
 
                         <div className="documento">
                             <form action="">
-                                <h2>Regras de Negócio</h2>
-                                <img src={Adicionar} alt="Botao De Adicionar" />
+                                <div>
+                                    <div className="tituloRN">
+                                        <h2>Regras de Negócio</h2>
+                                        <img src={Adicionar} alt="Botao De Adicionar" />
+                                    </div>
 
-                                <div className="RNlista">
-                                    <p>RN01: <span>RN01 listadad</span></p>
+                                    <section className="RNlista">
+                                        <p>RN01: <span>RN01 listadad</span></p>
+                                    </section>
                                 </div>
-
                             </form>
                         </div>
                     </section>
