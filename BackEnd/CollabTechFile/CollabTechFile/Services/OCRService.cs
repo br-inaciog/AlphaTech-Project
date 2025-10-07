@@ -3,41 +3,45 @@ using Azure;
 
 
 namespace CollabTechFile.Services
+{
+    public class OCRService
     {
-        public class OCRService
+        private readonly string _endpoint;
+        private readonly string _apiKey;
+
+        public OCRService(IConfiguration configuration)
         {
-            private readonly string _endpoint;
-            private readonly string _apiKey;
+            _endpoint = configuration["AzureFormRecognizer:Endpoint"];
+            _apiKey = Environment.GetEnvironmentVariable("AZURE_FORM_KEY");
 
-            public OCRService(IConfiguration configuration)
+            if (string.IsNullOrEmpty(_apiKey))
+                throw new Exception("A variável de ambiente AZURE_FORM_KEY não está definida.");
+
+        }
+
+        public async Task<Dictionary<string, string>> ExtrairCamposAsync(string caminhoArquivo, string modelId = "prebuilt-document")
+        {
+            var client = new DocumentAnalysisClient(new Uri(_endpoint), new AzureKeyCredential(_apiKey));
+
+            using var stream = File.OpenRead(caminhoArquivo);
+
+            var operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, modelId, stream);
+
+            var result = operation.Value;
+            var camposExtraidos = new Dictionary<string, string>();
+
+            if (result.Documents.Count > 0)
             {
-                _endpoint = configuration["AzureFormRecognizer:Endpoint"];
-                _apiKey = configuration["AzureFormRecognizer:ApiKey"];
-            }
-
-            public async Task<Dictionary<string, string>> ExtrairCamposAsync(string caminhoArquivo, string modelId = "prebuilt-document")
-            {
-                var client = new DocumentAnalysisClient(new Uri(_endpoint), new AzureKeyCredential(_apiKey));
-
-                using var stream = File.OpenRead(caminhoArquivo);
-
-                var operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, modelId, stream);
-
-                var result = operation.Value;
-                var camposExtraidos = new Dictionary<string, string>();
-
-                if (result.Documents.Count > 0)
+                foreach (var field in result.Documents[0].Fields)
                 {
-                    foreach (var field in result.Documents[0].Fields)
-                    {
-                        camposExtraidos[field.Key] = field.Value.Content;
-                    }
+                    camposExtraidos[field.Key] = field.Value.Content;
                 }
-
-                return camposExtraidos;
             }
+
+            return camposExtraidos;
         }
     }
+}
 
 
 
