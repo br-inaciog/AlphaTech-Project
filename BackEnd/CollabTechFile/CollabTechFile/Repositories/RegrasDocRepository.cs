@@ -4,10 +4,10 @@ using CollabTechFile.Models;
 
 namespace CollabTechFile.Repositories
 {
-    public class RegraRepository : IRegraRepository
+    public class RegrasDocRepository : IRegraRepository
     {
-        private readonly CollabTechFileContext _context;
-        public RegraRepository(CollabTechFileContext context)
+        public readonly CollabTechFileContext _context;
+        public RegrasDocRepository(CollabTechFileContext context)
         {
             _context = context;
         }
@@ -18,7 +18,7 @@ namespace CollabTechFile.Repositories
                 _context.Regras.Add(regra);
                 _context.SaveChanges();
             }
-            catch (Exception) 
+            catch (Exception)
             {
                 throw;
             }
@@ -35,7 +35,7 @@ namespace CollabTechFile.Repositories
                 }
                 _context.SaveChanges();
             }
-            catch(Exception) 
+            catch (Exception)
             {
                 throw;
             }
@@ -50,8 +50,9 @@ namespace CollabTechFile.Repositories
                 {
                     regraBuscada.Nome = regra.Nome;
                 }
+                _context.SaveChanges();
             }
-            catch (Exception) 
+            catch
             {
                 throw;
             }
@@ -64,9 +65,9 @@ namespace CollabTechFile.Repositories
                 List<Regra> listaRegras = _context.Regras.ToList();
                 return listaRegras;
             }
-            catch 
+            catch (Exception)
             {
-                throw;            
+                throw;
             }
         }
     }
