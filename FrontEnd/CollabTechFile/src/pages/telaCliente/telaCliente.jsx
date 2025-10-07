@@ -13,6 +13,12 @@ export default function TelaCliente() {
         { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
         { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
         { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
+        { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
+        { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
+        { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
+        { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
+        { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
+        { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
     ];
 
     return (
@@ -33,7 +39,7 @@ export default function TelaCliente() {
                                     <th>Excluir</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="barraRolagem">
                                 {clientes.map((c, i) => (
                                     <tr key={i}>
                                         <td>{c.nome}</td>
