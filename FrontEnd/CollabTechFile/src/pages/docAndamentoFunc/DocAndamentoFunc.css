@@ -8,19 +8,30 @@
 
 .documento {
     display: flex;
+    flex-direction: column;
     width: 100%;
     min-height: 600px;
     margin-bottom: 4%;
-    padding: 20px;
+    padding: 4%;
     border-radius: 20px;
 
-    background-color: #D9D9D9;
+    background-color: aliceblue;
 }
 
-.tituloRN {
+.tituloRN,
+.tituloRF,
+.tituloRNF {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.tituloRF,
+.tituloRNF {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5%;
 }
 
 .tituloRN h2 {
@@ -28,3 +39,112 @@
     font-weight: 500;
 }
 
+.tituloRN button {
+    border: none;
+    background: transparent;
+}
+
+.tituloRF h2 {
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.tituloRF button {
+    border: none;
+    background: transparent;
+}
+
+.tituloRNF h2 {
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.tituloRNF button {
+    border: none;
+    background: transparent;
+}
+
+.listaRN,
+.listaRF,
+.listaRNF {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgb(88, 129, 163);
+    color: white;
+
+    border-radius: 10px;
+    padding: 2%;
+    margin-top: 2%;
+    width: 100%;
+}
+
+.listaRF p {
+    width: 80%;
+    text-align: start;
+}
+
+.iconeRequisitosERegra {
+    display: flex;
+    justify-content: space-between;
+
+    width: 10%;
+}
+
+.iconeRequisitosERegra img {
+    height: 34px;
+    width: 34px;
+}
+
+.botaoAdicionar,
+.botaoExcluir,
+.botaoEditar {
+    cursor: pointer;
+    transition: 0.3s ease, transform 0.4s ease;
+}
+
+.botaoAdicionar:hover {
+    transform: scale(1.1);
+}
+
+.botaoExcluir:hover {
+    transform: scale(1.1);
+}
+
+.botaoEditar:hover {
+    transform: scale(1.1);
+}
+
+.finalizarDoc {
+    width: 275px;
+    height: 53px;
+    border-radius: 10px;
+
+    font-size: 24px;
+    color: white;
+
+    background-color: #1E3A8A;
+    border: none;
+
+    margin-top: 2%;
+}
+
+.comentariosDocDisplay {
+    display: flex;
+    justify-content: end;
+}
+
+.comentariosDoc {
+    width: 275px;
+    height: 53px;
+    border-radius: 10px;
+
+    font-size: 24px;
+    color: white;
+
+    background-color: #5F0A00;
+    border: none;
+
+    margin-top: 1%;
+}

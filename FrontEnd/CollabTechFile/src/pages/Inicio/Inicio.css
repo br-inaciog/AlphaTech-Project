@@ -24,13 +24,12 @@
 }
 
 .btnArea {
-    background: #bdb7b7;
+    background-color: aliceblue;
     border: none;
     border-radius: 10px;
     padding: 8px 32px;
     font-weight: 600;
     font-size: 1rem;
-    color: #333;
     cursor: default;
 }
 
@@ -51,7 +50,7 @@
 }
 
 .statusCard {
-    background: #bdb7b7;
+    background-color: aliceblue;
     border-radius: 16px;
     padding: 24px 32px;
     min-width: 232px;
@@ -75,7 +74,7 @@
 }
 
 .proximasEntregas {
-    background: #a9a9a9;
+    background-color: aliceblue;
     border-radius: 18px;
     padding: 24px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -137,7 +136,7 @@
 }
 
 .docAction {
-    background: #bdb7b7;
+    background-color: aliceblue;
     border-radius: 18px;
     padding: 24px 18px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);

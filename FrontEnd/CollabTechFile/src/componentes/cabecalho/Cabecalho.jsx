@@ -1,33 +1,49 @@
-import "./Cabecalho.css"
+import './Cabecalho.css';
+import LogoMenu from '../../assets/img/logoMenu.png';
+import Casinha from '../../assets/img/Casinha.png';
+import Documents from '../../assets/img/Documents.png';
+import Cliente from '../../assets/img/Cliente.png';
+import Cadastrar from '../../assets/img/Cadastrar.png';
+import FeedBack from '../../assets/img/Feedback.png'
+import Logout from '../../assets/img/Logout.png';
 
-import Lupa from "../../assets/img/Lupa.png"
-import User from "../../assets/img/User.png"
+import { Link } from 'react-router';
 
-import Seta from "../../assets/img/Seta.png"
-import { Link } from "react-router"
-
-export default function cabecalho() {
+export default function Cabecalho() {
     return (
-        <header>
-            <nav className="cabecalho">
-                <div className="grupoPesquisa">
-                    <input type="search" />
-                    <label>Pesquisar...</label>
-                    <img src={Lupa} alt="Imagem Lupa" />
-                </div>
+        <header className="menuLateral">
+            <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
 
-                <div className="infCabecalho">
-                    <div className="infUser">
-                        <img src={User} alt="Usuário Img" />
-                        <p>Cliente</p>
-                    </div>
-                   
-                </div>
+            <div className="linksLateral">
+                <Link to="/Inicio" className="links">
+                    <img src={Casinha} alt="Casinha" />
+                    Início
+                </Link>
 
-            </nav>
-            
-            <Link to="/Inicio" className="setaImg">
-                <img src={Seta} alt="Seta" />
+                <Link to="/CadastroCliente" className="links">
+                    <img src={Cadastrar} alt="Usuário" />
+                    Cadastrar Clientes
+                </Link>
+
+                <Link to="/Listagem" className="links">
+                    <img src={Documents} alt="Documentos"/>
+                    Documentos
+                </Link>
+
+                <Link to="/TelaCliente" className="links">
+                    <img src={Cliente} alt="Clientes" />
+                    Clientes
+                </Link>
+
+                <Link to="/FeedBacks" className="links">
+                    <img src={FeedBack} alt="FeedBacks" />
+                    FeedBacks
+                </Link>
+            </div>
+
+            <Link to="/" className="logout">
+                <img src={Logout} alt="" />
+                LOGOUT
             </Link>
         </header>
     )

@@ -9,6 +9,7 @@ import CadastroFuncionario from "../pages/cadastroFuncionario/CadastroFuncionari
 import TelaCliente from "../pages/telaCliente/telaCliente"
 import Lixeira from "../pages/lixeira/Lixeira"
 import DocAndamentoFunc from "../pages/docAndamentoFunc/DocAndamentoFunc"
+import DocAndamentoClie from "../pages/docAndamentoClie/DocAndamentoClie"
 
 const Rotas = () => {
     return (
@@ -22,7 +23,8 @@ const Rotas = () => {
                 <Route element={<CadastroFuncionario />} path="/CadastroFuncionario" />
                 <Route element={<TelaCliente />} path="/TelaCliente" />
                 <Route element={<Lixeira />} path="/Lixeira" />
-                <Route element={<DocAndamentoFunc />} path="/docAndamento" />
+                <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc" />
+                <Route element={<DocAndamentoClie />} path="/docAndamentoClie" />
             </Routes>
         </BrowserRouter>
     )

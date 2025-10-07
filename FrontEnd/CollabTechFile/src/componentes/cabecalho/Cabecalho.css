@@ -1,75 +1,63 @@
-.grupoPesquisa {
-    position: relative;
-}
-
-.grupoPesquisa input { 
-    width: 600px;
-    height: 35px;
-    padding: 15px 5px 0px 5px;
-    padding-left: 30px;
-    padding-bottom: 5px;
-    font-size: 18px;
-    outline: none;
-
-    border: none;
-    border-bottom: 1px solid black;
-    background: transparent;
-}
-
-
-.grupoPesquisa label {
-    position: absolute;
-    left: 30px;
-    top: -15px;
-    font-size: 18px;
-    color: #9D9D9D;
-    transition: 0.5s;
-}
-
-.grupoPesquisa img { 
-    position: absolute;
-    left: -3px;
-    height: 30px;
-    width: 30px;
-    transition: 0.2s;
-}
-
-.grupoPesquisa input:focus~label {
-    top: -15px;
-    font-size: 14px;
-    color: #0a2a6c;
-}
-
-.grupoPesquisa input:focus {
-    border-width: 2px;
-    border-bottom-color: #0a2a6c;
-}
-
-.grupoPesquisa input:focus~img {
-    left: -5px;
-}
-
-.cabecalho {
+.menuLateral {
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(135deg, #0d0d0d, #001f3f, #0a2a6c);
+    color: #fff;
     display: flex;
-}
-
-.infCabecalho {
-    display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    position: fixed;
 
-    margin-left: 10%;
-    width: 100%;
-    font-weight: 500;
+    padding-bottom: 2%;
+    padding-top: 2%;
 }
 
-.infUser {
+.logoMenu {
+    width: 105px;
+    height: 105px;
+}
+
+.linksLateral {
+    display: flex;
+    flex-direction: column;
+}
+
+.links {
+    font-size: 17px;
+    text-decoration: none;
+    width: 100%;
+    color: #fff;
     display: flex;
     align-items: center;
+    border-radius: 10px;
+    padding: 2%;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.setaImg img {
-    width: 37px;
-    height: 37px;
-    margin-bottom: 20px;
+.links:hover {
+    background-color: #d9d9d927;
+}
+
+.linksLateral img {
+    height: auto;
+    width: 46px;
+    margin-right: 16px;
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 17px;
+    border-radius: 10px;
+    padding: 2%;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.logout:hover {
+    background-color: #d9d9d927;
 }

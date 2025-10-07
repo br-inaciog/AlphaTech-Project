@@ -9,7 +9,6 @@ import Editar from "../../assets/img/Editar.png"
 import Excluir from "../../assets/img/Delete.png"
 import { Link } from "react-router"
 
-
 export default function ListagemDoc() {
     return (
         <div className="containerGeral'">
@@ -36,7 +35,7 @@ export default function ListagemDoc() {
                     </div>
 
                     <section className="list">
-                        <Link className="cardDocumento" to="/docAndamento">
+                        <Link to="/docAndamentoFunc" className="cardDocumento">
                             <img src={Pdf} alt="Icone de Pdf" />
                             <div className="cardInformacoes">
                                 <h1>Relatório de Requisitos Ifood</h1>
@@ -45,20 +44,12 @@ export default function ListagemDoc() {
 
                             <div className="cardAcoes">
                                 <div className="infAcoes">
-<<<<<<< HEAD
-                                    <img src={Editar} alt="Lixeira" />
-=======
                                     <img src={Editar} alt="Caneta Editar" />
->>>>>>> 0cef73c32751f9e4151f1868d53018ac6680c8d0
                                     <p>Editar</p>
                                 </div>
 
                                 <div className="infAcoes">
-<<<<<<< HEAD
-                                    <img src={Excluir} alt="Caneta Editar" />
-=======
                                     <img src={Excluir} alt="Lixeira" />
->>>>>>> 0cef73c32751f9e4151f1868d53018ac6680c8d0
                                     <p>Lixeira</p>
                                 </div>
                             </div>
@@ -66,7 +57,6 @@ export default function ListagemDoc() {
                     </section>
                 </section>
             </main>
-
         </div>
     )
 }
