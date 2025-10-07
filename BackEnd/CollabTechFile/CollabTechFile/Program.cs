@@ -2,12 +2,16 @@ using CollabTechFile.DbContextCollab;
 using CollabTechFile.Interfaces;
 using CollabTechFile.Repositories;
 using Microsoft.EntityFrameworkCore;
+using CollabTechFile.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<OCRService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IDocumentoRepository, DocumentoRepository>();
 builder.Services.AddScoped<IComentarioRepository, ComentarioRepository>();
@@ -20,6 +24,9 @@ builder.Services.AddDbContext<CollabTechFileContext>(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IDocumentoRepository, DocumentoRepository>();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 

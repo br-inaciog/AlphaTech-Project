@@ -30,7 +30,7 @@ namespace CollabTechFile.Repositories
             }
         }
 
-        public void Deletar(Guid id)
+        public void Deletar(int id)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace CollabTechFile.Repositories
             }
         }
 
-        public void Editar(Guid id, Usuario usuario)
+        public void Editar(int id, Usuario usuario)
         {
             try
             {

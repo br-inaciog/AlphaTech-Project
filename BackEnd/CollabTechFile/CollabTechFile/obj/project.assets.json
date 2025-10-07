@@ -2,6 +2,23 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "Azure.AI.FormRecognizer/4.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Azure.Core": "1.34.0",
+          "System.Text.Json": "4.7.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.AI.FormRecognizer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.AI.FormRecognizer.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Azure.Core/1.38.0": {
         "type": "package",
         "dependencies": {
@@ -1662,6 +1679,22 @@
     }
   },
   "libraries": {
+    "Azure.AI.FormRecognizer/4.1.0": {
+      "sha512": "R9mEeYFa2+EcCu5dOGOFG07nbELHY/2o6JtgJoxNTo2wtsonLnLwcKzX/sxOnYhpib4TJEBTUX0/ea0lL130Iw==",
+      "type": "package",
+      "path": "azure.ai.formrecognizer/4.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "README.md",
+        "azure.ai.formrecognizer.4.1.0.nupkg.sha512",
+        "azure.ai.formrecognizer.nuspec",
+        "azureicon.png",
+        "lib/netstandard2.0/Azure.AI.FormRecognizer.dll",
+        "lib/netstandard2.0/Azure.AI.FormRecognizer.xml"
+      ]
+    },
     "Azure.Core/1.38.0": {
       "sha512": "IuEgCoVA0ef7E4pQtpC3+TkPbzaoQfa77HlfJDmfuaJUCVJmn7fT0izamZiryW5sYUFKizsftIxMkXKbgIcPMQ==",
       "type": "package",
@@ -4929,6 +4962,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Azure.AI.FormRecognizer >= 4.1.0",
       "BCrypt.Net-Next >= 4.0.3",
       "Microsoft.EntityFrameworkCore >= 9.0.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.9",
@@ -4988,6 +5022,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Azure.AI.FormRecognizer": {
+            "target": "Package",
+            "version": "[4.1.0, )"
+          },
           "BCrypt.Net-Next": {
             "target": "Package",
             "version": "[4.0.3, )"

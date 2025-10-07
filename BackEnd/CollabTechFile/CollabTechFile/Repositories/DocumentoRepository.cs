@@ -1,4 +1,5 @@
-﻿using CollabTechFile.DbContextCollab;
+﻿using System;
+using CollabTechFile.DbContextCollab;
 using CollabTechFile.Interfaces;
 using CollabTechFile.Models;
 
@@ -7,68 +8,43 @@ namespace CollabTechFile.Repositories
     public class DocumentoRepository : IDocumentoRepository
     {
         private readonly CollabTechFileContext _context;
+
         public DocumentoRepository(CollabTechFileContext context)
         {
             _context = context;
         }
+
         public void Cadastrar(Documento documento)
         {
-            try
+            _context.Documentos.Add(documento);
+            _context.SaveChanges();
+        }
+
+        public void Editar(int id, Documento documento)
+        {
+            var doc = _context.Documentos.Find(id);
+            if (doc != null)
             {
-                _context.Documentos.Add(documento);
+                doc.Nome = documento.Nome;
+                doc.Prazo = documento.Prazo;
+                doc.CaminhoArquivo = documento.CaminhoArquivo;
                 _context.SaveChanges();
-            }
-            catch(Exception)
-            {
-                throw;
             }
         }
 
-        public void Deletar(Guid id)
+        public void Deletar(int id)
         {
-            try
+            var doc = _context.Documentos.Find(id);
+            if (doc != null)
             {
-                Documento documentoBuscado = _context.Documentos.Find(id)!;
-                if (documentoBuscado != null)
-                {
-                    _context.Documentos.Remove(documentoBuscado);
-                }
+                _context.Documentos.Remove(doc);
                 _context.SaveChanges();
-            }
-            catch (Exception) 
-            {
-                throw;
-            }
-        }
-
-        public void Editar(Guid id, Documento documento)
-        {
-            try
-            {
-                Documento documentoBuscado = _context.Documentos.Find(id)!;
-                if(documentoBuscado != null)
-                {
-                    documentoBuscado.Status = documento.Status;
-                }
-                _context.SaveChanges();
-            }
-            catch (Exception)
-            {
-                throw;
             }
         }
 
         public List<Documento> Listar()
         {
-            try
-            {
-                List<Documento> listaDocumentos = _context.Documentos.ToList();
-                return listaDocumentos;
-            }
-            catch
-            {
-                throw;
-            }
+            return _context.Documentos.ToList();
         }
     }
 }
