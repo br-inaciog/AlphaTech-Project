@@ -5,8 +5,8 @@ namespace CollabTechFile.Interfaces
     public interface IRequisitoRepository
     {
         void Cadastrar (Requisito requisito);
-        void Deletar (Guid id);
-        void Editar(Guid id, Requisito requisito);
+        void Deletar (int id);
+        void Editar(int id, Requisito requisito);
         List<Requisito> Listar ();
     }
 }

@@ -5,7 +5,7 @@ namespace CollabTechFile.Interfaces
     public interface IReqDocRepository
     {
         void Cadastrar(ReqDoc reqDoc);
-        void Deletar(Guid id);
-        void Editar(Guid id, ReqDoc reqDoc);
+        void Deletar(int id);
+        void Editar(int id, ReqDoc reqDoc);
     }
 }
