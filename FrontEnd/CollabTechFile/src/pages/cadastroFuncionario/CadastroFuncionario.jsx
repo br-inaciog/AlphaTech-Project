@@ -1,7 +1,6 @@
 import MenuLateral from "../../componentes/menuLateral/MenuLateral";
 import "./CadastroFuncionario.css";
 import user from "../../assets/img/user.png"
-import Lua from "../../assets/img/Lua.png"
 import Left from "../../assets/img/Voltar.svg"
 
 
@@ -15,7 +14,7 @@ export default function CadastroFuncionario() {
               <div className="usuario">
                  <img src={user} alt="user" />
                 <p>Admin</p>
-                 <img src={Lua} alt="Lua" />
+                
               </div>
             </header>
         <section className="areaTrabalho">

@@ -1,8 +1,30 @@
 .docAndamento {
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 .docAndamento h1 {
     margin-bottom: 20px;
 }
+
+.documento {
+    display: flex;
+    width: 100%;
+    min-height: 600px;
+    margin-bottom: 4%;
+    padding: 20px;
+    border-radius: 20px;
+
+    background-color: #D9D9D9;
+}
+
+.tituloRN {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tituloRN h2 {
+    font-size: 48px;
+    font-weight: 500;
+}
+
