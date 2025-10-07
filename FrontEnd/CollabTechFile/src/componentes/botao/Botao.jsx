@@ -1,11 +1,14 @@
 import "./Botao.css"
+import { Link } from 'react-router';
 
-export function Botao() {
+export default function Botao() {
     return (
         <>
-            <button>
-                Entrar
-            </button>
+            <Link to="/Inicio">
+                <button className="botaoLogin">
+                    Entrar
+                </button>
+            </Link>
         </>
     )
 }

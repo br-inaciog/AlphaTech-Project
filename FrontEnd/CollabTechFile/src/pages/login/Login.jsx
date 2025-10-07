@@ -1,13 +1,12 @@
-import { Botao } from "../../componentes/botao/Botao";
+import "./Login.css"
+import Botao from "../../componentes/botao/Botao";
 import User from "../../assets/img/UserModoClaro.png"
 import Logo from "../../assets/img/Logo.png"
-import "./Login.css"
 
 export default function Login() {
     return (
         <>
             <main className="mainLogin">
-
                 <div className="campoLogin">
 
                     <div className="userTitulo">

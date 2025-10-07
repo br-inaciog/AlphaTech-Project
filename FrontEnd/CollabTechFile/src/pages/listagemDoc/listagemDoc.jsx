@@ -1,22 +1,60 @@
 import "./ListagemDoc.css"
+
 import MenuLateral from "../../componentes/menuLateral/MenuLateral"
-import Lupa from "../../assets/img/Lupa.png"
+import Cabecalho from "../../componentes/cabecalho/Cabecalho"
+import Lixeira from "../../assets/img/Lixeira.png"
+
+import Pdf from "../../assets/img/PDF.png"
+import Editar from "../../assets/img/Editar.png"
+import Excluir from "../../assets/img/Delete.png"
+import { Link } from "react-router"
 
 
 export default function ListagemDoc() {
     return (
-        <div className="containerGeralListagem">
+        <div className="containerGeral'">
             <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <nav className="cabecalho">
-                        <div className="grupoPesquisa">
-                            <img src={Lupa} alt="Imagem Lupa" />
-                            <label>Pesquisar...</label>
-                            <input type="search" />
+                    <Cabecalho />
+
+                    <div className="botaoFiltraLixeira">
+                        <div className="botaoFiltrar">
+                            <button>
+                                <p>Filtrar</p>
+                            </button>
                         </div>
-                    </nav>
-                    teste
+
+                        <div className="botaoLixeiraList">
+                            <button>
+                                <img src={Lixeira} alt="Lixeira" />
+                                <p>Excluidos</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <section>
+                        <div className="cardDocumento">
+                            <img src={Pdf} alt="Icone de Pdf" />
+                            <div className="cardInformacoes">
+                                <h1>Relatório de Requisitos Ifood</h1>
+                                <p>11 de setembro 2024 Josemar</p>
+                            </div>
+
+                            <div className="cardAcoes">
+                                <div>
+                                    <img src={Excluir} alt="Caneta Editar" />
+                                    <p>Editar</p>
+                                </div>
+
+                                <div>
+                                    <img src={Editar} alt="Lixeira" />
+                                    <p>Lixeira</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                 </section>
             </main>
 

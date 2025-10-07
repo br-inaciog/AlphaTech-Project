@@ -4,46 +4,47 @@ import Casinha from '../../assets/img/Casinha.png';
 import Documents from '../../assets/img/Documents.png';
 import Cliente from '../../assets/img/Cliente.png';
 import Cadastrar from '../../assets/img/Cadastrar.png';
+import FeedBack from '../../assets/img/Feedback.png'
 import Logout from '../../assets/img/Logout.png';
 
-import { Navigate, Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router';
 
 export default function MenuLateral() {
-
-    const navigate = useNavigate();
-
     return (
         <header className="menuLateral">
-            <Link to="/Inicio">
-                <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
-            </Link>
+            <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
 
             <div className="linksLateral">
-                <Link to="/Inicio">
+                <Link to="/Inicio" className="links">
                     <img src={Casinha} alt="Casinha" />
                     Início
                 </Link>
 
-                <Link to="/Cadastrar">
+                <Link to="/CadastroFuncionario" className="links">
                     <img src={Cadastrar} alt="Usuário" />
                     Cadastrar Clientes
                 </Link>
 
-                <Link to="/Listagem">
-                    <img src={Documents} alt="Documentos"
-                    />Documentos
+                <Link to="/Listagem" className="links">
+                    <img src={Documents} alt="Documentos"/>
+                    Documentos
                 </Link>
 
-                {/* <Link>
+                <Link to="/TelaCliente" className="links">
                     <img src={Cliente} alt="Clientes" />
                     Clientes
-                </Link> */}
+                </Link>
+
+                <Link to="/FeedBacks" className="links">
+                    <img src={FeedBack} alt="FeedBacks" />
+                    FeedBacks
+                </Link>
             </div>
 
-            <div className="logout">
+            <Link to="/" className="logout">
                 <img src={Logout} alt="" />
                 LOGOUT
-            </div>
+            </Link>
         </header>
     )
 }
