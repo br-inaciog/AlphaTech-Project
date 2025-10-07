@@ -54,7 +54,7 @@ namespace CollabTechFile.Controllers
 
         [HttpPut("{id}")]
 
-        public IActionResult Put(Guid id, Requisito requisitos) {
+        public IActionResult Put(int id, Requisito requisitos) {
 
             try
             {
@@ -72,7 +72,7 @@ namespace CollabTechFile.Controllers
 
         [HttpDelete("{id}")]
 
-        public IActionResult Delete(Guid id) {
+        public IActionResult Delete(int id) {
             try
             {
                 _RequisitoRepository.Deletar(id);
