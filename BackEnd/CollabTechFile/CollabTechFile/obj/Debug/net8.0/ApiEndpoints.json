@@ -27,7 +27,7 @@
   },
   {
     "ContainingType": "CollabTechFile.Controllers.ComentarioController",
-    "Method": "GetById",
+    "Method": "Delete",
     "RelativePath": "api/Comentario/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -35,7 +35,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -69,7 +69,7 @@
   },
   {
     "ContainingType": "CollabTechFile.Controllers.DocumentoController",
-    "Method": "GetById",
+    "Method": "Delete",
     "RelativePath": "api/Documento/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -77,7 +77,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -93,7 +93,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.Int32",
         "IsRequired": true
       },
       {
@@ -122,7 +122,7 @@
   },
   {
     "ContainingType": "CollabTechFile.Controllers.EmpresaController",
-    "Method": "GetById",
+    "Method": "Deletar",
     "RelativePath": "api/Empresa/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -130,7 +130,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -164,7 +164,7 @@
   },
   {
     "ContainingType": "CollabTechFile.Controllers.RegraController",
-    "Method": "GetById",
+    "Method": "Delete",
     "RelativePath": "api/Regra/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -172,7 +172,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -188,7 +188,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.Int32",
         "IsRequired": true
       },
       {
@@ -235,7 +235,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.Int32",
         "IsRequired": true
       },
       {
@@ -256,7 +256,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -316,7 +316,7 @@
   },
   {
     "ContainingType": "CollabTechFile.Controllers.UsuarioController",
-    "Method": "GetById",
+    "Method": "Delete",
     "RelativePath": "api/Usuario/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -324,7 +324,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

@@ -20,7 +20,7 @@ export default function MenuLateral() {
                     Início
                 </Link>
 
-                <Link to="/CadastroFuncionario" className="links">
+                <Link to="/CadastroCliente" className="links">
                     <img src={Cadastrar} alt="Usuário" />
                     Cadastrar Clientes
                 </Link>

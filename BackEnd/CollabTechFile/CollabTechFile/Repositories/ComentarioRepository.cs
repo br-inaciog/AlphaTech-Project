@@ -25,7 +25,7 @@ namespace CollabTechFile.Repositories
             }
         }
 
-        public void Deletar(Guid id)
+        public void Deletar(int id)
         {
             try
             {

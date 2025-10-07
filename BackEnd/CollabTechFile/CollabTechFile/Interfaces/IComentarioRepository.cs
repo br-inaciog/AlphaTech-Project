@@ -5,7 +5,7 @@ namespace CollabTechFile.Interfaces
     public interface IComentarioRepository
     {
         void Cadastrar(Comentario comentario);
-        void Deletar(Guid id);
+        void Deletar(int id);
         List<Comentario> Listar();
 
     }

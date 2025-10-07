@@ -26,15 +26,17 @@ export default function ListagemDoc() {
                         </div>
 
                         <div className="botaoLixeiraList">
-                            <button>
-                                <img src={Lixeira} alt="Lixeira" />
-                                <p>Excluidos</p>
-                            </button>
+                            <Link to="/Lixeira">
+                                <button>
+                                    <img src={Lixeira} alt="Lixeira" />
+                                    <p>Excluidos</p>
+                                </button>
+                            </Link>
                         </div>
                     </div>
 
-                    <section>
-                        <div className="cardDocumento">
+                    <section className="list">
+                        <Link className="cardDocumento" to="/docAndamento">
                             <img src={Pdf} alt="Icone de Pdf" />
                             <div className="cardInformacoes">
                                 <h1>Relatório de Requisitos Ifood</h1>
@@ -42,19 +44,26 @@ export default function ListagemDoc() {
                             </div>
 
                             <div className="cardAcoes">
-                                <div>
-                                    <img src={Excluir} alt="Caneta Editar" />
+                                <div className="infAcoes">
+<<<<<<< HEAD
+                                    <img src={Editar} alt="Lixeira" />
+=======
+                                    <img src={Editar} alt="Caneta Editar" />
+>>>>>>> 0cef73c32751f9e4151f1868d53018ac6680c8d0
                                     <p>Editar</p>
                                 </div>
 
-                                <div>
-                                    <img src={Editar} alt="Lixeira" />
+                                <div className="infAcoes">
+<<<<<<< HEAD
+                                    <img src={Excluir} alt="Caneta Editar" />
+=======
+                                    <img src={Excluir} alt="Lixeira" />
+>>>>>>> 0cef73c32751f9e4151f1868d53018ac6680c8d0
                                     <p>Lixeira</p>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     </section>
-
                 </section>
             </main>
 
