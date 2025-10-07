@@ -1,5 +1,6 @@
 ﻿using CollabTechFile.Interfaces;
 using CollabTechFile.Models;
+using CollabTechFile.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,6 +32,48 @@ namespace CollabTechFile.Controllers
                 throw;
             }
         }
-    }
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _ReqDocRepository.Deletar(id);
+                return StatusCode(204);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, ReqDoc reqDoc)
+        {
+            try
+            {
+                _ReqDocRepository.Editar(id, reqDoc);
+                return NoContent();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Post(ReqDoc reqDoc)
+        {
+            try
+            {
+                _ReqDocRepository.Cadastrar(reqDoc);
+                return StatusCode(201, reqDoc);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+    }
 }
