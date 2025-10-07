@@ -40,6 +40,30 @@ namespace CollabTechFile.Repositories
                 _context.Documentos.Remove(doc);
                 _context.SaveChanges();
             }
+<<<<<<< HEAD
+=======
+            catch (Exception) 
+            {
+                throw;
+            }
+        }
+
+        public void Editar(int id, Documento documento)
+        {
+            try
+            {
+                Documento documentoBuscado = _context.Documentos.Find(id)!;
+                if(documentoBuscado != null)
+                {
+                    documentoBuscado.Status = documento.Status;
+                }
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+>>>>>>> 7a9fd435835e081278a61e7344176e5a61a676d1
         }
 
         public List<Documento> Listar()
