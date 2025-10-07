@@ -8,8 +8,8 @@ namespace CollabTechFile.Interfaces
 
         List<Usuario> Listar();
 
-        void Editar(Guid id, Usuario usuario);
+        void Editar(int id, Usuario usuario);
 
-        void Deletar(Guid id);
+        void Deletar(int id);
     }
 }
