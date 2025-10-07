@@ -45,12 +45,12 @@ export default function ListagemDoc() {
 
                             <div className="cardAcoes">
                                 <div className="infAcoes">
-                                    <img src={Excluir} alt="Caneta Editar" />
+                                    <img src={Editar} alt="Caneta Editar" />
                                     <p>Editar</p>
                                 </div>
 
                                 <div className="infAcoes">
-                                    <img src={Editar} alt="Lixeira" />
+                                    <img src={Excluir} alt="Lixeira" />
                                     <p>Lixeira</p>
                                 </div>
                             </div>
