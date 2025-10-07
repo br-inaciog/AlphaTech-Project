@@ -12,11 +12,7 @@ namespace CollabTechFile.Services
         public OCRService(IConfiguration configuration)
         {
             _endpoint = configuration["AzureFormRecognizer:Endpoint"];
-            _apiKey = Environment.GetEnvironmentVariable("AZURE_FORM_KEY");
-
-            if (string.IsNullOrEmpty(_apiKey))
-                throw new Exception("A variável de ambiente AZURE_FORM_KEY não está definida.");
-
+            _apiKey = configuration["AzureFormRecognizer:ApiKey"];
         }
 
         public async Task<Dictionary<string, string>> ExtrairCamposAsync(string caminhoArquivo, string modelId = "prebuilt-document")
