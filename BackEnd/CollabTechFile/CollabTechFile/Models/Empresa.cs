@@ -21,6 +21,9 @@ public partial class Empresa
     [Unicode(false)]
     public string Cnpj { get; set; } = null!;
 
+    [Column("ativo")]
+    public bool? Ativo { get; set; }
+
     [InverseProperty("IdEmpresaNavigation")]
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
 }

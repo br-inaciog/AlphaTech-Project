@@ -16,6 +16,9 @@ builder.Services.AddControllers()
 
 builder.Services.AddScoped<OCRService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IReqDocRepository, ReqDocRepository>();
+builder.Services.AddScoped<IRegrasDocRepository, RegrasDocRepository>();
+builder.Services.AddScoped<ISuporteRepository, SuporteRepository>();
 builder.Services.AddScoped<IDocumentoRepository, DocumentoRepository>();
 builder.Services.AddScoped<IComentarioRepository, ComentarioRepository>();
 builder.Services.AddScoped<IRequisitoRepository, RequisitoRepository>();
