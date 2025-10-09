@@ -11,6 +11,7 @@ import Lixeira from "../pages/lixeira/Lixeira"
 import DocAndamentoFunc from "../pages/docAndamentoFunc/DocAndamentoFunc"
 import DocAndamentoClie from "../pages/docAndamentoClie/DocAndamentoClie"
 import InicioCliente from "../pages/inicioCliente/InicioCliente"
+import Feedback from "../pages/Feedbacks/Feedback"
 
 const Rotas = () => {
     return (
@@ -26,6 +27,7 @@ const Rotas = () => {
             <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc" />
             <Route element={<DocAndamentoClie />} path="/docAndamentoClie" />
             <Route element={<InicioCliente />} path="/InicioCliente" />
+            <Route element={<Feedback /> } path="/FeedBacks" />
         </Routes>
     )
 }
