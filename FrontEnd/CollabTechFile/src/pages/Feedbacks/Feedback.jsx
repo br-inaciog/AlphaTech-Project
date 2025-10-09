@@ -44,6 +44,7 @@ export default function Feedback() {
                                 <div key={card} className="cardFeedback">
                                     <div className="cabecalhoFeedback">
                                         <span className="nomeFeedback">{feedback.nome}</span>
+                                        <div></div>
                                         <span className="dataFeedback">{feedback.data}</span>
                                         <span className="iconeLixeira">
                                             <img
