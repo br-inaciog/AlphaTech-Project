@@ -1,11 +1,11 @@
-import "./docAndamentoClie.css"
+import "./docFinalizadoClie.css"
 
 import MenuLateralCliente from "../../componentes/menuLateralCliente/MenuLateralCliente"
 import CabecalhoCliente from "../../componentes/cabecalhoCliente/CabecalhoCliente"
 
-import Comentario from "../../assets/img/Comentario.png"
+import Assinatura from "../../assets/img/Assinatura.png"
 
-export default function DocAndamentoClie() {
+export default function DocFinalizadoClie() {
     return (
         <div className="containerGeral'">
             <MenuLateralCliente />
@@ -15,7 +15,7 @@ export default function DocAndamentoClie() {
 
                     <section className="docAndamento">
                         <div className="titulo">
-                            <h1>Documento em Andamento</h1>
+                            <h1>Documento Finalizado</h1>
                         </div>
 
                         <div className="documento">
@@ -60,8 +60,8 @@ export default function DocAndamentoClie() {
                             </div>
 
                             <div className="comentarioDisplay">
-                                <p>Comentar</p>
-                                <img src={Comentario} alt="Botão de Comentário" />
+                                <p>Assinar</p>
+                                <img src={Assinatura} alt="Botão de Comentário" />
                             </div>
                         </div>
                     </section>

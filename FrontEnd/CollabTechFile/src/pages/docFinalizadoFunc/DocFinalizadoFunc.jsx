@@ -1,26 +1,25 @@
-import "./docAndamentoClie.css"
+import "./docFinalizadoFunc.css"
 
-import MenuLateralCliente from "../../componentes/menuLateralCliente/MenuLateralCliente"
-import CabecalhoCliente from "../../componentes/cabecalhoCliente/CabecalhoCliente"
+import MenuLateral from "../../componentes/menuLateral/MenuLateral"
+import Cabecalho from "../../componentes/cabecalho/Cabecalho"
 
-import Comentario from "../../assets/img/Comentario.png"
+import Assinatura from "../../assets/img/Assinatura.png"
 
-export default function DocAndamentoClie() {
+export default function DocFinalizadoFunc() {
     return (
         <div className="containerGeral'">
-            <MenuLateralCliente />
+            <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <CabecalhoCliente />
+                    <Cabecalho />
 
                     <section className="docAndamento">
                         <div className="titulo">
-                            <h1>Documento em Andamento</h1>
+                            <h1>Documento Finalizado</h1>
                         </div>
 
                         <div className="documento">
-                                <p className="docNome">Nome Documento</p>
-
+                            <p className="docNome">Nome Documento</p>
                             <div className="regrasDeNegocio">
                                 <div className="tituloRN">
                                     <h2>Regras de Negócio</h2>
@@ -60,8 +59,8 @@ export default function DocAndamentoClie() {
                             </div>
 
                             <div className="comentarioDisplay">
-                                <p>Comentar</p>
-                                <img src={Comentario} alt="Botão de Comentário" />
+                                <p>Assinar</p>
+                                <img src={Assinatura} alt="Botão de Comentário" />
                             </div>
                         </div>
                     </section>

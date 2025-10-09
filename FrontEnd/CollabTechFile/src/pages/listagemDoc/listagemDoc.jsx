@@ -6,7 +6,7 @@ import Lixeira from "../../assets/img/Lixeira.png"
 
 import Pdf from "../../assets/img/PDF.png"
 import Editar from "../../assets/img/Editar.png"
-import Excluir from "../../assets/img/Delete.png"
+import Excluir from "../../assets/img/Delete.svg"
 import { Link } from "react-router"
 
 export default function ListagemDoc() {
@@ -15,7 +15,11 @@ export default function ListagemDoc() {
             <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <Cabecalho/>
+                    <Cabecalho />
+
+                    <div className="titulo">
+                        <h1>Documentos</h1>
+                    </div>
 
                     <div className="botaoFiltraLixeira">
                         <div className="botaoFiltrar">
@@ -24,14 +28,10 @@ export default function ListagemDoc() {
                             </button>
                         </div>
 
-                        <div className="botaoLixeiraList">
-                            <Link to="/Lixeira">
-                                <button>
-                                    <img src={Lixeira} alt="Lixeira" />
-                                    <p>Excluidos</p>
-                                </button>
-                            </Link>
-                        </div>
+                        <Link className="botaoLixeiraList" to="/Lixeira">
+                            <img src={Lixeira} alt="Lixeira" />
+                            <p>Excluidos</p>
+                        </Link>
                     </div>
 
                     <section className="list">
@@ -44,21 +44,11 @@ export default function ListagemDoc() {
 
                             <div className="cardAcoes">
                                 <div className="infAcoes">
-<<<<<<< HEAD
                                     <img src={Editar} alt="Lixeira" />
-=======
-                                    <img src={Editar} alt="Caneta Editar" />
->>>>>>> e81a95a91d57d119b881f56cedeae17261db164c
-                                    <p>Editar</p>
                                 </div>
 
                                 <div className="infAcoes">
-<<<<<<< HEAD
                                     <img src={Excluir} alt="Caneta Editar" />
-=======
-                                    <img src={Excluir} alt="Lixeira" />
->>>>>>> e81a95a91d57d119b881f56cedeae17261db164c
-                                    <p>Lixeira</p>
                                 </div>
                             </div>
                         </Link>

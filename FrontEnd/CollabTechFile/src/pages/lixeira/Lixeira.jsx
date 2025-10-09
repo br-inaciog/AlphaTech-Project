@@ -4,7 +4,7 @@ import Cabecalho from "../../componentes/cabecalho/Cabecalho"
 
 import Pdf from "../../assets/img/PDF.png"
 import Restaurar from "../../assets/img/Restaurar.svg"
-import Excluir from "../../assets/img/Delete.png"
+import Excluir from "../../assets/img/Delete.svg"
 
 export default function Lixeira() {
     return (
@@ -13,7 +13,10 @@ export default function Lixeira() {
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
                     <Cabecalho />
-                    <h1 className="doc">Documentos</h1>
+
+                    <div className="titulo">
+                        <h1>Lixeira</h1>
+                    </div>
 
                     <div className="cardInf">
                         <div className="cardDocumento">
@@ -24,8 +27,8 @@ export default function Lixeira() {
 
                             <div className="cardAcoesLixeira">
                                 <div className="lixeiraExcluir">
-                                    <img src={Restaurar} alt="Restaurar" />
-                                    <img src={Excluir} alt="Excluir" />
+                                    <img className="lixeiraIco" src={Restaurar} alt="Restaurar" />
+                                    <img  src={Excluir} alt="Excluir" />
                                 </div>
 
                                 <div className="info">

@@ -1,6 +1,6 @@
 import MenuLateral from '../../componentes/menuLateral/MenuLateral';
 import Cabecalho from '../../componentes/cabecalho/Cabecalho';
-import Lixeira from '../../assets/img/Delete.png';
+import Lixeira from "../../assets/img/Delete.svg"
 
 import Editar from '../../assets/img/Editar.png';
 import './telaCliente.css';
@@ -8,6 +8,10 @@ import './telaCliente.css';
 export default function TelaCliente() {
     // Exemplo de dados estáticos
     const clientes = [
+        { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
+        { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
+        { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
+        { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
         { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
         { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
         { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
@@ -20,7 +24,9 @@ export default function TelaCliente() {
             <main className="conteudoPrincipal clientePrincipal">
                 <section className="areaTrabalho">
                     <Cabecalho />
-                    <h2 className="tituloCliente">Clientes</h2>
+                    <div className="titulo">
+                        <h1>Tela Clientes</h1>
+                    </div>
                     <div className="tabelaClienteContainer">
                         <table className="tabelaCliente">
                             <thead>
