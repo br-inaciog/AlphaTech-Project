@@ -25,8 +25,8 @@ export default function cabecalho() {
 
             </nav>
             
-            <Link to="/Inicio" className="setaImg">
-                <img src={Seta} alt="Seta" />
+            <Link to="/Inicio">
+                <img className="setaImg" src={Seta} alt="Seta" />
             </Link>
         </header>
     )
