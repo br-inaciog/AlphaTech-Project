@@ -24,7 +24,7 @@ const Rotas = () => {
                 <Route element={<TelaCliente />} path="/TelaCliente" />
                 <Route element={<Lixeira />} path="/Lixeira" />
                 <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc" />
-                <Route element={<DocAndamentoClie />} path="/docAndamentoClie" />
+                <Route element={<DocAndamentoClie />} path="/docAndamentoCleangirlaesthetic" />
             </Routes>
         </BrowserRouter>
     )
