@@ -66,8 +66,7 @@
               "RelativeToolTip": "CollabTechFile\\Controllers\\ComentarioController.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAQwB4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T17:00:06.651Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T17:00:06.651Z"
             },
             {
               "$type": "Document",
@@ -79,8 +78,7 @@
               "RelativeToolTip": "CollabTechFile\\DTO\\UploadOCRRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T16:57:11.011Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T16:57:11.011Z"
             },
             {
               "$type": "Document",
@@ -92,8 +90,7 @@
               "RelativeToolTip": "CollabTechFile\\Controllers\\SuporteController.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T16:52:35.787Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T16:52:35.787Z"
             },
             {
               "$type": "Document",
@@ -105,8 +102,7 @@
               "RelativeToolTip": "CollabTechFile\\Repositories\\SuporteRepository.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAYwCgAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T16:47:33.586Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T16:47:33.586Z"
             },
             {
               "$type": "Document",
@@ -118,8 +114,7 @@
               "RelativeToolTip": "CollabTechFile\\Interfaces\\ISuporteRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T16:40:57.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T16:40:57.276Z"
             },
             {
               "$type": "Document",
@@ -137,15 +132,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "CollabTechFile",
+              "Title": "CollabTechFile.csproj",
               "DocumentMoniker": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
               "RelativeDocumentMoniker": "CollabTechFile\\CollabTechFile.csproj",
               "ToolTip": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
               "RelativeToolTip": "CollabTechFile\\CollabTechFile.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-09T16:36:08.182Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T16:36:08.182Z"
             },
             {
               "$type": "Document",
@@ -157,8 +151,7 @@
               "RelativeToolTip": "CollabTechFile\\Controllers\\EmpresaController.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAgwCUAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T14:35:11.283Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T14:35:11.283Z"
             },
             {
               "$type": "Document",
@@ -170,8 +163,7 @@
               "RelativeToolTip": "CollabTechFile\\Controllers\\UsuarioController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T14:21:33.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T14:21:33.887Z"
             },
             {
               "$type": "Document",
@@ -181,7 +173,7 @@
               "RelativeDocumentMoniker": "CollabTechFile\\Repositories\\RegrasDocRepository.cs",
               "ToolTip": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Repositories\\RegrasDocRepository.cs",
               "RelativeToolTip": "CollabTechFile\\Repositories\\RegrasDocRepository.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAgwDsAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAYwDoAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-09T12:30:43.154Z",
               "EditorCaption": ""
@@ -196,8 +188,7 @@
               "RelativeToolTip": "CollabTechFile\\Program.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAqwCQAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T12:25:58.249Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T12:25:58.249Z"
             }
           ]
         }
