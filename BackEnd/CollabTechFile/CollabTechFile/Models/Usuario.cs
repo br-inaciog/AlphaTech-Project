@@ -25,19 +25,24 @@ public partial class Usuario
     public string? Email { get; set; }
 
     [Column("senha")]
-    [StringLength(15)]
-    [Unicode(false)]
+    [StringLength(255)]
     public string? Senha { get; set; }
 
     [Column("empresa")]
     [StringLength(50)]
     public string? Empresa { get; set; }
 
+    [Column("ativo")]
+    public bool? Ativo { get; set; }
+
     [InverseProperty("IdUsuarioNavigation")]
     public virtual ICollection<Comentario> Comentarios { get; set; } = new List<Comentario>();
 
     [InverseProperty("IdUsuarioNavigation")]
     public virtual ICollection<Documento> Documentos { get; set; } = new List<Documento>();
+
+    [InverseProperty("IdUsuarioNavigation")]
+    public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
 
     [ForeignKey("IdEmpresa")]
     [InverseProperty("Usuarios")]

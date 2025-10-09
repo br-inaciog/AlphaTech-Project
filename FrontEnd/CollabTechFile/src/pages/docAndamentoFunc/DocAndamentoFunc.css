@@ -68,6 +68,7 @@
     align-items: center;
 
     background-color: rgb(88, 129, 163);
+    box-shadow: inset 0px 0px 10px 0 rgba(20, 20, 20, 0.2);
     color: white;
 
     border-radius: 10px;
@@ -120,18 +121,13 @@
     font-size: 24px;
     color: white;
 
-    background-color: #1E3A8A;
+    background-color: #5F0A00;
     border: none;
 
     margin-top: 4%;
 }
 
-.comentariosDocDisplay {
-    display: flex;
-    justify-content: end;
-}
-
-.comentariosDoc {
+.salvarDoc {
     width: 275px;
     height: 53px;
     border-radius: 10px;
@@ -139,8 +135,60 @@
     font-size: 24px;
     color: white;
 
-    background-color: #5F0A00;
+    background-color: #1E3A8A;
     border: none;
 
-    margin-top: 1%;
+    margin-top: 4%;
+}
+
+.salvarFinalizarDoc {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 4%;
+    align-items: center;
+}
+
+.areaComentarioDoc {
+    width: 100%;
+    border-radius: 20px;
+    background-color: aliceblue;
+    padding: 2%;
+}
+
+.cardFeedbackDoc {
+    margin-bottom: 30px;
+    padding: 1%;
+    border-bottom: 2px solid black;
+}
+
+.cabecalhoFeedbackDoc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nomeFeedbackDoc {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.horarioDataComentario {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.dataFeedbackDoc,
+.horarioFeedbackDoc {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.mensagemFeedbackDoc {
+    margin: 10px 0 0 0;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.5;
 }

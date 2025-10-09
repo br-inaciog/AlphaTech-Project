@@ -1,12 +1,11 @@
 import './App.css'
 import Rotas from "../src/Routes/Routes"
-import Feedback from '../src/pages/Feedbacks/Feedback'
+import { BrowserRouter } from 'react-router'
 
 function App() {
   return (
     <>
-      <Rotas />
-      {/* <Feedback /> */}
+        <Rotas />
     </>
   )
 }

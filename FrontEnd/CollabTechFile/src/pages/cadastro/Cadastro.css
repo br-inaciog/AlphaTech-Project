@@ -8,14 +8,6 @@
   margin-right: 20%;
 }
 
-.voltar {
-  font-size: 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #222;
-}
-
 .seta {
   width: 34px;
   height: 34px;
@@ -31,7 +23,7 @@
 
 .titulo {
   text-align: center;
-  font-size: 28px;
+  font-size: 16px;
   font-weight: bold;
   color: #0a1a3f;
   margin-bottom: 50px;

@@ -6,7 +6,7 @@ import Lixeira from "../../assets/img/Lixeira.png"
 
 import Pdf from "../../assets/img/PDF.png"
 import Editar from "../../assets/img/Editar.png"
-import Excluir from "../../assets/img/Delete.png"
+import Excluir from "../../assets/img/Delete.svg"
 import { Link } from "react-router"
 
 export default function ListagemDoc() {
@@ -22,20 +22,16 @@ export default function ListagemDoc() {
                     </div>
 
                     <div className="botaoFiltraLixeira">
-                        <div className="botaoFiltrar">
+                        <select className="botaoFiltrar">
                             <button>
                                 <p>Filtrar</p>
                             </button>
-                        </div>
+                        </select>
 
-                        <div className="botaoLixeiraList">
-                            <Link to="/Lixeira">
-                                <button>
-                                    <img src={Lixeira} alt="Lixeira" />
-                                    <p>Excluidos</p>
-                                </button>
-                            </Link>
-                        </div>
+                        <Link className="botaoLixeiraList" to="/Lixeira">
+                            <img src={Lixeira} alt="Lixeira" />
+                            <p>Excluidos</p>
+                        </Link>
                     </div>
 
                     <section className="list">
@@ -49,12 +45,10 @@ export default function ListagemDoc() {
                             <div className="cardAcoes">
                                 <div className="infAcoes">
                                     <img src={Editar} alt="Lixeira" />
-                                    <p>Editar</p>
                                 </div>
 
                                 <div className="infAcoes">
                                     <img src={Excluir} alt="Caneta Editar" />
-                                    <p>Lixeira</p>
                                 </div>
                             </div>
                         </Link>

@@ -3,7 +3,7 @@ import MenuLateral from "../../componentes/menuLateral/MenuLateral"
 import Cabecalho from "../../componentes/cabecalho/Cabecalho"
 
 import Adicionar from "../../assets/img/Adicionar.svg"
-import Deletar from "../../assets/img/Delete.png"
+import Deletar from "../../assets/img/Delete.svg";
 import Editar from "../../assets/img/Editar.png"
 
 export default function DocAndamentoFunc() {
@@ -16,10 +16,12 @@ export default function DocAndamentoFunc() {
 
                     <section className="docAndamento">
                         <div className="titulo">
-                            <h1>Nome documento</h1>
+                            <h1>Documento em Andamento</h1>
                         </div>
 
                         <div className="documento">
+                            <p className="docNome">Nome Documento</p>
+
                             <div className="regrasDeNegocio">
                                 <div className="tituloRN">
                                     <h2>Regras de Negócio</h2>
@@ -82,17 +84,40 @@ export default function DocAndamentoFunc() {
                                 </section>
                             </div>
 
-                            <div className="buttonFinalizar">
-                                <button className="finalizarDoc">
-                                    Finalizar
-                                </button>
+                            <div className="salvarFinalizarDoc">
+                                <div className="buttonSalvar">
+                                    <button className="salvarDoc">
+                                        Salvar
+                                    </button>
+                                </div>
+
+                                <div className="buttonFinalizar">
+                                    <button className="finalizarDoc">
+                                        Finalizar
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
+                    </section>
+
+                    <section className="areaComentarioDoc">
                         <div className="comentariosDocDisplay">
-                            <button className="comentariosDoc">
-                                Comentários
-                            </button>
+                            <div className="titulo">
+                                <h1>Comentários</h1>
+                            </div>
+                        </div>
+
+                        <div className="cardFeedbackDoc">
+                            <div className="cabecalhoFeedbackDoc">
+                                <span className="nomeFeedbackDoc">Tirulipa</span>
+
+                                <div className="horarioDataComentario">
+                                    <span className="dataFeedbackDoc">11/09/2001</span>
+                                    <span className="horarioFeedbackDoc">12:03PM</span>
+                                </div>
+                            </div>
+                            <p className="mensagemFeedbackDoc">Poderia Alterar a Terceira Linha da Regra de Negócios fgdhsjhgfvdsbjucdgbvdnjviudhebdnvjiudhwgbdvnjduwshgbdvnjugrfehj9dfivbedjbfhj.</p>
                         </div>
                     </section>
                 </section>

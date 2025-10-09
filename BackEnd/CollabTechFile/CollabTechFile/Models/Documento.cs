@@ -1,7 +1,10 @@
-﻿using CollabTechFile.Models;
-using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace CollabTechFile.Models;
 
 [Table("Documento")]
 public partial class Documento
@@ -28,7 +31,7 @@ public partial class Documento
 
     [Column("caminho_arquivo")]
     [StringLength(500)]
-    public string? CaminhoArquivo { get; set; } 
+    public string? CaminhoArquivo { get; set; }
 
     [InverseProperty("IdDocumentoNavigation")]
     public virtual ICollection<Comentario> Comentarios { get; set; } = new List<Comentario>();
