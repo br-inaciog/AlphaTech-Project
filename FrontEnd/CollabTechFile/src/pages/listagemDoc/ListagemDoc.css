@@ -17,13 +17,14 @@
     background-color: #001337;
 }
 
-.botaoLixeiraList button {
+.botaoLixeiraList {
     width: 160px;
     height: 43px;
     font-size: 1.1rem;
     border-radius: 10px;
+
+    text-decoration: none;
     border: none;
-    cursor: pointer;
     cursor: pointer;
 
     background-color: #5F0A00;

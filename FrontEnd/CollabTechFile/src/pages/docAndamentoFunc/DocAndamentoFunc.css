@@ -68,6 +68,7 @@
     align-items: center;
 
     background-color: rgb(88, 129, 163);
+    box-shadow: inset 0px 0px 10px 0 rgba(20, 20, 20, 0.2);
     color: white;
 
     border-radius: 10px;
@@ -128,7 +129,7 @@
 
 .comentariosDocDisplay {
     display: flex;
-    justify-content: end;
+    justify-content: center;
 }
 
 .comentariosDoc {
@@ -139,8 +140,13 @@
     font-size: 24px;
     color: white;
 
+    text-decoration: none;
     background-color: #5F0A00;
     border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;  
 
     margin-top: 1%;
 }

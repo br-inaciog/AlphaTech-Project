@@ -3,7 +3,7 @@ import MenuLateral from "../../componentes/menuLateral/MenuLateral"
 import Cabecalho from "../../componentes/cabecalho/Cabecalho"
 
 import Adicionar from "../../assets/img/Adicionar.svg"
-import Deletar from "../../assets/img/Delete.png"
+import Deletar from "../../assets/img/Delete.svg";
 import Editar from "../../assets/img/Editar.png"
 
 export default function DocAndamentoFunc() {
@@ -16,10 +16,12 @@ export default function DocAndamentoFunc() {
 
                     <section className="docAndamento">
                         <div className="titulo">
-                            <h1>Nome documento</h1>
+                            <h1>Documento em Andamento</h1>
                         </div>
 
                         <div className="documento">
+                                <p className="docNome">Nome Documento</p>
+
                             <div className="regrasDeNegocio">
                                 <div className="tituloRN">
                                     <h2>Regras de Negócio</h2>
@@ -90,9 +92,9 @@ export default function DocAndamentoFunc() {
                         </div>
 
                         <div className="comentariosDocDisplay">
-                            <button className="comentariosDoc">
-                                Comentários
-                            </button>
+                            <div className="titulo">
+                                <h1>Comentários</h1>
+                            </div>
                         </div>
                     </section>
                 </section>

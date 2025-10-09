@@ -12,6 +12,9 @@ import DocAndamentoFunc from "../pages/docAndamentoFunc/DocAndamentoFunc"
 import DocAndamentoClie from "../pages/docAndamentoClie/DocAndamentoClie"
 import InicioCliente from "../pages/inicioCliente/InicioCliente"
 import Feedback from "../pages/Feedbacks/Feedback"
+import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie" 
+import ModalComentarioCliente from "../pages/filtroFuncionario/ModalFiltroFuncionario"
+import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc"
 
 const Rotas = () => {
     return (
@@ -27,7 +30,10 @@ const Rotas = () => {
             <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc" />
             <Route element={<DocAndamentoClie />} path="/docAndamentoClie" />
             <Route element={<InicioCliente />} path="/InicioCliente" />
-            <Route element={<Feedback /> } path="/FeedBacks" />
+            <Route element={<Feedback />} path="/FeedBacks" />
+            <Route element={<DocFinalizadoClie />} path="/docFinalizadoClie" />
+            <Route element={<ModalComentarioCliente />} path="/ModalComentarioCliente" />
+            <Route element={<DocFinalizadoFunc />} path="/docFinalizadoFunc" />
         </Routes>
     )
 }

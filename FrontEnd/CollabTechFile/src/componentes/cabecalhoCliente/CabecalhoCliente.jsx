@@ -1,4 +1,4 @@
-import "./Cabecalho.css"
+import "./CabecalhoCliente.css"
 
 import Lupa from "../../assets/img/Lupa.png"
 import User from "../../assets/img/User.png"
@@ -6,7 +6,7 @@ import User from "../../assets/img/User.png"
 import Seta from "../../assets/img/Seta.png"
 import { Link } from "react-router"
 
-export default function Cabecalho() {
+export default function CabecalhoCliente() {
     return (
         <header>
             <nav className="cabecalho">
@@ -18,14 +18,14 @@ export default function Cabecalho() {
                 <div className="infCabecalho">
                     <div className="infUser">
                         <img src={User} alt="Usuário Img" />
-                        <p>Funcionario</p>
+                        <p>Cliente</p>
                     </div>
                    
                 </div>
 
             </nav>
             
-            <Link to="/Inicio">
+            <Link to="/InicioCliente">
                 <img className="setaImg" src={Seta} alt="Seta" />
             </Link>
         </header>

@@ -23,7 +23,7 @@ export default function Inicio() {
                     <div className="statusDocumentos">
                         <div className="statusCard">
                             <span className="statusNum">6</span>
-                            <span className="statusLabel">pendentes</span>
+                            <span className="statusLabel">Pendentes</span>
                         </div>
                         <div className="statusCard">
                             <span className="statusNum">20</span>

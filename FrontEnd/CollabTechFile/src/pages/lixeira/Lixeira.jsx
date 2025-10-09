@@ -4,7 +4,7 @@ import Cabecalho from "../../componentes/cabecalho/Cabecalho"
 
 import Pdf from "../../assets/img/PDF.png"
 import Restaurar from "../../assets/img/Restaurar.svg"
-import Excluir from "../../assets/img/Delete.png"
+import Excluir from "../../assets/img/Delete.svg"
 
 export default function Lixeira() {
     return (

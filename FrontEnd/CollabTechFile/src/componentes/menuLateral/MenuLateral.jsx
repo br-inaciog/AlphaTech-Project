@@ -37,7 +37,7 @@ export default function MenuLateral() {
 
                 <Link to="/FeedBacks" className="links">
                     <img src={FeedBack} alt="FeedBacks" />
-                    FeedBacks
+                    Comentários
                 </Link>
             </div>
 
