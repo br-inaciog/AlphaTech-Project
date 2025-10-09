@@ -9,14 +9,13 @@ import Editar from "../../assets/img/Editar.png"
 import Excluir from "../../assets/img/Delete.png"
 import { Link } from "react-router"
 
-
 export default function ListagemDoc() {
     return (
         <div className="containerGeral'">
             <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <Cabecalho />
+                    <Cabecalho/>
 
                     <div className="botaoFiltraLixeira">
                         <div className="botaoFiltrar">
@@ -36,7 +35,7 @@ export default function ListagemDoc() {
                     </div>
 
                     <section className="list">
-                        <Link className="cardDocumento" to="/docAndamento">
+                        <Link to="/docAndamentoFunc" className="cardDocumento">
                             <img src={Pdf} alt="Icone de Pdf" />
                             <div className="cardInformacoes">
                                 <h1>Relatório de Requisitos Ifood</h1>
@@ -45,12 +44,20 @@ export default function ListagemDoc() {
 
                             <div className="cardAcoes">
                                 <div className="infAcoes">
+<<<<<<< HEAD
                                     <img src={Editar} alt="Lixeira" />
+=======
+                                    <img src={Editar} alt="Caneta Editar" />
+>>>>>>> e81a95a91d57d119b881f56cedeae17261db164c
                                     <p>Editar</p>
                                 </div>
 
                                 <div className="infAcoes">
+<<<<<<< HEAD
                                     <img src={Excluir} alt="Caneta Editar" />
+=======
+                                    <img src={Excluir} alt="Lixeira" />
+>>>>>>> e81a95a91d57d119b881f56cedeae17261db164c
                                     <p>Lixeira</p>
                                 </div>
                             </div>
@@ -58,7 +65,6 @@ export default function ListagemDoc() {
                     </section>
                 </section>
             </main>
-
         </div>
     )
 }

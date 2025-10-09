@@ -9,8 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
-
 builder.Services.AddControllers();
+
 builder.Services.AddScoped<OCRService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IDocumentoRepository, DocumentoRepository>();
@@ -25,8 +25,6 @@ builder.Services.AddDbContext<CollabTechFileContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IDocumentoRepository, DocumentoRepository>();
-builder.Services.AddControllers();
 
 var app = builder.Build();
 

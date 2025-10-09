@@ -49,5 +49,18 @@ namespace CollabTechFile.Controllers
             }
         }
 
+        //public IActionResult Get()
+        //{
+        //    try
+        //    {
+        //        List<Empresa> listarEmpresas = _EmpresaRepository.Listar();
+        //        return Ok(listarEmpresas);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
+
     }
 }

@@ -7,10 +7,10 @@ namespace CollabTechFile.Interfaces
         void Cadastrar(RegrasDoc regrasDoc);
         void Deletar(int id);
         void Editar(int id, RegrasDoc regrasDoc);
-<<<<<<< HEAD
         List<RegrasDoc> Listar();
-=======
+<<<<<<< HEAD
 
->>>>>>> 7a9fd435835e081278a61e7344176e5a61a676d1
+=======
+>>>>>>> fd7c70dbbafa64cfbcca2c28c5adab270868f74f
     }
 }

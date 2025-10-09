@@ -1,6 +1,5 @@
 import './Inicio.css';
 import MenuLateral from '../../componentes/menuLateral/MenuLateral';
-import Arquivo from '../../assets/img/Upload.svg';
 import Usuario from '../../assets/img/User.png';
 import arquivo from '../../assets/img/Arquivo.png';
 import Escaner from '../../assets/img/Escaner.png';
