@@ -71,7 +71,6 @@ namespace CollabTechFile.Controllers
 
         public IActionResult Put(int id, Regra regra)
         {
-
             try
             {
                 _RegraRepository.Editar(id, regra);

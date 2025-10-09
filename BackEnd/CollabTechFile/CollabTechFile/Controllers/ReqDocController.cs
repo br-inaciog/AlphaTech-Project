@@ -39,11 +39,11 @@ namespace CollabTechFile.Controllers
             try
             {
                 _ReqDocRepository.Deletar(id);
-                return StatusCode(204);
+                return NoContent();
             }
-            catch (Exception)
+            catch (Exception error)
             {
-                throw;
+                return BadRequest(error.Message);
             }
         }
 
@@ -55,9 +55,9 @@ namespace CollabTechFile.Controllers
                 _ReqDocRepository.Editar(id, reqDoc);
                 return NoContent();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                return BadRequest(e.Message);
             }
         }
 

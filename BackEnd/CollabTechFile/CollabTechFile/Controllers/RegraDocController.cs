@@ -23,7 +23,8 @@ namespace CollabTechFile.Controllers
             {
                 List<RegrasDoc>listarRegras = _regrasDocRepository.Listar();
                 return Ok(listarRegras);
-            } catch (Exception)
+            } 
+            catch (Exception)
             {
                 throw;
             }
@@ -35,7 +36,7 @@ namespace CollabTechFile.Controllers
             try
             {
                 _regrasDocRepository.Cadastrar(regrasDoc);
-                return StatusCode(201);
+                return StatusCode(201, regrasDoc);
             }
             catch (Exception)
             {
@@ -49,11 +50,11 @@ namespace CollabTechFile.Controllers
             try
             {
                 _regrasDocRepository.Deletar(id);
-                return StatusCode(204);
+                return NoContent();
             }
-            catch
+            catch(Exception error)
             {
-                throw;
+                return BadRequest(error.Message);
             }
         }
 
@@ -64,9 +65,9 @@ namespace CollabTechFile.Controllers
                 _regrasDocRepository.Editar(id, regrasDoc);
                 return NoContent();
             }
-            catch
+            catch (Exception e)
             {
-                throw;
+                return BadRequest(e.Message);
             }
         }
 
