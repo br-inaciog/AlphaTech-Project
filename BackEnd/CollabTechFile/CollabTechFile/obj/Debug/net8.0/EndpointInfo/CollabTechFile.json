@@ -69,99 +69,232 @@
         }
       }
     },
-    "/api/Documento": {
-      "get": {
-        "tags": [
-          "Documento"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
+    "/api/Documentos/upload-ocr": {
       "post": {
         "tags": [
-          "Documento"
+          "Documentos"
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/Documento"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Documento"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Documento"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Documento/{id}": {
-      "delete": {
-        "tags": [
-          "Documento"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Documento"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Documento"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Documento"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Documento"
+                "type": "object",
+                "properties": {
+                  "Arquivo": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "documento.IdDocumento": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.IdUsuario": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.Nome": {
+                    "maxLength": 200,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.Prazo": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "documento.Status": {
+                    "type": "boolean"
+                  },
+                  "documento.Versao": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.CaminhoArquivo": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.Comentarios": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Comentario"
+                    }
+                  },
+                  "documento.IdUsuarioNavigation.IdUsuario": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.IdUsuarioNavigation.IdTipoUsuario": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.IdUsuarioNavigation.IdEmpresa": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.IdUsuarioNavigation.Nome": {
+                    "maxLength": 200,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.IdUsuarioNavigation.Email": {
+                    "maxLength": 200,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.IdUsuarioNavigation.Senha": {
+                    "maxLength": 15,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.IdUsuarioNavigation.Empresa": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.IdUsuarioNavigation.Comentarios": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Comentario"
+                    }
+                  },
+                  "documento.IdUsuarioNavigation.Documentos": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Documento"
+                    }
+                  },
+                  "documento.IdUsuarioNavigation.IdEmpresaNavigation.IdEmpresa": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.IdUsuarioNavigation.IdEmpresaNavigation.Nome": {
+                    "maxLength": 200,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.IdUsuarioNavigation.IdEmpresaNavigation.Cnpj": {
+                    "maxLength": 15,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.IdUsuarioNavigation.IdEmpresaNavigation.Usuarios": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Usuario"
+                    }
+                  },
+                  "documento.IdUsuarioNavigation.IdTipoUsuarioNavigation.IdTipoUsuario": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.IdUsuarioNavigation.IdTipoUsuarioNavigation.TituloTipoUsuario": {
+                    "maxLength": 200,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.IdUsuarioNavigation.IdTipoUsuarioNavigation.Usuarios": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Usuario"
+                    }
+                  },
+                  "documento.RegrasDocs": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RegrasDoc"
+                    }
+                  },
+                  "documento.ReqDocs": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ReqDoc"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Arquivo": {
+                  "style": "form"
+                },
+                "documento.IdDocumento": {
+                  "style": "form"
+                },
+                "documento.IdUsuario": {
+                  "style": "form"
+                },
+                "documento.Nome": {
+                  "style": "form"
+                },
+                "documento.Prazo": {
+                  "style": "form"
+                },
+                "documento.Status": {
+                  "style": "form"
+                },
+                "documento.Versao": {
+                  "style": "form"
+                },
+                "documento.CaminhoArquivo": {
+                  "style": "form"
+                },
+                "documento.Comentarios": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.IdUsuario": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.IdTipoUsuario": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.IdEmpresa": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.Nome": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.Email": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.Senha": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.Empresa": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.Comentarios": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.Documentos": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.IdEmpresaNavigation.IdEmpresa": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.IdEmpresaNavigation.Nome": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.IdEmpresaNavigation.Cnpj": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.IdEmpresaNavigation.Usuarios": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.IdTipoUsuarioNavigation.IdTipoUsuario": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.IdTipoUsuarioNavigation.TituloTipoUsuario": {
+                  "style": "form"
+                },
+                "documento.IdUsuarioNavigation.IdTipoUsuarioNavigation.Usuarios": {
+                  "style": "form"
+                },
+                "documento.RegrasDocs": {
+                  "style": "form"
+                },
+                "documento.ReqDocs": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -324,6 +457,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ReqDoc": {
+      "get": {
+        "tags": [
+          "ReqDoc"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -603,6 +748,12 @@
           },
           "versao": {
             "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "caminhoArquivo": {
+            "maxLength": 500,
             "minLength": 0,
             "type": "string",
             "nullable": true

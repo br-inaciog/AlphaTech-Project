@@ -4,11 +4,14 @@ using CollabTechFile.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Threading.Tasks;
+using CollabTechFile.DTO;
+using CollabTechFile.Repositories;
 
 namespace CollabTechFile.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Produces("application/json")]
     public class DocumentosController : ControllerBase
     {
         private readonly IDocumentoRepository _documentoRepository;
@@ -26,50 +29,80 @@ namespace CollabTechFile.Controllers
         }
 
         [HttpPost("upload-ocr")]
-        public async Task<IActionResult> UploadOCR([FromForm] Documento documento, [FromForm] IFormFile arquivo)
+        public async Task<IActionResult> UploadOCR([FromForm] UploadOCRRequest request)
         {
-            if (arquivo == null || arquivo.Length == 0)
+            if (request.Arquivo == null || request.Arquivo.Length == 0)
                 return BadRequest("Nenhum arquivo enviado.");
 
             try
             {
-                // 1️⃣ Pasta de documentos do appsettings
                 var pastaBase = _configuration["DocumentSettings:PastaDocumentos"];
                 if (!Directory.Exists(pastaBase))
                     Directory.CreateDirectory(pastaBase);
 
-                var caminhoArquivo = Path.Combine(pastaBase, arquivo.FileName);
+                var caminhoArquivo = Path.Combine(pastaBase, request.Arquivo.FileName);
 
-                // 2️⃣ Salvar arquivo localmente
                 using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
                 {
-                    await arquivo.CopyToAsync(stream);
+                    await request.Arquivo.CopyToAsync(stream);
                 }
 
-                documento.CaminhoArquivo = caminhoArquivo;
+                request.documento.CaminhoArquivo = caminhoArquivo;
 
-                // 3️⃣ Extrair dados via OCR
-                string modelId = "8113f4ea-2ff8-458b-a9ae-57226dee93e5"; // ou "prebuilt-document"
+                string modelId = "prebuilt-document";
                 var camposExtraidos = await _ocrService.ExtrairCamposAsync(caminhoArquivo, modelId);
 
-                // 4️⃣ Salvar campos extraídos como comentários
+                if (request.documento.Comentarios == null)
+                    request.documento.Comentarios = new List<Comentario>();
+
                 foreach (var campo in camposExtraidos)
                 {
-                    documento.Comentarios.Add(new Comentario
+                    var texto = $"{campo.Key}: {campo.Value}";
+                    if (texto.Length > 500) texto = texto.Substring(0, 500);
+
+                    request.documento.Comentarios.Add(new Comentario
                     {
-                        Texto = $"{campo.Key}: {campo.Value}"
+                        Texto = texto
                     });
                 }
 
-                // 5️⃣ Salvar documento no banco
-                _documentoRepository.Cadastrar(documento);
+                if (string.IsNullOrWhiteSpace(request.documento.Nome))
+                    return BadRequest("O campo 'Titulo' do documento é obrigatório.");
 
-                return StatusCode(201, documento);
+                // 7️⃣ Validar FK se houver (exemplo: UsuarioId)
+                // if (!_usuarioRepository.Exists(request.documento.UsuarioId))
+                //     return BadRequest("Usuário relacionado não existe.");
+
+                // 8️⃣ Salvar documento no banco com tratamento de erros
+                try
+                {
+                    _documentoRepository.Cadastrar(request.documento);
+                }
+                catch (Exception dbEx)
+                {
+                    var mensagemErro = dbEx.InnerException != null ? dbEx.InnerException.Message : dbEx.Message;
+                    return StatusCode(500, $"Erro ao salvar no banco: {mensagemErro}");
+                }
+
+                return StatusCode(201, request.documento);
             }
             catch (Exception ex)
             {
                 return StatusCode(500, $"Erro ao processar documento: {ex.Message}");
             }
         }
+
+        //public IActionResult Get()
+        //{
+        //    try
+        //    {
+        //        List<Documento> listarDocumentos = _documentoRepository.Listar();
+        //        return Ok(listarDocumentos);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
     }
 }

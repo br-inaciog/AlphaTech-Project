@@ -1,4 +1,4 @@
-import './MenuLateral.css';
+import "./MenuLateral.css";
 import LogoMenu from '../../assets/img/logoMenu.png';
 import Casinha from '../../assets/img/Casinha.png';
 import Documents from '../../assets/img/Documents.png';
