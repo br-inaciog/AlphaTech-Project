@@ -15,7 +15,7 @@ export default function ListagemDoc() {
             <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <Cabecalho />
+                    <Cabecalho/>
 
                     <div className="botaoFiltraLixeira">
                         <div className="botaoFiltrar">
