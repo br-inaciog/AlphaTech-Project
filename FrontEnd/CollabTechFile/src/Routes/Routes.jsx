@@ -10,23 +10,23 @@ import TelaCliente from "../pages/telaCliente/telaCliente"
 import Lixeira from "../pages/lixeira/Lixeira"
 import DocAndamentoFunc from "../pages/docAndamentoFunc/DocAndamentoFunc"
 import DocAndamentoClie from "../pages/docAndamentoClie/DocAndamentoClie"
+import InicioCliente from "../pages/inicioCliente/InicioCliente"
 
 const Rotas = () => {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route element={<Login />} path="/" exact />
-                <Route element={<Inicio />} path="/Inicio" />
-                <Route element={<ListagemDoc />} path="/Listagem" />
-                <Route element={<CadastroCliente />} path="/CadastroCliente" />
-                <Route element={<CadastroEmpresa />} path="/CadastroEmpresa" />
-                <Route element={<CadastroFuncionario />} path="/CadastroFuncionario" />
-                <Route element={<TelaCliente />} path="/TelaCliente" />
-                <Route element={<Lixeira />} path="/Lixeira" />
-                <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc" />
-                <Route element={<DocAndamentoClie />} path="/docAndamentoClie" />
-            </Routes>
-        </BrowserRouter>
+        <Routes>
+            <Route element={<Login />} path="/" exact />
+            <Route element={<Inicio />} path="/Inicio" />
+            <Route element={<ListagemDoc />} path="/Listagem" />
+            <Route element={<CadastroCliente />} path="/CadastroCliente" />
+            <Route element={<CadastroEmpresa />} path="/CadastroEmpresa" />
+            <Route element={<CadastroFuncionario />} path="/CadastroFuncionario" />
+            <Route element={<TelaCliente />} path="/TelaCliente" />
+            <Route element={<Lixeira />} path="/Lixeira" />
+            <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc" />
+            <Route element={<DocAndamentoClie />} path="/docAndamentoClie" />
+            <Route element={<InicioCliente />} path="/InicioCliente" />
+        </Routes>
     )
 }
 

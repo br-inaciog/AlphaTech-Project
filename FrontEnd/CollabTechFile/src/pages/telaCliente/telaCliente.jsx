@@ -24,7 +24,9 @@ export default function TelaCliente() {
             <main className="conteudoPrincipal clientePrincipal">
                 <section className="areaTrabalho">
                     <Cabecalho />
-                    <h2 className="tituloCliente">Clientes</h2>
+                    <div className="titulo">
+                        <h1>Tela Clientes</h1>
+                    </div>
                     <div className="tabelaClienteContainer">
                         <table className="tabelaCliente">
                             <thead>
