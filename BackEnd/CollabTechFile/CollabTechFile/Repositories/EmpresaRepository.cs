@@ -40,16 +40,16 @@ namespace CollabTechFile.Repositories
             }
         }
 
-        //public List<Empresa> Listar()
-        //{
-        //    try
-        //    {
-        //        return _context.Empresas.ToList();
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
+        public List<Empresa> Listar()
+        {
+            try
+            {
+                return _context.Empresas.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
