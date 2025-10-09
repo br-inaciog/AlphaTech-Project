@@ -22,11 +22,11 @@ export default function ListagemDoc() {
                     </div>
 
                     <div className="botaoFiltraLixeira">
-                        <div className="botaoFiltrar">
+                        <select className="botaoFiltrar">
                             <button>
                                 <p>Filtrar</p>
                             </button>
-                        </div>
+                        </select>
 
                         <Link className="botaoLixeiraList" to="/Lixeira">
                             <img src={Lixeira} alt="Lixeira" />
