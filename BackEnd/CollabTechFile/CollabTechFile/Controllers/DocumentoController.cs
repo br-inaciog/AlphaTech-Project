@@ -91,18 +91,20 @@ namespace CollabTechFile.Controllers
                 return StatusCode(500, $"Erro ao processar documento: {ex.Message}");
             }
         }
-
-        //public IActionResult Get()
-        //{
-        //    try
-        //    {
-        //        List<Documento> listarDocumentos = _documentoRepository.Listar();
-        //        return Ok(listarDocumentos);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                List<Documento> listarDocumentos = _documentoRepository.Listar();
+                return Ok(listarDocumentos);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
+
 }
+

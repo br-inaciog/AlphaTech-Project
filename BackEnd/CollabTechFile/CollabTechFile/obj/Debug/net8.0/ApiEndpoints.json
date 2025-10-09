@@ -43,6 +43,16 @@
   },
   {
     "ContainingType": "CollabTechFile.Controllers.DocumentosController",
+    "Method": "Get",
+    "RelativePath": "api/Documentos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.DocumentosController",
     "Method": "UploadOCR",
     "RelativePath": "api/Documentos/upload-ocr",
     "HttpMethod": "POST",
@@ -205,6 +215,16 @@
   },
   {
     "ContainingType": "CollabTechFile.Controllers.EmpresaController",
+    "Method": "Get",
+    "RelativePath": "api/Empresa",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.EmpresaController",
     "Method": "Deletar",
     "RelativePath": "api/Empresa/{id}",
     "HttpMethod": "DELETE",
@@ -283,6 +303,69 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CollabTechFile.Controllers.RegraDocController",
+    "Method": "Get",
+    "RelativePath": "api/RegraDoc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.RegraDocController",
+    "Method": "Post",
+    "RelativePath": "api/RegraDoc",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "regrasDoc",
+        "Type": "CollabTechFile.Models.RegrasDoc",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.RegraDocController",
+    "Method": "Delete",
+    "RelativePath": "api/RegraDoc/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.RegraDocController",
+    "Method": "Put",
+    "RelativePath": "api/RegraDoc/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "regrasDoc",
+        "Type": "CollabTechFile.Models.RegrasDoc",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CollabTechFile.Controllers.ReqDocController",
     "Method": "Get",
     "RelativePath": "api/ReqDoc",
@@ -290,6 +373,59 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.ReqDocController",
+    "Method": "Post",
+    "RelativePath": "api/ReqDoc",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reqDoc",
+        "Type": "CollabTechFile.Models.ReqDoc",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.ReqDocController",
+    "Method": "Delete",
+    "RelativePath": "api/ReqDoc/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.ReqDocController",
+    "Method": "Put",
+    "RelativePath": "api/ReqDoc/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "reqDoc",
+        "Type": "CollabTechFile.Models.ReqDoc",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
