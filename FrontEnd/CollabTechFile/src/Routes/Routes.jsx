@@ -10,10 +10,10 @@ import TelaCliente from "../pages/telaCliente/telaCliente"
 import Lixeira from "../pages/lixeira/Lixeira"
 import DocAndamentoFunc from "../pages/docAndamentoFunc/DocAndamentoFunc"
 import DocAndamentoClie from "../pages/docAndamentoClie/DocAndamentoClie"
+import Feedback from "../pages/Feedbacks/Feedback"
 
 const Rotas = () => {
     return (
-
         <Routes>
             <Route element={<Login />} path="/" exact />
             <Route element={<Inicio />} path="/Inicio" />
@@ -25,8 +25,9 @@ const Rotas = () => {
             <Route element={<Lixeira />} path="/Lixeira" />
             <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc" />
             <Route element={<DocAndamentoClie />} path="/docAndamentoClie" />
+            <Route element={<Feedback /> } path="/FeedBacks" />
+            
         </Routes>
-
     )
 }
 

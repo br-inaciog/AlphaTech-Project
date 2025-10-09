@@ -2,6 +2,7 @@ import "./Feedback.css";
 
 import Lixeira from "../../assets/img/Lixeira.svg";
 import MenuLateral from "../../componentes/menuLateral/MenuLateral";
+import Cabecalho from "../../componentes/cabecalho/Cabecalho";
 
 
 const listaFeedbacks = [
@@ -27,30 +28,39 @@ const listaFeedbacks = [
 
 export default function Feedback() {
     return (
-        <div className="containerFeedback">
+        <div className="containerGeral">
             <MenuLateral />
-            <div className="titulo">
-                <h1>FeedBacks</h1>
-            </div>
-            <div className="listaFeedbacks">
-                {listaFeedbacks.map((feedback, card) => (
-                    <div key={card} className="cardFeedback">
-                        <div className="cabecalhoFeedback">
-                            <span className="nomeFeedback">{feedback.nome}</span>
-                            <span className="dataFeedback">{feedback.data}</span>
-                            <span className="iconeLixeira">
-                                <img
-                                    src={Lixeira}
-                                    alt="Excluir"
-                                    className="lixeiraImg"
-                                />
-                            </span>
+            <main className="conteudoPrincipal">
+                <section className="areaTrabalho">
+                    <Cabecalho />
+
+                    <section className="docAndamento">
+                        <div className="titulo">
+                            <h1>FeedBack</h1>
                         </div>
-                        <p className="mensagemFeedback">{feedback.mensagem}</p>
-                        <hr className="linhaFeedback" />
-                    </div>
-                ))}
-            </div>
+
+                        <div className="listaFeedbacks">
+                            {listaFeedbacks.map((feedback, card) => (
+                                <div key={card} className="cardFeedback">
+                                    <div className="cabecalhoFeedback">
+                                        <span className="nomeFeedback">{feedback.nome}</span>
+                                        <span className="dataFeedback">{feedback.data}</span>
+                                        <span className="iconeLixeira">
+                                            <img
+                                                src={Lixeira}
+                                                alt="Excluir"
+                                                className="lixeiraImg"
+                                            />
+                                        </span>
+                                    </div>
+                                    <p className="mensagemFeedback">{feedback.mensagem}</p>
+                                    <hr className="linhaFeedback" />
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                </section>
+            </main>
         </div>
     );
 }

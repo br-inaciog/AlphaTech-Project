@@ -5,8 +5,8 @@ import Feedback from '../src/pages/Feedbacks/Feedback'
 function App() {
   return (
     <>
-      {/* <Rotas /> */}
-      <Feedback />
+      <Rotas />
+      {/* <Feedback /> */}
     </>
   )
 }
