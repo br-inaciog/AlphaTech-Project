@@ -11,8 +11,7 @@ export default function cabecalho() {
         <header>
             <nav className="cabecalho">
                 <div className="grupoPesquisa">
-                    <input type="search" />
-                    <label>Pesquisar...</label>
+                    <input type="search" placeholder="Pesquisar..."/>
                     <img src={Lupa} alt="Imagem Lupa" />
                 </div>
 
@@ -26,8 +25,8 @@ export default function cabecalho() {
 
             </nav>
             
-            <Link to="/Inicio" className="setaImg">
-                <img src={Seta} alt="Seta" />
+            <Link to="/Inicio">
+                <img className="setaImg" src={Seta} alt="Seta" />
             </Link>
         </header>
     )

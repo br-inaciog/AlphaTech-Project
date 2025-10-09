@@ -15,7 +15,11 @@ export default function ListagemDoc() {
             <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <Cabecalho/>
+                    <Cabecalho />
+
+                    <div className="titulo">
+                        <h1>Documentos</h1>
+                    </div>
 
                     <div className="botaoFiltraLixeira">
                         <div className="botaoFiltrar">
@@ -44,12 +48,12 @@ export default function ListagemDoc() {
 
                             <div className="cardAcoes">
                                 <div className="infAcoes">
-                                    <img src={Editar} alt="Caneta Editar" />
+                                    <img src={Editar} alt="Lixeira" />
                                     <p>Editar</p>
                                 </div>
 
                                 <div className="infAcoes">
-                                    <img src={Excluir} alt="Lixeira" />
+                                    <img src={Excluir} alt="Caneta Editar" />
                                     <p>Lixeira</p>
                                 </div>
                             </div>

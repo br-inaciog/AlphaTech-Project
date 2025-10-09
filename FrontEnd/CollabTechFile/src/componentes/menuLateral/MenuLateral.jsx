@@ -43,7 +43,7 @@ export default function MenuLateral() {
 
             <Link to="/" className="logout">
                 <img src={Logout} alt="" />
-                LOGOUT
+                Sair
             </Link>
         </header>
     )

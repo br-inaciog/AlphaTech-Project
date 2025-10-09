@@ -13,7 +13,9 @@ export default function DocAndamentoClie() {
                     <Cabecalho />
 
                     <section className="docAndamento">
-                        <h1>Nome documento</h1>
+                        <div className="titulo">
+                            <h1>Nome documento</h1>
+                        </div>
 
                         <div className="documento">
                             <div className="regrasDeNegocio">
