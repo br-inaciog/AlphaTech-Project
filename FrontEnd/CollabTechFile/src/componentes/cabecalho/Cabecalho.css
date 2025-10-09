@@ -50,7 +50,6 @@
 }
 
 .cabecalho {
-<<<<<<< HEAD
     display: flex;
 }
 
@@ -58,15 +57,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-=======
-    display: flex;
-}
-
-.infCabecalho {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
->>>>>>> 4b26a4d6521a1511b909f869d58bc1f26ce09f7d
 
     margin-left: 10%;
     width: 100%;
