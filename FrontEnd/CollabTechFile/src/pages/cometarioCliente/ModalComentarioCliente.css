@@ -6,7 +6,7 @@ body, #root {
   background: #fff;
 }
 
-.modal-comentario-outer {
+.fundoModalComentario {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,11 +15,19 @@ body, #root {
   position: fixed;
   top: 0;
   left: 0;
- background: linear-gradient(135deg, #0d0d0d, #001f3f, #0a2a6c);
-  z-index: 999;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
 }
 
-.modal-comentario-container {
+.modalComentarioExterno {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.modalComentarioContainer {
   background: #f9f1ec;
   border-radius: 16px;
   width: 710px;
@@ -28,7 +36,7 @@ body, #root {
   position: relative;
 }
 
-.modalComentarioHeader {
+.modalComentarioCabecalho {
   display: flex;
   align-items: center;
   border-bottom: 2px solid #222;
@@ -52,7 +60,7 @@ body, #root {
   font-size: 1.6rem;
 }
 
-.modalCometarioDoc {
+.modalComentarioDocumento {
   text-align: center;
   font-weight: bold;
   margin-bottom: 16px;
@@ -70,7 +78,7 @@ body, #root {
   margin-bottom: 32px;
 }
 
-.modalComentarioButtons {
+.modalComentarioBotoes {
   display: flex;
   justify-content: center;
   gap: 16px;
@@ -86,7 +94,7 @@ body, #root {
   cursor: pointer;
 }
 
-.modalComentarioPublicar{
+.modalComentarioPublicar {
   background: #600b0b;
   color: #fff;
   border: none;
@@ -96,9 +104,9 @@ body, #root {
   cursor: pointer;
 }
 
-.modalComentarioHeader img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; 
-    object-fit: cover; 
+.modalComentarioCabecalho img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }

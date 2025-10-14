@@ -13,7 +13,7 @@ import DocAndamentoClie from "../pages/docAndamentoClie/DocAndamentoClie"
 import InicioCliente from "../pages/inicioCliente/InicioCliente"
 import Feedback from "../pages/Feedbacks/Feedback"
 import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie" 
-import ModalComentarioCliente from "../pages/filtroFuncionario/ModalFiltroFuncionario"
+import ModalComentarioCliente from "../pages/cometarioCliente/ModalComentarioCliente"
 import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc"
 
 const Rotas = () => {

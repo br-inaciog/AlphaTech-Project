@@ -1,60 +1,72 @@
 import React, { useState } from "react";
-import "./ModalComentarioCliente.css";
+import ReactDOM from "react-dom";
+import "./modalComentarioCliente.css";
 import voltar from "../../assets/img/Voltar.svg";
 
-const ModalComentarioCliente = ({ nomeDocumento = "Nome do Documento", onCancel, onPublish }) => {
+const ModalComentarioCliente = ({
+  nomeDocumento = "Nome do Documento",
+  aoCancelar,
+  aoPublicar,
+  aberto
+}) => {
   const [comentario, setComentario] = useState("");
 
-  return (
-    <div className="modal-comentario-outer">
-      <div className="modal-comentario-container">
-        
-        <div className="modalComentarioHeader">
-          <button
-            className="modalComentarioVoltar" 
-            onClick={onCancel}
-            aria-label="Voltar"
-          >
-            <img src={voltar} alt="" />
+  if (!aberto) return null;
 
-          </button>
-          <h2 className="modalComentarioTitulo">
-            Comentário
-          </h2>
-          <div style={{ width: "40px" }} />
-        </div>
+  const aoClicarFora = (e) => {
+    if (e.target.classList.contains("fundoModalComentario")) {
+      aoCancelar();
+    }
+  };
 
-        
-        <div className="modalCometarioDoc">
-          {nomeDocumento}
-        </div>
-
-        
-        <textarea
-          className="modalComentarioTexto"
-          placeholder="Digite seu comentário..."
-          value={comentario}
-          onChange={e => setComentario(e.target.value)}
-        />
-
-        
-        <div className="modalComentarioButtons">
-          <button
-            className="modalComentarioCancelar"
-            onClick={onCancel}
-          >
-            Cancelar
-          </button>
-          <button
-            className="modalComentarioPublicar"
-            onClick={() => onPublish(comentario)}
-            disabled={!comentario.trim()}
-          >
-            Publicar
-          </button>
+  return ReactDOM.createPortal(
+    <div
+      className="fundoModalComentario"
+      onClick={aoClicarFora}
+    >
+      <div className="modalComentarioExterno">
+        <div className="modalComentarioContainer">
+          <div className="modalComentarioCabecalho">
+            <button
+              className="modalComentarioVoltar"
+              onClick={aoCancelar}
+              aria-label="Voltar"
+            >
+              <img src={voltar} alt="Voltar" />
+            </button>
+            <h2 className="modalComentarioTitulo">
+              Comentário
+            </h2>
+            <div style={{ width: "40px" }} />
+          </div>
+          <div className="modalComentarioDocumento">
+            {nomeDocumento}
+          </div>
+          <textarea
+            className="modalComentarioTexto"
+            placeholder="Digite seu comentário..."
+            value={comentario}
+            onChange={e => setComentario(e.target.value)}
+          />
+          <div className="modalComentarioBotoes">
+            <button
+              className="modalComentarioCancelar"
+              onClick={aoCancelar}
+            >
+              Cancelar
+            </button>
+            <button
+              className="modalComentarioPublicar"
+              onClick={() => aoPublicar(comentario)}
+              disabled={!comentario.trim()}
+            >
+              Publicar
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
