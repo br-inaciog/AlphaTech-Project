@@ -20,6 +20,8 @@ public partial class CollabTechFileContext : DbContext
 
     public virtual DbSet<Documento> Documentos { get; set; }
 
+    public virtual DbSet<DocumentoVerso> DocumentoVersoes { get; set; }
+
     public virtual DbSet<Empresa> Empresas { get; set; }
 
     public virtual DbSet<Feedback> Feedbacks { get; set; }
@@ -57,7 +59,19 @@ public partial class CollabTechFileContext : DbContext
         {
             entity.HasKey(e => e.IdDocumento).HasName("PK__Document__E52073477EF6EE36");
 
+            entity.Property(e => e.CriadoEm).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.VersaoAtual).HasDefaultValue(1);
+
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Documentos).HasConstraintName("FK__Documento__IdUsu__5812160E");
+        });
+
+        modelBuilder.Entity<DocumentoVerso>(entity =>
+        {
+            entity.HasKey(e => e.IdDocumentoVersoes).HasName("PK__Document__82F8A7D2227FA4DC");
+
+            entity.HasOne(d => d.IdDocumentoNavigation).WithMany(p => p.DocumentoVersos)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("DocumentoVersao");
         });
 
         modelBuilder.Entity<Empresa>(entity =>
