@@ -2,6 +2,21 @@
     text-align: center;
 }
 
+.botaoFiltrarVersoesDoc p {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.botaoFiltrarVersoesDoc select {
+    width: 20%;
+    border: none;
+    border-bottom: 2px solid black;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 1%;
+    margin-bottom: 5%;
+}
+
 .documento {
     display: flex;
     flex-direction: column;

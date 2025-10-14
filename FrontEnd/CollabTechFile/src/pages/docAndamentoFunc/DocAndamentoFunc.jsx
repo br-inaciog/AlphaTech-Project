@@ -18,6 +18,15 @@ export default function DocAndamentoFunc() {
                         <div className="titulo">
                             <h1>Documento em Andamento</h1>
                         </div>
+
+                        <div className="botaoFiltrarVersoesDoc">
+                            <p>Versão Documento</p>
+                            <select>
+                                <option disabled selected>Versões</option>
+                                <option value="versoes">Versão 1.1</option>
+                            </select>
+                        </div>
+
                         <form action="" className="documento">
                             <p className="docNome">Nome Documento</p>
 
