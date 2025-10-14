@@ -8,11 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-// Add services to the container.
+builder.Services.AddControllers()
+    .AddJsonOptions(x =>
+        x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
 
-builder.Services.AddControllers();
+
 builder.Services.AddScoped<OCRService>();
+builder.Services.AddScoped<IDocumentoVersoesRepository, DocumentoVersoesRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IReqDocRepository, ReqDocRepository>();
+builder.Services.AddScoped<IRegrasDocRepository, RegrasDocRepository>();
+builder.Services.AddScoped<ISuporteRepository, SuporteRepository>();
 builder.Services.AddScoped<IDocumentoRepository, DocumentoRepository>();
 builder.Services.AddScoped<IComentarioRepository, ComentarioRepository>();
 builder.Services.AddScoped<IRequisitoRepository, RequisitoRepository>();
@@ -25,12 +31,9 @@ builder.Services.AddDbContext<CollabTechFileContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IDocumentoRepository, DocumentoRepository>();
-builder.Services.AddControllers();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -2,8 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #f8f1ed;
-    height: 100vh;
+    height: fit-content;
 }
 
 .areaTrabalho {
@@ -11,7 +10,7 @@
     margin-left: 20%;
     padding-left: 8%;
     padding-right: 8%;
-    margin-bottom: 2%;
+    margin-bottom: 4%;
     margin-top: 4%;
     display: flex;
     flex-direction: column;
@@ -25,13 +24,12 @@
 }
 
 .btnArea {
-    background: #bdb7b7;
+    background-color: aliceblue;
     border: none;
     border-radius: 10px;
     padding: 8px 32px;
     font-weight: 600;
     font-size: 1rem;
-    color: #333;
     cursor: default;
 }
 
@@ -52,7 +50,7 @@
 }
 
 .statusCard {
-    background: #bdb7b7;
+    background-color: aliceblue;
     border-radius: 16px;
     padding: 24px 32px;
     min-width: 232px;
@@ -76,7 +74,7 @@
 }
 
 .proximasEntregas {
-    background: #a9a9a9;
+    background-color: aliceblue;
     border-radius: 18px;
     padding: 24px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -133,18 +131,20 @@
 .documentosActions {
     display: flex;
     gap: 32px;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 16px;
 }
 
 .docAction {
-    background: #bdb7b7;
+    background-color: aliceblue;
+    width: 100%;
     border-radius: 18px;
     padding: 24px 18px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     min-width: 260px;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     gap: 12px;
 }
 

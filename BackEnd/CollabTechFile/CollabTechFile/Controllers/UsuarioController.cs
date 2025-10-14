@@ -47,19 +47,34 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Usuario usuario)
         {
             try
             {
-                _UsuarioRepository.Deletar(id);
+                usuario.IdUsuario = id;
+                _UsuarioRepository.Editar(id, usuario);
                 return NoContent();
             }
-            catch(Exception error)
+            catch (Exception e)
             {
-                return BadRequest(error.Message);
+                return BadRequest(e.Message);
             }
         }
+
+        //[HttpDelete("{id}")]
+        //public IActionResult Delete(int id)
+        //{
+        //    try
+        //    {
+        //        _UsuarioRepository.Deletar(id);
+        //        return NoContent();
+        //    }
+        //    catch(Exception error)
+        //    {
+        //        return BadRequest(error.Message);
+        //    }
+        //}
 
     }
 }

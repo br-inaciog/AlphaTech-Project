@@ -4,33 +4,41 @@ import Cabecalho from "../../componentes/cabecalho/Cabecalho"
 
 import Pdf from "../../assets/img/PDF.png"
 import Restaurar from "../../assets/img/Restaurar.svg"
-import Excluir from "../../assets/img/Delete.png"
+import Excluir from "../../assets/img/Delete.svg"
 
 export default function Lixeira() {
     return (
-        <div className="containerGeral'">
+        <div className="containerGeral">
             <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
                     <Cabecalho />
 
+                    <div className="titulo">
+                        <h1>Lixeira</h1>
+                    </div>
+
                     <div className="cardInf">
                         <div className="cardDocumento">
-                            <img src={Pdf} alt="Icone de Pdf" />
                             <div className="cardInformacoesLixeira">
+                                <img src={Pdf} alt="Icone de Pdf" />
                                 <p>Relatório de Requisitos Ifood</p>
                             </div>
 
                             <div className="cardAcoesLixeira">
                                 <div className="lixeiraExcluir">
-                                    <img src={Restaurar} alt="Restaurar" />
-                                    <img src={Excluir} alt="Excluir" />
+                                    <img className="lixeiraIco" src={Restaurar} alt="Restaurar" />
+                                    <img  src={Excluir} alt="Excluir" />
                                 </div>
-                                <p>Excluído em:<span>Data</span></p>
-                                <p>Por: <span>Func Responsável</span></p>
+
+                                <div className="info">
+                                    <p className="infHorarioCard">
+                                        Excluído em: <span>25/12/2025</span> <span>12h04</span>
+                                    </p>
+                                    <p>Por: <span>Bolsonarah</span></p>
+                                </div>
                             </div>
                         </div>
-                        <p className="infHorarioCard">Horário de Exclusão: <span>Horário</span></p>
                     </div>
                 </section>
             </main>

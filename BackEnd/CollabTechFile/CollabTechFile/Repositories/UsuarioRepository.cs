@@ -30,15 +30,43 @@ namespace CollabTechFile.Repositories
             }
         }
 
-        public void Deletar(int id)
+        //public void Deletar(int id)
+        //{
+        //    try
+        //    {
+        //        Usuario usuarioBuscado = _context.Usuarios.Find(id)!;
+        //        if (usuarioBuscado != null)
+        //        {
+        //            _context.Usuarios.Remove(usuarioBuscado);
+        //        }
+        //        _context.SaveChanges();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
+
+        public void Editar(int id, Usuario usuario)
         {
             try
             {
                 Usuario usuarioBuscado = _context.Usuarios.Find(id)!;
-                if (usuarioBuscado != null)
-                {
-                    _context.Usuarios.Remove(usuarioBuscado);
-                }
+
+                if (usuarioBuscado == null)
+                    throw new Exception("Usuário não encontrado.");
+
+                // 🔹 Atualize apenas os campos que podem ser alterados
+                usuarioBuscado.Nome = usuario.Nome;
+                usuarioBuscado.Email = usuario.Email;
+
+                // Se quiser alterar a senha, recripte-a
+                if (!string.IsNullOrEmpty(usuario.Senha))
+                    usuarioBuscado.Senha = Criptografia.GerarHash(usuario.Senha);
+
+                usuarioBuscado.Ativo = usuario.Ativo;
+
+                _context.Usuarios.Update(usuarioBuscado);
                 _context.SaveChanges();
             }
             catch (Exception)
@@ -47,22 +75,6 @@ namespace CollabTechFile.Repositories
             }
         }
 
-        public void Editar(int id, Usuario usuario)
-        {
-            try
-            {
-                Usuario usuarioBuscado = _context.Usuarios.Find(id)!;
-                if (usuarioBuscado != null)
-                {
-                    usuarioBuscado.IdUsuario = usuario.IdUsuario;
-                }
-                _context.SaveChanges();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
 
         public List<Usuario> Listar()
         {

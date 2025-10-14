@@ -39,5 +39,17 @@ namespace CollabTechFile.Repositories
                 throw;
             }
         }
+
+        public List<Empresa> Listar()
+        {
+            try
+            {
+                return _context.Empresas.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

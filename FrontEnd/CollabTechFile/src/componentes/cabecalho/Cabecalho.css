@@ -7,7 +7,7 @@
     height: 35px;
     padding: 15px 5px 0px 5px;
     padding-left: 30px;
-    padding-bottom: 5px;
+    padding-bottom: 9px;
     font-size: 18px;
     outline: none;
 
@@ -16,37 +16,22 @@
     background: transparent;
 }
 
-
-.grupoPesquisa label {
-    position: absolute;
-    left: 30px;
-    top: -15px;
-    font-size: 18px;
-    color: #9D9D9D;
-    transition: 0.5s;
-}
-
 .grupoPesquisa img { 
     position: absolute;
     left: -3px;
+    top: 2px;
     height: 30px;
     width: 30px;
     transition: 0.2s;
 }
 
 .grupoPesquisa input:focus~label {
-    top: -15px;
-    font-size: 14px;
     color: #0a2a6c;
 }
 
 .grupoPesquisa input:focus {
     border-width: 2px;
     border-bottom-color: #0a2a6c;
-}
-
-.grupoPesquisa input:focus~img {
-    left: -5px;
 }
 
 .cabecalho {
@@ -56,11 +41,12 @@
 .infCabecalho {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 
     margin-left: 10%;
     width: 100%;
     font-weight: 500;
+    color: #7a1a1a;
 }
 
 .infUser {
@@ -68,8 +54,13 @@
     align-items: center;
 }
 
-.setaImg img {
-    width: 37px;
-    height: 37px;
+.setaImg {
+    height: 1.5rem;
+    margin-top: 20px;
     margin-bottom: 20px;
+    transition: 0.2s;
+}
+
+.setaImg:hover {
+    transform: scale(1.1);
 }

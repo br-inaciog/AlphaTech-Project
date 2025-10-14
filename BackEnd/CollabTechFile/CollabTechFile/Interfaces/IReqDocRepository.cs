@@ -7,5 +7,6 @@ namespace CollabTechFile.Interfaces
         void Cadastrar(ReqDoc reqDoc);
         void Deletar(int id);
         void Editar(int id, ReqDoc reqDoc);
+        List<ReqDoc> Listar();
     }
 }

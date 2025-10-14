@@ -1,4 +1,4 @@
-import './MenuLateral.css';
+import "./MenuLateral.css";
 import LogoMenu from '../../assets/img/logoMenu.png';
 import Casinha from '../../assets/img/Casinha.png';
 import Documents from '../../assets/img/Documents.png';
@@ -37,13 +37,13 @@ export default function MenuLateral() {
 
                 <Link to="/FeedBacks" className="links">
                     <img src={FeedBack} alt="FeedBacks" />
-                    FeedBacks
+                    Comentários
                 </Link>
             </div>
 
             <Link to="/" className="logout">
                 <img src={Logout} alt="" />
-                LOGOUT
+                Sair
             </Link>
         </header>
     )

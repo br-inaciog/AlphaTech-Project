@@ -1,8 +1,194 @@
 .docAndamento {
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
-.docAndamento h1 {
-    margin-bottom: 20px;
+.documento {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 600px;
+    margin-bottom: 4%;
+    padding: 4%;
+    border-radius: 20px;
+
+    background-color: aliceblue;
+}
+
+.tituloRN,
+.tituloRF,
+.tituloRNF {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tituloRF,
+.tituloRNF {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5%;
+}
+
+.tituloRN h2 {
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.tituloRN button {
+    border: none;
+    background: transparent;
+}
+
+.tituloRF h2 {
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.tituloRF button {
+    border: none;
+    background: transparent;
+}
+
+.tituloRNF h2 {
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.tituloRNF button {
+    border: none;
+    background: transparent;
+}
+
+.listaRN,
+.listaRF,
+.listaRNF {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgb(88, 129, 163);
+    box-shadow: inset 0px 0px 10px 0 rgba(20, 20, 20, 0.2);
+    color: white;
+
+    border-radius: 10px;
+    padding: 2%;
+    margin-top: 2%;
+    width: 100%;
+}
+
+.listaRF p {
+    width: 80%;
+    text-align: start;
+}
+
+.iconeRequisitosERegra {
+    display: flex;
+    justify-content: space-between;
+
+    width: 10%;
+}
+
+.iconeRequisitosERegra img {
+    height: 34px;
+    width: 34px;
+}
+
+.botaoAdicionar,
+.botaoExcluir,
+.botaoEditar {
+    cursor: pointer;
+    transition: 0.3s ease, transform 0.4s ease;
+}
+
+.botaoAdicionar:hover {
+    transform: scale(1.1);
+}
+
+.botaoExcluir:hover {
+    transform: scale(1.1);
+}
+
+.botaoEditar:hover {
+    transform: scale(1.1);
+}
+
+.finalizarDoc {
+    width: 275px;
+    height: 53px;
+    border-radius: 10px;
+
+    font-size: 24px;
+    color: white;
+
+    background-color: #5F0A00;
+    border: none;
+
+    margin-top: 4%;
+}
+
+.salvarDoc {
+    width: 275px;
+    height: 53px;
+    border-radius: 10px;
+
+    font-size: 24px;
+    color: white;
+
+    background-color: #1E3A8A;
+    border: none;
+
+    margin-top: 4%;
+}
+
+.salvarFinalizarDoc {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 4%;
+    align-items: center;
+}
+
+.areaComentarioDoc {
+    width: 100%;
+    border-radius: 20px;
+    background-color: aliceblue;
+    padding: 2%;
+}
+
+.cardFeedbackDoc {
+    margin-bottom: 30px;
+    padding: 1%;
+    border-bottom: 2px solid black;
+}
+
+.cabecalhoFeedbackDoc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nomeFeedbackDoc {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.horarioDataComentario {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.dataFeedbackDoc,
+.horarioFeedbackDoc {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.mensagemFeedbackDoc {
+    margin: 10px 0 0 0;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.5;
 }

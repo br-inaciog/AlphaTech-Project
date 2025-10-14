@@ -1,8 +1,6 @@
 import './Inicio.css';
 import MenuLateral from '../../componentes/menuLateral/MenuLateral';
-import Arquivo from '../../assets/img/Upload.svg';
 import Usuario from '../../assets/img/User.png';
-import Lua from '../../assets/img/Lua.png';
 import arquivo from '../../assets/img/Arquivo.png';
 import Escaner from '../../assets/img/Escaner.png';
 import Anexar from '../../assets/img/Upload.svg'
@@ -19,13 +17,13 @@ export default function Inicio() {
                             <img src={Usuario} alt="" />
                             Funcionário
                             <span className="iconMoon"></span>
-                            <img src={Lua} alt="" />
+                       
                         </div>
                     </div>
                     <div className="statusDocumentos">
                         <div className="statusCard">
                             <span className="statusNum">6</span>
-                            <span className="statusLabel">pendentes</span>
+                            <span className="statusLabel">Pendentes</span>
                         </div>
                         <div className="statusCard">
                             <span className="statusNum">20</span>
