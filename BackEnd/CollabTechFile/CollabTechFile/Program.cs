@@ -8,6 +8,13 @@ using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 4cccf590bcfe61ba130ce3d6dd773935b0796c1d
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
@@ -29,8 +36,8 @@ builder.Services.AddDbContext<CollabTechFileContext>(options =>
 
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultChallengeScheme = "JwtBearer";
     options.DefaultAuthenticateScheme = "JwtBearer";
+    options.DefaultChallengeScheme = "JwtBearer";
 })
 .AddJwtBearer("JwtBearer", options =>
 {
@@ -39,11 +46,14 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateLifetime = true,
-        IssuerSigningKey = new SymmetricSecurityKey(
-            System.Text.Encoding.UTF8.GetBytes("collabtechfile-chave-autenticado-webapi-dev")),
+        ValidateIssuerSigningKey = true,
         ClockSkew = TimeSpan.FromMinutes(5),
-        ValidIssuer = "CollabTechFile+",
-        ValidAudience = "CollabTechFile+"
+
+        // ?? Mesmos valores do LoginController
+        IssuerSigningKey = new SymmetricSecurityKey(
+            System.Text.Encoding.UTF8.GetBytes("collab-tech-file-chave-autenticacao")),
+        ValidIssuer = "CollabTechFile.WebApi",
+        ValidAudience = "CollabTechFile.WebApi"
     };
 });
 

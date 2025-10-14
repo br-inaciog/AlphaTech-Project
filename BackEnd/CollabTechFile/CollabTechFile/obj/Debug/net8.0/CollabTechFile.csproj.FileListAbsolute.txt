@@ -698,6 +698,7 @@ C:\Users\50776884867\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTech
 C:\Users\50776884867\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTechFile.pdb
 C:\Users\50776884867\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTechFile.genruntimeconfig.cache
 C:\Users\50776884867\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\ref\CollabTechFile.dll
+<<<<<<< HEAD
 C:\Users\55890867873\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\55890867873\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\bin\Debug\net8.0\appsettings.json
 C:\Users\55890867873\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\bin\Debug\net8.0\CollabTechFile.staticwebassets.endpoints.json
@@ -875,3 +876,6 @@ C:\Users\55890867873\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTech
 C:\Users\55890867873\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTechFile.pdb
 C:\Users\55890867873\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTechFile.genruntimeconfig.cache
 C:\Users\55890867873\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\ref\CollabTechFile.dll
+=======
+C:\Users\55562188899\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+>>>>>>> 4cccf590bcfe61ba130ce3d6dd773935b0796c1d
