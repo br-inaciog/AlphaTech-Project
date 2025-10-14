@@ -21,7 +21,6 @@ namespace CollabTechFile.Controllers
             _ComentarioRepository = comentarioRepository;
         }
 
-        [Authorize]
         [HttpGet]
 
         public IActionResult Get()

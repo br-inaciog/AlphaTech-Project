@@ -19,7 +19,6 @@ namespace CollabTechFile.Controllers
             _RequisitoRepository = requisitoRepository;
         }
 
-        [Authorize]
         [HttpGet]
 
         public IActionResult Get() {

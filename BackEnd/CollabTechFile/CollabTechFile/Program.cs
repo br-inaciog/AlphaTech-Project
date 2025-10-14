@@ -8,13 +8,10 @@ using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
-<<<<<<< HEAD
-// Add services to the container.
-=======
 
 
 
->>>>>>> a65b174b201028a13eea2642aa0b0e1f935f2eaf
+
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);

@@ -20,7 +20,6 @@ namespace CollabTechFile.Controllers
             _RegraRepository = regraRepository;
         }
 
-        [Authorize]
         [HttpGet]
 
         public IActionResult Get()

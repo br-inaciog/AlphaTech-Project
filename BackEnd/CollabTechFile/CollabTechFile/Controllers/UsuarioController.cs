@@ -20,7 +20,6 @@ namespace CollabTechFile.Controllers
             _UsuarioRepository = usuarioRepository;
         }
 
-        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -50,6 +49,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Usuario usuario)
         {

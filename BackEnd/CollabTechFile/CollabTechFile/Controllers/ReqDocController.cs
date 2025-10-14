@@ -20,7 +20,6 @@ namespace CollabTechFile.Controllers
             _ReqDocRepository = reqDocRepository;
         }
 
-        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
