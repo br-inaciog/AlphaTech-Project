@@ -10,6 +10,6 @@ namespace CollabTechFile.Interfaces
 
         void Editar(int id, Usuario usuario);
 
-        void Deletar(int id);
+        //void Deletar(int id);
     }
 }

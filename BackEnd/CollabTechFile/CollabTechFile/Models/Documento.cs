@@ -33,8 +33,16 @@ public partial class Documento
     [StringLength(500)]
     public string? CaminhoArquivo { get; set; }
 
+    public int VersaoAtual { get; set; }
+
+    [Column(TypeName = "datetime")]
+    public DateTime CriadoEm { get; set; }
+
     [InverseProperty("IdDocumentoNavigation")]
     public virtual ICollection<Comentario> Comentarios { get; set; } = new List<Comentario>();
+
+    [InverseProperty("IdDocumentoNavigation")]
+    public virtual ICollection<DocumentoVerso> DocumentoVersos { get; set; } = new List<DocumentoVerso>();
 
     [ForeignKey("IdUsuario")]
     [InverseProperty("Documentos")]

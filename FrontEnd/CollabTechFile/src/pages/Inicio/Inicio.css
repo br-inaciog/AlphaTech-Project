@@ -155,8 +155,6 @@
     margin-bottom: 8px;
 }
 
-
-
 .iconAnexar,
 .iconDigitalizar {
     background: #142850;
@@ -188,7 +186,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+}
+
+.arquivoInput {
+    display: none;
+    cursor: default;
+}
+
+.arquivoLabel {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+}
+
+.arquivoLabel img {
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+    transition: 0.2s ease;
+}
+
+.arquivoLabel img:hover{
+    transform: scale(1.1);
 }
 
 .divEscanear {
