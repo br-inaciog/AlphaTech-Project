@@ -2,11 +2,43 @@ import "./Login.css"
 import Botao from "../../componentes/botao/Botao";
 import User from "../../assets/img/UserModoClaro.png"
 import Logo from "../../assets/img/Logo.png"
+import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function Login() {
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+
+    const navigate = useNavigate();
+
+    const { setUsuario } = useAuth();
+
+    function alertar(icone, mensagem) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        Toast.fire({
+            icon: icone,
+            title: mensagem
+        });
+    }
+
+    function realizarAutenticacao() {
+        alertar("warning", "Conectouu")
+    }
+
+
     return (
         <>
-            <form action="" className="mainLogin">
+            <form action="" className="mainLogin" onSubmit={realizarAutenticacao}>
                 <div className="campoLogin">
 
                     <div className="userTitulo">
@@ -15,21 +47,17 @@ export default function Login() {
                     </div>
 
                     <form action="" className="campoInput">
-                        <div className="inputLogin">
+                        <div
+                            className="inputLogin">
                             <div className="grupoEmail">
-                                <input type="email"/>
+                                <input type="email" />
                                 <label>Email</label>
                             </div>
 
                             <div className="grupoSenha">
-                                <input type="password" minLength="10"/>
+                                <input type="password" minLength="10" />
                                 <label>Senha</label>
                             </div>
-                        </div>
-
-                        <div className="inputCheckbox">
-                            <input type="checkbox" />
-                            <label htmlFor="">Lembre De Mim</label>
                         </div>
                     </form>
                     <Botao />

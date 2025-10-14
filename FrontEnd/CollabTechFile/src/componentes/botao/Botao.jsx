@@ -4,11 +4,9 @@ import { Link } from 'react-router';
 export default function Botao() {
     return (
         <>
-            <Link to="/Inicio">
-                <button className="botaoLogin">
-                    Entrar
-                </button>
-            </Link>
+            <button className="botaoLogin">
+                Entrar
+            </button>
         </>
     )
 }

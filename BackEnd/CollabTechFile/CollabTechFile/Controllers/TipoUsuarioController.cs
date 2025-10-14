@@ -21,7 +21,6 @@ namespace CollabTechFile.Controllers
 
         //[Authorize]
         [HttpPost]
-
         public IActionResult Post(TipoUsuario tipousuario)
         {
             try
@@ -36,11 +35,6 @@ namespace CollabTechFile.Controllers
 
         }
 
-<<<<<<< HEAD
-        
-=======
-       
->>>>>>> 4cccf590bcfe61ba130ce3d6dd773935b0796c1d
         [HttpGet]
         public IActionResult Get()
         {
