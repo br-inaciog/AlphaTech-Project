@@ -6,7 +6,7 @@ import Logo from "../../assets/img/Logo.png"
 export default function Login() {
     return (
         <>
-            <main className="mainLogin">
+            <form action="" className="mainLogin">
                 <div className="campoLogin">
 
                     <div className="userTitulo">
@@ -36,7 +36,7 @@ export default function Login() {
                 </div>
 
                 <img src={Logo} alt="Logo CollabTechFile" />
-            </main>
+            </form>
         </>
     )
 }

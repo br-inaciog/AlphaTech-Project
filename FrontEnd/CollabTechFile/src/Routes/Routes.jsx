@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router"
+import {  Route, Routes } from "react-router"
 
 import Login from "../pages/login/Login"
 import Inicio from "../pages/inicio/Inicio"
