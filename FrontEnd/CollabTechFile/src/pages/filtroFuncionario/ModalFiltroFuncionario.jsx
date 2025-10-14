@@ -1,15 +1,25 @@
-// ...importações necessárias...
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './ModalFiltroFuncionario.css';
 import calendario from '../../assets/img/Calendario.svg';
 import modalVoltar from '../../assets/img/Voltar.svg';
 
-export default function ModalFiltroFuncionario({ onClose }) {
-    return (
-        <div className="modalSobreposicao">
+export default function ModalFiltroFuncionario({ onClose, aberto = true }) {
+    if (!aberto) return null;
+
+    const aoClicarFora = (e) => {
+        if (e.target.classList.contains("modalSobreposicao")) {
+            onClose();
+        }
+    };
+
+    return ReactDOM.createPortal(
+        <div className="modalSobreposicao" onClick={aoClicarFora}>
             <div className="modalContainer">
                 <div className="modalHeader">
-                    <span className="modalVoltar" onClick={onClose}> <img src={modalVoltar} alt="" /></span>
+                    <span className="modalVoltar" onClick={onClose}>
+                        <img src={modalVoltar} alt="" />
+                    </span>
                     <h2 className="modalTitulo">Filtros</h2>
                 </div>
                 <hr className="modalDivisor" />
@@ -30,18 +40,20 @@ export default function ModalFiltroFuncionario({ onClose }) {
                         <div className="modalField">
                             <label className="modalLabel">Prazo</label>
                             <div className="modalInputIcone">
-                                <span role="img" aria-label="calendario" style={{marginRight: 8}} > <img src={calendario} alt="" /></span>
+                                <span role="img" aria-label="calendario" style={{marginRight: 8}} >
+                                    <img src={calendario} alt="" />
+                                </span>
                                 <input className="modalInput" type="text" placeholder="00/00/0000" />
                             </div>
                         </div>
                     </div>
                     <div className="modalField" style={{marginTop: 24, width: '100%'}}>
-                        <label className="modalLabel">Documeto</label>
+                        <label className="modalLabel">Documento</label>
                         <input className="modalInput" type="text" placeholder="Digite o documento" />
                     </div>
                 </form>
                 <div className="modalDocumentos">
-                    <h3 className="modalDocumentosTitulo">Documeto disponivel para alta</h3>
+                    <h3 className="modalDocumentosTitulo">Documento disponível para alta</h3>
                     <table className="modalTabela">
                         <thead>
                             <tr>
@@ -68,6 +80,7 @@ export default function ModalFiltroFuncionario({ onClose }) {
                     </table>
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body
     );
 }

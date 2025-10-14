@@ -79,5 +79,29 @@ namespace CollabTechFile.Controllers
         //    }
         //}
 
+
+        [Authorize]
+        [HttpGet("BuscarPorEmailESenha")]
+        public IActionResult Get(string email, string senha)
+        {
+            try
+            {
+
+                Usuario usuarioBuscado = _UsuarioRepository.BuscarPorEmailESenha(email, senha);
+
+                if (usuarioBuscado != null)
+                {
+                    return Ok(usuarioBuscado);
+                }
+                return null!;
+            }
+
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+        }
+
     }
 }

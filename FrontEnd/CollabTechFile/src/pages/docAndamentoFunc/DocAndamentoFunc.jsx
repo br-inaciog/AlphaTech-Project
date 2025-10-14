@@ -18,9 +18,13 @@ export default function DocAndamentoFunc() {
                         <div className="titulo">
                             <h1>Documento em Andamento</h1>
                         </div>
-
-                        <div className="documento">
+                        <form action="" className="documento">
                             <p className="docNome">Nome Documento</p>
+
+                            <div className="prazoEntrega">
+                                <label htmlFor="">Prazo de Entrega:</label>
+                                <input type="date" />
+                            </div>
 
                             <div className="regrasDeNegocio">
                                 <div className="tituloRN">
@@ -97,7 +101,7 @@ export default function DocAndamentoFunc() {
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </form>
 
                     </section>
 

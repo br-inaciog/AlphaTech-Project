@@ -12,12 +12,12 @@ export default function Inicio() {
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
                     <div className="cabecalhoArea">
-                        <button className="btnArea">AREA DE TRABALHO</button>
+                        <button className="btnArea">Área de Trabalho</button>
                         <div className="usuarioArea">
                             <img src={Usuario} alt="" />
                             Funcionário
                             <span className="iconMoon"></span>
-                       
+
                         </div>
                     </div>
                     <div className="statusDocumentos">
@@ -50,19 +50,24 @@ export default function Inicio() {
                         </div>
                     </div>
                     <article className="documentosActions">
-                        <div className="docAction anexar">
-                            <img src={arquivo} alt="" className='imgArquivo' />
-
+                        <form action="" className="docAction">
+                            <img src={arquivo} alt="" className='imgArquivo' /> 
                             <div className='divAnexar'>
-                                <h4>Anexar Documentação</h4>
-                                <button className="iconAnexar">
-                                    <img src={Anexar} alt="" className='iconUpload' />
-                                    Anexar Arquivo
-                                </button>
-                                <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
+                                <label className='arquivoLabel'>
+                                    <h4>Anexar Documentação</h4>
+                                    <i><img src={Anexar} alt="Ícone de upload" /></i>
+                                    <input
+                                        type="file"
+                                        className='arquivoInput'
+                                        onChange={(e) => setImagem(e.target.files[0])}
+                                    />
+                                    <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
+                                </label>
                             </div>
-                        </div>
-                        <div className="docAction digitalizar">
+                            <button>Enviar</button>
+                        </form>
+
+                        <div action="" className="docAction">
                             <img src={Escaner} alt="" className='imgEscanear' />
 
                             <div className='divEscanear'>
@@ -74,6 +79,7 @@ export default function Inicio() {
                                 <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
                             </div>
                         </div>
+
                     </article>
                 </section>
             </main>
