@@ -17,6 +17,8 @@ namespace CollabTechFile.Repositories
         {
             try
             {
+                regrasDoc.IdDocumentoNavigation = _context.Documentos.Find(regrasDoc.IdDocumento);
+                regrasDoc.IdRegrasNavigation = _context.Regras.Find(regrasDoc.IdRegras);
                 _context.RegrasDocs.Add(regrasDoc);
                 _context.SaveChanges();
             }
@@ -47,6 +49,9 @@ namespace CollabTechFile.Repositories
         {
             try
             {
+                regrasDoc.IdDocumentoNavigation = _context.Documentos.Find(regrasDoc.IdDocumento);
+                regrasDoc.IdRegrasNavigation = _context.Regras.Find(regrasDoc.IdRegras); 
+
                 RegrasDoc regraBuscada = _context.RegrasDocs.Find(id)!;
                 if (regraBuscada != null)
                 {

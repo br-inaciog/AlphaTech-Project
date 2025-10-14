@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./ModalComentarioCliente.css";
 import voltar from "../../assets/img/Voltar.svg";
+import { Link } from "react-router";
 
 const ModalComentarioCliente = ({ nomeDocumento = "Nome do Documento", onCancel, onPublish }) => {
   const [comentario, setComentario] = useState("");
@@ -10,14 +11,15 @@ const ModalComentarioCliente = ({ nomeDocumento = "Nome do Documento", onCancel,
       <div className="modal-comentario-container">
         
         <div className="modalComentarioHeader">
-          <button
+          <Link
+          to="/docAndamentoClie"
             className="modalComentarioVoltar" 
             onClick={onCancel}
             aria-label="Voltar"
           >
             <img src={voltar} alt="" />
 
-          </button>
+          </Link>
           <h2 className="modalComentarioTitulo">
             Comentário
           </h2>
