@@ -10,18 +10,19 @@ export default function CadastroCliente() {
     <main className="containerGeral">
       <MenuLateral />
       <div className="conteudoPrincipal">
-            <header className="header">
-              <button className="voltar"> <img className="seta" src={Left} alt="seta voltando"/></button>
-              <div className="usuario">
-                 <img src={user} alt="user" />
-                <p>Funcionário</p>
-      
-              </div>
-            </header>
+        <header className="header">
+          <div className="usuario">
+            <img src={user} alt="user" />
+            <p>Funcionário</p>
+
+          </div>
+        </header>
         <section className="areaTrabalho">
           <div className="conteudo">
 
-            <h1 className="titulo">Cadastro Cliente</h1>
+            <div className="titulo">
+              <h1>Cadastro Cliente</h1>
+            </div>
 
             <form className="formulario">
               <div className="campo">

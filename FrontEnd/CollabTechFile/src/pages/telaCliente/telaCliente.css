@@ -34,27 +34,12 @@
     font-size: 1rem;
 }
 
-/* 
-.setaVoltar {
-    width: 90%;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-} */
-
-/* .setaVoltar {
-    font-size: 2rem;
-    color: #111;
-    font-weight: bold;
-} */
-
 .setaVoltar img {
     cursor: pointer;
     transition: transform 0.2s;
     height: 105px;
     width: 50px;
 }
-
 
 .tituloCliente {
     width: 100%;
@@ -67,12 +52,7 @@
 
 .tabelaClienteContainer {
     width: 100%;
-    /* padding: 24px; */
     overflow-x: auto;
-    /* background: #fff; */
-    /* border-radius: 20px; */
-    /* box-shadow: 0 4px 16px rgba(0,0,0,0.08); */
-    /* margin-top: 8px; */
 }
 
 .tabelaCliente {
@@ -112,9 +92,19 @@
 .iconLixeira {
     width: 37px;
     height: 37px;
+    transition: 0.2s;
+}
+
+.iconLixeira:hover {
+    transform: scale(1.1);
 }
 
 .iconEditar {
     width: 37px;
+    transition: 0.2s;
     height: 37px;
+}
+
+.iconEditar:hover {
+    transform: scale(1.1);
 }

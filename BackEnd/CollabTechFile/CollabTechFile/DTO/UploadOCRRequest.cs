@@ -1,4 +1,6 @@
-﻿namespace CollabTechFile.DTO
+﻿using CollabTechFile.Models;
+
+namespace CollabTechFile.DTO
 {
     public class UploadOCRRequest
     {

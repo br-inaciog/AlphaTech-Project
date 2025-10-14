@@ -140,13 +140,23 @@
         "IsRequired": false
       },
       {
+        "Name": "documento.IdUsuarioNavigation.Ativo",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
         "Name": "documento.IdUsuarioNavigation.Comentarios",
         "Type": "System.Collections.Generic.ICollection\u00601[[CollabTechFile.Models.Comentario, CollabTechFile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
       },
       {
         "Name": "documento.IdUsuarioNavigation.Documentos",
-        "Type": "System.Collections.Generic.ICollection\u00601[[Documento, CollabTechFile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.ICollection\u00601[[CollabTechFile.Models.Documento, CollabTechFile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "documento.IdUsuarioNavigation.Feedbacks",
+        "Type": "System.Collections.Generic.ICollection\u00601[[CollabTechFile.Models.Feedback, CollabTechFile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
       },
       {
@@ -162,6 +172,11 @@
       {
         "Name": "documento.IdUsuarioNavigation.IdEmpresaNavigation.Cnpj",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "documento.IdUsuarioNavigation.IdEmpresaNavigation.Ativo",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       },
       {
@@ -224,22 +239,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CollabTechFile.Controllers.EmpresaController",
-    "Method": "Deletar",
-    "RelativePath": "api/Empresa/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "CollabTechFile.Controllers.RegraController",
     "Method": "Get",
     "RelativePath": "api/Regra",
@@ -486,6 +485,22 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.SuporteController",
+    "Method": "Post",
+    "RelativePath": "api/Suporte",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "suporte",
+        "Type": "CollabTechFile.Models.Suporte",
         "IsRequired": true
       }
     ],
@@ -538,22 +553,6 @@
       {
         "Name": "usuario",
         "Type": "CollabTechFile.Models.Usuario",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CollabTechFile.Controllers.UsuarioController",
-    "Method": "Delete",
-    "RelativePath": "api/Usuario/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

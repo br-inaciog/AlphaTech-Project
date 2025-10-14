@@ -10,16 +10,22 @@
     height: 43px;
     border-radius: 10px;
     border: none;
-
+    cursor: pointer;
+    font-size: 1.1rem;
+    
     color: white;
     background-color: #001337;
 }
 
-.botaoLixeiraList button {
+.botaoLixeiraList {
     width: 160px;
     height: 43px;
+    font-size: 1.1rem;
     border-radius: 10px;
+
+    text-decoration: none;
     border: none;
+    cursor: pointer;
 
     background-color: #5F0A00;
     color: white;
@@ -47,13 +53,18 @@
     border-bottom: 2px solid black;
 
     /* background-color: #0a2a6c; */
+    transition: 0.2s;
+}
+
+.cardDocumento:hover {
+    box-shadow: inset 0px 0px 10px 0 rgba(20, 20, 20, 0.2);
 }
 
 .cardDocumento img {
      height: 90px;
      width: 80px;
 }
-
+ 
 .cardInformacoes {
     display: flex;
     flex-direction: column;

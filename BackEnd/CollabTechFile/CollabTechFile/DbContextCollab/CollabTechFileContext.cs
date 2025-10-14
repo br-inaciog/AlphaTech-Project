@@ -22,6 +22,8 @@ public partial class CollabTechFileContext : DbContext
 
     public virtual DbSet<Empresa> Empresas { get; set; }
 
+    public virtual DbSet<Feedback> Feedbacks { get; set; }
+
     public virtual DbSet<Regra> Regras { get; set; }
 
     public virtual DbSet<RegrasDoc> RegrasDocs { get; set; }
@@ -30,18 +32,15 @@ public partial class CollabTechFileContext : DbContext
 
     public virtual DbSet<Requisito> Requisitos { get; set; }
 
+    public virtual DbSet<Suporte> Suportes { get; set; }
+
     public virtual DbSet<TipoUsuario> TipoUsuarios { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
-    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        if(!optionsBuilder.IsConfigured)
-        {
-          optionsBuilder.UseSqlServer("Server=NOTE36-S28\\SQLEXPRESS;Database=CollabTechFile;User ID=sa;Password=Senai@134;TrustServerCertificate=True;");
-        }
-    }
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=NOTE36-S28\\SQLEXPRESS;DataBase=CollabTechFile;user ID = sa; pwd= Senai@134;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -64,6 +63,19 @@ public partial class CollabTechFileContext : DbContext
         modelBuilder.Entity<Empresa>(entity =>
         {
             entity.HasKey(e => e.IdEmpresa).HasName("PK__Empresa__5EF4033E44C59B40");
+
+            entity.Property(e => e.Ativo).HasDefaultValue(true);
+        });
+
+        modelBuilder.Entity<Feedback>(entity =>
+        {
+            entity.HasKey(e => e.IdFeedback).HasName("PK__Feedback__408FF1038053A229");
+
+            entity.Property(e => e.DataEnvio).HasDefaultValueSql("(getdate())");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Feedbacks)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("feedbackUsuario");
         });
 
         modelBuilder.Entity<Regra>(entity =>
@@ -94,6 +106,11 @@ public partial class CollabTechFileContext : DbContext
             entity.HasKey(e => e.IdRequisito).HasName("PK__Requisit__661FC7C2E926C8A0");
         });
 
+        modelBuilder.Entity<Suporte>(entity =>
+        {
+            entity.HasKey(e => e.IdSuporte).HasName("PK__Suporte__AA104D73D97D94F0");
+        });
+
         modelBuilder.Entity<TipoUsuario>(entity =>
         {
             entity.HasKey(e => e.IdTipoUsuario).HasName("PK__TipoUsua__CA04062B57B6CA9A");
@@ -103,7 +120,7 @@ public partial class CollabTechFileContext : DbContext
         {
             entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__5B65BF97D000312F");
 
-            entity.Property(e => e.Senha).IsFixedLength();
+            entity.Property(e => e.Ativo).HasDefaultValue(true);
 
             entity.HasOne(d => d.IdEmpresaNavigation).WithMany(p => p.Usuarios).HasConstraintName("FK__Usuario__IdEmpre__5535A963");
 

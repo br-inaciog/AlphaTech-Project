@@ -1,21 +1,26 @@
 import "./docAndamentoClie.css"
-import MenuLateral from "../../componentes/menuLateral/MenuLateral"
-import Cabecalho from "../../componentes/cabecalho/Cabecalho"
+
+import MenuLateralCliente from "../../componentes/menuLateralCliente/MenuLateralCliente"
+import CabecalhoCliente from "../../componentes/cabecalhoCliente/CabecalhoCliente"
 
 import Comentario from "../../assets/img/Comentario.png"
 
 export default function DocAndamentoClie() {
     return (
         <div className="containerGeral'">
-            <MenuLateral />
+            <MenuLateralCliente />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <Cabecalho />
+                    <CabecalhoCliente />
 
                     <section className="docAndamento">
-                        <h1>Nome documento</h1>
+                        <div className="titulo">
+                            <h1>Documento em Andamento</h1>
+                        </div>
 
                         <div className="documento">
+                                <p className="docNome">Nome Documento</p>
+
                             <div className="regrasDeNegocio">
                                 <div className="tituloRN">
                                     <h2>Regras de Negócio</h2>
@@ -55,7 +60,7 @@ export default function DocAndamentoClie() {
                             </div>
 
                             <div className="comentarioDisplay">
-                                <p>Comentário</p>
+                                <p>Comentar</p>
                                 <img src={Comentario} alt="Botão de Comentário" />
                             </div>
                         </div>
