@@ -557,5 +557,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.UsuarioController",
+    "Method": "Put",
+    "RelativePath": "api/Usuario/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "usuario",
+        "Type": "CollabTechFile.Models.Usuario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
