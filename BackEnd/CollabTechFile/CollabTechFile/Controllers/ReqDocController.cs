@@ -1,6 +1,7 @@
 ﻿using CollabTechFile.Interfaces;
 using CollabTechFile.Models;
 using CollabTechFile.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +20,7 @@ namespace CollabTechFile.Controllers
             _ReqDocRepository = reqDocRepository;
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -33,6 +35,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -47,6 +50,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, ReqDoc reqDoc)
         {
@@ -61,6 +65,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Post(ReqDoc reqDoc)
         {

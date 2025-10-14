@@ -1,23 +1,41 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {}
+<<<<<<< HEAD
+    "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {}
   },
   "projects": {
-    "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {
+    "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
+        "projectUniqueName": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
         "projectName": "CollabTechFile",
-        "projectPath": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
-        "packagesPath": "C:\\Users\\55562188899\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
+        "projectPath": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
+        "packagesPath": "C:\\Users\\50776884867\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
+=======
+    "C:\\Users\\54891245808\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\54891245808\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\54891245808\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
+        "projectName": "CollabTechFile",
+        "projectPath": "C:\\Users\\54891245808\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
+        "packagesPath": "C:\\Users\\54891245808\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\54891245808\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
+>>>>>>> a65b174b201028a13eea2642aa0b0e1f935f2eaf
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\55562188899\\AppData\\Roaming\\NuGet\\NuGet.Config",
+<<<<<<< HEAD
+          "C:\\Users\\50776884867\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\54891245808\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> a65b174b201028a13eea2642aa0b0e1f935f2eaf
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -57,6 +75,10 @@
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.13, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

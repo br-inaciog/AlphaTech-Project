@@ -20,7 +20,7 @@ public partial class CollabTechFileContext : DbContext
 
     public virtual DbSet<Documento> Documentos { get; set; }
 
-    public virtual DbSet<DocumentoVerso> DocumentoVersoes { get; set; }
+    public virtual DbSet<DocumentoVersoes> DocumentoVersoes { get; set; }
 
     public virtual DbSet<Empresa> Empresas { get; set; }
 
@@ -65,7 +65,7 @@ public partial class CollabTechFileContext : DbContext
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Documentos).HasConstraintName("FK__Documento__IdUsu__5812160E");
         });
 
-        modelBuilder.Entity<DocumentoVerso>(entity =>
+        modelBuilder.Entity<DocumentoVersoes>(entity =>
         {
             entity.HasKey(e => e.IdDocumentoVersoes).HasName("PK__Document__82F8A7D2227FA4DC");
 
