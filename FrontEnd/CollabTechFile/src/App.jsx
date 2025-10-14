@@ -1,11 +1,12 @@
 import './App.css'
 import Rotas from "../src/Routes/Routes"
-import { BrowserRouter } from 'react-router'
+import ModalSalvarDocumento from './pages/salvarDocumento/ModalSalvarDocumento'
 
 function App() {
   return (
     <>
-        <Rotas />
+        {/* <Rotas /> */}
+        <ModalSalvarDocumento />
     </>
   )
 }
