@@ -1,21 +1,25 @@
-﻿using CollabTechFile.DbContextCollab;
+﻿using System.Text.RegularExpressions;
+using CollabTechFile.DbContextCollab;
 using CollabTechFile.Interfaces;
 using CollabTechFile.Models;
 
 namespace CollabTechFile.Repositories
 {
-    public class RegrasDocRepository : IRegraRepository
+    public class RegrasDocRepository : IRegrasDocRepository
     {
         public readonly CollabTechFileContext _context;
         public RegrasDocRepository(CollabTechFileContext context)
         {
             _context = context;
         }
-        public void Cadastrar(Regra regra)
+        
+        public void Cadastrar(RegrasDoc regrasDoc)
         {
             try
             {
-                _context.Regras.Add(regra);
+                regrasDoc.IdDocumentoNavigation = _context.Documentos.Find(regrasDoc.IdDocumento);
+                regrasDoc.IdRegrasNavigation = _context.Regras.Find(regrasDoc.IdRegras);
+                _context.RegrasDocs.Add(regrasDoc);
                 _context.SaveChanges();
             }
             catch (Exception)
@@ -28,10 +32,10 @@ namespace CollabTechFile.Repositories
         {
             try
             {
-                Regra regraBuscada = _context.Regras.Find(id)!;
+                RegrasDoc regraBuscada = _context.RegrasDocs.Find(id)!;
                 if (regraBuscada != null)
                 {
-                    _context.Regras.Remove(regraBuscada);
+                    _context.RegrasDocs.Remove(regraBuscada);
                 }
                 _context.SaveChanges();
             }
@@ -41,14 +45,17 @@ namespace CollabTechFile.Repositories
             }
         }
 
-        public void Editar(int id, Regra regra)
+        public void Editar(int id, RegrasDoc regrasDoc)
         {
             try
             {
-                Regra regraBuscada = _context.Regras.Find(id)!;
+                regrasDoc.IdDocumentoNavigation = _context.Documentos.Find(regrasDoc.IdDocumento);
+                regrasDoc.IdRegrasNavigation = _context.Regras.Find(regrasDoc.IdRegras); 
+
+                RegrasDoc regraBuscada = _context.RegrasDocs.Find(id)!;
                 if (regraBuscada != null)
                 {
-                    regraBuscada.Nome = regra.Nome;
+                    regraBuscada.IdRegras = regrasDoc.IdRegrasDoc;
                 }
                 _context.SaveChanges();
             }
@@ -58,12 +65,12 @@ namespace CollabTechFile.Repositories
             }
         }
 
-        public List<Regra> Listar()
+        List<RegrasDoc> IRegrasDocRepository.Listar()
         {
             try
             {
-                List<Regra> listaRegras = _context.Regras.ToList();
-                return listaRegras;
+                List<RegrasDoc> listaRegrasDoc = _context.RegrasDocs.ToList();
+                return listaRegrasDoc;
             }
             catch (Exception)
             {

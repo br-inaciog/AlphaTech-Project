@@ -20,7 +20,7 @@ export default function DocAndamentoClie() {
                         </div>
 
                         <div className="documento">
-                                <p className="docNome">Nome Documento</p>
+                            <p className="docNome">Nome Documento</p>
 
                             <div className="regrasDeNegocio">
                                 <div className="tituloRN">
