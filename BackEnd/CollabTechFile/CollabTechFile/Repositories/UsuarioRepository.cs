@@ -92,7 +92,10 @@ namespace CollabTechFile.Repositories
         {
             try
             {
-                Usuario usuarioBuscado = _context.Usuarios.FirstOrDefault(u => u.Email == email)!;
+                // Inclui o relacionamento com TipoUsuario
+                Usuario usuarioBuscado = _context.Usuarios
+                    .Include(u => u.IdTipoUsuarioNavigation)
+                    .FirstOrDefault(u => u.Email == email)!;
 
                 if (usuarioBuscado != null)
                 {
@@ -107,9 +110,9 @@ namespace CollabTechFile.Repositories
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
+
     }
 }
