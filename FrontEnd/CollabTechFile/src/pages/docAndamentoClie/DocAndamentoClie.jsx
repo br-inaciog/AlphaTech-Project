@@ -4,6 +4,7 @@ import MenuLateralCliente from "../../componentes/menuLateralCliente/MenuLateral
 import CabecalhoCliente from "../../componentes/cabecalhoCliente/CabecalhoCliente"
 
 import Comentario from "../../assets/img/Comentario.png"
+import { Link } from "react-router"
 
 export default function DocAndamentoClie() {
     return (
@@ -19,7 +20,7 @@ export default function DocAndamentoClie() {
                         </div>
 
                         <div className="documento">
-                                <p className="docNome">Nome Documento</p>
+                            <p className="docNome">Nome Documento</p>
 
                             <div className="regrasDeNegocio">
                                 <div className="tituloRN">
@@ -59,10 +60,13 @@ export default function DocAndamentoClie() {
                                 </section>
                             </div>
 
-                            <div className="comentarioDisplay">
+                            <Link
+                                className="comentarioDisplay"
+                                to="/ModalComentarioCliente"
+                            >
                                 <p>Comentar</p>
                                 <img src={Comentario} alt="Botão de Comentário" />
-                            </div>
+                            </Link>
                         </div>
                     </section>
                 </section>
