@@ -114,10 +114,24 @@
                     "minLength": 0,
                     "type": "string"
                   },
+                  "documento.VersaoAtual": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.CriadoEm": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
                   "documento.Comentarios": {
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/Comentario"
+                    }
+                  },
+                  "documento.DocumentoVersos": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/DocumentoVerso"
                     }
                   },
                   "documento.IdUsuarioNavigation.IdUsuario": {
@@ -250,7 +264,16 @@
                 "documento.CaminhoArquivo": {
                   "style": "form"
                 },
+                "documento.VersaoAtual": {
+                  "style": "form"
+                },
+                "documento.CriadoEm": {
+                  "style": "form"
+                },
                 "documento.Comentarios": {
+                  "style": "form"
+                },
+                "documento.DocumentoVersos": {
                   "style": "form"
                 },
                 "documento.IdUsuarioNavigation.IdUsuario": {
@@ -1024,10 +1047,25 @@
             "type": "string",
             "nullable": true
           },
+          "versaoAtual": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "criadoEm": {
+            "type": "string",
+            "format": "date-time"
+          },
           "comentarios": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Comentario"
+            },
+            "nullable": true
+          },
+          "documentoVersos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentoVerso"
             },
             "nullable": true
           },
@@ -1047,6 +1085,27 @@
               "$ref": "#/components/schemas/ReqDoc"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentoVerso": {
+        "type": "object",
+        "properties": {
+          "idDocumentoVersoes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idDocumento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numeroVersao": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idDocumentoNavigation": {
+            "$ref": "#/components/schemas/Documento"
           }
         },
         "additionalProperties": false

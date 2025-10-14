@@ -100,8 +100,23 @@
         "IsRequired": false
       },
       {
+        "Name": "documento.VersaoAtual",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "documento.CriadoEm",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
         "Name": "documento.Comentarios",
         "Type": "System.Collections.Generic.ICollection\u00601[[CollabTechFile.Models.Comentario, CollabTechFile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "documento.DocumentoVersos",
+        "Type": "System.Collections.Generic.ICollection\u00601[[CollabTechFile.Models.DocumentoVerso, CollabTechFile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
       },
       {
