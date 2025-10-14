@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {}
   },
   "projects": {
@@ -12,12 +13,29 @@
         "projectPath": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
         "packagesPath": "C:\\Users\\50776884867\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
+=======
+    "C:\\Users\\54891245808\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\54891245808\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\54891245808\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
+        "projectName": "CollabTechFile",
+        "projectPath": "C:\\Users\\54891245808\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
+        "packagesPath": "C:\\Users\\54891245808\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\54891245808\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
+>>>>>>> a65b174b201028a13eea2642aa0b0e1f935f2eaf
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\50776884867\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\54891245808\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> a65b174b201028a13eea2642aa0b0e1f935f2eaf
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

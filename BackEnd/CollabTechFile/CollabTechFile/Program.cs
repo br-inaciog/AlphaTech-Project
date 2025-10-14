@@ -8,11 +8,18 @@ using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+<<<<<<< HEAD
 // Add services to the container.
+=======
+
+
+
+>>>>>>> a65b174b201028a13eea2642aa0b0e1f935f2eaf
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
 builder.Services.AddScoped<OCRService>();
+builder.Services.AddScoped<IDocumentoVersoesRepository, DocumentoVersoesRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IReqDocRepository, ReqDocRepository>();
 builder.Services.AddScoped<IRegrasDocRepository, RegrasDocRepository>();
@@ -78,7 +85,6 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -50,6 +50,21 @@ namespace CollabTechFile.Controllers
             }
         }
 
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Usuario usuario)
+        {
+            try
+            {
+                usuario.IdUsuario = id;
+                _UsuarioRepository.Editar(id, usuario);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
         //[HttpDelete("{id}")]
         //public IActionResult Delete(int id)
         //{
