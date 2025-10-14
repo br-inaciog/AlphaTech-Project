@@ -1,6 +1,7 @@
 ﻿using CollabTechFile.Interfaces;
 using CollabTechFile.Models;
 using CollabTechFile.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +34,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
+        //[Authorize]
         [HttpPost]
         public IActionResult Post(Usuario usuario)
         {
@@ -75,6 +77,30 @@ namespace CollabTechFile.Controllers
         //        return BadRequest(error.Message);
         //    }
         //}
+
+
+        //[Authorize]
+        [HttpGet("BuscarPorEmailESenha")]
+        public IActionResult Get(string email, string senha)
+        {
+            try
+            {
+
+                Usuario usuarioBuscado = _UsuarioRepository.BuscarPorEmailESenha(email, senha);
+
+                if (usuarioBuscado != null)
+                {
+                    return Ok(usuarioBuscado);
+                }
+                return null!;
+            }
+
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+        }
 
     }
 }

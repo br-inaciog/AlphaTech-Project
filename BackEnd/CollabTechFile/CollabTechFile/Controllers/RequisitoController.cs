@@ -1,6 +1,7 @@
 ﻿using CollabTechFile.Interfaces;
 using CollabTechFile.Models;
 using CollabTechFile.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,9 +19,8 @@ namespace CollabTechFile.Controllers
             _RequisitoRepository = requisitoRepository;
         }
 
-
+        //[Authorize]
         [HttpGet]
-
         public IActionResult Get() {
             try
             {
@@ -35,8 +35,8 @@ namespace CollabTechFile.Controllers
         }
 
 
+        //[Authorize]
         [HttpPost]
-
         public IActionResult Post(Requisito requisitos)
         {
 
@@ -52,6 +52,7 @@ namespace CollabTechFile.Controllers
         }
 
 
+        //[Authorize]
         [HttpPut("{id}")]
 
         public IActionResult Put(int id, Requisito requisitos) {
@@ -69,7 +70,7 @@ namespace CollabTechFile.Controllers
         }
 
 
-
+        //[Authorize]
         [HttpDelete("{id}")]
 
         public IActionResult Delete(int id) {

@@ -114,10 +114,24 @@
                     "minLength": 0,
                     "type": "string"
                   },
+                  "documento.VersaoAtual": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.CriadoEm": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
                   "documento.Comentarios": {
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/Comentario"
+                    }
+                  },
+                  "documento.DocumentoVersos": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/DocumentoVersoes"
                     }
                   },
                   "documento.IdUsuarioNavigation.IdUsuario": {
@@ -250,7 +264,16 @@
                 "documento.CaminhoArquivo": {
                   "style": "form"
                 },
+                "documento.VersaoAtual": {
+                  "style": "form"
+                },
+                "documento.CriadoEm": {
+                  "style": "form"
+                },
                 "documento.Comentarios": {
+                  "style": "form"
+                },
+                "documento.DocumentoVersos": {
                   "style": "form"
                 },
                 "documento.IdUsuarioNavigation.IdUsuario": {
@@ -339,6 +362,70 @@
         }
       }
     },
+    "/api/DocumentoVersoes": {
+      "post": {
+        "tags": [
+          "DocumentoVersoes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentoVersoes"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentoVersoes"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentoVersoes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "DocumentoVersoes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DocumentoVersoes/documento/{IdDocumento}": {
+      "get": {
+        "tags": [
+          "DocumentoVersoes"
+        ],
+        "parameters": [
+          {
+            "name": "IdDocumento",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Empresa": {
       "post": {
         "tags": [
@@ -373,6 +460,37 @@
         "tags": [
           "Empresa"
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Login": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDTO"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -950,6 +1068,34 @@
           }
         }
       }
+    },
+    "/api/Usuario/BuscarPorEmailESenha": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "senha",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1024,10 +1170,25 @@
             "type": "string",
             "nullable": true
           },
+          "versaoAtual": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "criadoEm": {
+            "type": "string",
+            "format": "date-time"
+          },
           "comentarios": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Comentario"
+            },
+            "nullable": true
+          },
+          "documentoVersos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentoVersoes"
             },
             "nullable": true
           },
@@ -1047,6 +1208,27 @@
               "$ref": "#/components/schemas/ReqDoc"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentoVersoes": {
+        "type": "object",
+        "properties": {
+          "idDocumentoVersoes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idDocumento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numeroVersao": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idDocumentoNavigation": {
+            "$ref": "#/components/schemas/Documento"
           }
         },
         "additionalProperties": false
@@ -1106,6 +1288,25 @@
           },
           "idUsuarioNavigation": {
             "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginDTO": {
+        "required": [
+          "email",
+          "senha"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "senha": {
+            "maxLength": 8,
+            "minLength": 6,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -1332,6 +1533,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Value: Bearer {token}",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

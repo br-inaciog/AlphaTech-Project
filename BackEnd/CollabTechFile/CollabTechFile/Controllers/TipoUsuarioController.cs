@@ -1,6 +1,7 @@
 ﻿using CollabTechFile.Interfaces;
 using CollabTechFile.Models;
 using CollabTechFile.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +19,7 @@ namespace CollabTechFile.Controllers
             _TipoUsuarioRepository = tipousuarioRepository;
         }
 
+        //[Authorize]
         [HttpPost]
 
         public IActionResult Post(TipoUsuario tipousuario)
@@ -34,7 +36,7 @@ namespace CollabTechFile.Controllers
 
         }
 
-
+        
         [HttpGet]
         public IActionResult Get()
         {

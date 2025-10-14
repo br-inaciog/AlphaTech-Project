@@ -1,6 +1,7 @@
 ﻿using CollabTechFile.Interfaces;
 using CollabTechFile.Models;
 using CollabTechFile.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,8 +21,8 @@ namespace CollabTechFile.Controllers
             _ComentarioRepository = comentarioRepository;
         }
 
+        //[Authorize]
         [HttpGet]
-
         public IActionResult Get()
         {
             try
@@ -36,8 +37,8 @@ namespace CollabTechFile.Controllers
 
         }
 
+        //[Authorize]
         [HttpPost]
-
         public IActionResult Post(Comentario comentario)
         {
 
@@ -52,6 +53,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
+        //[Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
