@@ -1,5 +1,6 @@
 ﻿using CollabTechFile.Interfaces;
 using CollabTechFile.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +19,7 @@ namespace CollabTechFile.Controllers
             _SuporteRepository = suporteRepository;
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Post(Suporte suporte)
         {

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CollabTechFile.Models;
 
-public partial class DocumentoVerso
+public partial class DocumentoVersoes
 {
     [Key]
     public int IdDocumentoVersoes { get; set; }
