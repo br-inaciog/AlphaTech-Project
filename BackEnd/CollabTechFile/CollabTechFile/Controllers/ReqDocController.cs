@@ -20,7 +20,7 @@ namespace CollabTechFile.Controllers
             _ReqDocRepository = reqDocRepository;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -35,7 +35,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -50,7 +50,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, ReqDoc reqDoc)
         {
@@ -65,7 +65,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult Post(ReqDoc reqDoc)
         {

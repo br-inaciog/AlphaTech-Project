@@ -19,7 +19,7 @@ namespace CollabTechFile.Controllers
             _TipoUsuarioRepository = tipousuarioRepository;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
 
         public IActionResult Post(TipoUsuario tipousuario)
@@ -36,7 +36,7 @@ namespace CollabTechFile.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public IActionResult Get()
         {

@@ -116,7 +116,7 @@
       },
       {
         "Name": "documento.DocumentoVersos",
-        "Type": "System.Collections.Generic.ICollection\u00601[[CollabTechFile.Models.DocumentoVerso, CollabTechFile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.ICollection\u00601[[CollabTechFile.Models.DocumentoVersoes, CollabTechFile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
       },
       {
@@ -223,6 +223,48 @@
         "Name": "documento.ReqDocs",
         "Type": "System.Collections.Generic.ICollection\u00601[[CollabTechFile.Models.ReqDoc, CollabTechFile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.DocumentoVersoesController",
+    "Method": "Post",
+    "RelativePath": "api/DocumentoVersoes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "versao",
+        "Type": "CollabTechFile.Models.DocumentoVersoes",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.DocumentoVersoesController",
+    "Method": "Get",
+    "RelativePath": "api/DocumentoVersoes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.DocumentoVersoesController",
+    "Method": "GetPorDocumento",
+    "RelativePath": "api/DocumentoVersoes/documento/{IdDocumento}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdDocumento",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
