@@ -38,7 +38,7 @@ export default function TelaCliente() {
                                     <th>Excluir</th>
                                 </tr>
                             </thead>
-                            <tbody className="barraRolagem">
+                            <tbody>
                                 {clientes.map((c, i) => (
                                     <tr key={i}>
                                         <td>{c.nome}</td>

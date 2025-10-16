@@ -20,7 +20,10 @@ namespace CollabTechFile.Controllers
             _UsuarioRepository = usuarioRepository;
         }
 
-        [Authorize]
+<<<<<<< HEAD
+        //[Authorize]
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
         [HttpGet]
         public IActionResult Get()
         {
@@ -50,6 +53,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
+        //[Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Usuario usuario)
         {
@@ -65,22 +69,9 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        //[HttpDelete("{id}")]
-        //public IActionResult Delete(int id)
-        //{
-        //    try
-        //    {
-        //        _UsuarioRepository.Deletar(id);
-        //        return NoContent();
-        //    }
-        //    catch(Exception error)
-        //    {
-        //        return BadRequest(error.Message);
-        //    }
-        //}
 
 
-        [Authorize]
+        //[Authorize]
         [HttpGet("BuscarPorEmailESenha")]
         public IActionResult Get(string email, string senha)
         {

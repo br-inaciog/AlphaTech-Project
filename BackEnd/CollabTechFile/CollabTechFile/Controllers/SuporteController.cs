@@ -19,7 +19,7 @@ namespace CollabTechFile.Controllers
             _SuporteRepository = suporteRepository;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult Post(Suporte suporte)
         {

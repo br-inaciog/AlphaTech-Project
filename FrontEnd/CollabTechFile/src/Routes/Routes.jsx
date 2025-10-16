@@ -1,9 +1,9 @@
-import {  Route, Routes } from "react-router"
+import { Route, Routes } from "react-router"
 
 import Login from "../pages/login/Login"
 import Inicio from "../pages/inicio/Inicio"
 import ListagemDoc from "../pages/listagemDoc/listagemDoc"
-import CadastroCliente from "../pages/Cadastro/Cadastro"
+import CadastroCliente from "../pages/CadastroCliente/CadastroCliente"
 import CadastroEmpresa from "../pages/cadastroEmpresa/CadastroEmpresa"
 import CadastroFuncionario from "../pages/cadastroFuncionario/CadastroFuncionario"
 import TelaCliente from "../pages/telaCliente/telaCliente"
@@ -30,6 +30,7 @@ const Rotas = () => {
             <Route element={<Lixeira />} path="/Lixeira" />
             <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc" />
             <Route element={<DocAndamentoClie />} path="/docAndamentoClie" />
+            <Route element={<Feedback /> } path="/FeedBacks" />
             <Route element={<FaleConosco/> } path="/FaleConosco" />
             <Route element={<InicioCliente />} path="/InicioCliente" />
             <Route element={<Feedback />} path="/FeedBacks" />

@@ -17,7 +17,7 @@ namespace CollabTechFile.Controllers
             _regrasDocRepository = regraDocRepository;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -32,7 +32,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult Post (RegrasDoc regrasDoc)
         {
@@ -47,7 +47,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete (int id)
         {
@@ -62,7 +62,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, RegrasDoc regrasDoc)
         {

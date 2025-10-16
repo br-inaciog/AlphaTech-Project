@@ -1,16 +1,22 @@
-.header {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  width: 80%;
-  margin-top: 4%;
-  margin-left: 20%;
-  margin-right: 20%;
+.voltar {
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #222;
 }
 
-.seta {
+.seta{
   width: 34px;
   height: 34px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #0a1a3f;
+  margin-bottom: 5%;
 }
 
 .usuario {
@@ -21,26 +27,19 @@
   font-weight: 500;
 }
 
-.titulo {
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  color: #0a1a3f;
-  margin-bottom: 50px;
-}
-
-
 .formulario {
   max-width: 480px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 25px;
 }
 
 .campo {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 6px;
 }
 
@@ -53,7 +52,7 @@
   border: none;
   border-bottom: 1px solid #444;
   background: transparent;
-  padding: 8px 4px;
+  padding: 1%;
   outline: none;
   font-size: 14px;
 }

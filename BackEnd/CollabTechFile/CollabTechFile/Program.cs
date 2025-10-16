@@ -8,7 +8,30 @@ using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+// Add services to the container.
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder => builder
+        .AllowAnyOrigin() // Permite requisições de QUALQUER domínio
+        .AllowAnyMethod() // Permite métodos GET, POST, PUT, etc.
+        .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
+});
+
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
@@ -30,8 +53,8 @@ builder.Services.AddDbContext<CollabTechFileContext>(options =>
 
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultChallengeScheme = "JwtBearer";
     options.DefaultAuthenticateScheme = "JwtBearer";
+    options.DefaultChallengeScheme = "JwtBearer";
 })
 .AddJwtBearer("JwtBearer", options =>
 {
@@ -40,11 +63,14 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateLifetime = true,
-        IssuerSigningKey = new SymmetricSecurityKey(
-            System.Text.Encoding.UTF8.GetBytes("collabtechfile-chave-autenticado-webapi-dev")),
+        ValidateIssuerSigningKey = true,
         ClockSkew = TimeSpan.FromMinutes(5),
-        ValidIssuer = "CollabTechFile+",
-        ValidAudience = "CollabTechFile+"
+
+        // ?? Mesmos valores do LoginController
+        IssuerSigningKey = new SymmetricSecurityKey(
+            System.Text.Encoding.UTF8.GetBytes("collab-tech-file-chave-autenticacao")),
+        ValidIssuer = "CollabTechFile.WebApi",
+        ValidAudience = "CollabTechFile.WebApi"
     };
 });
 
@@ -74,9 +100,10 @@ builder.Services.AddSwaggerGen(options =>
             },
                 new string[] { }
         }
-    }); 
+    });
 });
 
+<<<<<<< HEAD
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy",
@@ -87,6 +114,23 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
         });
 });
+=======
+<<<<<<< HEAD
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+        policy.WithOrigins(
+            "http://localhost:5173",
+            "http://127.0.0.1:5173"
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+    // .AllowCredentials() // só se usar cookies/autenticação via cookie
+    );
+});
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
 
 var app = builder.Build();
 
@@ -94,13 +138,35 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
 }
 
-app.UseHttpsRedirection();
+app.UseSwagger(options =>
+{
+    options.SerializeAsV2 = true;
+});
+
+
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    options.RoutePrefix = string.Empty;
+});
+
+app.UseRouting();
 
 app.UseCors("CorsPolicy");
 
+app.UseHttpsRedirection();
+
+<<<<<<< HEAD
+app.UseCors("CorsPolicy");
+=======
+app.UseCors("AllowFrontend");
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
+
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();
