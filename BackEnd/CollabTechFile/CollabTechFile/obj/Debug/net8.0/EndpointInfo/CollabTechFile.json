@@ -1226,9 +1226,6 @@
           "numeroVersao": {
             "type": "integer",
             "format": "int32"
-          },
-          "idDocumentoNavigation": {
-            "$ref": "#/components/schemas/Documento"
           }
         },
         "additionalProperties": false

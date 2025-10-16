@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace CollabTechFile.Models;
@@ -15,7 +16,8 @@ public partial class DocumentoVersoes
 
     public int NumeroVersao { get; set; }
 
+    [JsonIgnore]
     [ForeignKey("IdDocumento")]
     [InverseProperty("DocumentoVersos")]
-    public virtual Documento IdDocumentoNavigation { get; set; } = null!;
+    public virtual Documento? IdDocumentoNavigation { get; set; }
 }
