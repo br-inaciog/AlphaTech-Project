@@ -60,6 +60,20 @@
     background: transparent;
 }
 
+.prazoEntrega {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 2%;
+}
+
+.prazoEntrega input {
+    border: none;
+    border-bottom: 2px solid black; 
+    background-color: transparent;
+}
+
 .listaRN,
 .listaRF,
 .listaRNF {
@@ -125,20 +139,32 @@
     border: none;
 
     margin-top: 4%;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.finalizarDoc:hover {
+    transform: scale(1.05);
 }
 
 .salvarDoc {
     width: 275px;
     height: 53px;
     border-radius: 10px;
-
+    
     font-size: 24px;
     color: white;
-
+    
     background-color: #1E3A8A;
     border: none;
-
+    
     margin-top: 4%;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.salvarDoc:hover {
+    transform: scale(1.05);
 }
 
 .salvarFinalizarDoc {
