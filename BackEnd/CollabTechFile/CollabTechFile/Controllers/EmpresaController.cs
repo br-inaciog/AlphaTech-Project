@@ -20,7 +20,7 @@ namespace CollabTechFile.Controllers
             _EmpresaRepository = empresaRepository;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
 
         public IActionResult Post(Empresa empresa)

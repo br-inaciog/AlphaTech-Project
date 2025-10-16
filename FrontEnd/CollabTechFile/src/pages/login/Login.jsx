@@ -1,5 +1,5 @@
 import "./Login.css"
-import Botao from "../../componentes/botao/Botao";
+import Botao from "../../components/botao/Botao";
 import User from "../../assets/img/UserModoClaro.png"
 import Logo from "../../assets/img/Logo.png"
 

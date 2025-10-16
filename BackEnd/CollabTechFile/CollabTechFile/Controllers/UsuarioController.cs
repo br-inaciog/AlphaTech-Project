@@ -35,7 +35,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult Post(Usuario usuario)
         {

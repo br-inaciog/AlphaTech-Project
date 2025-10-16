@@ -29,7 +29,7 @@ namespace CollabTechFile.Controllers
             _configuration = configuration;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost("upload-ocr")]
         public async Task<IActionResult> UploadOCR([FromForm] UploadOCRRequest request)
         {
@@ -94,7 +94,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public IActionResult Get()
         {

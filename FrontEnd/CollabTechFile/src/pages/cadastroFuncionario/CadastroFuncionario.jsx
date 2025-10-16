@@ -1,4 +1,4 @@
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
+import MenuLateral from "../../components/menuLateral/MenuLateral";
 import "./CadastroFuncionario.css";
 import user from "../../assets/img/user.png"
 import Left from "../../assets/img/Voltar.svg"

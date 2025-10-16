@@ -1,8 +1,8 @@
 import "./Feedback.css";
 
 import Lixeira from "../../assets/img/Delete.svg";
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
-import Cabecalho from "../../componentes/cabecalho/Cabecalho";
+import MenuLateral from "../../components/menuLateral/MenuLateral";
+import Cabecalho from "../../components/cabecalho/Cabecalho";
 
 const listaFeedbacks = [
     {
