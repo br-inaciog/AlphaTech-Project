@@ -19,7 +19,7 @@ export default function Lixeira() {
                     </div>
 
                     <div className="cardInf">
-                        <div className="cardDocumento">
+                        <div className="cardDocumentoLixeira">
                             <div className="cardInformacoesLixeira">
                                 <img src={Pdf} alt="Icone de Pdf" />
                                 <p>Relatório de Requisitos Ifood</p>

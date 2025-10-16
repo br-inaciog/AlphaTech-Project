@@ -19,7 +19,7 @@ public partial class Empresa
     [Column("CNPJ")]
     [StringLength(18)]
     [Unicode(false)]
-    public string Cnpj { get; set; } = null!;
+    public string? Cnpj { get; set; }
 
     [Column("ativo")]
     public bool? Ativo { get; set; }

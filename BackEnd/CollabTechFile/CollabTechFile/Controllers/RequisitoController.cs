@@ -21,7 +21,6 @@ namespace CollabTechFile.Controllers
 
         //[Authorize]
         [HttpGet]
-
         public IActionResult Get() {
             try
             {
@@ -38,7 +37,6 @@ namespace CollabTechFile.Controllers
 
         //[Authorize]
         [HttpPost]
-
         public IActionResult Post(Requisito requisitos)
         {
 

@@ -6,23 +6,23 @@ import Cabecalho from "../../componentes/cabecalho/Cabecalho";
 
 const listaFeedbacks = [
     {
-        nome: "Tirulipa Macedo",
+        nome: "Tirulipa Tripa",
         data: "12/04/2025",
         mensagem:
             "Gostaria que tivesse um sistema de teleporte para a empresa, talvez seja útil. Enfim, o site está ótimo tanto em design e funcionalidade",
     },
     {
-        nome: "Tirulipa Macedo",
-        data: "04/07/2025",
+        nome: "Tirulipa Tripa",
+        data: "12/04/2025",
         mensagem:
             "Gostaria que tivesse um sistema de teleporte para a empresa, talvez seja útil. Enfim, o site está ótimo tanto em design e funcionalidade",
     },
     {
-        nome: "Tirulipa Macedo",
-        data: "18/12/2025",
+        nome: "Tirulipa Tripa",
+        data: "12/04/2025",
         mensagem:
             "Gostaria que tivesse um sistema de teleporte para a empresa, talvez seja útil. Enfim, o site está ótimo tanto em design e funcionalidade",
-    },
+    }
 ];
 
 export default function Feedback() {

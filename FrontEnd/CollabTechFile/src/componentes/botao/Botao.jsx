@@ -1,14 +1,12 @@
 import "./Botao.css"
 import { Link } from 'react-router';
 
-export default function Botao() {
+export default function Botao(props) {
     return (
         <>
-            <Link to="/Inicio">
-                <button className="botaoLogin">
-                    Entrar
-                </button>
-            </Link>
+            <button className="botaoLogin">
+                {props.nomeBotao}
+            </button>
         </>
     )
 }

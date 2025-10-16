@@ -87,5 +87,32 @@ namespace CollabTechFile.Repositories
                 throw;
             }
         }
+
+        public Usuario BuscarPorEmailESenha(string email, string senha)
+        {
+            try
+            {
+                // Inclui o relacionamento com TipoUsuario
+                Usuario usuarioBuscado = _context.Usuarios
+                    .Include(u => u.IdTipoUsuarioNavigation)
+                    .FirstOrDefault(u => u.Email == email)!;
+
+                if (usuarioBuscado != null)
+                {
+                    bool confere = Criptografia.CompararHash(senha, usuarioBuscado.Senha!);
+
+                    if (confere)
+                    {
+                        return usuarioBuscado;
+                    }
+                }
+                return null!;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

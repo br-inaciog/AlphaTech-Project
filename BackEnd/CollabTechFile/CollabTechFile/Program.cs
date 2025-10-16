@@ -8,13 +8,26 @@ using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+<<<<<<< HEAD
 
 // Add services to the container.
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder => builder
+        .AllowAnyOrigin() // Permite requisições de QUALQUER domínio
+        .AllowAnyMethod() // Permite métodos GET, POST, PUT, etc.
+        .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
+});
+
+<<<<<<< HEAD
 
 
 
-
-
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
@@ -36,8 +49,8 @@ builder.Services.AddDbContext<CollabTechFileContext>(options =>
 
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultChallengeScheme = "JwtBearer";
     options.DefaultAuthenticateScheme = "JwtBearer";
+    options.DefaultChallengeScheme = "JwtBearer";
 })
 .AddJwtBearer("JwtBearer", options =>
 {
@@ -46,11 +59,14 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateLifetime = true,
-        IssuerSigningKey = new SymmetricSecurityKey(
-            System.Text.Encoding.UTF8.GetBytes("collabtechfile-chave-autenticado-webapi-dev")),
+        ValidateIssuerSigningKey = true,
         ClockSkew = TimeSpan.FromMinutes(5),
-        ValidIssuer = "CollabTechFile+",
-        ValidAudience = "CollabTechFile+"
+
+        // ?? Mesmos valores do LoginController
+        IssuerSigningKey = new SymmetricSecurityKey(
+            System.Text.Encoding.UTF8.GetBytes("collab-tech-file-chave-autenticacao")),
+        ValidIssuer = "CollabTechFile.WebApi",
+        ValidAudience = "CollabTechFile.WebApi"
     };
 });
 
@@ -83,6 +99,7 @@ builder.Services.AddSwaggerGen(options =>
     }); 
 });
 
+<<<<<<< HEAD
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -95,14 +112,35 @@ builder.Services.AddCors(options =>
     // .AllowCredentials() // só se usar cookies/autenticação via cookie
     );
 });
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    //app.UseSwagger();
+    //app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
 }
+
+app.UseSwagger(options =>
+{
+    options.SerializeAsV2 = true;
+});
+
+
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    options.RoutePrefix = string.Empty;
+});
+
+
+
+app.UseRouting();
+
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 

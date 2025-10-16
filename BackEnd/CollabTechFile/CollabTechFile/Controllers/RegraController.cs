@@ -22,7 +22,6 @@ namespace CollabTechFile.Controllers
 
         //[Authorize]
         [HttpGet]
-
         public IActionResult Get()
         {
             try
@@ -39,7 +38,6 @@ namespace CollabTechFile.Controllers
 
         //[Authorize]
         [HttpPost]
-
         public IActionResult Post(Regra regra)
         {
 
@@ -71,7 +69,6 @@ namespace CollabTechFile.Controllers
 
         //[Authorize]
         [HttpPut("{id}")]
-
         public IActionResult Put(int id, Regra regra)
         {
             try
