@@ -1,8 +1,23 @@
 import "./Cadastro.css";
+import { IMaskInput } from 'react-imask';
 
 export default function Cadastro(props) {
+    let senha = document.getElementById('senha');
+    let senhaC = document.getElementById('senhaC');
+
+    function validarSenha() {
+        if (senha.value != senhaC.value) {
+            senhaC.setCustomValidity("Senhas diferentes!");
+            senhaC.reportValidity();
+            return false;
+        } else {
+            senhaC.setCustomValidity("");
+            return true;
+        }
+    }
+
     return (
-        <div className="conteudo">
+        <section className="conteudo">
 
             <div className="titulo">
                 <h1>{props.titulo}</h1>
@@ -17,24 +32,39 @@ export default function Cadastro(props) {
                         onChange={(e) => props.setValorInput1(e.target.value)} />
                 </div>
 
-                <div className="campo" >
+                <div className="campo" style={{ display: props.visibilidade_campoCNPJ }}>
+                    <label for="cnpj">CNPJ</label>
+                    <IMaskInput
+                        mask="00.000.000/0000-00"
+                        value={props.valorInputCNPJ}
+                        onChange={(e) => props.setValorInputCNPJ(e.target.value)}
+                    />
+                </div>
+
+                <div className="campo" style={{ display: props.visibilidade_campo2 }}>
                     <label>{props.campo2}</label>
                     <input
                         type={props.tpInput}
                         value={props.valorInput2}
-                        onChange={(e) => props.setValorInput2(e.target.value)} />
+                        onChange={(e) => props.setValorInput2(e.target.value)}
+                    />
                 </div>
 
                 <div className="campo" style={{ display: props.visibilidade_campo3 }}>
                     <label>{props.campo3}</label>
                     <select
-                        name="Tipo Usuario"
-                        value={props.valorTpEvento}
-                        onChange={(e) => props.setValorTpEvento(e.target.value)}
+                        name="Tipo Evento"
+                        value={props.valorTipoUsuario}
+                        onChange={(e) => props.setValorTipoUsuario(e.target.value)}
                     >
-                        <option value="" disabled>Tipo Usuário</option>
-                        <option value="">Admin</option>
-                        <option value="">Funcionário</option>
+                        <option selected disabled value="">
+                            Selecionar Tipo Usuário
+                        </option>
+                        {/* {props.lista &&
+                            props.lista.length > 0 &&
+                            props.lista.map((item) =>
+                                <option value={item.idTipoUsuario}>{item.tituloTipoUsuario}</option>
+                            )} */}
                     </select>
                 </div>
 
@@ -45,6 +75,7 @@ export default function Cadastro(props) {
                         value={props.valorEmpresa}
                         onChange={(e) => props.setValorEmpresa(e.target.value)}
                     >
+                        <option value="" disabled>Empresa</option>
                         <option value="">Pfizer</option>
                         <option value="">Merck </option>
                     </select>
@@ -53,26 +84,30 @@ export default function Cadastro(props) {
                 <div className="campo" style={{ display: props.visibilidade_campo5 }}>
                     <label>{props.campo5}</label>
                     <input
+                        name="senha"
+                        id="senha"
                         type="password"
                         placeholder="Mínimo de 8 caracteres com números e símbolos"
-                        value={props.valorInput2}
-                        onChange={(e) => props.setValorInput2(e.target.value)}
+                        value={props.valorInput3}
+                        onChange={(e) => props.setValorInput3(e.target.value)}
                     />
                 </div>
 
                 <div className="campo" style={{ display: props.visibilidade_campo6 }}>
                     <label>{props.campo6}</label>
                     <input
+                        name="senhaC"
+                        id="senhaC"
                         type="password"
-                        value={props.valorInput3}
-                        onChange={(e) => props.setValorInput3(e.target.value)}
+                        value={props.valorInput4}
+                        onChange={(e) => props.setValorInput4(e.target.value)}
                     />
                 </div>
 
-                <button type="submit" className="cadastrar">
+                <button type="submit" className="cadastrar" onclick="return validarSenha()">
                     Cadastrar
                 </button>
             </form>
-        </div>
+        </section>
     );
 }

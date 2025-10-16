@@ -15,7 +15,6 @@ import Cadastro from "../../componentes/cadastro/Cadastro";
 export default function CadastroEmpresa() {
   const [empresa, setEmpresa] = useState("")
   const [CNPJ, setCNPJ] = useState("")
-  const [statusEmpresa, setStatusEmpresa] = useState(true);
 
   function alertar(icone, mensagem) {
     const Toast = Swal.mixin({
@@ -40,14 +39,12 @@ export default function CadastroEmpresa() {
 
     console.log(empresa);
     console.log(CNPJ);
-    console.log(statusEmpresa);
 
     if (empresa.trim() != "") {
       try {
         await api.post("Empresa", {
           nome: empresa,
-          CNPJ: CNPJ,
-          ativo: statusEmpresa
+          CNPJ: CNPJ
         });
 
         alertar("success", "Cadastro Realizado!");
@@ -60,8 +57,7 @@ export default function CadastroEmpresa() {
 
         console.log({
           nome: empresa,
-          cnpj: CNPJ,
-          ativo: statusEmpresa
+          cnpj: CNPJ
         });
 
       }
@@ -86,8 +82,8 @@ export default function CadastroEmpresa() {
             <Cadastro
               titulo="Cadastro Empresa"
               campo1="Empresa"
-              campo2="CNPJ"
               tpInput="text"
+              visibilidade_campo2="none"
               visibilidade_campo3="none"
               visibilidade_campo4="none"
               visibilidade_campo5="none"
@@ -96,9 +92,8 @@ export default function CadastroEmpresa() {
               funcCadastro={cadEmpresa}
               valorInput1={empresa}
               setValorInput1={setEmpresa}
-
-              valorInput2={CNPJ}
-              setValorInput2={setCNPJ}
+              valorInputCNPJ={CNPJ}
+              setValorInputCNPJ={setCNPJ}
             />
           </div>
         </section>

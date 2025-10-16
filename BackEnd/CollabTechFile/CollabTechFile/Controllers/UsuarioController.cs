@@ -49,7 +49,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Usuario usuario)
         {

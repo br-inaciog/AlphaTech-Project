@@ -197,7 +197,7 @@
                     "type": "string"
                   },
                   "documento.IdUsuarioNavigation.IdEmpresaNavigation.Cnpj": {
-                    "maxLength": 15,
+                    "maxLength": 18,
                     "minLength": 0,
                     "type": "string"
                   },
@@ -1247,7 +1247,7 @@
             "nullable": true
           },
           "cnpj": {
-            "maxLength": 15,
+            "maxLength": 18,
             "minLength": 0,
             "type": "string",
             "nullable": true
