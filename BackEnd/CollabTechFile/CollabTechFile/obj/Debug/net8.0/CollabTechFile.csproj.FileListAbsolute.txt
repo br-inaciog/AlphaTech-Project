@@ -168,7 +168,6 @@ C:\Users\54891245808\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTech
 C:\Users\54891245808\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.CollabTechFile.props
 C:\Users\54891245808\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.CollabTechFile.props
 C:\Users\54891245808\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\54891245808\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\54891245808\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTe.C19EBDF5.Up2Date
 C:\Users\54891245808\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTechFile.dll
 C:\Users\54891245808\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\refint\CollabTechFile.dll
