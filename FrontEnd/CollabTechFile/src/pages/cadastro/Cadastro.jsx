@@ -1,32 +1,21 @@
 <<<<<<< HEAD
-import "./CadastroEmpresa.css";
-
-import api from "../../services/Service";
-import Swal from "sweetalert2";
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
-=======
-<<<<<<< HEAD
 import MenuLateral from "../../components/menuLateral/MenuLateral";
 =======
-<<<<<<< HEAD
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import api from "../../Services/service";
 import Swal from "sweetalert2";
 import MenuLateral from "../../componentes/menuLateral/MenuLateral";
 >>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
-import "./CadastroEmpresa.css";
->>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
+import "./Cadastro.css";
 import user from "../../assets/img/user.png";
-import { useState } from "react";
-import Cadastro from "../../componentes/cadastro/Cadastro";
 
-export default function CadastroEmpresa() {
+export default function CadastroCliente() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [empresa, setEmpresa] = useState("");
-  const [CNPJ, setCNPJ] = useState("");
   const [senha, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
+  const [loading, setLoading] = useState(false);
 
   function alertar(icone, mensagem) {
     const Toast = Swal.mixin({
@@ -52,7 +41,7 @@ export default function CadastroEmpresa() {
     return regexSenha.test(senha);
   }
 
-  async function cadEmpresa(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     // Validações
@@ -117,27 +106,71 @@ export default function CadastroEmpresa() {
         <header className="header">
           <div className="usuario">
             <img src={user} alt="user" />
-            <p>Admin</p>
+            <p>Funcionário</p>
           </div>
         </header>
         <section className="areaTrabalho">
           <div className="conteudo">
-            <Cadastro
-              titulo="Cadastro Empresa"
-              campo1="Empresa"
-              tpInput="text"
-              visibilidade_campo2="none"
-              visibilidade_campo3="none"
-              visibilidade_campo4="none"
-              visibilidade_campo5="none"
-              visibilidade_campo6="none"
+            <div className="titulo">
+              <h1>Cadastro Cliente</h1>
+            </div>
 
-              funcCadastro={cadEmpresa}
-              valorInput1={empresa}
-              setValorInput1={setEmpresa}
-              valorInputCNPJ={CNPJ}
-              setValorInputCNPJ={setCNPJ}
-            />
+            <form className="formulario" onSubmit={handleSubmit}>
+              <div className="campo">
+                <label>Nome</label>
+                <input
+                  type="text"
+                  value={nome}
+                  onChange={(e) => setNome(e.target.value)}
+                  disabled={loading}
+                />
+              </div>
+
+              <div className="campo">
+                <label>Email</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={loading}
+                />
+              </div>
+
+              <div className="campo">
+                <label>Empresa</label>
+                <input
+                  type="text"
+                  value={empresa}
+                  onChange={(e) => setEmpresa(e.target.value)}
+                  disabled={loading}
+                />
+              </div>
+
+              <div className="campo">
+                <label>Senha</label>
+                <input
+                  type="password"
+                  placeholder="Mínimo de 8 caracteres com números e símbolos"
+                  value={senha}
+                  onChange={(e) => setSenha(e.target.value)}
+                  disabled={loading}
+                />
+              </div>
+
+              <div className="campo">
+                <label>Confirmar senha</label>
+                <input
+                  type="password"
+                  value={confirmarSenha}
+                  onChange={(e) => setConfirmarSenha(e.target.value)}
+                  disabled={loading}
+                />
+              </div>
+
+              <button type="submit" className="cadastrar" disabled={loading}>
+                {loading ? "Cadastrando..." : "Cadastrar"}
+              </button>
+            </form>
           </div>
         </section>
       </div>

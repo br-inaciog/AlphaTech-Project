@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+import MenuLateral from "../../components/menuLateral/MenuLateral";
+=======
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
 import "./CadastroFuncionario.css";
 
 //Importar o seu SweetAlert

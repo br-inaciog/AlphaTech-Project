@@ -8,6 +8,17 @@ using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+// Add services to the container.
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+>>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
 
 builder.Services.AddCors(options =>
 {
@@ -17,6 +28,16 @@ builder.Services.AddCors(options =>
         .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
 });
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
+>>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
@@ -90,6 +111,18 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddCors(options =>
 {
+    options.AddPolicy("CorsPolicy",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+        });
+});
+=======
+<<<<<<< HEAD
+builder.Services.AddCors(options =>
+{
     options.AddPolicy("AllowFrontend", policy =>
         policy.WithOrigins(
             "http://localhost:5173",
@@ -100,6 +133,12 @@ builder.Services.AddCors(options =>
     // .AllowCredentials() // só se usar cookies/autenticação via cookie
     );
 });
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
+>>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
 
 var app = builder.Build();
 
@@ -128,7 +167,11 @@ app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 
+<<<<<<< HEAD
+app.UseCors("CorsPolicy");
+=======
 app.UseCors("AllowFrontend");
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
 
 app.UseAuthentication();
 
