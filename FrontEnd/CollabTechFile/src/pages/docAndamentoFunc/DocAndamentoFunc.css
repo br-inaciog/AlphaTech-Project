@@ -2,19 +2,64 @@
     text-align: center;
 }
 
+.infDocumento {
+    display: flex;
+}
+
+.botaoFiltrarVersoesDoc,
+.botaoSelectRementente {
+    width: 100%;
+}
+
 .botaoFiltrarVersoesDoc p {
     font-size: 1.5rem;
     font-weight: 600;
 }
 
 .botaoFiltrarVersoesDoc select {
-    width: 20%;
+    width: 50%;
     border: none;
     border-bottom: 2px solid black;
     cursor: pointer;
     font-size: 1.1rem;
     padding: 1%;
     margin-bottom: 5%;
+    background: transparent;
+}
+
+.botaoSelectRementente p {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.botaoSelectRementente select {
+    width: 50%;
+    border: none;
+    border-bottom: 2px solid black;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 1%;
+    margin-bottom: 5%;
+    background: transparent;
+}
+
+.prazoEntrega {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 2%;
+    width: 50%;
+    align-self: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.prazoEntrega input {
+    border: none;
+    border-bottom: 2px solid black; 
+    background-color: transparent;
 }
 
 .documento {
@@ -73,20 +118,6 @@
 .tituloRNF button {
     border: none;
     background: transparent;
-}
-
-.prazoEntrega {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    margin-bottom: 2%;
-}
-
-.prazoEntrega input {
-    border: none;
-    border-bottom: 2px solid black; 
-    background-color: transparent;
 }
 
 .listaRN,

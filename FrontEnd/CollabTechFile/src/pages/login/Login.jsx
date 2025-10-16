@@ -2,43 +2,12 @@ import "./Login.css"
 import Botao from "../../componentes/botao/Botao";
 import User from "../../assets/img/UserModoClaro.png"
 import Logo from "../../assets/img/Logo.png"
-import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
 
 export default function Login() {
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-
-    const navigate = useNavigate();
-
-    const { setUsuario } = useAuth();
-
-    function alertar(icone, mensagem) {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            }
-        });
-        Toast.fire({
-            icon: icone,
-            title: mensagem
-        });
-    }
-
-    function realizarAutenticacao() {
-        alertar("warning", "Conectouu")
-    }
-
-
     return (
         <>
-            <form action="" className="mainLogin" onSubmit={realizarAutenticacao}>
+            <form action="" className="mainLogin">
                 <div className="campoLogin">
 
                     <div className="userTitulo">
@@ -60,7 +29,9 @@ export default function Login() {
                             </div>
                         </div>
                     </form>
-                    <Botao />
+                    <Link to="/Inicio">
+                        <Botao nomeBotao="Login" />
+                    </Link>
                 </div>
 
                 <img src={Logo} alt="Logo CollabTechFile" />

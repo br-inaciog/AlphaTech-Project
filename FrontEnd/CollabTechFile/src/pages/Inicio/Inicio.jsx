@@ -60,7 +60,6 @@ export default function Inicio() {
                                         <input
                                             type="file"
                                             className='arquivoInput'
-                                            onChange={(e) => setImagem(e.target.files[0])}
                                         />
                                     </label>
                                     <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
@@ -79,7 +78,6 @@ export default function Inicio() {
                                         <input
                                             type="file"
                                             className='arquivoInput'
-                                            onChange={(e) => setImagem(e.target.files[0])}
                                         />
                                     </label>
                                     <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
