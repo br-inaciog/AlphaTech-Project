@@ -131,7 +131,7 @@
                   "documento.DocumentoVersos": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/DocumentoVerso"
+                      "$ref": "#/components/schemas/DocumentoVersoes"
                     }
                   },
                   "documento.IdUsuarioNavigation.IdUsuario": {
@@ -362,6 +362,70 @@
         }
       }
     },
+    "/api/DocumentoVersoes": {
+      "post": {
+        "tags": [
+          "DocumentoVersoes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentoVersoes"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentoVersoes"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentoVersoes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "DocumentoVersoes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DocumentoVersoes/documento/{IdDocumento}": {
+      "get": {
+        "tags": [
+          "DocumentoVersoes"
+        ],
+        "parameters": [
+          {
+            "name": "IdDocumento",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Empresa": {
       "post": {
         "tags": [
@@ -396,6 +460,37 @@
         "tags": [
           "Empresa"
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Login": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDTO"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -973,6 +1068,34 @@
           }
         }
       }
+    },
+    "/api/Usuario/BuscarPorEmailESenha": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "senha",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1065,7 +1188,7 @@
           "documentoVersos": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DocumentoVerso"
+              "$ref": "#/components/schemas/DocumentoVersoes"
             },
             "nullable": true
           },
@@ -1089,7 +1212,7 @@
         },
         "additionalProperties": false
       },
-      "DocumentoVerso": {
+      "DocumentoVersoes": {
         "type": "object",
         "properties": {
           "idDocumentoVersoes": {
@@ -1103,9 +1226,6 @@
           "numeroVersao": {
             "type": "integer",
             "format": "int32"
-          },
-          "idDocumentoNavigation": {
-            "$ref": "#/components/schemas/Documento"
           }
         },
         "additionalProperties": false
@@ -1165,6 +1285,25 @@
           },
           "idUsuarioNavigation": {
             "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginDTO": {
+        "required": [
+          "email",
+          "senha"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "senha": {
+            "maxLength": 8,
+            "minLength": 6,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -1391,6 +1530,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Value: Bearer {token}",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

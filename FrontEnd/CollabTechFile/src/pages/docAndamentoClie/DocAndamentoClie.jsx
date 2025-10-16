@@ -60,13 +60,14 @@ export default function DocAndamentoClie() {
                                 </section>
                             </div>
 
-                            <Link
-                                className="comentarioDisplay"
-                                to="/ModalComentarioCliente"
-                            >
+                            {/* <Link to="/ModalComentarioCliente" className="voltar">          */}
+                            <Link to="/ModalComentarioCliente" className="voltar">
+                            <div className="comentarioDisplay">
                                 <p>Comentar</p>
                                 <img src={Comentario} alt="Botão de Comentário" />
+                            </div>
                             </Link>
+                            {/* </Link> */}
                         </div>
                     </section>
                 </section>

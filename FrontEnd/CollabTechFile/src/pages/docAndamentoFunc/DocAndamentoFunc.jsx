@@ -19,8 +19,32 @@ export default function DocAndamentoFunc() {
                             <h1>Documento em Andamento</h1>
                         </div>
 
-                        <div className="documento">
+                        <form action="" className="documento">
                             <p className="docNome">Nome Documento</p>
+
+                            <div className="infDocumento">
+                                <div className="botaoFiltrarVersoesDoc">
+                                    <p>Versão Documento</p>
+                                    <select>
+                                        <option disabled selected>Versões</option>
+                                        <option value="versoes">Versão 1.1</option>
+                                    </select>
+                                </div>
+
+                                <div className="botaoSelectRementente">
+                                    <p>Rementente</p>
+                                    <select>
+                                        <option disabled selected>Destinatário</option>
+                                        <option value="rementente">Bolsonaro</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div className="prazoEntrega">
+                                <label htmlFor="">Prazo de Entrega:</label>
+                                <input type="date" />
+                            </div>
 
                             <div className="regrasDeNegocio">
                                 <div className="tituloRN">
@@ -97,8 +121,8 @@ export default function DocAndamentoFunc() {
                                     </button>
                                 </div>
                             </div>
-                        </div>
 
+                        </form>
                     </section>
 
                     <section className="areaComentarioDoc">
@@ -122,6 +146,6 @@ export default function DocAndamentoFunc() {
                     </section>
                 </section>
             </main>
-        </div>
+        </div >
     )
 }

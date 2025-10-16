@@ -12,12 +12,12 @@ export default function Inicio() {
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
                     <div className="cabecalhoArea">
-                        <button className="btnArea">AREA DE TRABALHO</button>
+                        <button className="btnArea">Área de Trabalho</button>
                         <div className="usuarioArea">
                             <img src={Usuario} alt="" />
                             Funcionário
                             <span className="iconMoon"></span>
-                       
+
                         </div>
                     </div>
                     <div className="statusDocumentos">
@@ -50,30 +50,41 @@ export default function Inicio() {
                         </div>
                     </div>
                     <article className="documentosActions">
-                        <div className="docAction anexar">
-                            <img src={arquivo} alt="" className='imgArquivo' />
+                        <form action="" className="docAction">
+                            <img src={arquivo} alt="Imagem Arquivo" className='imgArquivo' />
+                                <div className='divAnexar'>
+                                    <h4>Anexar Documentação</h4>
+                                    <label className='arquivoLabel'>
+                                        <img src={Anexar} alt="Ícone de upload" />
+                                        Anexar Documento
+                                        <input
+                                            type="file"
+                                            className='arquivoInput'
+                                        />
+                                    </label>
+                                    <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
+                                    <button className='botaoEnviarDoc'>Enviar</button>
+                                </div>
+                        </form>
 
-                            <div className='divAnexar'>
-                                <h4>Anexar Documentação</h4>
-                                <button className="iconAnexar">
-                                    <img src={Anexar} alt="" className='iconUpload' />
-                                    Anexar Arquivo
-                                </button>
-                                <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
-                            </div>
-                        </div>
-                        <div className="docAction digitalizar">
+                        <form action="" className="docAction">
                             <img src={Escaner} alt="" className='imgEscanear' />
-
-                            <div className='divEscanear'>
-                                <h4>Digitalizar Documento</h4>
-                                <button className="iconDigitalizar">
-                                    <img src={Escaner} alt="" className='iconUpload' />
-                                    Escanear Documento
-                                </button>
-                                <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
+                            <div className='docActionDisplay'>
+                                <div className='divEscanear'>
+                                    <h4>Digitalizar Documento</h4>
+                                    <label className='arquivoLabel'>
+                                        <img src={Anexar} alt="Ícone de upload" />
+                                        Escanear Documento
+                                        <input
+                                            type="file"
+                                            className='arquivoInput'
+                                        />
+                                    </label>
+                                    <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
+                                    <button className='botaoEnviarDoc'>Enviar</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </article>
                 </section>
             </main>
