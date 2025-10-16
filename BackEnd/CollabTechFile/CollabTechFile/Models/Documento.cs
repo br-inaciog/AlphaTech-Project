@@ -42,7 +42,7 @@ public partial class Documento
     public virtual ICollection<Comentario> Comentarios { get; set; } = new List<Comentario>();
 
     [InverseProperty("IdDocumentoNavigation")]
-    public virtual ICollection<DocumentoVerso> DocumentoVersos { get; set; } = new List<DocumentoVerso>();
+    public virtual ICollection<DocumentoVersoes> DocumentoVersos { get; set; } = new List<DocumentoVersoes>();
 
     [ForeignKey("IdUsuario")]
     [InverseProperty("Documentos")]
