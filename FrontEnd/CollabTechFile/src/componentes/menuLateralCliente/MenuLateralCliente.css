@@ -1,0 +1,82 @@
+
+/* --- Telas médias (tablets, até 1024px) --- */
+@media (max-width: 1024px) {
+  .grupoPesquisa input {
+    width: 450px;
+    font-size: 16px;
+  }
+
+  .infCabecalho {
+    margin-left: 5%;
+  }
+}
+
+/* --- Telas pequenas (celulares até 768px) --- */
+@media (max-width: 768px) {
+  .cabecalho {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .grupoPesquisa {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .grupoPesquisa input {
+    width: 90%;
+    max-width: 380px;
+    font-size: 16px;
+  }
+
+  .grupoPesquisa img {
+    left: 10%;
+    top: 8px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .infCabecalho {
+    justify-content: center;
+    margin: 15px 0 0 0;
+    width: 100%;
+  }
+
+  .setaImg {
+    height: 1.3rem;
+    margin: 10px 0;
+  }
+}
+
+/* --- Telas muito pequenas (até 480px) --- */
+@media (max-width: 480px) {
+  .cabecalho {
+    padding: 5px;
+  }
+
+  .grupoPesquisa input {
+    max-width: 300px;
+    font-size: 15px;
+    padding-left: 30px;
+  }
+
+  .grupoPesquisa img {
+    left: 8%;
+    top: 6px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .infCabecalho {
+    font-size: 0.9rem;
+    color: #5a0f0f;
+    text-align: center;
+  }
+
+  .setaImg {
+    height: 1.2rem;
+  }
+}

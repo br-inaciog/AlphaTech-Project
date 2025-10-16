@@ -1,45 +1,105 @@
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
 import "./CadastroEmpresa.css";
+
+//Importar o seu SweetAlert
+import Swal from 'sweetalert2';
+
+import { useState } from "react";
+import api from "../../services/Services";
+
+import MenuLateral from "../../componentes/menuLateral/MenuLateral";
 import user from "../../assets/img/user.png"
 import Left from "../../assets/img/Voltar.svg"
+import Cadastro from "../../componentes/cadastro/Cadastro";
 
 
 export default function CadastroEmpresa() {
+  const [empresa, setEmpresa] = useState("")
+  const [CNPJ, setCNPJ] = useState("")
+  const [statusEmpresa, setStatusEmpresa] = useState(true);
+
+  function alertar(icone, mensagem) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: icone,
+      title: mensagem
+    });
+  }
+
+  async function cadEmpresa(e) {
+    e.preventDefault();
+
+    console.log(empresa);
+    console.log(CNPJ);
+    console.log(statusEmpresa);
+
+    if (empresa.trim() != "") {
+      try {
+        await api.post("Empresa", {
+          nome: empresa,
+          CNPJ: CNPJ,
+          ativo: statusEmpresa
+        });
+
+        alertar("success", "Cadastro Realizado!");
+        setEmpresa("");
+        setCNPJ("");
+        setStatusEmpresa("");
+      } catch (error) {
+        alertar("error", "Erro. Entre em contato com o suporte!");
+        console.log(error);
+
+        console.log({
+          nome: empresa,
+          cnpj: CNPJ,
+          ativo: statusEmpresa
+        });
+
+      }
+    } else {
+      alertar("warning", "O campo precisa estar Preenchido")
+    }
+  }
+
   return (
     <main className="containerGeral">
       <MenuLateral />
       <div className="conteudoPrincipal">
-            <header className="header">
-              <div className="usuario">
-                 <img src={user} alt="user" />
-                <p>Admin</p>
+        <header className="header">
+          <div className="usuario">
+            <img src={user} alt="user" />
+            <p>Admin</p>
 
-              </div>
-            </header>
+          </div>
+        </header>
         <section className="areaTrabalho">
           <div className="conteudo">
+            <Cadastro
+              titulo="Cadastro Empresa"
+              campo1="Empresa"
+              campo2="CNPJ"
+              tpInput="text"
+              visibilidade_campo3="none"
+              visibilidade_campo4="none"
+              visibilidade_campo5="none"
+              visibilidade_campo6="none"
 
-            <div className="titulo">
-              <h1>Cadastro Empresa</h1>
-            </div>
+              funcCadastro={cadEmpresa}
+              valorInput1={empresa}
+              setValorInput1={setEmpresa}
 
-            <form className="formulario">
-              <div className="campo">
-                <label>Nome</label>
-                <input type="text" />
-              </div>
-
-              <div className="campo">
-                <label>CNPJ</label>
-                <input type="email" />
-              </div>
-
-            
-
-              <button type="submit" className="cadastrar">
-                Cadastrar
-              </button>
-            </form>
+              valorInput2={CNPJ}
+              setValorInput2={setCNPJ}
+            />
           </div>
         </section>
       </div>

@@ -20,7 +20,7 @@ public partial class CollabTechFileContext : DbContext
 
     public virtual DbSet<Documento> Documentos { get; set; }
 
-    public virtual DbSet<DocumentoVerso> DocumentoVersoes { get; set; }
+    public virtual DbSet<DocumentoVersoes> DocumentoVersoes { get; set; }
 
     public virtual DbSet<Empresa> Empresas { get; set; }
 
@@ -42,7 +42,7 @@ public partial class CollabTechFileContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=NOTE36-S28\\SQLEXPRESS;DataBase=CollabTechFile;user ID = sa; pwd= Senai@134;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-KU3JB7K\\SQLEXPRESS;DataBase=CollabTechFile;user ID = sa; pwd= Senai@134;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -65,7 +65,7 @@ public partial class CollabTechFileContext : DbContext
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Documentos).HasConstraintName("FK__Documento__IdUsu__5812160E");
         });
 
-        modelBuilder.Entity<DocumentoVerso>(entity =>
+        modelBuilder.Entity<DocumentoVersoes>(entity =>
         {
             entity.HasKey(e => e.IdDocumentoVersoes).HasName("PK__Document__82F8A7D2227FA4DC");
 

@@ -2,6 +2,7 @@ import MenuLateral from "../../componentes/menuLateral/MenuLateral";
 import "./CadastroFuncionario.css";
 import user from "../../assets/img/user.png"
 import Left from "../../assets/img/Voltar.svg"
+import Cadastro from "../../componentes/cadastro/Cadastro";
 
 
 export default function CadastroFuncionario() {
@@ -13,49 +14,21 @@ export default function CadastroFuncionario() {
           <div className="usuario">
             <img src={user} alt="user" />
             <p>Admin</p>
-
           </div>
         </header>
         <section className="areaTrabalho">
           <div className="conteudo">
-            
-            <div className="titulo">
-              <h1>Cadastro Funcionário</h1>
-            </div>
+            <Cadastro
+              titulo="Cadastro Funcionário"
+              campo1="Nome"
+              campo2="Email"
+              campo3="Tipo Usuário"
+              tpInput="email"
+              visibilidade_campo4="none"
+              campo5="Senha"
+              campo6="Confirmar Senha"
+            />
 
-            <form className="formulario">
-              <div className="campo">
-                <label>Nome</label>
-                <input type="text" />
-              </div>
-
-              <div className="campo">
-                <label>Email</label>
-                <input type="email" />
-              </div>
-
-              <div className="campo">
-                <label>Tipo de Usuário</label>
-                <input type="text" />
-              </div>
-
-              <div className="campo">
-                <label>Senha</label>
-                <input
-                  type="password"
-                  placeholder="Mínimo de 8 caracteres com números e símbolos"
-                />
-              </div>
-
-              <div className="campo">
-                <label>Confirmar senha</label>
-                <input type="password" />
-              </div>
-
-              <button type="submit" className="cadastrar">
-                Cadastrar
-              </button>
-            </form>
           </div>
         </section>
       </div>

@@ -2,6 +2,7 @@ import "./Login.css"
 import Botao from "../../componentes/botao/Botao";
 import User from "../../assets/img/UserModoClaro.png"
 import Logo from "../../assets/img/Logo.png"
+import { Link } from "react-router";
 
 export default function Login() {
     return (
@@ -15,27 +16,25 @@ export default function Login() {
                     </div>
 
                     <form action="" className="campoInput">
-                        <div className="inputLogin">
+                        <div
+                            className="inputLogin">
                             <div className="grupoEmail">
-                                <input type="email"/>
+                                <input type="email" />
                                 <label>Email</label>
                             </div>
 
                             <div className="grupoSenha">
-                                <input type="password" minLength="10"/>
+                                <input type="password" minLength="10" />
                                 <label>Senha</label>
                             </div>
                         </div>
-
-                        <div className="inputCheckbox">
-                            <input type="checkbox" />
-                            <label htmlFor="">Lembre De Mim</label>
-                        </div>
                     </form>
-                    <Botao />
+                    <Link to="/Inicio">
+                        <Botao nomeBotao="Login" />
+                    </Link>
                 </div>
 
-                <img src={Logo} alt="Logo CollabTechFile" />
+                <img  className="imgLogo" src={Logo} alt="Logo CollabTechFile" />
             </form>
         </>
     )

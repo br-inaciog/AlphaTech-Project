@@ -100,8 +100,23 @@
         "IsRequired": false
       },
       {
+        "Name": "documento.VersaoAtual",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "documento.CriadoEm",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
         "Name": "documento.Comentarios",
         "Type": "System.Collections.Generic.ICollection\u00601[[CollabTechFile.Models.Comentario, CollabTechFile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "documento.DocumentoVersos",
+        "Type": "System.Collections.Generic.ICollection\u00601[[CollabTechFile.Models.DocumentoVersoes, CollabTechFile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
       },
       {
@@ -213,6 +228,48 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CollabTechFile.Controllers.DocumentoVersoesController",
+    "Method": "Post",
+    "RelativePath": "api/DocumentoVersoes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "versao",
+        "Type": "CollabTechFile.Models.DocumentoVersoes",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.DocumentoVersoesController",
+    "Method": "Get",
+    "RelativePath": "api/DocumentoVersoes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.DocumentoVersoesController",
+    "Method": "GetPorDocumento",
+    "RelativePath": "api/DocumentoVersoes/documento/{IdDocumento}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdDocumento",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CollabTechFile.Controllers.EmpresaController",
     "Method": "Post",
     "RelativePath": "api/Empresa",
@@ -236,6 +293,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.LoginController",
+    "Method": "Login",
+    "RelativePath": "api/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDTO",
+        "Type": "CollabTechFile.DTO.LoginDTO",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -575,6 +648,27 @@
         "Name": "usuario",
         "Type": "CollabTechFile.Models.Usuario",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.UsuarioController",
+    "Method": "Get",
+    "RelativePath": "api/Usuario/BuscarPorEmailESenha",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "senha",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

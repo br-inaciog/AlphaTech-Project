@@ -1,5 +1,6 @@
 ﻿using CollabTechFile.Interfaces;
 using CollabTechFile.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +17,7 @@ namespace CollabTechFile.Controllers
             _regrasDocRepository = regraDocRepository;
         }
 
+        //[Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -30,6 +32,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
+        //[Authorize]
         [HttpPost]
         public IActionResult Post (RegrasDoc regrasDoc)
         {
@@ -44,6 +47,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
+        //[Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete (int id)
         {
@@ -58,6 +62,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
+        //[Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, RegrasDoc regrasDoc)
         {

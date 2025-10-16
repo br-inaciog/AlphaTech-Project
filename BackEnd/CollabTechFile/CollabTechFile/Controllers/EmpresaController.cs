@@ -1,6 +1,7 @@
 ﻿using CollabTechFile.Interfaces;
 using CollabTechFile.Models;
 using CollabTechFile.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,8 +20,8 @@ namespace CollabTechFile.Controllers
             _EmpresaRepository = empresaRepository;
         }
 
+        //[Authorize]
         [HttpPost]
-
         public IActionResult Post(Empresa empresa)
         {
 
@@ -29,9 +30,9 @@ namespace CollabTechFile.Controllers
                 _EmpresaRepository.Cadastrar(empresa);
                 return StatusCode(201, empresa);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                return BadRequest(e.Message);
             }
         }
 
@@ -49,6 +50,7 @@ namespace CollabTechFile.Controllers
         //    }
         //}
 
+        //[Authorize]
         [HttpGet]
         public IActionResult Get()
         {

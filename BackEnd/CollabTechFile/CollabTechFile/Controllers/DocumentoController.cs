@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading.Tasks;
 using CollabTechFile.DTO;
 using CollabTechFile.Repositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CollabTechFile.Controllers
 {
@@ -28,6 +29,7 @@ namespace CollabTechFile.Controllers
             _configuration = configuration;
         }
 
+        //[Authorize]
         [HttpPost("upload-ocr")]
         public async Task<IActionResult> UploadOCR([FromForm] UploadOCRRequest request)
         {
@@ -91,6 +93,8 @@ namespace CollabTechFile.Controllers
                 return StatusCode(500, $"Erro ao processar documento: {ex.Message}");
             }
         }
+
+        //[Authorize]
         [HttpGet]
         public IActionResult Get()
         {

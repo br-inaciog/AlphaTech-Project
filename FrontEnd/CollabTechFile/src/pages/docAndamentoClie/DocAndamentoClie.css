@@ -1,79 +1,164 @@
 .docAndamento {
-    text-align: center;
+  text-align: center;
 }
 
 .documento {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 600px;
-    margin-bottom: 4%;
-    padding: 4%;
-    border-radius: 20px;
-
-    background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 600px;
+  margin-bottom: 4%;
+  padding: 4%;
+  border-radius: 20px;
+  background-color: aliceblue;
 }
 
+/* Títulos */
 .tituloRN,
 .tituloRF,
 .tituloRNF {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .tituloRF,
 .tituloRNF {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 5%;
+  margin-top: 5%;
 }
 
-.tituloRN h2 {
-    font-size: 48px;
-    font-weight: 500;
-}
-
-.tituloRF h2 {
-    font-size: 48px;
-    font-weight: 500;
-}
-
+.tituloRN h2,
+.tituloRF h2,
 .tituloRNF h2 {
-    font-size: 48px;
-    font-weight: 500;
+  font-size: 48px;
+  font-weight: 500;
 }
 
+/* Listas */
 .listaRN,
 .listaRF,
 .listaRNF {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    background-color: rgb(88, 129, 163);
-    color: white;
+  background-color: rgb(88, 129, 163);
+  color: white;
 
-    border-radius: 10px;
-    padding: 2%;
-    margin-top: 2%;
-    width: 100%;
+  border-radius: 10px;
+  padding: 2%;
+  margin-top: 2%;
+  width: 100%;
 }
 
 .listaRF p {
-    width: 80%;
-    text-align: start;
+  width: 80%;
+  text-align: start;
 }
 
+/* Link de comentário */
 .comentarioDisplay {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  text-decoration: none;
+  color: black;
+  margin-top: 5%;
+  font-size: 17px;
+  font-weight: 500;
+}
 
-    color: black;
+/* 🌟 Responsividade 🌟 */
 
-    margin-top: 5%;
-    font-size: 17px;
-    font-weight: 500;
+/* Tablets (até 900px) */
+@media (max-width: 900px) {
+  .tituloRN h2,
+  .tituloRF h2,
+  .tituloRNF h2 {
+    font-size: 36px;
+  }
+
+  .listaRN,
+  .listaRF,
+  .listaRNF {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4%;
+    text-align: left;
+  }
+
+  .listaRF p {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .comentarioDisplay {
+    font-size: 16px;
+    justify-content: center;
+  }
+
+  .documento {
+    padding: 6%;
+    min-height: auto;
+  }
+}
+
+/* Celulares (até 600px) */
+@media (max-width: 600px) {
+  .tituloRN h2,
+  .tituloRF h2,
+  .tituloRNF h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .tituloRN,
+  .tituloRF,
+  .tituloRNF {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .listaRN,
+  .listaRF,
+  .listaRNF {
+    flex-direction: column;
+    padding: 5%;
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .listaRF p {
+    width: 100%;
+    text-align: left;
+  }
+
+  .comentarioDisplay {
+    font-size: 15px;
+  }
+
+  .documento {
+    padding: 8%;
+    border-radius: 12px;
+  }
+}
+
+/* Celulares pequenos (até 400px) */
+@media (max-width: 400px) {
+  .tituloRN h2,
+  .tituloRF h2,
+  .tituloRNF h2 {
+    font-size: 22px;
+  }
+
+  .listaRN,
+  .listaRF,
+  .listaRNF {
+    font-size: 13px;
+    padding: 6%;
+  }
+
+  .comentarioDisplay {
+    font-size: 14px;
+  }
 }

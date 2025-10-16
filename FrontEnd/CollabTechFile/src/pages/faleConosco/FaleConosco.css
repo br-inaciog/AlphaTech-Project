@@ -44,17 +44,16 @@
   font-size: 18px;
 }
 
+.formularioFC {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .formularioFC label {
   color: white;
   font-weight: 500;
   font-size: 16px;
-}
-
-.formularioFC {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    
 }
 
 .formularioFC input,
@@ -98,15 +97,14 @@
 }
 
 .doczinho {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .doczinho img {
   width: 60%;
- margin-bottom: 8%;
-
+  margin-bottom: 8%;
 }
 
 .infoFaleConosco {
@@ -123,27 +121,125 @@
   height: 22px;
 }
 
+.caixaDeContato {
+  margin-left: 50px;
+}
+
+/* 🌟 Responsividade 🌟 */
+
+/* Tablets (até 900px) */
 @media (max-width: 900px) {
   .tudao {
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 40px;
+    padding: 60px 40px;
+    gap: 50px;
+  }
+
+  .caixaEsquerda h1 {
+    font-size: 30px;
+  }
+
+  .caixaEsquerda h2 {
+    font-size: 16px;
+    margin-bottom: 30px;
   }
 
   .caixaDireita {
     align-items: center;
   }
 
-  .doczinho {
-    margin: 20px 0;
+  .doczinho img {
+    width: 70%;
+    margin-bottom: 6%;
   }
 
   .infoFaleConosco {
     margin-left: 0;
     justify-content: center;
+    font-size: 14px;
+  }
+
+  .caixaDeContato {
+    margin-left: 0;
   }
 }
 
-.caixaDeContato{
-  margin-left: 50px;
+/* Celulares (até 600px) */
+@media (max-width: 600px) {
+  .tudao {
+    padding: 40px 25px;
+    gap: 40px;
+  }
+
+  .setaFaleConosco img {
+    height: 35px;
+    width: 35px;
+    margin-bottom: 20px;
+        margin-right: 79%;
+  }
+
+  .caixaEsquerda h1 {
+    font-size: 26px;
+  }
+
+  .caixaEsquerda h2 {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .formularioFC label {
+    font-size: 14px;
+  }
+
+  .formularioFC input,
+  .formularioFC textarea {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .botaozinho {
+    width: 100%;
+    align-self: center;
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .doczinho img {
+    display: none;
+  }
+
+  .infoFaleConosco {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+  }
+}
+
+/* Celulares pequenos (até 400px) */
+@media (max-width: 400px) {
+  .caixaEsquerda h1 {
+    font-size: 22px;
+  }
+
+  .caixaEsquerda h2 {
+    font-size: 13px;
+  }
+
+  .formularioFC input,
+  .formularioFC textarea {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .botaozinho {
+    font-size: 14px;
+  }
+
+  .infoFaleConosco img {
+    width: 18px;
+    height: 18px;
+  }
 }
