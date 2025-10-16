@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router"
+import { Route, Routes } from "react-router"
 
 import Login from "../pages/login/Login"
 import Inicio from "../pages/inicio/Inicio"
@@ -12,13 +12,7 @@ import DocAndamentoFunc from "../pages/docAndamentoFunc/DocAndamentoFunc"
 import DocAndamentoClie from "../pages/docAndamentoClie/DocAndamentoClie"
 import InicioCliente from "../pages/inicioCliente/InicioCliente"
 import Feedback from "../pages/Feedbacks/Feedback"
-<<<<<<< HEAD
 import FaleConosco  from "../pages/faleConosco/FaleConosco"
-=======
-import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie" 
-import ModalComentarioCliente from "../pages/cometarioCliente/ModalComentarioCliente"
-import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc"
->>>>>>> cec182005e2049b1b8115ac8954a62314c172638
 
 const Rotas = () => {
     return (
@@ -33,16 +27,13 @@ const Rotas = () => {
             <Route element={<Lixeira />} path="/Lixeira" />
             <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc" />
             <Route element={<DocAndamentoClie />} path="/docAndamentoClie" />
-<<<<<<< HEAD
             <Route element={<Feedback /> } path="/FeedBacks" />
             <Route element={<FaleConosco/> } path="/FaleConosco" />
-=======
             <Route element={<InicioCliente />} path="/InicioCliente" />
             <Route element={<Feedback />} path="/FeedBacks" />
             <Route element={<DocFinalizadoClie />} path="/docFinalizadoClie" />
             <Route element={<ModalComentarioCliente />} path="/ModalComentarioCliente" />
             <Route element={<DocFinalizadoFunc />} path="/docFinalizadoFunc" />
->>>>>>> cec182005e2049b1b8115ac8954a62314c172638
         </Routes>
     )
 }
