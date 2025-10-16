@@ -8,11 +8,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
-<<<<<<< HEAD
 
-// Add services to the container.
-=======
->>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
 
 builder.Services.AddCors(options =>
 {
@@ -22,12 +18,7 @@ builder.Services.AddCors(options =>
         .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
 });
 
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
@@ -99,7 +90,7 @@ builder.Services.AddSwaggerGen(options =>
     }); 
 });
 
-<<<<<<< HEAD
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -112,15 +103,14 @@ builder.Services.AddCors(options =>
     // .AllowCredentials() // só se usar cookies/autenticação via cookie
     );
 });
-=======
->>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
 }
 

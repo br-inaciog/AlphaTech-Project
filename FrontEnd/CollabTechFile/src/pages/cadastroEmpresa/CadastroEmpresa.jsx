@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState } from "react";
 import api from "../../Services/service";
 import Swal from "sweetalert2";
@@ -10,26 +9,6 @@ export default function CadastroEmpresa() {
   const [empresa, setEmpresa] = useState("");
   const [cnpj, setCnpj] = useState("");
   const [loading, setLoading] = useState(false);
-=======
-import "./CadastroEmpresa.css";
-
-//Importar o seu SweetAlert
-import Swal from 'sweetalert2';
-
-import { useState } from "react";
-import api from "../../services/Services";
-
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
-import user from "../../assets/img/user.png"
-import Left from "../../assets/img/Voltar.svg"
-import Cadastro from "../../componentes/cadastro/Cadastro";
-
-
-export default function CadastroEmpresa() {
-  const [empresa, setEmpresa] = useState("")
-  const [CNPJ, setCNPJ] = useState("")
-  const [statusEmpresa, setStatusEmpresa] = useState(true);
->>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
 
   function alertar(icone, mensagem) {
     const Toast = Swal.mixin({
@@ -49,7 +28,6 @@ export default function CadastroEmpresa() {
     });
   }
 
-<<<<<<< HEAD
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -90,43 +68,7 @@ export default function CadastroEmpresa() {
   }
 
 
-=======
-  async function cadEmpresa(e) {
-    e.preventDefault();
 
-    console.log(empresa);
-    console.log(CNPJ);
-    console.log(statusEmpresa);
-
-    if (empresa.trim() != "") {
-      try {
-        await api.post("Empresa", {
-          nome: empresa,
-          CNPJ: CNPJ,
-          ativo: statusEmpresa
-        });
-
-        alertar("success", "Cadastro Realizado!");
-        setEmpresa("");
-        setCNPJ("");
-        setStatusEmpresa("");
-      } catch (error) {
-        alertar("error", "Erro. Entre em contato com o suporte!");
-        console.log(error);
-
-        console.log({
-          nome: empresa,
-          cnpj: CNPJ,
-          ativo: statusEmpresa
-        });
-
-      }
-    } else {
-      alertar("warning", "O campo precisa estar Preenchido")
-    }
-  }
-
->>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
   return (
     <main className="containerGeral">
       <MenuLateral />
@@ -135,7 +77,6 @@ export default function CadastroEmpresa() {
           <div className="usuario">
             <img src={user} alt="user" />
             <p>Admin</p>
-<<<<<<< HEAD
           </div>
         </header>
 
@@ -172,30 +113,6 @@ export default function CadastroEmpresa() {
                 {loading ? "Cadastrando..." : "Cadastrar"}
               </button>
             </form>
-=======
-
-          </div>
-        </header>
-        <section className="areaTrabalho">
-          <div className="conteudo">
-            <Cadastro
-              titulo="Cadastro Empresa"
-              campo1="Empresa"
-              campo2="CNPJ"
-              tpInput="text"
-              visibilidade_campo3="none"
-              visibilidade_campo4="none"
-              visibilidade_campo5="none"
-              visibilidade_campo6="none"
-
-              funcCadastro={cadEmpresa}
-              valorInput1={empresa}
-              setValorInput1={setEmpresa}
-
-              valorInput2={CNPJ}
-              setValorInput2={setCNPJ}
-            />
->>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
           </div>
         </section>
       </div>

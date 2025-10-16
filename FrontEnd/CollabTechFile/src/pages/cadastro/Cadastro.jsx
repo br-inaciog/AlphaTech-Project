@@ -1,8 +1,8 @@
+import "./Cadastro.css";
 import { useState, useEffect } from "react";
 import api from "../../Services/service";
 import Swal from "sweetalert2";
 import MenuLateral from "../../componentes/menuLateral/MenuLateral";
-import "./Cadastro.css";
 import user from "../../assets/img/user.png";
 
 export default function CadastroCliente() {
