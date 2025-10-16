@@ -8,6 +8,11 @@ using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+<<<<<<< HEAD
+
+// Add services to the container.
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
 
 builder.Services.AddCors(options =>
 {
@@ -17,6 +22,12 @@ builder.Services.AddCors(options =>
         .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
 });
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
@@ -88,6 +99,21 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+<<<<<<< HEAD
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+        policy.WithOrigins(
+            "http://localhost:5173",
+            "http://127.0.0.1:5173"
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+    // .AllowCredentials() // só se usar cookies/autenticação via cookie
+    );
+});
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
 
 var app = builder.Build();
 
@@ -116,7 +142,10 @@ app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowFrontend");
+
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();
