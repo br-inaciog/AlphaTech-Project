@@ -2,20 +2,6 @@ import "./Cadastro.css";
 import { IMaskInput } from 'react-imask';
 
 export default function Cadastro(props) {
-    let senha = document.getElementById('senha');
-    let senhaC = document.getElementById('senhaC');
-
-    function validarSenha() {
-        if (senha.value != senhaC.value) {
-            senhaC.setCustomValidity("Senhas diferentes!");
-            senhaC.reportValidity();
-            return false;
-        } else {
-            senhaC.setCustomValidity("");
-            return true;
-        }
-    }
-
     return (
         <section className="conteudo">
 
@@ -60,11 +46,11 @@ export default function Cadastro(props) {
                         <option selected disabled value="">
                             Selecionar Tipo Usuário
                         </option>
-                        {/* {props.lista &&
+                        {props.lista &&
                             props.lista.length > 0 &&
                             props.lista.map((item) =>
                                 <option value={item.idTipoUsuario}>{item.tituloTipoUsuario}</option>
-                            )} */}
+                            )}
                     </select>
                 </div>
 
@@ -84,8 +70,6 @@ export default function Cadastro(props) {
                 <div className="campo" style={{ display: props.visibilidade_campo5 }}>
                     <label>{props.campo5}</label>
                     <input
-                        name="senha"
-                        id="senha"
                         type="password"
                         placeholder="Mínimo de 8 caracteres com números e símbolos"
                         value={props.valorInput3}
@@ -96,8 +80,6 @@ export default function Cadastro(props) {
                 <div className="campo" style={{ display: props.visibilidade_campo6 }}>
                     <label>{props.campo6}</label>
                     <input
-                        name="senhaC"
-                        id="senhaC"
                         type="password"
                         value={props.valorInput4}
                         onChange={(e) => props.setValorInput4(e.target.value)}

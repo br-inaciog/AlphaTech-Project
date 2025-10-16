@@ -50,10 +50,12 @@ export default function CadastroFuncionario() {
 
     if (usuario.trim !== "") {
       try {
-        await api.post ("usuario")
+        await api.post("usuario")
       } catch (error) {
-        
+
       }
+    } else {
+      alertar("warning", "Preencha o campo!")
     }
 
   }

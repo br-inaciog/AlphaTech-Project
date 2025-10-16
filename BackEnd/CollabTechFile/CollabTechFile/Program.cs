@@ -9,6 +9,14 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder => builder
+        .AllowAnyOrigin() // Permite requisições de QUALQUER domínio
+        .AllowAnyMethod() // Permite métodos GET, POST, PUT, etc.
+        .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
+});
+
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
@@ -80,20 +88,13 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("CorsPolicy", builder => builder
-        .AllowAnyOrigin() // Permite requisições de QUALQUER domínio
-        .AllowAnyMethod() // Permite métodos GET, POST, PUT, etc.
-        .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
-});
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
 }
 
@@ -108,8 +109,6 @@ app.UseSwaggerUI(options =>
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
     options.RoutePrefix = string.Empty;
 });
-
-
 
 app.UseRouting();
 
