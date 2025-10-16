@@ -19,7 +19,7 @@ export default function Cadastro(props) {
                 </div>
 
                 <div className="campo" style={{ display: props.visibilidade_campoCNPJ }}>
-                    <label for="cnpj">CNPJ</label>
+                    <label>CNPJ</label>
                     <IMaskInput
                         mask="00.000.000/0000-00"
                         value={props.valorInputCNPJ}
@@ -86,7 +86,7 @@ export default function Cadastro(props) {
                     />
                 </div>
 
-                <button type="submit" className="cadastrar" onclick="return validarSenha()">
+                <button type="submit" className="cadastrar">
                     Cadastrar
                 </button>
             </form>
