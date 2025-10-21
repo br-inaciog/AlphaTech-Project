@@ -177,6 +177,7 @@
     background: #142850;
     color: white;
     margin-bottom: 5%;
+    cursor: pointer;
 }
 
 .arquivoLabel img {
