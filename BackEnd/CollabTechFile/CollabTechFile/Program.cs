@@ -9,11 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-<<<<<<< HEAD
 
-=======
-// Add services to the container.
->>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder => builder
@@ -22,10 +18,7 @@ builder.Services.AddCors(options =>
         .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
 });
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
@@ -112,10 +105,7 @@ builder.Services.AddCors(options =>
         });
 });
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -128,10 +118,9 @@ builder.Services.AddCors(options =>
     // .AllowCredentials() // só se usar cookies/autenticação via cookie
     );
 });
-<<<<<<< HEAD
+ 
 
-=======
->>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
+
 
 var app = builder.Build();
 
