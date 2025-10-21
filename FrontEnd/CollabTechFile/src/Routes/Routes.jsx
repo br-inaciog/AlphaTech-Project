@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { Route, Routes } from "react-router"
-=======
-import {  Route, Routes } from "react-router"
->>>>>>> 069c4aa5c0a0fda029c859cb83593db9a83d7585
 
 import Login from "../pages/login/Login"
 import Inicio from "../pages/inicio/Inicio"
@@ -17,12 +13,9 @@ import DocAndamentoClie from "../pages/docAndamentoClie/DocAndamentoClie"
 import InicioCliente from "../pages/inicioCliente/InicioCliente"
 import Feedback from "../pages/Feedbacks/Feedback"
 import FaleConosco  from "../pages/faleConosco/FaleConosco"
-<<<<<<< HEAD
-=======
 import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie" 
 import ModalComentarioCliente from "../pages/cometarioCliente/ModalComentarioCliente"
 import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc"
->>>>>>> 069c4aa5c0a0fda029c859cb83593db9a83d7585
 
 const Rotas = () => {
     return (
@@ -37,10 +30,7 @@ const Rotas = () => {
             <Route element={<Lixeira />} path="/Lixeira" />
             <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc" />
             <Route element={<DocAndamentoClie />} path="/docAndamentoClie" />
-<<<<<<< HEAD
             <Route element={<Feedback /> } path="/FeedBacks" />
-=======
->>>>>>> 069c4aa5c0a0fda029c859cb83593db9a83d7585
             <Route element={<FaleConosco/> } path="/FaleConosco" />
             <Route element={<InicioCliente />} path="/InicioCliente" />
             <Route element={<Feedback />} path="/FeedBacks" />

@@ -33,6 +33,7 @@ export default function CadastroCliente() {
               campo4="Empresa"
               campo5="Senha"
               campo6="Cofirmar Senha"
+              visibilidade_campoCNPJ="none"
             />
           </div>
         </section>

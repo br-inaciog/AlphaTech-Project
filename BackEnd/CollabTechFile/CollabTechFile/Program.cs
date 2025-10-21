@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 var builder = WebApplication.CreateBuilder(args);
 
 
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder => builder
@@ -17,6 +18,10 @@ builder.Services.AddCors(options =>
         .AllowAnyMethod() // Permite métodos GET, POST, PUT, etc.
         .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
 });
+
+
+
+
 
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
@@ -90,16 +95,28 @@ builder.Services.AddSwaggerGen(options =>
             },
                 new string[] { }
         }
-    }); 
+    });
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+        policy.WithOrigins(
+            "http://localhost:5173",
+            "http://127.0.0.1:5173"
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+    // .AllowCredentials() // só se usar cookies/autenticação via cookie
+    );
+});
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
 }
 
@@ -115,15 +132,16 @@ app.UseSwaggerUI(options =>
     options.RoutePrefix = string.Empty;
 });
 
-
-
 app.UseRouting();
 
 app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowFrontend");
+
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();

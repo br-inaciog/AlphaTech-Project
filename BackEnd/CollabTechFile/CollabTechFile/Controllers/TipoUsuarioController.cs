@@ -35,6 +35,8 @@ namespace CollabTechFile.Controllers
 
         }
 
+        //[Authorize]
+
         [HttpGet]
         public IActionResult Get()
         {
