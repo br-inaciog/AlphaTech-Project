@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 import MenuLateral from "../../components/menuLateral/MenuLateral";
-=======
-import { useState, useEffect } from "react";
-import api from "../../Services/service";
-import Swal from "sweetalert2";
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
->>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
 import "./Cadastro.css";
 import user from "../../assets/img/user.png";
 

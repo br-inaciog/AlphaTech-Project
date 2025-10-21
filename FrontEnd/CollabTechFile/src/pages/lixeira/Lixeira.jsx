@@ -1,6 +1,6 @@
 import "./Lixeira.css"
-import MenuLateral from "../../components/menuLateral/MenuLateral"
-import Cabecalho from "../../components/cabecalho/Cabecalho"
+import MenuLateral from "../../componentes/menuLateral/MenuLateral"
+import Cabecalho from "../../componentes/cabecalho/Cabecalho"
 
 import Pdf from "../../assets/img/PDF.png"
 import Restaurar from "../../assets/img/Restaurar.svg"

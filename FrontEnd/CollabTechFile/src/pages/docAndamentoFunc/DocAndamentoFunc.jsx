@@ -1,6 +1,6 @@
 import "./docAndamentoFunc.css"
-import MenuLateral from "../../components/menuLateral/MenuLateral"
-import Cabecalho from "../../components/cabecalho/Cabecalho"
+import MenuLateral from "../../componentes/menuLateral/MenuLateral";
+import Cabecalho from "../../componentes/cabecalho/Cabecalho"
 
 import Adicionar from "../../assets/img/Adicionar.svg"
 import Deletar from "../../assets/img/Delete.svg";
