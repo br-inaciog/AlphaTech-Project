@@ -21,10 +21,10 @@ namespace CollabTechFile.Controllers
         }
 
         [HttpPost]
-        public  IActionResult Login(LoginDTO loginDTO)
+        public IActionResult Login(LoginDTO loginDTO)
         {
             try
-            {            
+            {
                 Usuario usuarioBuscado = _UsuarioRepository.BuscarPorEmailESenha(loginDTO.Email, loginDTO.Senha);
 
                 if (usuarioBuscado == null)
@@ -33,10 +33,10 @@ namespace CollabTechFile.Controllers
                 }
                 var claims = new[]
                 {
-                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.ToString()!),
-                    new Claim(JwtRegisteredClaimNames.Email,usuarioBuscado.Email!),
-                    new Claim(JwtRegisteredClaimNames.Name,usuarioBuscado.Nome),
-                    new Claim("Tipo do usuario",usuarioBuscado.IdTipoUsuarioNavigation.TituloTipoUsuario!)
+                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado?.IdUsuario.ToString() ?? string.Empty),
+                    new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado?.Email ?? string.Empty),
+                    new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado?.Nome ?? string.Empty),
+                    new Claim("Tipo do usuario", usuarioBuscado?.IdTipoUsuarioNavigation?.TituloTipoUsuario ?? "Desconhecido")
                 };
 
                 var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("collab-tech-file-chave-autenticacao"));
@@ -47,7 +47,7 @@ namespace CollabTechFile.Controllers
                     claims: claims,
                     expires: DateTime.Now.AddMinutes(5),
                     signingCredentials: creds
-                    );
+                );
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token)
