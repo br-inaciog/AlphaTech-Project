@@ -82,8 +82,7 @@
               "RelativeToolTip": "CollabTechFile\\Controllers\\LoginController.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAswDkAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T17:27:47.487Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T17:27:47.487Z"
             },
             {
               "$type": "Document",
@@ -95,8 +94,7 @@
               "RelativeToolTip": "CollabTechFile\\Controllers\\ComentarioController.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAYwBcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T16:16:08.259Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T16:16:08.259Z"
             },
             {
               "$type": "Document",
@@ -202,7 +200,7 @@
               "RelativeDocumentMoniker": "CollabTechFile\\Program.cs",
               "ToolTip": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Program.cs",
               "RelativeToolTip": "CollabTechFile\\Program.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAADYAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAswDYAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-14T16:13:31.515Z",
               "EditorCaption": ""
@@ -229,8 +227,7 @@
               "RelativeToolTip": "CollabTechFile\\Interfaces\\IUsuarioRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:14:24.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T11:14:24.58Z"
             },
             {
               "$type": "Document",
@@ -242,8 +239,7 @@
               "RelativeToolTip": "CollabTechFile\\Repositories\\UsuarioRepository.cs",
               "ViewState": "AgIAAGEAAAAAAAAAAAAswHMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:13:40.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T11:13:40.72Z"
             },
             {
               "$type": "Document",
@@ -255,8 +251,7 @@
               "RelativeToolTip": "CollabTechFile\\Controllers\\UsuarioController.cs",
               "ViewState": "AgIAAEwAAAAAAAAAAAAswFcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T14:21:33.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T14:21:33.887Z"
             }
           ]
         }
