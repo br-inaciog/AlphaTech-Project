@@ -67,8 +67,12 @@ export default function Inicio() {
                                 </div>
                         </form>
 
+
                         <form action="" className="docAction">
                             <img className="imgEscaner" src={Escaner} alt="" className='imgEscanear' />
+
+                        {/* <form action="" className="docAction">
+                            <img src={Escaner} alt="" className='imgEscanear' />
                             <div className='docActionDisplay'>
                                 <div className='divEscanear'>
                                     <h4>Digitalizar Documento</h4>
@@ -84,10 +88,12 @@ export default function Inicio() {
                                     <button className='botaoEnviarDoc'>Enviar</button>
                                 </div>
                             </div>
-                        </form>
+                        </form>  */}
+                         </form> 
                     </article>
                 </section>
             </main>
         </div>
     )
+   
 }

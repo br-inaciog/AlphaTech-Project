@@ -1,21 +1,18 @@
-import "./CadastroEmpresa.css";
-
-//Importar o seu SweetAlert
-import Swal from 'sweetalert2';
 
 import { useState } from "react";
-import api from "../../services/Services";
-
+import api from "../../Services/service";
+import Swal from "sweetalert2";
 import MenuLateral from "../../componentes/menuLateral/MenuLateral";
-import user from "../../assets/img/user.png"
-import Left from "../../assets/img/Voltar.svg"
+import "./CadastroEmpresa.css";
+import user from "../../assets/img/user.png";
 import Cadastro from "../../componentes/cadastro/Cadastro";
 
 
 export default function CadastroEmpresa() {
-  const [empresa, setEmpresa] = useState("")
-  const [CNPJ, setCNPJ] = useState("")
-  const [statusEmpresa, setStatusEmpresa] = useState(true);
+ const [empresa, setEmpresa] = useState("")
+ const [CNPJ, setCNPJ] = useState("")
+ const [loading, setLoading] = useState(false);
+ const [statusEmpresa, setStatusEmpresa] = useState(true);
 
   function alertar(icone, mensagem) {
     const Toast = Swal.mixin({
@@ -35,19 +32,56 @@ export default function CadastroEmpresa() {
     });
   }
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!empresa.trim() || !cnpj.trim()) {
+      alertar("warning", "Preencha todos os campos.");
+      return;
+    }
+
+    const payload = {
+      Nome: empresa.trim(),
+      Cnpj: CNPJ.trim(),
+      Ativo: true  // adicione se o backend exigir
+    };
+
+    console.log("Enviando:", payload); // debug
+
+    setLoading(true);
+    try {
+      const response = await api.post("empresa", payload);
+      if (response.status === 201 || response.status === 200) {
+        alertar("success", "Empresa cadastrada com sucesso!");
+        setEmpresa("");
+        setCnpj("");
+      } else {
+        console.error("Resposta inesperada:", response);
+        alertar("error", "Erro ao cadastrar empresa");
+      }
+    } catch (error) {
+      console.error("Erro completo:", error.response);
+      const mensagemErro = error.response?.data?.message ||
+        error.response?.data?.errors ||
+        error.response?.data ||
+        "Erro ao cadastrar empresa";
+      alertar("error", JSON.stringify(mensagemErro));
+    } finally {
+      setLoading(false);
+    }
+  }
+
   async function cadEmpresa(e) {
     e.preventDefault();
 
     console.log(empresa);
     console.log(CNPJ);
-    console.log(statusEmpresa);
 
     if (empresa.trim() != "") {
       try {
         await api.post("Empresa", {
           nome: empresa,
-          CNPJ: CNPJ,
-          ativo: statusEmpresa
+          CNPJ: CNPJ
         });
 
         alertar("success", "Cadastro Realizado!");
@@ -60,8 +94,7 @@ export default function CadastroEmpresa() {
 
         console.log({
           nome: empresa,
-          cnpj: CNPJ,
-          ativo: statusEmpresa
+          cnpj: CNPJ
         });
 
       }
@@ -81,25 +114,63 @@ export default function CadastroEmpresa() {
 
           </div>
         </header>
+
+        <section className="areaTrabalho">
+          <div className="conteudo">
+            <div className="titulo">
+              <h1>Cadastro Empresa</h1>
+            </div>
+
+            <form className="formulario" onSubmit={handleSubmit}>
+              <div className="campo">
+                <label>Empresa</label>
+                <input
+                  type="text"
+                  value={empresa}
+                  onChange={(e) => setEmpresa(e.target.value)}
+                  placeholder="Nome da empresa"
+                  disabled={loading}
+                />
+              </div>
+
+              <div className="campo">
+                <label>CNPJ</label>
+                <input
+                  type="text"
+                  value={cnpj}
+                  onChange={(e) => setCnpj(e.target.value)}
+                  placeholder="00.000.000/0000-00"
+                  disabled={loading}
+                />
+              </div>
+
+              <button type="submit" className="cadastrar" disabled={loading}>
+                {loading ? "Cadastrando..." : "Cadastrar"}
+              </button>
+            </form>
+
+
+          </div>
+        </section>
+       
         <section className="areaTrabalho">
           <div className="conteudo">
             <Cadastro
               titulo="Cadastro Empresa"
               campo1="Empresa"
-              campo2="CNPJ"
               tpInput="text"
+              visibilidade_campo2="none"
               visibilidade_campo3="none"
               visibilidade_campo4="none"
               visibilidade_campo5="none"
               visibilidade_campo6="none"
-
               funcCadastro={cadEmpresa}
               valorInput1={empresa}
               setValorInput1={setEmpresa}
-
-              valorInput2={CNPJ}
-              setValorInput2={setCNPJ}
+              valorInputCNPJ={CNPJ}
+              setValorInputCNPJ={setCNPJ}
             />
+
           </div>
         </section>
       </div>

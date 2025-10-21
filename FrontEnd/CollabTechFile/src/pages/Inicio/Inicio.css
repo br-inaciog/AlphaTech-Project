@@ -106,13 +106,13 @@
 .documentosActions {
     display: flex;
     gap: 32px;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 1%;
 }
 
 .docAction {
     background-color: aliceblue;
-    width: 100%;
+    width: 50%;
     border-radius: 20px;
     padding: 2%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -224,11 +224,7 @@
 }
 
 @media (max-width: 768px) {
-    .imgAnexo{
-        display: none;
-    }
-
-    .imgEscaner{
-        display: none;
-    }
+   .statusDocumentos{
+    /* margin-bottom: 25%; */
+   }
 }

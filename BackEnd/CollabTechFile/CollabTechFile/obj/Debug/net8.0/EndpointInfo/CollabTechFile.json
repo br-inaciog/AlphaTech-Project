@@ -197,7 +197,7 @@
                     "type": "string"
                   },
                   "documento.IdUsuarioNavigation.IdEmpresaNavigation.Cnpj": {
-                    "maxLength": 15,
+                    "maxLength": 18,
                     "minLength": 0,
                     "type": "string"
                   },
@@ -1226,9 +1226,6 @@
           "numeroVersao": {
             "type": "integer",
             "format": "int32"
-          },
-          "idDocumentoNavigation": {
-            "$ref": "#/components/schemas/Documento"
           }
         },
         "additionalProperties": false
@@ -1247,7 +1244,7 @@
             "nullable": true
           },
           "cnpj": {
-            "maxLength": 15,
+            "maxLength": 18,
             "minLength": 0,
             "type": "string",
             "nullable": true

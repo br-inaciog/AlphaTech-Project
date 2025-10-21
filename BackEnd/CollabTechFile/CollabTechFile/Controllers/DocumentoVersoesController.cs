@@ -65,8 +65,6 @@ namespace CollabTechFile.Controllers
                 return StatusCode(500, $"Erro ao listar versões do documento: {ex.Message}");
             }
         }
-
-
     }
 }
 
