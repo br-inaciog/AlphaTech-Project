@@ -41,12 +41,38 @@ public partial class CollabTechFileContext : DbContext
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+<<<<<<< HEAD
 
         //=> optionsBuilder.UseSqlServer("Server=DESKTOP-S3CGL03\\SQLEXPRESS  ;DataBase=CollabTechFile;user ID = sa; pwd= Senai@134;TrustServerCertificate=True;");
 
 
         => optionsBuilder.UseSqlServer("Server=tcp:alphatechbanco.database.windows.net,1433;Initial Catalog=collabdb;Persist Security Info=False;User ID=CollabTechFile;Password= Senai@134;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
+=======
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+<<<<<<< HEAD
+
+
+
+        => optionsBuilder.UseSqlServer("Server=tcp:collabdb.database.windows.net,1433;Initial Catalog=CollabTechFile;Persist Security Info=False;User ID=alpha;Password=Senai@134;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-S3CGL03\\SQLEXPRESS  ;DataBase=CollabTechFile;user ID = sa; pwd= Senai@134;TrustServerCertificate=True;");
+=======
+<<<<<<< HEAD
+>>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
+
+        => optionsBuilder.UseSqlServer("Server=tcp:alphatechbanco.database.windows.net,1433;Initial Catalog=collabdb;Persist Security Info=False;User ID=CollabTechFile;Password= Senai@134;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+<<<<<<< HEAD
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
+>>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
+>>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
+>>>>>>> b5d895e344a022648898c108d7b758718115d993
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

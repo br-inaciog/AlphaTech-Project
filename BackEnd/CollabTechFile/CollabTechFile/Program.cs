@@ -8,7 +8,26 @@ using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+// Add services to the container.
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+>>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
+>>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
+>>>>>>> b5d895e344a022648898c108d7b758718115d993
 
 builder.Services.AddCors(options =>
 {
@@ -18,11 +37,31 @@ builder.Services.AddCors(options =>
         .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
 });
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+<<<<<<< HEAD
+
+
+
+
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
+>>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
+>>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
+>>>>>>> b5d895e344a022648898c108d7b758718115d993
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
@@ -47,9 +86,11 @@ builder.Services.AddAuthentication(options =>
     options.DefaultAuthenticateScheme = "JwtBearer";
     options.DefaultChallengeScheme = "JwtBearer";
 })
+
 .AddJwtBearer("JwtBearer", options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
+
     {
         ValidateIssuer = true,
         ValidateAudience = true,
@@ -57,7 +98,6 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ClockSkew = TimeSpan.FromMinutes(5),
 
-        // ?? Mesmos valores do LoginController
         IssuerSigningKey = new SymmetricSecurityKey(
             System.Text.Encoding.UTF8.GetBytes("collab-tech-file-chave-autenticacao")),
         ValidIssuer = "CollabTechFile.WebApi",
@@ -68,6 +108,9 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+
+    options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
         Name = "Authorization",
@@ -94,6 +137,8 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+<<<<<<< HEAD
+=======
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy",
@@ -104,7 +149,13 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
         });
 });
+<<<<<<< HEAD
 
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
+>>>>>>> b5d895e344a022648898c108d7b758718115d993
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -117,7 +168,19 @@ builder.Services.AddCors(options =>
     // .AllowCredentials() // só se usar cookies/autenticação via cookie
     );
 });
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
+>>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
+>>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
+>>>>>>> b5d895e344a022648898c108d7b758718115d993
 
 var app = builder.Build();
 

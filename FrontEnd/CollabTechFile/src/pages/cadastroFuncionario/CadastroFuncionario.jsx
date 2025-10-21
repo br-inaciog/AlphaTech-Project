@@ -5,10 +5,9 @@ import "./CadastroFuncionario.css";
 //Importar o seu SweetAlert
 import Swal from 'sweetalert2';
 
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
 import user from "../../assets/img/user.png"
 import Left from "../../assets/img/Voltar.svg"
-import Cadastro from "../../componentes/cadastro/Cadastro";
+import Cadastro from "../../components/cadastro/Cadastro";
 import { useEffect, useState } from "react";
 import api from "../../Services/service";
 

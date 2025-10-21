@@ -1,9 +1,9 @@
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
+import MenuLateral from "../../components/menuLateral/MenuLateral";
 import "./CadastroCliente.css";
 import user from "../../assets/img/user.png"
 
 import Left from "../../assets/img/Voltar.svg"
-import Cadastro from "../../componentes/cadastro/Cadastro";
+import Cadastro from "../../components/cadastro/Cadastro";
 
 
 export default function CadastroCliente() {

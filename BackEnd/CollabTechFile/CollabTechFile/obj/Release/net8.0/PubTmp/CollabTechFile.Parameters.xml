@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
+<<<<<<< HEAD
   <parameter name="IIS Web Application Name" description="" value="ApiCollab" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\Release\\net8\.0\\PubTmp\\Out\\$" />
+=======
+  <parameter name="IIS Web Application Name" description="" value="bdalphatech" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\54891245808\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\Release\\net8\.0\\PubTmp\\Out\\$" />
+>>>>>>> b5d895e344a022648898c108d7b758718115d993
   </parameter>
 </parameters>
