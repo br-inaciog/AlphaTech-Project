@@ -9,17 +9,17 @@ import user from "../../assets/img/user.png"
 import Left from "../../assets/img/Voltar.svg"
 import Cadastro from "../../components/cadastro/Cadastro";
 import { useEffect, useState } from "react";
-import api from "../../services/Services";
+import api from "../../services/Service";
 
 
 export default function CadastroFuncionario() {
-  const [listaTipoUsuario, setListaTipoUsuario] = useState([]);
-  const [usuario, setUsuario] = useState("");
+  const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
+  const [empresa, setEmpresa] = useState("");
   const [senha, setSenha] = useState("");
   const [senhaVerificacao, setSenhaVerficacao] = useState("");
-  const [empresa, setEmpresa] = useState("1")
   const [tipoUsuario, setTipoUsuario] = useState("");
+  const [listaTipoUsuario, setListaTipoUsuario] = useState([]);
 
   function alertar(icone, mensagem) {
     const Toast = Swal.mixin({
@@ -39,38 +39,80 @@ export default function CadastroFuncionario() {
     });
   }
 
-
-  async function cadFuncionario(e) {
-    e.preventDefault();
-
-    console.log(usuario);
-    console.log(email);
-    console.log(senha);
-    console.log(senhaVerificacao);
-    console.log(tipoUsuario);
-
-    if (usuario.trim !== "") {
-      try {
-        await api.post("usuario")
-      } catch (error) {
-
-      }
-    } else {
-      alertar("warning", "Preencha o campo!")
-    }
-
-  }
-
   async function listarTipoUsuario() {
     try {
       const resposta = await api.get("tipoUsuario");
 
+      console.log(resposta.data); 
       setListaTipoUsuario(resposta.data);
 
-      console.log(resposta.data);
 
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  function validarSenha(senha) {
+    // Mínimo 8 caracteres, pelo menos 1 número e 1 símbolo
+    const regexSenha = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+    return regexSenha.test(senha);
+  }
+
+  async function cadFuncionario(e) {
+    e.preventDefault();
+
+    // Validações
+    if (!nome.trim() || !email.trim() || !empresa.trim() || !senha || !confirmarSenha) {
+      alertar("warning", "Preencha todos os campos.");
+      return;
+    }
+
+    if (!validarSenha(senha)) {
+      alertar("warning", "A senha deve ter mínimo 8 caracteres, com números e símbolos.");
+      return;
+    }
+
+    if (senha !== confirmarSenha) {
+      alertar("error", "As senhas não coincidem.");
+      return;
+    }
+
+    const payload = {
+      Nome: nome.trim(),
+      Email: email.trim(),
+      Empresa: empresa.trim(),
+      Senha: senha,
+      Ativo: true,
+      // IdTipoUsuario: 2, // se precisar definir tipo (ex: 2 = Cliente)
+      // IdEmpresa: null, // se precisar vincular a uma empresa existente
+    };
+
+    console.log("Enviando:", payload);
+
+    setLoading(true);
+    try {
+      const response = await api.post("usuario", payload);
+
+      if (response.status === 201 || response.status === 200) {
+        alertar("success", "Cliente cadastrado com sucesso!");
+        // Limpa os campos
+        setNome("");
+        setEmail("");
+        setEmpresa("");
+        setSenha("");
+        setConfirmarSenha("");
+      } else {
+        alertar("error", `Erro ${response.status}`);
+      }
+    } catch (error) {
+      console.error("Erro completo:", error.response);
+      const mensagemErro = error.response?.data?.message ||
+        error.response?.data?.errors ||
+        error.response?.data ||
+        "Erro ao cadastrar cliente";
+      alertar("error", JSON.stringify(mensagemErro));
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -100,8 +142,8 @@ export default function CadastroFuncionario() {
 
               // Nome do Usuario
               campo1="Nome"
-              valorInput1={usuario}
-              setValorInput1={setUsuario}
+              valorInput1={nome}
+              setValorInput1={setNome}
 
               // Email Usuario
               campo2="Email"

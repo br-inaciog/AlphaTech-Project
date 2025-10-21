@@ -1,9 +1,22 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import "./CadastroEmpresa.css";
+
+import api from "../../services/Service";
+import Swal from "sweetalert2";
+import MenuLateral from "../../componentes/menuLateral/MenuLateral";
+=======
+<<<<<<< HEAD
+>>>>>>> 94e78eb65ab9267fce84e7efe61a1a4763181551
 import MenuLateral from "../../components/menuLateral/MenuLateral";
 import { useState } from "react";
 import api from "../../Services/service";
 import Swal from "sweetalert2";
 import "./CadastroEmpresa.css";
+>>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
 import user from "../../assets/img/user.png";
+<<<<<<< HEAD
 
 // export default function CadastroEmpresa() {
 //   const [empresa, setEmpresa] = useState("");
@@ -16,6 +29,18 @@ export default function CadastroEmpresa() {
   const [CNPJ, setCNPJ] = useState("")
   const [statusEmpresa, setStatusEmpresa] = useState(true);
 
+=======
+import { useState } from "react";
+import Cadastro from "../../componentes/cadastro/Cadastro";
+
+export default function CadastroEmpresa() {
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [empresa, setEmpresa] = useState("");
+  const [CNPJ, setCNPJ] = useState("");
+  const [senha, setSenha] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
+>>>>>>> 94e78eb65ab9267fce84e7efe61a1a4763181551
 
   function alertar(icone, mensagem) {
     const Toast = Swal.mixin({
@@ -35,46 +60,76 @@ export default function CadastroEmpresa() {
     });
   }
 
+<<<<<<< HEAD
 
   async function handleSubmit(e) {
+=======
+  function validarSenha(senha) {
+    // Mínimo 8 caracteres, pelo menos 1 número e 1 símbolo
+    const regexSenha = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+    return regexSenha.test(senha);
+  }
+
+  async function cadEmpresa(e) {
+>>>>>>> 94e78eb65ab9267fce84e7efe61a1a4763181551
     e.preventDefault();
 
-    if (!empresa.trim() || !cnpj.trim()) {
+    // Validações
+    if (!nome.trim() || !email.trim() || !empresa.trim() || !senha || !confirmarSenha) {
       alertar("warning", "Preencha todos os campos.");
       return;
     }
 
-    const payload = {
-      Nome: empresa.trim(),
-      Cnpj: cnpj.trim(),
-      Ativo: true  // adicione se o backend exigir
+    if (!validarSenha(senha)) {
+      alertar("warning", "A senha deve ter mínimo 8 caracteres, com números e símbolos.");
+      return;
+    }
+
+    if (senha !== confirmarSenha) {
+      alertar("error", "As senhas não coincidem.");
+      return;
+    }
+
+    const payload = {  
+      Nome: nome.trim(),
+      Email: email.trim(),
+      Empresa: empresa.trim(),
+      Senha: senha,
+      Ativo: true,
+      // IdTipoUsuario: 2, // se precisar definir tipo (ex: 2 = Cliente)
+      // IdEmpresa: null, // se precisar vincular a uma empresa existente
     };
 
-    console.log("Enviando:", payload); // debug
+    console.log("Enviando:", payload);
 
     setLoading(true);
     try {
-      const response = await api.post("empresa", payload);
+      const response = await api.post("usuario", payload);
+
       if (response.status === 201 || response.status === 200) {
-        alertar("success", "Empresa cadastrada com sucesso!");
+        alertar("success", "Cliente cadastrado com sucesso!");
+        // Limpa os campos
+        setNome("");
+        setEmail("");
         setEmpresa("");
-        setCnpj("");
+        setSenha("");
+        setConfirmarSenha("");
       } else {
-        console.error("Resposta inesperada:", response);
-        alertar("error", "Erro ao cadastrar empresa");
+        alertar("error", `Erro ${response.status}`);
       }
     } catch (error) {
       console.error("Erro completo:", error.response);
-      const mensagemErro = error.response?.data?.message ||
-        error.response?.data?.errors ||
-        error.response?.data ||
-        "Erro ao cadastrar empresa";
+      const mensagemErro = error.response?.data?.message || 
+                           error.response?.data?.errors || 
+                           error.response?.data || 
+                           "Erro ao cadastrar cliente";
       alertar("error", JSON.stringify(mensagemErro));
     } finally {
       setLoading(false);
     }
   }
 
+<<<<<<< HEAD
   async function cadEmpresa(e) {
     e.preventDefault();
 
@@ -107,6 +162,8 @@ export default function CadastroEmpresa() {
     }
   }
 
+=======
+>>>>>>> 94e78eb65ab9267fce84e7efe61a1a4763181551
   return (
     <main className="containerGeral">
       <MenuLateral />
@@ -115,6 +172,7 @@ export default function CadastroEmpresa() {
           <div className="usuario">
             <img src={user} alt="user" />
             <p>Admin</p>
+<<<<<<< HEAD
 
           </div>
         </header>
@@ -153,6 +211,8 @@ export default function CadastroEmpresa() {
             </form>
 
 
+=======
+>>>>>>> 94e78eb65ab9267fce84e7efe61a1a4763181551
           </div>
         </section>
         <section className="areaTrabalho">
