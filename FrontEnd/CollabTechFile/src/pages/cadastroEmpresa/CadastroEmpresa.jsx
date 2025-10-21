@@ -1,42 +1,21 @@
-<<<<<<< HEAD
 import MenuLateral from "../../components/menuLateral/MenuLateral";
-=======
-<<<<<<< HEAD
 import { useState } from "react";
 import api from "../../Services/service";
 import Swal from "sweetalert2";
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
->>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
 import "./CadastroEmpresa.css";
 import user from "../../assets/img/user.png";
 
-export default function CadastroEmpresa() {
-  const [empresa, setEmpresa] = useState("");
-  const [cnpj, setCnpj] = useState("");
-  const [loading, setLoading] = useState(false);
-=======
-import "./CadastroEmpresa.css";
-
-//Importar o seu SweetAlert
-import Swal from 'sweetalert2';
-
-import { useState } from "react";
-import api from "../../services/Services";
-
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
-import user from "../../assets/img/user.png"
-import Left from "../../assets/img/Voltar.svg"
-import Cadastro from "../../componentes/cadastro/Cadastro";
-
+// export default function CadastroEmpresa() {
+//   const [empresa, setEmpresa] = useState("");
+//   const [cnpj, setCnpj] = useState("");
+//   const [loading, setLoading] = useState(false);
+// }
 
 export default function CadastroEmpresa() {
   const [empresa, setEmpresa] = useState("")
   const [CNPJ, setCNPJ] = useState("")
-<<<<<<< HEAD
-=======
   const [statusEmpresa, setStatusEmpresa] = useState(true);
->>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
->>>>>>> 942a08ec713c2f9fa33e85c41a138d820e19dff9
+
 
   function alertar(icone, mensagem) {
     const Toast = Swal.mixin({
@@ -56,7 +35,7 @@ export default function CadastroEmpresa() {
     });
   }
 
-<<<<<<< HEAD
+
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -96,8 +75,6 @@ export default function CadastroEmpresa() {
     }
   }
 
-
-=======
   async function cadEmpresa(e) {
     e.preventDefault();
 
@@ -130,7 +107,6 @@ export default function CadastroEmpresa() {
     }
   }
 
->>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
   return (
     <main className="containerGeral">
       <MenuLateral />
@@ -139,10 +115,9 @@ export default function CadastroEmpresa() {
           <div className="usuario">
             <img src={user} alt="user" />
             <p>Admin</p>
-<<<<<<< HEAD
+
           </div>
         </header>
-
         <section className="areaTrabalho">
           <div className="conteudo">
             <div className="titulo">
@@ -176,10 +151,10 @@ export default function CadastroEmpresa() {
                 {loading ? "Cadastrando..." : "Cadastrar"}
               </button>
             </form>
-=======
+
 
           </div>
-        </header>
+        </section>
         <section className="areaTrabalho">
           <div className="conteudo">
             <Cadastro
@@ -198,7 +173,6 @@ export default function CadastroEmpresa() {
               valorInputCNPJ={CNPJ}
               setValorInputCNPJ={setCNPJ}
             />
->>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
           </div>
         </section>
       </div>
