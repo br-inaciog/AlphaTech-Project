@@ -1,7 +1,7 @@
 import "./docFinalizadoClie.css"
 
-import MenuLateralCliente from "../../componentes/menuLateralCliente/MenuLateralCliente"
-import CabecalhoCliente from "../../componentes/cabecalhoCliente/CabecalhoCliente"
+import MenuLateralCliente from "../../components/menuLateralCliente/MenuLateralCliente"
+import CabecalhoCliente from "../../components/cabecalhoCliente/CabecalhoCliente"
 
 import Assinatura from "../../assets/img/Assinatura.png"
 

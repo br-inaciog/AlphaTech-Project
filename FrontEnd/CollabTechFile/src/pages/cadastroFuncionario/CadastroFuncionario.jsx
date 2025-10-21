@@ -1,23 +1,11 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> b5d895e344a022648898c108d7b758718115d993
 import "./CadastroFuncionario.css";
 
 //Importar o seu SweetAlert
 import Swal from 'sweetalert2';
 
-<<<<<<< HEAD
-=======
-import MenuLateral from "../../components/menuLateral/MenuLateral";
-import user from "../../assets/img/user.png"
-import Left from "../../assets/img/Voltar.svg"
-import Cadastro from "../../components/cadastro/Cadastro";
-import { useEffect, useState } from "react";
->>>>>>> b5d895e344a022648898c108d7b758718115d993
 import api from "../../services/Service";
-import Cadastro from "../../componentes/cadastro/Cadastro";
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
+import Cadastro from "../../components/cadastro/Cadastro";
+import MenuLateral from "../../components/menuLateral/MenuLateral";
 import { useEffect, useState } from "react";
 import user from "../../assets/img/user.png"
 

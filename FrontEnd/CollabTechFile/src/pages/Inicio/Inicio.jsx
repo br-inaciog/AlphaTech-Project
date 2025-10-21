@@ -1,5 +1,5 @@
 import './Inicio.css';
-import MenuLateral from '../../componentes/menuLateral/MenuLateral';
+import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Usuario from '../../assets/img/User.png';
 import arquivo from '../../assets/img/Arquivo.png';
 import Anexar from '../../assets/img/Upload.svg'

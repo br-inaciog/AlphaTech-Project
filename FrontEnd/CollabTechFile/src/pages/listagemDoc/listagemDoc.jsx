@@ -1,29 +1,5 @@
-<<<<<<< HEAD
-import "./ListagemDoc.css"
-import api from "../../services/Service"
-import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
-
-import MenuLateral from "../../componentes/menuLateral/MenuLateral"
-import Cabecalho from "../../componentes/cabecalho/Cabecalho"
-import Lixeira from "../../assets/img/Lixeira.png"
-import Pdf from "../../assets/img/PDF.png"
-import Editar from "../../assets/img/Editar.png"
-import Excluir from "../../assets/img/Delete.svg"
-
-export default function ListagemDoc() {
-    const [listagemDoc, setListagemDoc] = useState([])
-
-    async function listarDocumentos() {
-        try {
-            const resposta = await api.get("Documentos")
-            setListagemDoc(resposta.data)
-            console.log(resposta.data)
-        } catch (error) {
-            console.error("Erro ao listar documentos:", error)
-=======
 import "./ListagemDoc.css";
-import api from "../../Services/service";
+import api from "../../Services/Service";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -46,18 +22,12 @@ export default function ListagemDoc() {
             console.log(resposta.data);
         } catch (error) {
             console.error("Erro ao listar documentos:", error);
->>>>>>> b5d895e344a022648898c108d7b758718115d993
         }
     }
 
     useEffect(() => {
-<<<<<<< HEAD
-        listarDocumentos()
-    }, [])
-=======
         listarDocumentos();
     }, []);
->>>>>>> b5d895e344a022648898c108d7b758718115d993
 
     return (
         <div className="containerGeral">
@@ -74,10 +44,6 @@ export default function ListagemDoc() {
                         <div className="botaoFiltrar">
                             <select defaultValue="">
                                 <option value="" disabled>Filtrar</option>
-<<<<<<< HEAD
-                                <option value="Documentos">Documentos</option>
-=======
->>>>>>> b5d895e344a022648898c108d7b758718115d993
                                 <option value="Pendentes">Pendentes</option>
                                 <option value="Assinados">Assinados</option>
                                 <option value="Finalizados">Finalizados</option>
@@ -132,9 +98,5 @@ export default function ListagemDoc() {
                 </section>
             </main>
         </div>
-<<<<<<< HEAD
-    )
-=======
     );
->>>>>>> b5d895e344a022648898c108d7b758718115d993
 }

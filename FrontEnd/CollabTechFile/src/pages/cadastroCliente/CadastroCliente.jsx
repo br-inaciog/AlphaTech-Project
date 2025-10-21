@@ -1,18 +1,8 @@
-<<<<<<< HEAD
 import "./CadastroCliente.css";
-import Cadastro from "../../componentes/cadastro/Cadastro";
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
+import Cadastro from "../../components/cadastro/Cadastro";
+import MenuLateral from "../../components/menuLateral/MenuLateral";
 import user from "../../assets/img/user.png"
 import { useState } from "react";
-=======
-import MenuLateral from "../../components/menuLateral/MenuLateral";
-import "./CadastroCliente.css";
-import user from "../../assets/img/user.png"
-
-import Left from "../../assets/img/Voltar.svg"
-import Cadastro from "../../components/cadastro/Cadastro";
-
->>>>>>> b5d895e344a022648898c108d7b758718115d993
 
 export default function CadastroCliente() {
   const [nome, setNome] = useState("");
