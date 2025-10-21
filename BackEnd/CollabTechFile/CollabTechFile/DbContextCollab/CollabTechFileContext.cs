@@ -42,7 +42,7 @@ public partial class CollabTechFileContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=tcp:collabdb.database.windows.net,1433;Initial Catalog=collabdb;Persist Security Info=False;User ID=CollabTechFile;Password= Senai@134;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        optionsBuilder.UseSqlServer("Server=tcp:collabdb.database.windows.net,1433;Initial Catalog=CollabTechFile;User ID=alpha;Password=Senai@134;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
     }
 
 

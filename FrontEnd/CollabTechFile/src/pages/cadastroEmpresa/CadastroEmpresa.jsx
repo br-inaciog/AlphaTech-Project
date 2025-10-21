@@ -9,7 +9,7 @@ import user from "../../assets/img/User.png"
 
 import api from "../../services/Service";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function CadastroEmpresa() {
   const [empresa, setEmpresa] = useState("")
@@ -40,11 +40,14 @@ export default function CadastroEmpresa() {
     console.log(empresa);
     console.log(CNPJ);
 
-    if (empresa.trim() != "") {
+   
+	if
+	(empresa.trim() != "" && CNPJ.trim() != "") {
       try {
         await api.post("Empresa", {
           nome: empresa,
-          CNPJ: CNPJ
+          CNPJ: CNPJ,
+          ativo: statusEmpresa
         });
 
         alertar("success", "Cadastro Realizado!");
@@ -65,6 +68,7 @@ export default function CadastroEmpresa() {
       alertar("warning", "O campo precisa estar Preenchido")
     }
   }
+
 
   return (
     <main className="containerGeral">
@@ -89,8 +93,12 @@ export default function CadastroEmpresa() {
               visibilidade_campo6="none"
 
               funcCadastro={cadEmpresa}
+
+              //Nome Empresa
               valorInput1={empresa}
               setValorInput1={setEmpresa}
+
+              //CNPJ Empresa
               valorInputCNPJ={CNPJ}
               setValorInputCNPJ={setCNPJ}
             />

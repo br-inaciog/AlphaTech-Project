@@ -36,7 +36,7 @@ export default function CadastroCliente() {
     return regexSenha.test(senha);
   }
 
-  async function handleSubmit(e) {
+  async function cadCliente(e) {
     e.preventDefault();
 
     // Validações

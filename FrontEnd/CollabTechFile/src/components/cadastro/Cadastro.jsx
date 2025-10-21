@@ -1,7 +1,12 @@
+import { Eye, EyeOff } from "lucide-react";
 import "./Cadastro.css";
 import { IMaskInput } from 'react-imask';
+import { useState } from "react";
 
 export default function Cadastro(props) {
+    const [isShow, setIsShow] = useState(false);
+
+
     return (
         <section className="conteudo">
 
@@ -39,7 +44,7 @@ export default function Cadastro(props) {
                 <div className="campo" style={{ display: props.visibilidade_campo3 }}>
                     <label>{props.campo3}</label>
                     <select
-                        name="Tipo Evento"
+                        name="Tipo Usuário"
                         value={props.valorTipoUsuario}
                         onChange={(e) => props.setValorTipoUsuario(e.target.value)}
                     >
@@ -61,12 +66,12 @@ export default function Cadastro(props) {
                         value={props.valorEmpresa}
                         onChange={(e) => props.setValorEmpresa(e.target.value)}
                     >
-                        <option value="" disabled>
+                        <option disabled value="">
                             Selecionar Empresa
                         </option>
                         {props.listaEmpresa &&
                             props.listaEmpresa.length > 0 &&
-                            props.listaEmpresa.map((item) => 
+                            props.listaEmpresa.map((item) =>
                                 <option value={item.idEmpresa}>{item.nome}</option>
                             )}
                     </select>
@@ -74,27 +79,37 @@ export default function Cadastro(props) {
 
                 <div className="campo" style={{ display: props.visibilidade_campo5 }}>
                     <label>{props.campo5}</label>
-                    <input
-                        type="password"
-                        placeholder="Mínimo de 8 caracteres com números e símbolos"
-                        value={props.valorInput3}
-                        onChange={(e) => props.setValorInput3(e.target.value)}
-                    />
+                    <label className="areaSenha">
+                        <input
+                            type="password"
+                            placeholder="Mínimo de 8 caracteres com números e símbolos"
+                            value={props.valorInput3}
+                            onChange={(e) => props.setValorInput3(e.target.value)}
+                        />
+                        <button></button>
+                    </label>
                 </div>
 
                 <div className="campo" style={{ display: props.visibilidade_campo6 }}>
                     <label>{props.campo6}</label>
-                    <input
-                        type="password"
-                        value={props.valorInput4}
-                        onChange={(e) => props.setValorInput4(e.target.value)}
-                    />
+                    <label className="areaSenha">
+                        <input
+                            type="password"
+                            value={props.valorInput4}
+                            onChange={(e) => props.setValorInput4(e.target.value)}
+                        />
+                        <button>
+                            {isShow && <Eye size={18} color="black"/>}
+
+                            {isShow && <EyeOff size={18} />}
+                        </button>
+                    </label>
                 </div>
 
                 <button type="submit" className="cadastrar">
                     Cadastrar
                 </button>
             </form>
-        </section>
+        </section >
     );
 }
