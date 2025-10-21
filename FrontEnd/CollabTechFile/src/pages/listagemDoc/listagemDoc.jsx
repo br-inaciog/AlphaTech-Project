@@ -1,16 +1,33 @@
 import "./ListagemDoc.css";
+import api from "../../Services/Service";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
-import Cabecalho from "../../componentes/cabecalho/Cabecalho";
+import MenuLateral from "../../components/menuLateral/MenuLateral";
+import Cabecalho from "../../components/cabecalho/Cabecalho";
 import Lixeira from "../../assets/img/Lixeira.png";
 import Pdf from "../../assets/img/PDF.png";
 import Editar from "../../assets/img/Editar.png";
 import Excluir from "../../assets/img/Delete.svg";
-import { Link } from "react-router";
-import { useState } from "react";
 
 export default function ListagemDoc() {
-    const [hover, setHover] = useState(false);
+    const [listagemDoc, setListagemDoc] = useState([]);
+    const [hoverIndex, setHoverIndex] = useState(null);
+
+    // Função para buscar documentos da API
+    async function listarDocumentos() {
+        try {
+            const resposta = await api.get("Documentos");
+            setListagemDoc(resposta.data);
+            console.log(resposta.data);
+        } catch (error) {
+            console.error("Erro ao listar documentos:", error);
+        }
+    }
+
+    useEffect(() => {
+        listarDocumentos();
+    }, []);
 
     return (
         <div className="containerGeral">
@@ -25,10 +42,8 @@ export default function ListagemDoc() {
 
                     <div className="botaoFiltraLixeira">
                         <div className="botaoFiltrar">
-                            <select>
-                                <option disabled selected>
-                                    Filtrar
-                                </option>
+                            <select defaultValue="">
+                                <option value="" disabled>Filtrar</option>
                                 <option value="Pendentes">Pendentes</option>
                                 <option value="Assinados">Assinados</option>
                                 <option value="Finalizados">Finalizados</option>
@@ -41,39 +56,45 @@ export default function ListagemDoc() {
                         </Link>
                     </div>
 
-                    <div
-                        className="cardContainer"
-                        onMouseEnter={() => setHover(true)}
-                        onMouseLeave={() => setHover(false)}
-                    >
-                        <Link to="/docAndamentoFunc" className="cardDocumento">
-                            <img src={Pdf} alt="Icone de Pdf" />
-                            <div className="cardInformacoes">
-                                <h1>Relatório de Requisitos Ifood</h1>
-                                <p>
-                                    Data: <span>11/09/2001</span>
-                                </p>
-                                <p>
-                                    Horário de Criação: <span>12h03</span>
-                                </p>
-                            </div>
+                    <section className="list">
+                        {listagemDoc.length > 0 ? (
+                            listagemDoc.map((doc, index) => (
+                                <div
+                                    key={index}
+                                    className="cardContainer"
+                                    onMouseEnter={() => setHoverIndex(index)}
+                                    onMouseLeave={() => setHoverIndex(null)}
+                                >
+                                    <Link to="/docAndamentoFunc" className="cardDocumento">
+                                        <img src={Pdf} alt="Icone de Pdf" />
+                                        <div className="cardInformacoes">
+                                            <h1>{doc.titulo || "Sem título"}</h1>
+                                            <p>{doc.data || "Sem data"} — {doc.autor || "Autor desconhecido"}</p>
+                                            <p>Versão: <span>{doc.versao || "1.0"}</span></p>
+                                        </div>
 
-                            <div className="cardAcoes">
-                                <div className="infAcoes">
-                                    <img src={Editar} alt="Editar" />
+                                        <div className="cardAcoes">
+                                            <div className="infAcoes">
+                                                <img src={Editar} alt="Editar" />
+                                            </div>
+                                            <div className="infAcoes">
+                                                <img src={Excluir} alt="Excluir" />
+                                            </div>
+                                        </div>
+                                    </Link>
+
+                                    {hoverIndex === index && (
+                                        <div className="mensagemDoc show">
+                                            <p className="tituloMensagem">Anotações:</p>
+                                            <p>{doc.anotacao || "Mensagem escrita pelo proprietário..."}</p>
+                                        </div>
+                                    )}
                                 </div>
-
-                                <div className="infAcoes">
-                                    <img src={Excluir} alt="Excluir" />
-                                </div>
-                            </div>
-                        </Link>
-
-                        <div className={`mensagemDoc ${hover ? "show" : ""}`}>
-                            <p className="tituloMensagem">Anotações:</p>
-                            <p>Mensagem escrita pelo proprietário...</p>
-                        </div>
-                    </div>
+                            ))
+                        ) : (
+                            <p>Nenhum documento encontrado.</p>
+                        )}
+                    </section>
                 </section>
             </main>
         </div>

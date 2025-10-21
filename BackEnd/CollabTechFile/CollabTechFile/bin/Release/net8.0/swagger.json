@@ -1,0 +1,1347 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "CollabTechFile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Comentario": {
+      "get": {
+        "tags": [
+          "Comentario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Comentario"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Comentario"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Comentario/{id}": {
+      "delete": {
+        "tags": [
+          "Comentario"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Documentos/upload-ocr": {
+      "post": {
+        "tags": [
+          "Documentos"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "Arquivo",
+            "type": "file"
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdDocumento",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuario",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "formData",
+            "name": "documento.Nome",
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 0
+          },
+          {
+            "in": "formData",
+            "name": "documento.Prazo",
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "in": "formData",
+            "name": "documento.Status",
+            "type": "boolean"
+          },
+          {
+            "in": "formData",
+            "name": "documento.Versao",
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 0
+          },
+          {
+            "in": "formData",
+            "name": "documento.CaminhoArquivo",
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 0
+          },
+          {
+            "in": "formData",
+            "name": "documento.VersaoAtual",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "formData",
+            "name": "documento.CriadoEm",
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "in": "formData",
+            "name": "documento.Comentarios",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Comentario"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "documento.DocumentoVersos",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/DocumentoVersoes"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.IdUsuario",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.IdTipoUsuario",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.IdEmpresa",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.Nome",
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 0
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.Email",
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 0
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.Senha",
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 0
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.Empresa",
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 0
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.Ativo",
+            "type": "boolean"
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.Comentarios",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Comentario"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.Documentos",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Documento"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.Feedbacks",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Feedback"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.IdEmpresaNavigation.IdEmpresa",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.IdEmpresaNavigation.Nome",
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 0
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.IdEmpresaNavigation.Cnpj",
+            "type": "string",
+            "maxLength": 18,
+            "minLength": 0
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.IdEmpresaNavigation.Ativo",
+            "type": "boolean"
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.IdEmpresaNavigation.Usuarios",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Usuario"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.IdTipoUsuarioNavigation.IdTipoUsuario",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.IdTipoUsuarioNavigation.TituloTipoUsuario",
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 0
+          },
+          {
+            "in": "formData",
+            "name": "documento.IdUsuarioNavigation.IdTipoUsuarioNavigation.Usuarios",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Usuario"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "documento.RegrasDocs",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/RegrasDoc"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "documento.ReqDocs",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ReqDoc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Documentos": {
+      "get": {
+        "tags": [
+          "Documentos"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DocumentoVersoes": {
+      "post": {
+        "tags": [
+          "DocumentoVersoes"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DocumentoVersoes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "DocumentoVersoes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DocumentoVersoes/documento/{IdDocumento}": {
+      "get": {
+        "tags": [
+          "DocumentoVersoes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdDocumento",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Empresa": {
+      "post": {
+        "tags": [
+          "Empresa"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Empresa"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Empresa"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Login": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/LoginDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Regra": {
+      "get": {
+        "tags": [
+          "Regra"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Regra"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Regra"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Regra/{id}": {
+      "delete": {
+        "tags": [
+          "Regra"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Regra"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Regra"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RegraDoc": {
+      "get": {
+        "tags": [
+          "RegraDoc"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "RegraDoc"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RegrasDoc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RegraDoc/{id}": {
+      "delete": {
+        "tags": [
+          "RegraDoc"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "RegraDoc"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RegrasDoc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ReqDoc": {
+      "get": {
+        "tags": [
+          "ReqDoc"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ReqDoc"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ReqDoc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ReqDoc/{id}": {
+      "delete": {
+        "tags": [
+          "ReqDoc"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ReqDoc"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ReqDoc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Requisito": {
+      "get": {
+        "tags": [
+          "Requisito"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Requisito"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Requisito"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Requisito/{id}": {
+      "put": {
+        "tags": [
+          "Requisito"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Requisito"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Requisito"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Suporte": {
+      "post": {
+        "tags": [
+          "Suporte"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Suporte"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/TipoUsuario": {
+      "post": {
+        "tags": [
+          "TipoUsuario"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TipoUsuario"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "TipoUsuario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuario": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuario/{id}": {
+      "put": {
+        "tags": [
+          "Usuario"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuario/BuscarPorEmailESenha": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "senha",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Comentario": {
+      "type": "object",
+      "properties": {
+        "idComentario": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idUsuario": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idDocumento": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "texto": {
+          "maxLength": 2000,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idDocumentoNavigation": {
+          "$ref": "#/definitions/Documento"
+        },
+        "idUsuarioNavigation": {
+          "$ref": "#/definitions/Usuario"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Documento": {
+      "type": "object",
+      "properties": {
+        "idDocumento": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idUsuario": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nome": {
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string"
+        },
+        "prazo": {
+          "format": "date",
+          "type": "string"
+        },
+        "status": {
+          "type": "boolean"
+        },
+        "versao": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "caminhoArquivo": {
+          "maxLength": 500,
+          "minLength": 0,
+          "type": "string"
+        },
+        "versaoAtual": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "criadoEm": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "comentarios": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comentario"
+          }
+        },
+        "documentoVersos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DocumentoVersoes"
+          }
+        },
+        "idUsuarioNavigation": {
+          "$ref": "#/definitions/Usuario"
+        },
+        "regrasDocs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RegrasDoc"
+          }
+        },
+        "reqDocs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReqDoc"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentoVersoes": {
+      "type": "object",
+      "properties": {
+        "idDocumentoVersoes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idDocumento": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "numeroVersao": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Empresa": {
+      "type": "object",
+      "properties": {
+        "idEmpresa": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nome": {
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string"
+        },
+        "cnpj": {
+          "maxLength": 18,
+          "minLength": 0,
+          "type": "string"
+        },
+        "ativo": {
+          "type": "boolean"
+        },
+        "usuarios": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Usuario"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Feedback": {
+      "type": "object",
+      "properties": {
+        "idFeedback": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idUsuario": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "mensagem": {
+          "type": "string"
+        },
+        "dataEnvio": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "idUsuarioNavigation": {
+          "$ref": "#/definitions/Usuario"
+        }
+      },
+      "additionalProperties": false
+    },
+    "LoginDTO": {
+      "required": [
+        "email",
+        "senha"
+      ],
+      "type": "object",
+      "properties": {
+        "email": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "senha": {
+          "maxLength": 8,
+          "minLength": 6,
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Regra": {
+      "type": "object",
+      "properties": {
+        "idRegras": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nome": {
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string"
+        },
+        "regrasDocs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RegrasDoc"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "RegrasDoc": {
+      "type": "object",
+      "properties": {
+        "idRegrasDoc": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idRegras": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idDocumento": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idDocumentoNavigation": {
+          "$ref": "#/definitions/Documento"
+        },
+        "idRegrasNavigation": {
+          "$ref": "#/definitions/Regra"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReqDoc": {
+      "type": "object",
+      "properties": {
+        "idReqDoc": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idRequisito": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idDocumento": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idDocumentoNavigation": {
+          "$ref": "#/definitions/Documento"
+        },
+        "idRequisitoNavigation": {
+          "$ref": "#/definitions/Requisito"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Requisito": {
+      "type": "object",
+      "properties": {
+        "idRequisito": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "tipo": {
+          "maxLength": 20,
+          "minLength": 0,
+          "type": "string"
+        },
+        "reqDocs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReqDoc"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Suporte": {
+      "type": "object",
+      "properties": {
+        "idSuporte": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nome": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "email": {
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string"
+        },
+        "mensagem": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TipoUsuario": {
+      "type": "object",
+      "properties": {
+        "idTipoUsuario": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "tituloTipoUsuario": {
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string"
+        },
+        "usuarios": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Usuario"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Usuario": {
+      "type": "object",
+      "properties": {
+        "idUsuario": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idTipoUsuario": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idEmpresa": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nome": {
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string"
+        },
+        "email": {
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string"
+        },
+        "senha": {
+          "maxLength": 255,
+          "minLength": 0,
+          "type": "string"
+        },
+        "empresa": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "ativo": {
+          "type": "boolean"
+        },
+        "comentarios": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comentario"
+          }
+        },
+        "documentos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Documento"
+          }
+        },
+        "feedbacks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Feedback"
+          }
+        },
+        "idEmpresaNavigation": {
+          "$ref": "#/definitions/Empresa"
+        },
+        "idTipoUsuarioNavigation": {
+          "$ref": "#/definitions/TipoUsuario"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "Value: Bearer {token}"
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

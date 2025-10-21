@@ -41,7 +41,14 @@ public partial class CollabTechFileContext : DbContext
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+<<<<<<< HEAD
         => optionsBuilder.UseSqlServer("Server=tcp:alphatechbanco.database.windows.net,1433;Initial Catalog=collabdb;Persist Security Info=False;User ID=CollabTechFile;Password= Senai@134;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+=======
+    {
+        optionsBuilder.UseSqlServer("Server=tcp:alphatechbanco.database.windows.net,1433;Initial Catalog=collabdb;Persist Security Info=False;User ID=CollabTechFile;Password= Senai@134;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+    }
+
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

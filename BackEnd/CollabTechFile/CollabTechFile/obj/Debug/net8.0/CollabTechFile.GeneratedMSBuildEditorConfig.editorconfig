@@ -17,13 +17,21 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CollabTechFile
 build_property.RootNamespace = CollabTechFile
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\50526683848\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\
+=======
+build_property.ProjectDir = C:\Users\55890867873\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+<<<<<<< HEAD
 build_property.MSBuildProjectDirectory = C:\Users\50526683848\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile
+=======
+build_property.MSBuildProjectDirectory = C:\Users\55890867873\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 

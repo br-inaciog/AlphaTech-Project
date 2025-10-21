@@ -1,8 +1,7 @@
 import './Inicio.css';
-import MenuLateral from '../../componentes/menuLateral/MenuLateral';
+import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Usuario from '../../assets/img/User.png';
 import arquivo from '../../assets/img/Arquivo.png';
-import Escaner from '../../assets/img/Escaner.png';
 import Anexar from '../../assets/img/Upload.svg'
 
 export default function Inicio() {
@@ -67,7 +66,7 @@ export default function Inicio() {
                                 </div>
                         </form>
 
-                        <form action="" className="docAction">
+                        {/* <form action="" className="docAction">
                             <img src={Escaner} alt="" className='imgEscanear' />
                             <div className='docActionDisplay'>
                                 <div className='divEscanear'>
@@ -84,7 +83,7 @@ export default function Inicio() {
                                     <button className='botaoEnviarDoc'>Enviar</button>
                                 </div>
                             </div>
-                        </form>
+                        </form> */}
                     </article>
                 </section>
             </main>
