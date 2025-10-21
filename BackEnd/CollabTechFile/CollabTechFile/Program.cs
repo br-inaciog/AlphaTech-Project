@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 <<<<<<< HEAD
@@ -29,6 +30,10 @@ var builder = WebApplication.CreateBuilder(args);
 >>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
 >>>>>>> b5d895e344a022648898c108d7b758718115d993
 
+=======
+
+// Add services to the container.
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder => builder
@@ -37,6 +42,7 @@ builder.Services.AddCors(options =>
         .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -62,6 +68,8 @@ builder.Services.AddCors(options =>
 >>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
 >>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
 >>>>>>> b5d895e344a022648898c108d7b758718115d993
+=======
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
@@ -137,8 +145,6 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-<<<<<<< HEAD
-=======
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy",
@@ -150,12 +156,16 @@ builder.Services.AddCors(options =>
         });
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 =======
 <<<<<<< HEAD
 >>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
 >>>>>>> b5d895e344a022648898c108d7b758718115d993
+=======
+
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -169,6 +179,7 @@ builder.Services.AddCors(options =>
     );
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 <<<<<<< HEAD
@@ -181,6 +192,8 @@ builder.Services.AddCors(options =>
 >>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
 >>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
 >>>>>>> b5d895e344a022648898c108d7b758718115d993
+=======
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
 
 var app = builder.Build();
 
@@ -209,8 +222,11 @@ app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 
+<<<<<<< HEAD
 app.UseCors("CorsPolicy");
 
+=======
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
 app.UseCors("AllowFrontend");
 
 app.UseAuthentication();

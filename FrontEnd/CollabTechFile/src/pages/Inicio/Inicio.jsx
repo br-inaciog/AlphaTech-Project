@@ -1,24 +1,10 @@
 import './Inicio.css';
-import api from "../../Services/service"
-import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Usuario from '../../assets/img/User.png';
 import arquivo from '../../assets/img/Arquivo.png';
-import Escaner from '../../assets/img/Escaner.png';
 import Anexar from '../../assets/img/Upload.svg'
 
 export default function Inicio() {
-
-    const [inicioFunc, setInicioFunc] = useState();
-
-    async function inicio() {
-        try {
-            
-        } catch (error) {
-            
-        }
-    }
     return (
         <div className="containerGeral">
             <MenuLateral />

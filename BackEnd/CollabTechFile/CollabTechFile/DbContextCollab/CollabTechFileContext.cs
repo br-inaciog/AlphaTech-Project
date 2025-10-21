@@ -42,6 +42,7 @@ public partial class CollabTechFileContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         //=> optionsBuilder.UseSqlServer("Server=DESKTOP-S3CGL03\\SQLEXPRESS  ;DataBase=CollabTechFile;user ID = sa; pwd= Senai@134;TrustServerCertificate=True;");
 
@@ -74,6 +75,13 @@ public partial class CollabTechFileContext : DbContext
 >>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
 >>>>>>> b5d895e344a022648898c108d7b758718115d993
 
+=======
+    {
+        optionsBuilder.UseSqlServer("Server=tcp:alphatechbanco.database.windows.net,1433;Initial Catalog=collabdb;Persist Security Info=False;User ID=CollabTechFile;Password= Senai@134;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+    }
+
+
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Comentario>(entity =>

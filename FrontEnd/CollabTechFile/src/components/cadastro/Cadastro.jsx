@@ -46,9 +46,9 @@ export default function Cadastro(props) {
                         <option selected disabled value="">
                             Selecionar Tipo Usuário
                         </option>
-                        {props.lista &&
-                            props.lista.length > 0 &&
-                            props.lista.map((item) =>
+                        {props.listaTpUsuario &&
+                            props.listaTpUsuario.length > 0 &&
+                            props.listaTpUsuario.map((item) =>
                                 <option value={item.idTipoUsuario}>{item.tituloTipoUsuario}</option>
                             )}
                     </select>
@@ -61,9 +61,14 @@ export default function Cadastro(props) {
                         value={props.valorEmpresa}
                         onChange={(e) => props.setValorEmpresa(e.target.value)}
                     >
-                        <option value="" disabled>Empresa</option>
-                        <option value="">Pfizer</option>
-                        <option value="">Merck </option>
+                        <option value="" disabled>
+                            Selecionar Empresa
+                        </option>
+                        {props.listaEmpresa &&
+                            props.listaEmpresa.length > 0 &&
+                            props.listaEmpresa.map((item) => 
+                                <option value={item.idEmpresa}>{item.nome}</option>
+                            )}
                     </select>
                 </div>
 

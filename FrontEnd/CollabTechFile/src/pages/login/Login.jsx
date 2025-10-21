@@ -31,6 +31,8 @@ export default function Login() {
 
       if (token) {
         const tokenDecodificado = userDecodeToken(token);
+        console.log(tokenDecodificado);
+
         setUsuario(tokenDecodificado);
         secureLocalStorage.setItem("tokenLogin", JSON.stringify(tokenDecodificado));
 

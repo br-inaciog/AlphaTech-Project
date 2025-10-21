@@ -45,8 +45,6 @@ export default function CadastroFuncionario() {
 
       console.log(resposta.data); 
       setListaTipoUsuario(resposta.data);
-
-
     } catch (error) {
       console.log(error);
     }
@@ -62,10 +60,15 @@ export default function CadastroFuncionario() {
     e.preventDefault();
 
     // Validações
-    if (!nome.trim() || !email.trim() || !empresa.trim() || !senha || !confirmarSenha) {
+    if (!nome.trim() || !email.trim() || !empresa.trim() || !tipoUsuario.trim() || !senha || !confirmarSenha) {
       alertar("warning", "Preencha todos os campos.");
       return;
     }
+
+    console.log(nome);
+    console.log(email);
+    console.log(empresa);
+    
 
     if (!validarSenha(senha)) {
       alertar("warning", "A senha deve ter mínimo 8 caracteres, com números e símbolos.");
@@ -81,6 +84,7 @@ export default function CadastroFuncionario() {
       Nome: nome.trim(),
       Email: email.trim(),
       Empresa: empresa.trim(),
+      tipoUsuario: tipoUsuario.trim(),
       Senha: senha,
       Ativo: true,
       // IdTipoUsuario: 2, // se precisar definir tipo (ex: 2 = Cliente)
@@ -99,6 +103,7 @@ export default function CadastroFuncionario() {
         setNome("");
         setEmail("");
         setEmpresa("");
+        setTipoUsuario([]);
         setSenha("");
         setConfirmarSenha("");
       } else {
@@ -156,6 +161,7 @@ export default function CadastroFuncionario() {
               lista={listaTipoUsuario}
               valorTipoUsuario={tipoUsuario}
               setValorTipoUsuario={setTipoUsuario}
+              tituloSelect="Selecionar Tipo Usuário"
 
               // Senha Usuário
               campo5="Senha"

@@ -5,19 +5,6 @@ function App() {
   return (
     <>
         <Rotas />
-
-
-        {/* <ModalSalvarDocumento /> */}
-
-        {/* <ModalSalvarDocumento /> */}
-
-
-
-
-        {/* <ModalSalvarDocumento /> */}
-
-        {/* <ModalSalvarDocumento /> */}
-
     </>
   )
 }
