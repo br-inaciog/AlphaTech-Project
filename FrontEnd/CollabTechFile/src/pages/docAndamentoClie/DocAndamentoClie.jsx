@@ -1,18 +1,17 @@
 import "./docAndamentoClie.css"
 
-import MenuLateralCliente from "../../componentes/menuLateralCliente/MenuLateralCliente"
-import CabecalhoCliente from "../../componentes/cabecalhoCliente/CabecalhoCliente"
-
+import MenuLateral from "../../components/menuLateral/MenuLateral"
+import Cabecalho from "../../components/cabecalho/Cabecalho"
 import Comentario from "../../assets/img/Comentario.png"
 import { Link } from "react-router"
 
 export default function DocAndamentoClie() {
     return (
         <div className="containerGeral'">
-            <MenuLateralCliente />
+            <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <CabecalhoCliente />
+                    <Cabecalho />
 
                     <section className="docAndamento">
                         <div className="titulo">

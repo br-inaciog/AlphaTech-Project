@@ -41,16 +41,10 @@ public partial class CollabTechFileContext : DbContext
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-<<<<<<< HEAD
+    {
+        optionsBuilder.UseSqlServer("Server=tcp:alphatechbanco.database.windows.net,1433;Initial Catalog=collabdb;Persist Security Info=False;User ID=CollabTechFile;Password= Senai@134;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+    }
 
-=======
-<<<<<<< HEAD
-        => optionsBuilder.UseSqlServer("Server=NOTE03-S28\\SQLEXPRESS;DataBase=CollabTechFile;user ID = sa; pwd= Senai@134;TrustServerCertificate=True;");
-=======
->>>>>>> 942a08ec713c2f9fa33e85c41a138d820e19dff9
-        => optionsBuilder.UseSqlServer("Server=tcp:alphatechbanco.database.windows.net,1433;Initial Catalog=collabdb;Persist Security Info=False;User ID=CollabTechFile;Password= Senai@134;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
->>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

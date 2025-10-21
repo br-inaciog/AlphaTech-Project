@@ -1,18 +1,16 @@
-
-import { useState } from "react";
-import api from "../../Services/service";
-import Swal from "sweetalert2";
-import MenuLateral from "../../componentes/menuLateral/MenuLateral";
 import "./CadastroEmpresa.css";
+import { useState } from "react";
+import api from "../../Services/Service";
+import Swal from "sweetalert2";
+import MenuLateral from "../../components/menuLateral/MenuLateral";
 import user from "../../assets/img/user.png";
-import Cadastro from "../../componentes/cadastro/Cadastro";
-
+import Cadastro from "../../components/cadastro/Cadastro";
 
 export default function CadastroEmpresa() {
- const [empresa, setEmpresa] = useState("")
- const [CNPJ, setCNPJ] = useState("")
- const [loading, setLoading] = useState(false);
- const [statusEmpresa, setStatusEmpresa] = useState(true);
+  const [empresa, setEmpresa] = useState("");
+  const [CNPJ, setCNPJ] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [statusEmpresa, setStatusEmpresa] = useState(true);
 
   function alertar(icone, mensagem) {
     const Toast = Swal.mixin({
@@ -24,51 +22,12 @@ export default function CadastroEmpresa() {
       didOpen: (toast) => {
         toast.onmouseenter = Swal.stopTimer;
         toast.onmouseleave = Swal.resumeTimer;
-      }
+      },
     });
     Toast.fire({
       icon: icone,
-      title: mensagem
+      title: mensagem,
     });
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    if (!empresa.trim() || !cnpj.trim()) {
-      alertar("warning", "Preencha todos os campos.");
-      return;
-    }
-
-    const payload = {
-      Nome: empresa.trim(),
-      Cnpj: CNPJ.trim(),
-      Ativo: true  // adicione se o backend exigir
-    };
-
-    console.log("Enviando:", payload); // debug
-
-    setLoading(true);
-    try {
-      const response = await api.post("empresa", payload);
-      if (response.status === 201 || response.status === 200) {
-        alertar("success", "Empresa cadastrada com sucesso!");
-        setEmpresa("");
-        setCnpj("");
-      } else {
-        console.error("Resposta inesperada:", response);
-        alertar("error", "Erro ao cadastrar empresa");
-      }
-    } catch (error) {
-      console.error("Erro completo:", error.response);
-      const mensagemErro = error.response?.data?.message ||
-        error.response?.data?.errors ||
-        error.response?.data ||
-        "Erro ao cadastrar empresa";
-      alertar("error", JSON.stringify(mensagemErro));
-    } finally {
-      setLoading(false);
-    }
   }
 
   async function cadEmpresa(e) {
@@ -81,7 +40,7 @@ export default function CadastroEmpresa() {
       try {
         await api.post("Empresa", {
           nome: empresa,
-          CNPJ: CNPJ
+          CNPJ: CNPJ,
         });
 
         alertar("success", "Cadastro Realizado!");
@@ -94,12 +53,11 @@ export default function CadastroEmpresa() {
 
         console.log({
           nome: empresa,
-          cnpj: CNPJ
+          cnpj: CNPJ,
         });
-
       }
     } else {
-      alertar("warning", "O campo precisa estar Preenchido")
+      alertar("warning", "O campo precisa estar Preenchido");
     }
   }
 
@@ -111,48 +69,9 @@ export default function CadastroEmpresa() {
           <div className="usuario">
             <img src={user} alt="user" />
             <p>Admin</p>
-
           </div>
         </header>
 
-        <section className="areaTrabalho">
-          <div className="conteudo">
-            <div className="titulo">
-              <h1>Cadastro Empresa</h1>
-            </div>
-
-            <form className="formulario" onSubmit={handleSubmit}>
-              <div className="campo">
-                <label>Empresa</label>
-                <input
-                  type="text"
-                  value={empresa}
-                  onChange={(e) => setEmpresa(e.target.value)}
-                  placeholder="Nome da empresa"
-                  disabled={loading}
-                />
-              </div>
-
-              <div className="campo">
-                <label>CNPJ</label>
-                <input
-                  type="text"
-                  value={cnpj}
-                  onChange={(e) => setCnpj(e.target.value)}
-                  placeholder="00.000.000/0000-00"
-                  disabled={loading}
-                />
-              </div>
-
-              <button type="submit" className="cadastrar" disabled={loading}>
-                {loading ? "Cadastrando..." : "Cadastrar"}
-              </button>
-            </form>
-
-
-          </div>
-        </section>
-       
         <section className="areaTrabalho">
           <div className="conteudo">
             <Cadastro
@@ -170,7 +89,6 @@ export default function CadastroEmpresa() {
               valorInputCNPJ={CNPJ}
               setValorInputCNPJ={setCNPJ}
             />
-
           </div>
         </section>
       </div>

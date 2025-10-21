@@ -1,8 +1,7 @@
 import './Inicio.css';
-import MenuLateral from '../../componentes/menuLateral/MenuLateral';
+import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Usuario from '../../assets/img/User.png';
 import arquivo from '../../assets/img/Arquivo.png';
-import Escaner from '../../assets/img/Escaner.png';
 import Anexar from '../../assets/img/Upload.svg'
 
 export default function Inicio() {
@@ -66,30 +65,6 @@ export default function Inicio() {
                                     <button className='botaoEnviarDoc'>Enviar</button>
                                 </div>
                         </form>
-
-
-                        <form action="" className="docAction">
-                            <img className="imgEscaner" src={Escaner} alt="" className='imgEscanear' />
-
-                        {/* <form action="" className="docAction">
-                            <img src={Escaner} alt="" className='imgEscanear' />
-                            <div className='docActionDisplay'>
-                                <div className='divEscanear'>
-                                    <h4>Digitalizar Documento</h4>
-                                    <label className='arquivoLabel'>
-                                        <img className="imgAnexo" src={Anexar} alt="Ícone de upload" />
-                                        Escanear Documento
-                                        <input
-                                            type="file"
-                                            className='arquivoInput'
-                                        />
-                                    </label>
-                                    <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
-                                    <button className='botaoEnviarDoc'>Enviar</button>
-                                </div>
-                            </div>
-                        </form>  */}
-                         </form> 
                     </article>
                 </section>
             </main>

@@ -1,7 +1,7 @@
 import "./InicioCliente.css"
 
-import MenuLateralCliente from "../../componentes/menuLateralCliente/MenuLateralCliente"
-import CabecalhoCliente from "../../componentes/cabecalhoCliente/CabecalhoCliente"
+import MenuLateralCliente from "../../components/menuLateral/MenuLateral"
+import CabecalhoCliente from "../../components/cabecalho/Cabecalho"
 
 import Pdf from "../../assets/img/PDF.png"
 
@@ -10,10 +10,10 @@ import { Link } from "react-router"
 export default function InicioCliente() {
     return (
         <div className="containerGeral'">
-            <MenuLateralCliente />
+            <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <CabecalhoCliente />
+                    <Cabecalho/>
 
                     <div className="titulo">
                         <h1>Documentos</h1>

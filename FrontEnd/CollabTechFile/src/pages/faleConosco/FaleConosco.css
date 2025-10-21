@@ -164,6 +164,11 @@
   .caixaDeContato {
     margin-left: 0;
   }
+.tudao{
+ background: #000000;
+background: linear-gradient(133deg, rgba(0, 0, 0, 1) 0%, rgba(0, 35, 74, 1) 40%, rgba(0, 14, 42, 1) 100%);
+}
+
 }
 
 /* Celulares (até 600px) */
