@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder => builder
@@ -16,6 +17,7 @@ builder.Services.AddCors(options =>
         .AllowAnyMethod() // Permite métodos GET, POST, PUT, etc.
         .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
 });
+
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
@@ -40,9 +42,11 @@ builder.Services.AddAuthentication(options =>
     options.DefaultAuthenticateScheme = "JwtBearer";
     options.DefaultChallengeScheme = "JwtBearer";
 })
+
 .AddJwtBearer("JwtBearer", options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
+
     {
         ValidateIssuer = true,
         ValidateAudience = true,
@@ -50,7 +54,6 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ClockSkew = TimeSpan.FromMinutes(5),
 
-        // ?? Mesmos valores do LoginController
         IssuerSigningKey = new SymmetricSecurityKey(
             System.Text.Encoding.UTF8.GetBytes("collab-tech-file-chave-autenticacao")),
         ValidIssuer = "CollabTechFile.WebApi",
@@ -61,6 +64,9 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+
+    options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
         Name = "Authorization",
