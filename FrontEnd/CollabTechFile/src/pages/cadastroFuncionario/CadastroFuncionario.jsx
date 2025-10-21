@@ -9,8 +9,7 @@ import user from "../../assets/img/user.png"
 import Left from "../../assets/img/Voltar.svg"
 import Cadastro from "../../components/cadastro/Cadastro";
 import { useEffect, useState } from "react";
-import api from "../../services/Service";
-
+import api from "../../Services/service";
 
 export default function CadastroFuncionario() {
   const [nome, setNome] = useState("");
