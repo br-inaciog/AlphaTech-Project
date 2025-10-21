@@ -353,7 +353,6 @@ C:\Users\55890867873\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTech
 C:\Users\55890867873\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTechFile.genruntimeconfig.cache
 C:\Users\55890867873\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\ref\CollabTechFile.dll
 =======
-<<<<<<< HEAD
 C:\Users\55562188899\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\bin\Debug\net8.0\Azure.AI.FormRecognizer.dll
 C:\Users\55562188899\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\50776884867\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\bin\Debug\net8.0\appsettings.Development.json
@@ -710,6 +709,5 @@ C:\Users\50526683848\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTech
 C:\Users\50526683848\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTe.C19EBDF5.Up2Date
 C:\Users\50526683848\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTechFile.genruntimeconfig.cache
 C:\Users\50526683848\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\ref\CollabTechFile.dll
-=======
 >>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
 >>>>>>> 942a08ec713c2f9fa33e85c41a138d820e19dff9

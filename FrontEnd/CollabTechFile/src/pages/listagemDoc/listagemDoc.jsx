@@ -1,3 +1,33 @@
+<<<<<<< HEAD
+import "./ListagemDoc.css"
+import api from "../../Services/service"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+
+import MenuLateral from "../../components/menuLateral/MenuLateral"
+import Cabecalho from "../../components/cabecalho/Cabecalho"
+import Lixeira from "../../assets/img/Lixeira.png"
+import Pdf from "../../assets/img/PDF.png"
+import Editar from "../../assets/img/Editar.png"
+import Excluir from "../../assets/img/Delete.svg"
+
+export default function ListagemDoc() {
+    const [listagemDoc, setListagemDoc] = useState([])
+
+    async function listarDocumentos() {
+        try {
+            const resposta = await api.get("Documentos")
+            setListagemDoc(resposta.data)
+            console.log(resposta.data)
+        } catch (error) {
+            console.error("Erro ao listar documentos:", error)
+        }
+    }
+
+    useEffect(() => {
+        listarDocumentos()
+    }, [])
+=======
 import "./ListagemDoc.css";
 
 import MenuLateral from "../../componentes/menuLateral/MenuLateral";
@@ -11,6 +41,7 @@ import { useState } from "react";
 
 export default function ListagemDoc() {
     const [hover, setHover] = useState(false);
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
 
     return (
         <div className="containerGeral">
@@ -25,10 +56,16 @@ export default function ListagemDoc() {
 
                     <div className="botaoFiltraLixeira">
                         <div className="botaoFiltrar">
+<<<<<<< HEAD
+                            <select defaultValue="">
+                                <option value="" disabled>Filtrar</option>
+                                <option value="Documentos">Documentos</option>
+=======
                             <select>
                                 <option disabled selected>
                                     Filtrar
                                 </option>
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
                                 <option value="Pendentes">Pendentes</option>
                                 <option value="Assinados">Assinados</option>
                                 <option value="Finalizados">Finalizados</option>
@@ -41,6 +78,38 @@ export default function ListagemDoc() {
                         </Link>
                     </div>
 
+<<<<<<< HEAD
+                    <section className="list">
+                        {listagemDoc.length > 0 ? (
+                            listagemDoc.map((doc, index) => (
+                                <Link key={index} to="/docAndamentoFunc" className="cardDocumento">
+                                    <img src={Pdf} alt="Icone de Pdf" />
+                                    <div className="cardInformacoes">
+                                        <h1>{doc.titulo || "Sem título"}</h1>
+                                        <p>{doc.data || "Sem data"} {doc.autor || ""}</p>
+                                        <p>Versão: <span>{doc.versao || "1.0"}</span></p>
+                                    </div>
+
+                                    <div className="cardAcoes">
+                                        <div className="infAcoes">
+                                            <img src={Editar} alt="Editar" />
+                                        </div>
+
+                                        <div className="infAcoes">
+                                            <img src={Excluir} alt="Excluir" />
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))
+                        ) : (
+                            <p>Nenhum documento encontrado.</p>
+                        )}
+                    </section>
+                </section>
+            </main>
+        </div>
+    )
+=======
                     <div
                         className="cardContainer"
                         onMouseEnter={() => setHover(true)}
@@ -78,4 +147,5 @@ export default function ListagemDoc() {
             </main>
         </div>
     );
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
 }

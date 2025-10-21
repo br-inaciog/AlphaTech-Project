@@ -1,7 +1,7 @@
 import "./docFinalizadoFunc.css"
 
-import MenuLateral from "../../componentes/menuLateral/MenuLateral"
-import Cabecalho from "../../componentes/cabecalho/Cabecalho"
+import MenuLateral from "../../components/menuLateral/MenuLateral"
+import Cabecalho from "../../components/cabecalho/Cabecalho"
 
 import Assinatura from "../../assets/img/Assinatura.png"
 

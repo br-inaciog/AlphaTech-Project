@@ -36,7 +36,10 @@ namespace CollabTechFile.Controllers
         }
 
         //[Authorize]
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
         [HttpGet]
         public IActionResult Get()
         {
