@@ -20,11 +20,7 @@ namespace CollabTechFile.Controllers
             _UsuarioRepository = usuarioRepository;
         }
 
-<<<<<<< HEAD
-
-=======
         //[Authorize]
->>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
         [HttpGet]
         public IActionResult Get()
         {
