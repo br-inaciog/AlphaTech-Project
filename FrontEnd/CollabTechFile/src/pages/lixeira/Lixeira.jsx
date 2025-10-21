@@ -1,6 +1,6 @@
 import "./Lixeira.css"
-import MenuLateral from "../../componentes/menuLateral/MenuLateral"
-import Cabecalho from "../../componentes/cabecalho/Cabecalho"
+import MenuLateral from "../../components/menuLateral/MenuLateral"
+import Cabecalho from "../../components/cabecalho/Cabecalho"
 
 import Pdf from "../../assets/img/PDF.png"
 import Restaurar from "../../assets/img/Restaurar.svg"
@@ -19,7 +19,7 @@ export default function Lixeira() {
                     </div>
 
                     <div className="cardInf">
-                        <div className="cardDocumento">
+                        <div className="cardDocumentoLixeira">
                             <div className="cardInformacoesLixeira">
                                 <img src={Pdf} alt="Icone de Pdf" />
                                 <p>Relatório de Requisitos Ifood</p>

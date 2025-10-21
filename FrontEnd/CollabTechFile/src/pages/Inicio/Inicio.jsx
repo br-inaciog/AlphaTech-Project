@@ -1,11 +1,24 @@
 import './Inicio.css';
-import MenuLateral from '../../componentes/menuLateral/MenuLateral';
+import api from "../../Services/service"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Usuario from '../../assets/img/User.png';
 import arquivo from '../../assets/img/Arquivo.png';
 import Escaner from '../../assets/img/Escaner.png';
 import Anexar from '../../assets/img/Upload.svg'
 
 export default function Inicio() {
+
+    const [inicioFunc, setInicioFunc] = useState();
+
+    async function inicio() {
+        try {
+            
+        } catch (error) {
+            
+        }
+    }
     return (
         <div className="containerGeral">
             <MenuLateral />
@@ -51,35 +64,40 @@ export default function Inicio() {
                     </div>
                     <article className="documentosActions">
                         <form action="" className="docAction">
-                            <img src={arquivo} alt="" className='imgArquivo' /> 
-                            <div className='divAnexar'>
-                                <label className='arquivoLabel'>
+                            <img src={arquivo} alt="Imagem Arquivo" className='imgArquivo' />
+                                <div className='divAnexar'>
                                     <h4>Anexar Documentação</h4>
-                                    <i><img src={Anexar} alt="Ícone de upload" /></i>
-                                    <input
-                                        type="file"
-                                        className='arquivoInput'
-                                        onChange={(e) => setImagem(e.target.files[0])}
-                                    />
+                                    <label className='arquivoLabel'>
+                                        <img src={Anexar} alt="Ícone de upload" />
+                                        Anexar Documento
+                                        <input
+                                            type="file"
+                                            className='arquivoInput'
+                                        />
+                                    </label>
                                     <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
-                                </label>
-                            </div>
-                            <button>Enviar</button>
+                                    <button className='botaoEnviarDoc'>Enviar</button>
+                                </div>
                         </form>
 
-                        <div action="" className="docAction">
+                        {/* <form action="" className="docAction">
                             <img src={Escaner} alt="" className='imgEscanear' />
-
-                            <div className='divEscanear'>
-                                <h4>Digitalizar Documento</h4>
-                                <button className="iconDigitalizar">
-                                    <img src={Escaner} alt="" className='iconUpload' />
-                                    Escanear Documento
-                                </button>
-                                <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
+                            <div className='docActionDisplay'>
+                                <div className='divEscanear'>
+                                    <h4>Digitalizar Documento</h4>
+                                    <label className='arquivoLabel'>
+                                        <img src={Anexar} alt="Ícone de upload" />
+                                        Escanear Documento
+                                        <input
+                                            type="file"
+                                            className='arquivoInput'
+                                        />
+                                    </label>
+                                    <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
+                                    <button className='botaoEnviarDoc'>Enviar</button>
+                                </div>
                             </div>
-                        </div>
-
+                        </form> */}
                     </article>
                 </section>
             </main>

@@ -21,8 +21,8 @@ namespace CollabTechFile.Controllers
             _ComentarioRepository = comentarioRepository;
         }
 
+        //[Authorize]
         [HttpGet]
-
         public IActionResult Get()
         {
             try
@@ -37,9 +37,8 @@ namespace CollabTechFile.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
-
         public IActionResult Post(Comentario comentario)
         {
 
@@ -54,7 +53,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

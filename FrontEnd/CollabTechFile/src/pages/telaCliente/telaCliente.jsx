@@ -1,5 +1,5 @@
-import MenuLateral from '../../componentes/menuLateral/MenuLateral';
-import Cabecalho from '../../componentes/cabecalho/Cabecalho';
+import MenuLateral from '../../components/menuLateral/MenuLateral';
+import Cabecalho from '../../components/cabecalho/Cabecalho';
 import Lixeira from "../../assets/img/Delete.svg"
 
 import Editar from '../../assets/img/Editar.png';
@@ -38,7 +38,7 @@ export default function TelaCliente() {
                                     <th>Excluir</th>
                                 </tr>
                             </thead>
-                            <tbody className="barraRolagem">
+                            <tbody>
                                 {clientes.map((c, i) => (
                                     <tr key={i}>
                                         <td>{c.nome}</td>

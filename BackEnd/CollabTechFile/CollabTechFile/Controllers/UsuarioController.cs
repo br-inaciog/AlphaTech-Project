@@ -20,6 +20,7 @@ namespace CollabTechFile.Controllers
             _UsuarioRepository = usuarioRepository;
         }
 
+        //[Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -34,7 +35,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult Post(Usuario usuario)
         {
@@ -49,7 +50,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Usuario usuario)
         {
@@ -67,7 +68,7 @@ namespace CollabTechFile.Controllers
 
 
 
-        [Authorize]
+        //[Authorize]
         [HttpGet("BuscarPorEmailESenha")]
         public IActionResult Get(string email, string senha)
         {

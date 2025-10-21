@@ -19,8 +19,8 @@ namespace CollabTechFile.Controllers
             _RequisitoRepository = requisitoRepository;
         }
 
+        //[Authorize]
         [HttpGet]
-
         public IActionResult Get() {
             try
             {
@@ -35,9 +35,8 @@ namespace CollabTechFile.Controllers
         }
 
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
-
         public IActionResult Post(Requisito requisitos)
         {
 
@@ -53,7 +52,7 @@ namespace CollabTechFile.Controllers
         }
 
 
-        [Authorize]
+        //[Authorize]
         [HttpPut("{id}")]
 
         public IActionResult Put(int id, Requisito requisitos) {
@@ -71,7 +70,7 @@ namespace CollabTechFile.Controllers
         }
 
 
-        [Authorize]
+        //[Authorize]
         [HttpDelete("{id}")]
 
         public IActionResult Delete(int id) {

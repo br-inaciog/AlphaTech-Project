@@ -1,6 +1,6 @@
 import "./docAndamentoFunc.css"
-import MenuLateral from "../../componentes/menuLateral/MenuLateral"
-import Cabecalho from "../../componentes/cabecalho/Cabecalho"
+import MenuLateral from "../../components/menuLateral/MenuLateral"
+import Cabecalho from "../../components/cabecalho/Cabecalho"
 
 import Adicionar from "../../assets/img/Adicionar.svg"
 import Deletar from "../../assets/img/Delete.svg";
@@ -18,8 +18,28 @@ export default function DocAndamentoFunc() {
                         <div className="titulo">
                             <h1>Documento em Andamento</h1>
                         </div>
+
                         <form action="" className="documento">
                             <p className="docNome">Nome Documento</p>
+
+                            <div className="infDocumento">
+                                <div className="botaoFiltrarVersoesDoc">
+                                    <p>Versão Documento</p>
+                                    <select>
+                                        <option disabled selected>Versões</option>
+                                        <option value="versoes">Versão 1.1</option>
+                                    </select>
+                                </div>
+
+                                <div className="botaoSelectRementente">
+                                    <p>Rementente</p>
+                                    <select>
+                                        <option disabled selected>Destinatário</option>
+                                        <option value="rementente">Bolsonaro</option>
+                                    </select>
+                                </div>
+                            </div>
+
 
                             <div className="prazoEntrega">
                                 <label htmlFor="">Prazo de Entrega:</label>
@@ -101,8 +121,8 @@ export default function DocAndamentoFunc() {
                                     </button>
                                 </div>
                             </div>
-                        </form>
 
+                        </form>
                     </section>
 
                     <section className="areaComentarioDoc">
@@ -126,6 +146,6 @@ export default function DocAndamentoFunc() {
                     </section>
                 </section>
             </main>
-        </div>
+        </div >
     )
 }

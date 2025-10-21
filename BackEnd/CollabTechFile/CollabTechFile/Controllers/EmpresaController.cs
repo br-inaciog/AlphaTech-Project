@@ -20,9 +20,8 @@ namespace CollabTechFile.Controllers
             _EmpresaRepository = empresaRepository;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
-
         public IActionResult Post(Empresa empresa)
         {
 
@@ -31,9 +30,9 @@ namespace CollabTechFile.Controllers
                 _EmpresaRepository.Cadastrar(empresa);
                 return StatusCode(201, empresa);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                return BadRequest(e.Message);
             }
         }
 
@@ -51,6 +50,7 @@ namespace CollabTechFile.Controllers
         //    }
         //}
 
+        //[Authorize]
         [HttpGet]
         public IActionResult Get()
         {
