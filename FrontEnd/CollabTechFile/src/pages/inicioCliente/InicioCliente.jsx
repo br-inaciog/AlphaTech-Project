@@ -5,7 +5,7 @@ import CabecalhoCliente from "../../components/cabecalhoCliente/CabecalhoCliente
 
 import Pdf from "../../assets/img/PDF.png"
 
-import { Link } from "react-router"
+import { Link } from "react-router-dom"
 
 export default function InicioCliente() {
     return (

@@ -4,7 +4,7 @@ import Lupa from "../../assets/img/Lupa.png"
 import User from "../../assets/img/User.png"
 
 import Seta from "../../assets/img/Seta.png"
-import { Link } from "react-router"
+import { Link } from "react-router-dom"
 
 export default function Cabecalho() {
     return (
