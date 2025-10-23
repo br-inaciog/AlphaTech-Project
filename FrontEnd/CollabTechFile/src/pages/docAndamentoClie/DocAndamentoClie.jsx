@@ -4,7 +4,7 @@ import MenuLateralCliente from "../../components/menuLateralCliente/MenuLateralC
 import CabecalhoCliente from "../../components/cabecalhoCliente/CabecalhoCliente"
 
 import Comentario from "../../assets/img/Comentario.png"
-import { Link } from "react-router"
+import { Link } from "react-router-dom"
 
 export default function DocAndamentoClie() {
     return (

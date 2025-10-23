@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 import { useState } from "react";
 import Seta from "../../assets/img/SetaBranca.png"
-import { Link } from "react-router"
+import { Link } from "react-router-dom"
 
 import Doczinho from "../../assets/img/ImgFaleConosco.png";
 import Mapinha from "../../assets/img/Mapinha.png";

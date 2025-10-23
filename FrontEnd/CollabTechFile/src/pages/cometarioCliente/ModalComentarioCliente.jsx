@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "./modalComentarioCliente.css";
 import voltar from "../../assets/img/Voltar.svg";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const ModalComentarioCliente = ({
   nomeDocumento = "Nome do Documento",
