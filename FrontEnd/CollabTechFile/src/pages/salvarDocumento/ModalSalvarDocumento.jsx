@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ModalSalvarDocumento.css";
 import voltar from "../../assets/img/Voltar.svg";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const ModalSalvarDocumento = ({ nomeDocumento = "Prazo de entrega ", onCancel, onPublish }) => {
   const [documento, setDocumento] = useState("");
