@@ -46,10 +46,13 @@ export default function Lixeira() {
         });
     }
 
+<<<<<<< HEAD
     useEffect(() => {
         listarDocLixeira();
     }, [])
 
+=======
+>>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
     return (
         <div className="containerGeral">
             <MenuLateral />

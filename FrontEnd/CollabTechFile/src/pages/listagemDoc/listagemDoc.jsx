@@ -1,5 +1,5 @@
 import "./ListagemDoc.css";
-import api from "../../Services/Service";
+import api from "../../services/Service";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 

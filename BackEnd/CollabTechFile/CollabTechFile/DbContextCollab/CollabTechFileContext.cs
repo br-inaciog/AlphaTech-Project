@@ -42,7 +42,11 @@ public partial class CollabTechFileContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 <<<<<<< HEAD
+<<<<<<< HEAD
         => optionsBuilder.UseSqlServer("Server = NOTE06-S28\\SQLEXPRESS; Database=CollabTechFile; User ID=sa; pwd=Senai@134; TrustServerCertificate=true");
+=======
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-S3CGL03\\SQLEXPRESS; Database=CollabTechFile; User id=sa; Pwd=Senai@134; trustServerCertificate=true;");
+>>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
 =======
 <<<<<<< HEAD
         => optionsBuilder.UseSqlServer("Server=NOTE36-S28\\SQLEXPRESS; Database=CollabTechFile; User Id=sa; Pwd=Senai@134; TrustServerCertificate=true;");
