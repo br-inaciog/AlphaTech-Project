@@ -6,6 +6,10 @@ import { useState } from "react";
 export default function Cadastro(props) {
     const [isShow, setIsShow] = useState(false);
 
+    const handlePassword = (e) => {
+        e.preventDefault();
+        setIsShow(!isShow);
+    };
 
     return (
         <section className="conteudo">
@@ -81,12 +85,15 @@ export default function Cadastro(props) {
                     <label>{props.campo5}</label>
                     <label className="areaSenha">
                         <input
-                            type="password"
+                            type={isShow ? "text" : "password"}
                             placeholder="Mínimo de 8 caracteres com números e símbolos"
                             value={props.valorInput3}
                             onChange={(e) => props.setValorInput3(e.target.value)}
                         />
-                        <button></button>
+                        <button onClick={handlePassword}>
+                            {isShow && <Eye size={18} />}
+                            {!isShow && <EyeOff size={18} />}
+                        </button>
                     </label>
                 </div>
 
@@ -94,14 +101,13 @@ export default function Cadastro(props) {
                     <label>{props.campo6}</label>
                     <label className="areaSenha">
                         <input
-                            type="password"
+                            type={isShow ? "text" : "password"}
                             value={props.valorInput4}
                             onChange={(e) => props.setValorInput4(e.target.value)}
                         />
-                        <button>
-                            {isShow && <Eye size={18} color="black"/>}
-
-                            {isShow && <EyeOff size={18} />}
+                        <button onClick={handlePassword}>
+                            {isShow && <Eye size={18} />}
+                            {!isShow && <EyeOff size={18} />}
                         </button>
                     </label>
                 </div>

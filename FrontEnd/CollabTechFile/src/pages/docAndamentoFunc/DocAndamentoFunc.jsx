@@ -5,8 +5,54 @@ import Cabecalho from "../../components/cabecalho/Cabecalho"
 import Adicionar from "../../assets/img/Adicionar.svg"
 import Deletar from "../../assets/img/Delete.svg";
 import Editar from "../../assets/img/Editar.png"
+import Swal from "sweetalert2";
+import { useState } from "react";
+import { useEffect } from "react";
+import api from "../../Services/Service";
+
 
 export default function DocAndamentoFunc() {
+    const [listaCliente, setListaCliente] = useState([]);
+    const [clientesFiltrados, setClientesFiltrados] = useState([]);
+
+    function alertar() {
+        Swal.fire({
+            title: "Do you want to save the changes?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Salvar",
+            denyButtonText: `Não Salvar`
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire("Saved!", "", "success");
+            } else if (result.isDenied) {
+                Swal.fire("Changes are not saved", "", "info");
+            }
+        });
+    }
+
+    async function listarCliente() {
+        try {
+            const resposta = await api.get("usuario")
+            setListaCliente(resposta.data);
+
+            const apenasClientes = resposta.data.filter(u => u.idTipoUsuario === 3);
+            setClientesFiltrados(apenasClientes);
+        } catch (error) {
+            console.log("Erro ao buscar clientes:", error);
+        }
+    }
+
+    async function listarVersoes() {
+        const resposta = await api.get("documentosVersoes")
+    }
+
+
+    useEffect(() => {
+        listarCliente();
+    }, [listaCliente])
+
     return (
         <div className="containerGeral'">
             <MenuLateral />
@@ -20,7 +66,9 @@ export default function DocAndamentoFunc() {
                         </div>
 
                         <form action="" className="documento">
-                            <p className="docNome">Nome Documento</p>
+                            <div className="inputNome">
+                                <input type="text" placeholder="Nome Documento" />
+                            </div>
 
                             <div className="infDocumento">
                                 <div className="botaoFiltrarVersoesDoc">
@@ -35,15 +83,23 @@ export default function DocAndamentoFunc() {
                                     <p>Rementente</p>
                                     <select>
                                         <option disabled selected>Destinatário</option>
-                                        <option value="rementente">Bolsonaro</option>
+                                        {clientesFiltrados.length > 0 ? (
+                                            clientesFiltrados.map((usuario) =>
+                                                <option key={usuario.idUsuario} value={usuario.idUsuario}>
+                                                    {usuario.nome}
+                                                </option>
+                                            )
+                                        ) : (
+                                            <option>Nenhum cliente encontrado</option>
+                                        )}
                                     </select>
                                 </div>
-                            </div>
 
 
-                            <div className="prazoEntrega">
-                                <label htmlFor="">Prazo de Entrega:</label>
-                                <input type="date" />
+                                <div className="prazoEntrega">
+                                    <label>Prazo de Entrega:</label>
+                                    <input type="date" />
+                                </div>
                             </div>
 
                             <div className="regrasDeNegocio">
@@ -110,7 +166,7 @@ export default function DocAndamentoFunc() {
 
                             <div className="salvarFinalizarDoc">
                                 <div className="buttonSalvar">
-                                    <button className="salvarDoc">
+                                    <button className="salvarDoc" >
                                         Salvar
                                     </button>
                                 </div>

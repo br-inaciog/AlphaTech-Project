@@ -580,6 +580,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CollabTechFile.Controllers.SuporteController",
+    "Method": "Get",
+    "RelativePath": "api/Suporte",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.SuporteController",
+    "Method": "Delete",
+    "RelativePath": "api/Suporte/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CollabTechFile.Controllers.TipoUsuarioController",
     "Method": "Post",
     "RelativePath": "api/TipoUsuario",

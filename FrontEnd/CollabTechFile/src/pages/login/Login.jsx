@@ -6,12 +6,19 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../Services/service";
 import Swal from "sweetalert2";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [isShow, setIsShow] = useState(false);
+
+  const handlePassword = (e) => {
+    e.preventDefault();
+    setIsShow(!isShow);
+  };
 
   function toast(icon, title) {
     const T = Swal.mixin({
@@ -102,27 +109,31 @@ export default function Login() {
             </div>
 
             <div className="grupoSenha">
-              <input
-                type="password"
-                minLength={6}
-                maxLength={8}
-                autoComplete="current-password"
-                value={senha}
-                onChange={(e) => setSenha(e.target.value)}
-                disabled={loading}
-                required
-              />
-              <label>Senha</label>
+              <label className="areaSenhaLogin">
+                <input
+                  type={isShow ? "text" : "password"}
+                  minLength={6}
+                  maxLength={8}
+                  autoComplete="current-password"
+                  value={senha}
+                  onChange={(e) => setSenha(e.target.value)}
+                  disabled={loading}
+                  required
+                />
+                <button onClick={handlePassword}>
+                  {isShow && <Eye size={18} />}
+                  {!isShow && <EyeOff size={18} />}
+                </button>
+                <label>Senha</label>
+              </label>
             </div>
           </div>
         </div>
 
-        <button type="submit" disabled={loading} style={{ all: "unset" }}>
-          <Botao nomeBotao={loading ? "Entrando..." : "Login"} />
-        </button>
+        <Botao nomeBotao="Login"/>
       </div>
 
       <img src={Logo} alt="Logo CollabTechFile" />
-    </form>
+    </form >
   );
 }

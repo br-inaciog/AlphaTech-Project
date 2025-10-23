@@ -68,9 +68,9 @@ export default function ListagemDoc() {
                                     <Link to="/docAndamentoFunc" className="cardDocumento">
                                         <img src={Pdf} alt="Icone de Pdf" />
                                         <div className="cardInformacoes">
-                                            <h1>{doc.titulo || "Sem título"}</h1>
-                                            <p>{doc.data || "Sem data"} — {doc.autor || "Autor desconhecido"}</p>
-                                            <p>Versão: <span>{doc.versao || "1.0"}</span></p>
+                                            <h1>{doc.nome || "Sem título"}</h1>
+                                            <p>{new Date(doc.criadoEm).toLocaleDateString('pt-BR') || "Sem data"} — {doc.idUsuario || "Autor desconhecido"}</p>
+                                            <p>Versão: <span>{doc.versao || "Sem Versão"}</span></p>
                                         </div>
 
                                         <div className="cardAcoes">

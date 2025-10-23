@@ -4,8 +4,8 @@ import "./CadastroFuncionario.css";
 import Swal from 'sweetalert2';
 
 import user from "../../assets/img/user.png"
-import Left from "../../assets/img/Voltar.svg"
 import Cadastro from "../../components/cadastro/Cadastro";
+import MenuLateral from "../../components/menuLateral/MenuLateral";
 import { useEffect, useState } from "react";
 import api from "../../Services/service";
 
@@ -119,9 +119,8 @@ export default function CadastroFuncionario() {
   }
 
   useEffect(() => {
-    listarTipoUsuario();
     listarEmpresa();
-  }, []);
+  }, [listaEmpresa]);
 
   return (
     <main className="containerGeral">

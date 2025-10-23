@@ -1,31 +1,68 @@
 import "./Feedback.css";
 
+import Swal from "sweetalert2";
+
 import Lixeira from "../../assets/img/Delete.svg";
 import MenuLateral from "../../components/menuLateral/MenuLateral";
 import Cabecalho from "../../components/cabecalho/Cabecalho";
-
-const listaFeedbacks = [
-    {
-        nome: "Tirulipa Tripa",
-        data: "12/04/2025",
-        mensagem:
-            "Gostaria que tivesse um sistema de teleporte para a empresa, talvez seja útil. Enfim, o site está ótimo tanto em design e funcionalidade",
-    },
-    {
-        nome: "Tirulipa Tripa",
-        data: "12/04/2025",
-        mensagem:
-            "Gostaria que tivesse um sistema de teleporte para a empresa, talvez seja útil. Enfim, o site está ótimo tanto em design e funcionalidade",
-    },
-    {
-        nome: "Tirulipa Tripa",
-        data: "12/04/2025",
-        mensagem:
-            "Gostaria que tivesse um sistema de teleporte para a empresa, talvez seja útil. Enfim, o site está ótimo tanto em design e funcionalidade",
-    }
-];
+import { useEffect, useState } from "react";
+import api from "../../Services/service";
 
 export default function Feedback() {
+    const [listaFeedBack, setListaFeedBack] = useState([]);
+
+    function alertar(icone, mensagem) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        Toast.fire({
+            icon: icone,
+            title: mensagem
+        });
+    }
+
+    async function listarFeedBack() {
+        try {
+            const resposta = await api.get("suporte");
+            setListaFeedBack(resposta.data);
+        } catch (error) {
+            console.log("Erro ao listar feedbacks:", error);
+        }
+    }
+
+    async function deletarFeedBack(id) {
+        Swal.fire({
+            title: 'Tem Certeza?',
+            text: "Essa ação não poderá ser desfeita!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#B51D44',
+            cancelButtonColor: '#000000',
+            confirmButtonText: 'Sim, apagar!',
+            cancelButtonText: 'Cancelar',
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                await api.delete(`suporte/${id.idSuporte}`);
+                alertar("success", "FeedBack Excluido!");
+            }
+        }).catch(error => {
+            console.log(error);
+            alertar("error", "Erro ao Excluir!");
+        })
+    }
+
+    useEffect(() => {
+        listarFeedBack();
+    }, [listaFeedBack]);
+
     return (
         <div className="containerGeral">
             <MenuLateral />
@@ -35,28 +72,33 @@ export default function Feedback() {
 
                     <section className="docAndamento">
                         <div className="titulo">
-                            <h1>FeedBack</h1>
+                            <h1>Feedback</h1>
                         </div>
 
                         <div className="listaFeedbacks">
-                            {listaFeedbacks.map((feedback, card) => (
-                                <div key={card} className="cardFeedback">
-                                    <div className="cabecalhoFeedback">
-                                        <span className="nomeFeedback">{feedback.nome}</span>
-                                        <div></div>
-                                        <span className="dataFeedback">{feedback.data}</span>
-                                        <span className="iconeLixeira">
-                                            <img
-                                                src={Lixeira}
-                                                alt="Excluir"
-                                                className="lixeiraImg"
-                                            />
-                                        </span>
+                            {listaFeedBack && listaFeedBack.length > 0 ? (
+                                listaFeedBack.map((feedback, index) => (
+                                    <div key={feedback.id || index} className="cardFeedback">
+                                        <div className="cabecalhoFeedback">
+                                            <span className="nomeFeedback">{feedback.nome}</span>
+                                            <div></div>
+                                            <span className="dataFeedback">{feedback.data}</span>
+                                            <span className="iconeLixeira">
+                                                <img
+                                                    src={Lixeira}
+                                                    alt="Excluir"
+                                                    className="lixeiraImg"
+                                                    onClick={() => deletarFeedBack(feedback)}
+                                                />
+                                            </span>
+                                        </div>
+                                        <p className="mensagemFeedback">{feedback.mensagem}</p>
+                                        <hr className="linhaFeedback" />
                                     </div>
-                                    <p className="mensagemFeedback">{feedback.mensagem}</p>
-                                    <hr className="linhaFeedback" />
-                                </div>
-                            ))}
+                                ))
+                            ) : (
+                                <p>Não há Feedbacks</p>
+                            )}
                         </div>
                     </section>
                 </section>

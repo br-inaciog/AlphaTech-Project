@@ -16,6 +16,8 @@ namespace CollabTechFile.Repositories
 
         public void Cadastrar(Documento documento)
         {
+            //_context.Usuarios.Find(documento.IdUsuario)
+
             _context.Documentos.Add(documento);
             _context.SaveChanges();
         }

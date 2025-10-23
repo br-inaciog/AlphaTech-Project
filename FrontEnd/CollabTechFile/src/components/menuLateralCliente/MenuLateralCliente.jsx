@@ -20,7 +20,7 @@ export default function MenuLateralCliente() {
 
                 <Link to="/FaleConosco" className="links">
                     <img src={FaleConosco} alt="FaleConosco" />
-                    Fale Conosco
+                    Deixe Seu FeedBack
                 </Link>
             </div>
 
