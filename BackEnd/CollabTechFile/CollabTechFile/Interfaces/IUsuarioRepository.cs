@@ -12,6 +12,9 @@ namespace CollabTechFile.Interfaces
 
         Usuario BuscarPorEmailESenha(string email, string senha);
 
+        Usuario BuscarPorEmail(string email);
+
+
         //void Deletar(int id);
     }
 }
