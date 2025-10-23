@@ -1,16 +1,35 @@
 import "./CadastroCliente.css";
+
+//Importar o seu SweetAlert
+import Swal from 'sweetalert2';
+
+import user from "../../assets/img/user.png"
 import Cadastro from "../../components/cadastro/Cadastro";
 import MenuLateral from "../../components/menuLateral/MenuLateral";
-import user from "../../assets/img/user.png"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import api from "../../Services/service";
 
 export default function CadastroCliente() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
-  const [empresa, setEmpresa] = useState("");
   const [senha, setSenha] = useState("");
-  const [confirmarSenha, setConfirmarSenha] = useState("");
+  const [senhaVerificacao, setSenhaVerficacao] = useState("");
+
+  const [empresa, setEmpresa] = useState("");
+  const [listaEmpresa, setListaEmpresa] = useState([]);
+
+  const [tipoUsuario, setTipoUsuario] = useState("4")
+
   const [loading, setLoading] = useState(false);
+
+  async function listarEmpresa() {
+    try {
+      const resposta = await api.get("empresa");
+      setListaEmpresa(resposta.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   function alertar(icone, mensagem) {
     const Toast = Swal.mixin({
@@ -40,7 +59,7 @@ export default function CadastroCliente() {
     e.preventDefault();
 
     // Validações
-    if (!nome.trim() || !email.trim() || !empresa.trim() || !senha || !confirmarSenha) {
+    if (!nome.trim() || !email.trim() || !empresa.trim() || !senha || !senhaVerificacao) {
       alertar("warning", "Preencha todos os campos.");
       return;
     }
@@ -50,7 +69,7 @@ export default function CadastroCliente() {
       return;
     }
 
-    if (senha !== confirmarSenha) {
+    if (senha !== senhaVerificacao) {
       alertar("error", "As senhas não coincidem.");
       return;
     }
@@ -58,7 +77,8 @@ export default function CadastroCliente() {
     const payload = {
       Nome: nome.trim(),
       Email: email.trim(),
-      Empresa: empresa.trim(),
+      idEmpresa: empresa.trim(),
+      idTipoUsuario: tipoUsuario.trim(),
       Senha: senha,
       Ativo: true,
       // IdTipoUsuario: 2, // se precisar definir tipo (ex: 2 = Cliente)
@@ -77,11 +97,16 @@ export default function CadastroCliente() {
         setNome("");
         setEmail("");
         setEmpresa("");
+        setTipoUsuario("");
         setSenha("");
-        setConfirmarSenha("");
+        setSenhaVerficacao("");
       } else {
         alertar("error", `Erro ${response.status}`);
       }
+
+      console.log(setNome);
+
+
     } catch (error) {
       console.error("Erro completo:", error.response);
       const mensagemErro = error.response?.data?.message ||
@@ -93,6 +118,10 @@ export default function CadastroCliente() {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    listarEmpresa();
+  }, [])
 
 
   return (
@@ -109,19 +138,43 @@ export default function CadastroCliente() {
         <section className="areaTrabalho">
           <div className="conteudo">
 
-            <div className="titulo">
-              <h1>Cadastro Cliente</h1>
-            </div>
-
             <Cadastro
-              campo1="Nome"
-              campo2="Email"
+              titulo="Cadastro de Cliente"
               visibilidade_campo3="none"
-              tpInput="email"
-              campo4="Empresa"
-              campo5="Senha"
-              campo6="Cofirmar Senha"
               visibilidade_campoCNPJ="none"
+              funcCadastro={cadCliente}
+
+              //Nome
+              campo1="Nome"
+              valorInput1={nome}
+              setValorInput1={setNome}
+
+              //Email
+              campo2="Email"
+              tpInput="email"
+              valorInput2={email}
+              setValorInput2={setEmail}
+
+              // Tipo usuário
+              campo3="Tipo Usuário"
+              valorTipoUsuario={tipoUsuario}
+              setValorTipoUsuario={setTipoUsuario}
+
+              //Empresa
+              campo4="Empresa"
+              listaEmpresa={listaEmpresa}
+              valorEmpresa={empresa}
+              setValorEmpresa={setEmpresa}
+
+              //Senha
+              campo5="Senha"
+              valorInput3={senha}
+              setValorInput3={setSenha}
+
+              //Confirmar Senha
+              campo6="Cofirmar Senha"
+              valorInput4={senhaVerificacao}
+              setValorInput4={setSenhaVerficacao}
             />
           </div>
         </section>

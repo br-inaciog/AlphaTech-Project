@@ -1,32 +1,36 @@
-// Importa funções do React necessárias para criar e usar contexto
 import { createContext, useState, useContext } from "react";
 import secureLocalStorage from "react-secure-storage";
+import { userDecodeToken } from "../auth/Auth"; // ajuste o caminho se necessário
 
-// Cria o contexto de autenticação, que
-//  vai permitir compartilhar dados entre componentes
+// Cria o contexto de autenticação
 const AuthContext = createContext();
 
-console.log(AuthContext);
-
-
-// Esse componente vai envolver a aplicação (ou parte dela) e fornecer os dados de autenticação para os filhos
-//Provider = prover/dar
+// Provider que envolve a aplicação
 export const AuthProvider = ({ children }) => {
-  // Cria um estado que guarda os dados do usuário logado
-  const [usuario, setUsuario] = useState(() => {
-    const usuarioSalvo = secureLocalStorage.getItem("tokenLogin");
-    return usuarioSalvo ? JSON.parse(usuarioSalvo) : undefined;
+  // Armazena o token JWT puro
+  const [token, setToken] = useState(() => {
+    return secureLocalStorage.getItem("tokenLogin") || undefined;
   });
 
+  // Retorna o usuário decodificado ou undefined
+  const usuario = token ? userDecodeToken(token) : undefined;
+
+  // Função para atualizar token e salvar no storage
+  const setUsuario = (novoToken) => {
+    setToken(novoToken);
+    if (novoToken) {
+      secureLocalStorage.setItem("tokenLogin", novoToken);
+    } else {
+      secureLocalStorage.removeItem("tokenLogin");
+    }
+  };
+
   return (
-    // O AuthContext.Provider permite que qualquer componente dentro dele acesse o `usuario` e `setUsuario`
-    //Faz com que qualquer componente que esteja dentro de <AuthProvider> consiga acessar o valor { usuario, setUsuario } usando o hook useAuth().
-    <AuthContext.Provider value={{ usuario, setUsuario }}>
+    <AuthContext.Provider value={{ token, usuario, setUsuario }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-// Esse hook personalizado facilita o acesso ao contexto dentro de qualquer componente
-//USAR!!!
+// Hook personalizado para acessar o contexto
 export const useAuth = () => useContext(AuthContext);

@@ -1,9 +1,9 @@
-import { Route, Routes } from "react-router"
+import { Route, Routes } from "react-router-dom"
 
 import Login from "../pages/login/Login"
 import Inicio from "../pages/inicio/Inicio"
 import ListagemDoc from "../pages/listagemDoc/listagemDoc"
-import CadastroCliente from "../pages/CadastroCliente/CadastroCliente"
+import CadastroCliente from "../pages/cadastroCliente/CadastroCliente"
 import CadastroEmpresa from "../pages/cadastroEmpresa/CadastroEmpresa"
 import CadastroFuncionario from "../pages/cadastroFuncionario/CadastroFuncionario"
 import TelaCliente from "../pages/telaCliente/telaCliente"

@@ -114,5 +114,9 @@ namespace CollabTechFile.Repositories
             }
         }
 
+        public Usuario BuscarPorEmail(string email)
+        {
+            return _context.Usuarios.FirstOrDefault(u => u.Email == email)!;
+        }
     }
 }
