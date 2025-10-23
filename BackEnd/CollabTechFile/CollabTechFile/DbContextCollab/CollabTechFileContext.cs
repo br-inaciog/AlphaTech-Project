@@ -41,7 +41,7 @@ public partial class CollabTechFileContext : DbContext
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=tcp:collabdb.database.windows.net,1433;Initial Catalog=CollabTechFile;User ID=alpha;Password=Senai@134;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-S3CGL03\\SQLEXPRESS; Database=CollabTechFile; User id=sa; Pwd=Senai@134; trustServerCertificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
