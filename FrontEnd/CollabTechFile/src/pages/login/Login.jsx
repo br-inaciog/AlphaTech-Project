@@ -6,7 +6,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../Services/service";
 import Swal from "sweetalert2";
+import { userDecodeToken } from "../../auth/Auth";
+import secureLocalStorage from "react-secure-storage";
+import { useAuth } from "../../contexts/AuthContext";
 import { Eye, EyeOff } from "lucide-react";
+
 
 export default function Login() {
   const { setUsuario } = useAuth();
@@ -67,73 +71,73 @@ export default function Login() {
   }
 
   async function handleSubmit(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const emailTrim = email.trim();
+    const emailTrim = email.trim();
 
-  // 🔹 Validações simples antes da requisição
-  if (!emailTrim || !senha) {
-    toast("warning", "Informe email e senha.");
-    return;
-  }
-
-  if (senha.length < 6 || senha.length > 8) {
-    toast("warning", "A senha deve ter entre 6 e 8 caracteres.");
-    return;
-  }
-
-  const usuario = { email: emailTrim, senha };
-  setLoading(true);
-
-  try {
-    const resposta = await api.post("Login", usuario);
-    const token = resposta.data?.token;
-
-    if (!token) {
-      toast("error", "Token não retornado pelo servidor.");
+    // 🔹 Validações simples antes da requisição
+    if (!emailTrim || !senha) {
+      toast("warning", "Informe email e senha.");
       return;
     }
 
-    // 🔹 Decodifica token e guarda informações
-    const tokenDecodificado = userDecodeToken(token);
-    setUsuario(tokenDecodificado);
-
-    secureLocalStorage.setItem("tokenLogin", token);
-    api.defaults.headers.common.Authorization = `Bearer ${token}`;
-
-    // 🔹 Redireciona conforme tipo de usuário
-    if (tokenDecodificado.tipoUsuario === "Cliente") {
-      navigate("/InicioCliente");
-    } else if(tokenDecodificado.tipoUsuario === "Funcionario") {
-      navigate("/CadastroFuncionario");
-    } else{
-      navigate("Inicio")
+    if (senha.length < 6 || senha.length > 8) {
+      toast("warning", "A senha deve ter entre 6 e 8 caracteres.");
+      return;
     }
 
-    toast("success", "Login realizado com sucesso!");
-  } catch (err) {
-    const status = err.response?.status;
-    const body = err.response?.data;
+    const usuario = { email: emailTrim, senha };
+    setLoading(true);
 
-    if (status === 404) {
-      toast("error", typeof body === "string" ? body : "Usuário não encontrado.");
-    } else if (status === 401) {
-      toast("error", typeof body === "string" ? body : "Credenciais inválidas.");
-    } else if (status === 400) {
-      const mensagem =
-        typeof body === "string"
-          ? body
-          : body?.message || body?.errors || "Requisição inválida.";
-      toast("error", typeof mensagem === "string" ? mensagem : JSON.stringify(mensagem));
-    } else {
-      toast("error", "Erro ao autenticar. Tente novamente.");
+    try {
+      const resposta = await api.post("Login", usuario);
+      const token = resposta.data?.token;
+
+      if (!token) {
+        toast("error", "Token não retornado pelo servidor.");
+        return;
+      }
+
+      // 🔹 Decodifica token e guarda informações
+      const tokenDecodificado = userDecodeToken(token);
+      setUsuario(tokenDecodificado);
+
+      secureLocalStorage.setItem("tokenLogin", token);
+      api.defaults.headers.common.Authorization = `Bearer ${token}`;
+
+      // 🔹 Redireciona conforme tipo de usuário
+      if (tokenDecodificado.tipoUsuario === "Cliente") {
+        navigate("/InicioCliente");
+      } else if (tokenDecodificado.tipoUsuario === "Funcionario") {
+        navigate("/CadastroFuncionario");
+      } else {
+        navigate("Inicio")
+      }
+
+      toast("success", "Login realizado com sucesso!");
+    } catch (err) {
+      const status = err.response?.status;
+      const body = err.response?.data;
+
+      if (status === 404) {
+        toast("error", typeof body === "string" ? body : "Usuário não encontrado.");
+      } else if (status === 401) {
+        toast("error", typeof body === "string" ? body : "Credenciais inválidas.");
+      } else if (status === 400) {
+        const mensagem =
+          typeof body === "string"
+            ? body
+            : body?.message || body?.errors || "Requisição inválida.";
+        toast("error", typeof mensagem === "string" ? mensagem : JSON.stringify(mensagem));
+      } else {
+        toast("error", "Erro ao autenticar. Tente novamente.");
+      }
+
+      console.error("Login error:", status, body);
+    } finally {
+      setLoading(false);
     }
-
-    console.error("Login error:", status, body);
-  } finally {
-    setLoading(false);
   }
-}
 
 
   return (
@@ -180,7 +184,7 @@ export default function Login() {
           </div>
         </div>
 
-        <Botao nomeBotao="Login"/>
+        <Botao nomeBotao="Login" />
       </div>
 
       <img src={Logo} alt="Logo CollabTechFile" />
