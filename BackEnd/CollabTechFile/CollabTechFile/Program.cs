@@ -8,8 +8,36 @@ using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+<<<<<<< HEAD
+
+=======
+// Add services to the container.
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+>>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
+>>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
+>>>>>>> b5d895e344a022648898c108d7b758718115d993
+
+=======
 
 // Add services to the container.
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
+>>>>>>> 95e64a1ee5ffa9750a6ca6daff8df86b84d1c486
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder => builder
@@ -18,6 +46,38 @@ builder.Services.AddCors(options =>
         .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
 });
 
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+
+
+
+
+=======
+<<<<<<< HEAD
+
+
+
+
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
+>>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
+>>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
+>>>>>>> b5d895e344a022648898c108d7b758718115d993
+=======
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
+>>>>>>> 95e64a1ee5ffa9750a6ca6daff8df86b84d1c486
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
@@ -103,7 +163,21 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
         });
 });
+<<<<<<< HEAD
+<<<<<<< HEAD
 
+<<<<<<< HEAD
+
+=======
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
+>>>>>>> b5d895e344a022648898c108d7b758718115d993
+=======
+
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
+>>>>>>> 95e64a1ee5ffa9750a6ca6daff8df86b84d1c486
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -116,6 +190,28 @@ builder.Services.AddCors(options =>
     // .AllowCredentials() // só se usar cookies/autenticação via cookie
     );
 });
+<<<<<<< HEAD
+ 
+
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> db99a3c3417c57240d87e2b7d59c4d116db195bb
+>>>>>>> 379c678523b6cc748e1fe2568e31d7f56b3162b8
+>>>>>>> 179bb5085e2ed1a4080cb29c1937f23fd3962300
+>>>>>>> 0535281acd6e168cbb0b95ab44a2f4cf3b6a945f
+>>>>>>> b5d895e344a022648898c108d7b758718115d993
+=======
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
+>>>>>>> 95e64a1ee5ffa9750a6ca6daff8df86b84d1c486
 
 var app = builder.Build();
 
@@ -144,6 +240,11 @@ app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 
+<<<<<<< HEAD
+app.UseCors("CorsPolicy");
+
+=======
+>>>>>>> 89866fec690cc1a33e826f08db273ef227d24c83
 app.UseCors("AllowFrontend");
 
 app.UseAuthentication();

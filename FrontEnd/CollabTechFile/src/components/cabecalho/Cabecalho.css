@@ -12,15 +12,20 @@
   border-bottom: 1px solid black;
   background: transparent;
   transition: all 0.3s ease;
+    padding-bottom: 3%;
 }
+
 
 .grupoPesquisa img { 
   position: absolute;
   left: 0;
   top: 3px;
-  height: 28px;
-  width: 28px;
+    height: 23px;
+    width: 22px;
   transition: 0.2s;
+  margin-bottom: 10%;
+    display: flex;
+align-items: center;  
 }
 
 .grupoPesquisa input:focus~label {
@@ -33,12 +38,22 @@
 }
 
 .cabecalho {
-  display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px;
 }
+
+.containerCabecalho{
+  display: flex;
+}
+
+.iconeUser{
+  margin-left: 20%;
+ display: flex;
+align-items: center;
+gap: 5px; 
+  }
 
 .infCabecalho {
   display: flex;

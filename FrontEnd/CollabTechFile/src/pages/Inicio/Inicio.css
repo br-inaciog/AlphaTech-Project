@@ -177,6 +177,7 @@
     background: #142850;
     color: white;
     margin-bottom: 5%;
+    cursor: pointer;
 }
 
 .arquivoLabel img {
@@ -224,7 +225,22 @@
 }
 
 @media (max-width: 768px) {
-   .statusDocumentos{
-    /* margin-bottom: 25%; */
+   .docAction {
+    margin-top: 10%;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+   }
+   .entrega-label{
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+   }
+   .statusCard{
+    margin-top: 10%;
+   }
+
+   .btnArea{
+    margin-right: 5%;
    }
 }

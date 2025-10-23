@@ -16,6 +16,8 @@ export default function Cabecalho() {
 
         <div className="iconeUser">
           <img src={User} alt="Usuário" />
+          <p>Funcionário</p>
+         
         </div>
       </div>
 

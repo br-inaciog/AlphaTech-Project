@@ -13,9 +13,7 @@ export default function TelaCliente() {
         { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
         { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
         { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
-        { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
-        { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
-        { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
+  
     ];
 
     return (

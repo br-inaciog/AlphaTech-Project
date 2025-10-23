@@ -108,3 +108,17 @@
 .iconEditar:hover {
     transform: scale(1.1);
 }
+
+
+@media (max-width: 480px) {
+.setaImg {
+ display: none;
+     
+}
+
+
+.titulo{
+    
+    margin-top: 18%; 
+}
+}
