@@ -4,8 +4,7 @@ import User from "../../assets/img/UserModoClaro.png";
 import Logo from "../../assets/img/Logo.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../Services/service";
-import Swal from "sweetalert2";
+import api from "../../services/Service";
 import { userDecodeToken } from "../../auth/Auth";
 import secureLocalStorage from "react-secure-storage";
 import { useAuth } from "../../contexts/AuthContext";
@@ -13,10 +12,9 @@ import { Eye, EyeOff } from "lucide-react";
 
 
 export default function Login() {
-  const { setUsuario } = useAuth();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
   const [isShow, setIsShow] = useState(false);
 
@@ -25,26 +23,40 @@ export default function Login() {
     setIsShow(!isShow);
   };
 
-  // async function realizarAutenticacao(e) {
-  //   e.preventDefault();
+  async function realizarAutenticacao(e) {
+    e.preventDefault();
 
-  //   if (email.trim() === "" || senha.trim() === "") {
-  //     alert("Preencha os campos vazios para realizar o login");
-  //     return;
-  //   }
+    if (senha.trim() !== "" && email.trim() !== "") {
+      try {
+        const usuario = { email, senha };
+        const resposta = await api.post("Login", usuario);
+        const token = resposta.data.token;
 
-  //   const usuario = { email, senha };
+        if (token) {
+          const tokenDecodificado = userDecodeToken(token);
 
-  //   try {
-  //     const resposta = await api.post("Login", usuario);
-  //     const token = resposta.data.token;
+          setUsuario(tokenDecodificado);
+          secureLocalStorage.setItem("tokenLogin", token);
 
-  //     if (token) {
-  //       const tokenDecodificado = userDecodeToken(token);
-  //       console.log(tokenDecodificado);
+          // ✅ Alerta de sucesso estilizado
+          await Swal.fire({
+            title: "Login realizado!",
+            text: "Redirecionando para a página inicial...",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 500,
+          });
 
-  //       setUsuario(tokenDecodificado);
-  //       secureLocalStorage.setItem("tokenLogin", JSON.stringify(tokenDecodificado));
+          if (tokenDecodificado.tipoUsuario === "Funcionario") {
+            navigate("/Inicio", { replace: true });
+          } else if (tokenDecodificado.tipoUsuario === "Cliente") {
+            navigate("/InicioCliente", { replace: true });
+          } else {
+            navigate("/cadastrofuncionario", { replace: true });
+          }
+        }
+      } catch (error) {
+        console.error(error);
 
   //       if (tokenDecodificado.tipoUsuario === "Cliente") {
   //         navigate("/InicioCliente");
@@ -141,7 +153,7 @@ export default function Login() {
 
 
   return (
-    <form className="mainLogin" onSubmit={handleSubmit}>
+    <form className="mainLogin" onSubmit={realizarAutenticacao}>
       <div className="campoLogin">
         <div className="userTitulo">
           <img src={User} alt="Imagem usuário" />
@@ -153,10 +165,8 @@ export default function Login() {
             <div className="grupoEmail">
               <input
                 type="email"
-                autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                disabled={loading}
                 required
               />
               <label>Email</label>

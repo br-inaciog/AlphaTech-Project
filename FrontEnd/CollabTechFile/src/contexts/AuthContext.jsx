@@ -1,24 +1,40 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import secureLocalStorage from "react-secure-storage";
 import { userDecodeToken } from "../auth/Auth"; // ajuste o caminho se necessário
 
 // Cria o contexto de autenticação
 const AuthContext = createContext();
 
-// Provider que envolve a aplicação
+// Provider que envolve toda a aplicação
 export const AuthProvider = ({ children }) => {
-  // Armazena o token JWT puro
+  // Estado para armazenar o token JWT
   const [token, setToken] = useState(() => {
-    return secureLocalStorage.getItem("tokenLogin") || undefined;
+    const savedToken = secureLocalStorage.getItem("tokenLogin");
+    return typeof savedToken === "string" ? savedToken : undefined;
   });
 
-  // Retorna o usuário decodificado ou undefined
-  const usuario = token ? userDecodeToken(token) : undefined;
+  // Estado para armazenar o usuário decodificado
+  const [usuario, setUsuario] = useState(() => {
+    if (token && typeof token === "string") {
+      return userDecodeToken(token);
+    }
+    return undefined;
+  });
+
+  // Atualiza o usuário quando o token muda
+  useEffect(() => {
+    if (token && typeof token === "string") {
+      const decoded = userDecodeToken(token);
+      setUsuario(decoded);
+    } else {
+      setUsuario(undefined);
+    }
+  }, [token]);
 
   // Função para atualizar token e salvar no storage
-  const setUsuario = (novoToken) => {
+  const atualizarToken = (novoToken) => {
     setToken(novoToken);
-    if (novoToken) {
+    if (novoToken && typeof novoToken === "string") {
       secureLocalStorage.setItem("tokenLogin", novoToken);
     } else {
       secureLocalStorage.removeItem("tokenLogin");
@@ -26,7 +42,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ token, usuario, setUsuario }}>
+    <AuthContext.Provider value={{ token, usuario, setUsuario: atualizarToken }}>
       {children}
     </AuthContext.Provider>
   );
