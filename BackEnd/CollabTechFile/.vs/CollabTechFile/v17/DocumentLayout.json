@@ -101,24 +101,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TipoUsuarioRepository.cs",
-              "DocumentMoniker": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
-              "RelativeDocumentMoniker": "CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
-              "ToolTip": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
-              "RelativeToolTip": "CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAqwBYAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T18:20:09.029Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -154,8 +141,7 @@
               "RelativeToolTip": "CollabTechFile\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-14T17:49:24.54Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T17:49:24.54Z"
             },
             {
               "$type": "Document",
@@ -167,8 +153,7 @@
               "RelativeToolTip": "CollabTechFile\\Program.cs",
               "ViewState": "AgIAAHAAAAAAAAAAAAAEwJoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T17:49:04.773Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T17:49:04.773Z"
             },
             {
               "$type": "Document",
@@ -178,7 +163,7 @@
               "RelativeDocumentMoniker": "CollabTechFile\\Controllers\\UsuarioController.cs",
               "ToolTip": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Controllers\\UsuarioController.cs",
               "RelativeToolTip": "CollabTechFile\\Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAuwF8AAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAUwFgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-14T17:56:25.379Z",
               "EditorCaption": ""
@@ -193,8 +178,7 @@
               "RelativeToolTip": "CollabTechFile\\CollabTechFile.csproj.user",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003464|",
-              "WhenOpened": "2025-10-23T11:07:16.3Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T11:07:16.3Z"
             },
             {
               "$type": "Document",
@@ -206,8 +190,19 @@
               "RelativeToolTip": "CollabTechFile\\Repositories\\UsuarioRepository.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAiwBkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T17:46:26.574Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T17:46:26.574Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TipoUsuarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
+              "RelativeDocumentMoniker": "CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
+              "ToolTip": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
+              "RelativeToolTip": "CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAqwBYAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T18:20:09.029Z"
             },
             {
               "$type": "Document",
@@ -219,8 +214,7 @@
               "RelativeToolTip": "CollabTechFile\\DbContextCollab\\CollabTechFileContext.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAA4wCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T19:30:18.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T19:30:18.125Z"
             },
             {
               "$type": "Document",
@@ -244,8 +238,7 @@
               "RelativeToolTip": "CollabTechFile\\Controllers\\TipoUsuarioController.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAgwCYAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T19:23:43.139Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T19:23:43.139Z"
             },
             {
               "$type": "Document",
@@ -388,8 +381,7 @@
               "ToolTip": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
               "RelativeToolTip": "CollabTechFile\\CollabTechFile.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-14T17:50:09.173Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T17:50:09.173Z"
             }
           ]
         }
