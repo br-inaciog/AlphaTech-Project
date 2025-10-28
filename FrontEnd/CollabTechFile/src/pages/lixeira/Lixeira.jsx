@@ -24,6 +24,28 @@ export default function Lixeira() {
         }
     }
 
+    async function excluirDoc(id) {
+        Swal.fire({
+            title: "Excluir permanentemente?",
+            text: "Você não poderá recuperar este documento depois.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sim, excluir!",
+            cancelButtonAriaLabel: "Cancelar",
+        }).then(async (result) => {
+            if(result.isConfirmed) {
+                try {
+                    await api.delete(`listagemDoc/excluirDoc/${id}`);
+                    Swal.fire("Documento excluído com sucesso", "", "success");
+                    listarDocLixeira();
+                } catch (error) {
+                    console.error("Erro ao excluir o arquivo:", error);
+                    Swal.fire("Erro!", "Não doi possível excluir o arquivo", "error");
+                }
+            }
+        });
+    }
+
     async function recuperarDoc(id) {
         Swal.fire({
             title: "Recuperar documento?",
@@ -78,7 +100,8 @@ export default function Lixeira() {
                                             <img
                                                 src={Excluir}
                                                 alt="Excluir permanentemente"
-                                                style={{ cursor: "not-allowed" }}
+                                                onClick={() => excluirDoc(doc.id)}
+                                                style={{ cursor: "pointer" }}
                                             />
                                         </div>
 

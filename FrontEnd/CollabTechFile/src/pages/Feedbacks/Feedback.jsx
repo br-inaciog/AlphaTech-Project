@@ -3,29 +3,27 @@ import "./Feedback.css";
 import Lixeira from "../../assets/img/Delete.svg";
 import MenuLateral from "../../components/menuLateral/MenuLateral";
 import Cabecalho from "../../components/cabecalho/Cabecalho";
-
-const listaFeedbacks = [
-    {
-        nome: "Tirulipa Tripa",
-        data: "12/04/2025",
-        mensagem:
-            "Gostaria que tivesse um sistema de teleporte para a empresa, talvez seja útil. Enfim, o site está ótimo tanto em design e funcionalidade",
-    },
-    {
-        nome: "Tirulipa Tripa",
-        data: "12/04/2025",
-        mensagem:
-            "Gostaria que tivesse um sistema de teleporte para a empresa, talvez seja útil. Enfim, o site está ótimo tanto em design e funcionalidade",
-    },
-    {
-        nome: "Tirulipa Tripa",
-        data: "12/04/2025",
-        mensagem:
-            "Gostaria que tivesse um sistema de teleporte para a empresa, talvez seja útil. Enfim, o site está ótimo tanto em design e funcionalidade",
-    }
-];
+import api from "../../services/Service";
+import { useEffect, useState } from "react";
 
 export default function Feedback() {
+
+    const [listagemFeedbacks, setListagemFeedbacks] = useState([]);
+
+    async function listarFeedback() {
+        try {
+            const resposta = await api.get("/Feedbacks"); 
+            setListagemFeedbacks(resposta.data);
+            console.log(resposta.data);
+        } catch (error) {
+            console.error("Erro ao listar feedbacks:", error);
+        }
+    }
+
+    useEffect(() => {
+        listarFeedback();
+    }, []);
+
     return (
         <div className="containerGeral">
             <MenuLateral />
@@ -39,7 +37,7 @@ export default function Feedback() {
                         </div>
 
                         <div className="listaFeedbacks">
-                            {listaFeedbacks.map((feedback, card) => (
+                            {listagemFeedbacks.map((feedback, card) => (
                                 <div key={card} className="cardFeedback">
                                     <div className="cabecalhoFeedback">
                                         <span className="nomeFeedback">{feedback.nome}</span>
