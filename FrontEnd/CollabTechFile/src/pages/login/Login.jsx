@@ -5,82 +5,81 @@ import Logo from "../../assets/img/Logo.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../Services/service";
-import Swal from "sweetalert2";
+import { userDecodeToken } from "../../auth/Auth";
+import secureLocalStorage from "react-secure-storage";
+import { useAuth } from "../../contexts/AuthContext";
+import Swal from "sweetalert2"; // ✅ Import do SweetAlert2
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
+  const { setUsuario } = useAuth();
 
-  function toast(icon, title) {
-    const T = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 2500,
-      timerProgressBar: true
-    });
-    T.fire({ icon, title });
-  }
-
-  async function handleSubmit(e) {
+  async function realizarAutenticacao(e) {
     e.preventDefault();
 
-    const emailTrim = email.trim();
+    if (senha.trim() !== "" && email.trim() !== "") {
+      try {
+        const usuario = { email, senha };
+        const resposta = await api.post("Login", usuario);
+        const token = resposta.data.token;
 
-    if (!emailTrim || !senha) {
-      toast("warning", "Informe email e senha.");
-      return;
-    }
+        if (token) {
+          const tokenDecodificado = userDecodeToken(token);
 
-    if (senha.length < 6 || senha.length > 8) {
-      toast("warning", "A senha deve ter entre 6 e 8 caracteres.");
-      return;
-    }
+          setUsuario(tokenDecodificado);
+          secureLocalStorage.setItem("tokenLogin", token);
 
-    setLoading(true);
-    try {
-      const payload = { Email: emailTrim, Senha: senha };
+          // ✅ Alerta de sucesso estilizado
+          await Swal.fire({
+            title: "Login realizado!",
+            text: "Redirecionando para a página inicial...",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 500,
+          });
 
-      const res = await api.post("Login", payload);
+          if (tokenDecodificado.tipoUsuario === "Funcionario") {
+            navigate("/Inicio", { replace: true });
+          } else if (tokenDecodificado.tipoUsuario === "Cliente") {
+            navigate("/InicioCliente", { replace: true });
+          } else {
+            navigate("/cadastrofuncionario", { replace: true });
+          }
+        }
+      } catch (error) {
+        console.error(error);
 
-      // Se retornar token, salva e define Authorization
-      const token = res.data?.token;
-      if (token) {
-        localStorage.setItem("token", token);
-        api.defaults.headers.common.Authorization = `Bearer ${token}`;
+        if (error.response?.status === 401) {
+          Swal.fire({
+            title: "Email ou senha inválidos!",
+            text: "Verifique suas credenciais e tente novamente.",
+            icon: "error",
+            confirmButtonColor: "#d33",
+          });
+        } else {
+          Swal.fire({
+            title: "Erro no servidor!",
+            text: "Tente novamente mais tarde.",
+            icon: "warning",
+            confirmButtonColor: "#3085d6",
+          });
+        }
       }
-
-      toast("success", "Login realizado!");
-      navigate("/Inicio");
-    } catch (err) {
-      const status = err.response?.status;
-      const body = err.response?.data;
-
-      if (status === 404) {
-        toast("error", typeof body === "string" ? body : "Usuário não encontrado.");
-      } else if (status === 401) {
-        toast("error", typeof body === "string" ? body : "Credenciais inválidas.");
-      } else if (status === 400) {
-        // Pode ser falha de validação do DTO
-        const mensagem =
-          typeof body === "string"
-            ? body
-            : body?.message || body?.errors || "Requisição inválida.";
-        toast("error", typeof mensagem === "string" ? mensagem : JSON.stringify(mensagem));
-      } else {
-        toast("error", "Erro ao autenticar. Tente novamente.");
-      }
-
-      console.error("Login error:", status, body);
-    } finally {
-      setLoading(false);
+    } else {
+      Swal.fire({
+        title: "Campos vazios!",
+        text: "Preencha todos os campos para realizar o login.",
+        icon: "info",
+        confirmButtonColor: "#3085d6",
+      });
     }
   }
 
   return (
-    <form className="mainLogin" onSubmit={handleSubmit}>
+    <form className="mainLogin" onSubmit={realizarAutenticacao}>
       <div className="campoLogin">
         <div className="userTitulo">
           <img src={User} alt="Imagem usuário" />
@@ -92,10 +91,8 @@ export default function Login() {
             <div className="grupoEmail">
               <input
                 type="email"
-                autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                disabled={loading}
                 required
               />
               <label>Email</label>
@@ -106,10 +103,8 @@ export default function Login() {
                 type="password"
                 minLength={6}
                 maxLength={8}
-                autoComplete="current-password"
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}
-                disabled={loading}
                 required
               />
               <label>Senha</label>
@@ -117,9 +112,7 @@ export default function Login() {
           </div>
         </div>
 
-        <button type="submit" disabled={loading} style={{ all: "unset" }}>
-          <Botao nomeBotao={loading ? "Entrando..." : "Login"} />
-        </button>
+        <Botao nomeBotao="Login" />
       </div>
 
       <img src={Logo} alt="Logo CollabTechFile" />
