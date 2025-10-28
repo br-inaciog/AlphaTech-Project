@@ -5,136 +5,81 @@ import Logo from "../../assets/img/Logo.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../Services/service";
-import Swal from "sweetalert2";
 import { userDecodeToken } from "../../auth/Auth";
 import secureLocalStorage from "react-secure-storage";
 import { useAuth } from "../../contexts/AuthContext";
-
+import Swal from "sweetalert2"; // ✅ Import do SweetAlert2
 
 export default function Login() {
-  const { setUsuario } = useAuth();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
+  const { setUsuario } = useAuth();
 
-  // async function realizarAutenticacao(e) {
-  //   e.preventDefault();
+  async function realizarAutenticacao(e) {
+    e.preventDefault();
 
-  //   if (email.trim() === "" || senha.trim() === "") {
-  //     alert("Preencha os campos vazios para realizar o login");
-  //     return;
-  //   }
+    if (senha.trim() !== "" && email.trim() !== "") {
+      try {
+        const usuario = { email, senha };
+        const resposta = await api.post("Login", usuario);
+        const token = resposta.data.token;
 
-  //   const usuario = { email, senha };
+        if (token) {
+          const tokenDecodificado = userDecodeToken(token);
 
-  //   try {
-  //     const resposta = await api.post("Login", usuario);
-  //     const token = resposta.data.token;
+          setUsuario(tokenDecodificado);
+          secureLocalStorage.setItem("tokenLogin", token);
 
-  //     if (token) {
-  //       const tokenDecodificado = userDecodeToken(token);
-  //       console.log(tokenDecodificado);
+          // ✅ Alerta de sucesso estilizado
+          await Swal.fire({
+            title: "Login realizado!",
+            text: "Redirecionando para a página inicial...",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 500,
+          });
 
-  //       setUsuario(tokenDecodificado);
-  //       secureLocalStorage.setItem("tokenLogin", JSON.stringify(tokenDecodificado));
+          if (tokenDecodificado.tipoUsuario === "Funcionario") {
+            navigate("/Inicio", { replace: true });
+          } else if (tokenDecodificado.tipoUsuario === "Cliente") {
+            navigate("/InicioCliente", { replace: true });
+          } else {
+            navigate("/cadastrofuncionario", { replace: true });
+          }
+        }
+      } catch (error) {
+        console.error(error);
 
-  //       if (tokenDecodificado.tipoUsuario === "Cliente") {
-  //         navigate("/InicioCliente");
-  //       } else {
-  //         navigate("/Inicio");
-  //       }
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     alert("Email ou senha inválidos! Para dúvidas, entre em contato com o suporte.");
-  //   }
-  // }
-
-
-  function toast(icon, title) {
-    const T = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 2500,
-      timerProgressBar: true
-    });
-    T.fire({ icon, title });
-  }
-
-  async function handleSubmit(e) {
-  e.preventDefault();
-
-  const emailTrim = email.trim();
-
-  // 🔹 Validações simples antes da requisição
-  if (!emailTrim || !senha) {
-    toast("warning", "Informe email e senha.");
-    return;
-  }
-
-  if (senha.length < 6 || senha.length > 8) {
-    toast("warning", "A senha deve ter entre 6 e 8 caracteres.");
-    return;
-  }
-
-  const usuario = { email: emailTrim, senha };
-  setLoading(true);
-
-  try {
-    const resposta = await api.post("Login", usuario);
-    const token = resposta.data?.token;
-
-    if (!token) {
-      toast("error", "Token não retornado pelo servidor.");
-      return;
-    }
-
-    // 🔹 Decodifica token e guarda informações
-    const tokenDecodificado = userDecodeToken(token);
-    setUsuario(tokenDecodificado);
-
-    secureLocalStorage.setItem("tokenLogin", token);
-    api.defaults.headers.common.Authorization = `Bearer ${token}`;
-
-    // 🔹 Redireciona conforme tipo de usuário
-    if (tokenDecodificado.tipoUsuario === "Cliente") {
-      navigate("/InicioCliente");
-    } else if(tokenDecodificado.tipoUsuario === "Funcionario") {
-      navigate("/CadastroFuncionario");
-    } else{
-      navigate("Inicio")
-    }
-
-    toast("success", "Login realizado com sucesso!");
-  } catch (err) {
-    const status = err.response?.status;
-    const body = err.response?.data;
-
-    if (status === 404) {
-      toast("error", typeof body === "string" ? body : "Usuário não encontrado.");
-    } else if (status === 401) {
-      toast("error", typeof body === "string" ? body : "Credenciais inválidas.");
-    } else if (status === 400) {
-      const mensagem =
-        typeof body === "string"
-          ? body
-          : body?.message || body?.errors || "Requisição inválida.";
-      toast("error", typeof mensagem === "string" ? mensagem : JSON.stringify(mensagem));
+        if (error.response?.status === 401) {
+          Swal.fire({
+            title: "Email ou senha inválidos!",
+            text: "Verifique suas credenciais e tente novamente.",
+            icon: "error",
+            confirmButtonColor: "#d33",
+          });
+        } else {
+          Swal.fire({
+            title: "Erro no servidor!",
+            text: "Tente novamente mais tarde.",
+            icon: "warning",
+            confirmButtonColor: "#3085d6",
+          });
+        }
+      }
     } else {
-      toast("error", "Erro ao autenticar. Tente novamente.");
+      Swal.fire({
+        title: "Campos vazios!",
+        text: "Preencha todos os campos para realizar o login.",
+        icon: "info",
+        confirmButtonColor: "#3085d6",
+      });
     }
-
-    console.error("Login error:", status, body);
-  } finally {
-    setLoading(false);
   }
-}
-
 
   return (
-    <form className="mainLogin" onSubmit={handleSubmit}>
+    <form className="mainLogin" onSubmit={realizarAutenticacao}>
       <div className="campoLogin">
         <div className="userTitulo">
           <img src={User} alt="Imagem usuário" />
@@ -146,10 +91,8 @@ export default function Login() {
             <div className="grupoEmail">
               <input
                 type="email"
-                autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                disabled={loading}
                 required
               />
               <label>Email</label>
@@ -160,10 +103,8 @@ export default function Login() {
                 type="password"
                 minLength={6}
                 maxLength={8}
-                autoComplete="current-password"
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}
-                disabled={loading}
                 required
               />
               <label>Senha</label>
@@ -171,9 +112,7 @@ export default function Login() {
           </div>
         </div>
 
-        <button type="submit" disabled={loading} style={{ all: "unset" }}>
-          <Botao nomeBotao={loading ? "Entrando..." : "Login"} />
-        </button>
+        <Botao nomeBotao="Login" />
       </div>
 
       <img src={Logo} alt="Logo CollabTechFile" />
