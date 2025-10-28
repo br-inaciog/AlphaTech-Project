@@ -42,11 +42,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
@@ -56,7 +60,7 @@
               "RelativeDocumentMoniker": "CollabTechFile\\DbContextCollab\\CollabTechFileContext.cs",
               "ToolTip": "C:\\Users\\55890867873\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\DbContextCollab\\CollabTechFileContext.cs",
               "RelativeToolTip": "CollabTechFile\\DbContextCollab\\CollabTechFileContext.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAA8wCwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAA0wCwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T19:16:54.151Z",
               "EditorCaption": ""
@@ -105,7 +109,7 @@
               "RelativeDocumentMoniker": "CollabTechFile\\appsettings.json",
               "ToolTip": "C:\\Users\\55890867873\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\appsettings.json",
               "RelativeToolTip": "CollabTechFile\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-10-28T11:32:17.315Z",
               "EditorCaption": ""

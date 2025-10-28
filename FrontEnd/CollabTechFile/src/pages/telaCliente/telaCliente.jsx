@@ -1,11 +1,13 @@
 import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Cabecalho from '../../components/cabecalho/Cabecalho';
-import Lixeira from "../../assets/img/Delete.svg"
 import Editar from '../../assets/img/Editar.png';
+import Toggle from '../../components/toogle/toogle';
 import './telaCliente.css';
 import { useEffect, useState } from 'react';
 import api from '../../services/Service';
 import Swal from 'sweetalert2';
+
+
 
 export default function TelaCliente() {
     const [clientes, setClientes] = useState([]);
@@ -64,44 +66,32 @@ export default function TelaCliente() {
         });
     }
 
-    // excluir cliente
-    async function excluirCliente(clienteId, nome, clienteCompleto) {
-        const resultado = await Swal.fire({
-            title: 'Tem certeza?',
-            text: `Deseja excluir o cliente ${nome}?`,
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Sim, excluir!',
-            cancelButtonText: 'Cancelar'
-        });
+    // Função para alterar status ativo/inativo
+    async function alterarStatus(cliente) {
+        try {
+            const novoStatus = !cliente.ativo;
+            
+            const dadosAtualizados = {
+                ...cliente,
+                ativo: novoStatus
+            };
 
-        if (resultado.isConfirmed) {
-            try {
-                console.log("Tentando excluir cliente com ID:", clienteId);
-                
-                try {
-                    // Usar o mesmo endpoint PUT da edição, apenas marcando como inativo
-                    const dadosParaInativar = {
-                        ...clienteCompleto,
-                        ativo: false // ou 0 se for int
-                    };
-                    
-                    console.log("Dados para inativar:", dadosParaInativar);
-                    await api.put(`usuario/${clienteId}`, dadosParaInativar);
-                } catch (deleteError) {
-                    console.error("Erro ao excluir:", deleteError);
-                    throw deleteError;
-                }
-                
-                alertar("success", "Cliente excluído com sucesso!");
-                buscarClientes(); // Recarrega a lista
-            } catch (error) {
-                console.error("Erro ao excluir cliente:", error);
-                console.error("Detalhes do erro:", error.response?.data);
-                alertar("error", "Erro ao excluir cliente");
-            }
+            const clienteId = cliente.id || cliente.idUsuario;
+            
+            await api.put(`usuario/${clienteId}`, dadosAtualizados);
+            
+            // Atualizar o estado local para refletir a mudança imediatamente
+            setClientes(clientes.map(c => 
+                (c.id || c.idUsuario) === clienteId 
+                    ? { ...c, ativo: novoStatus }
+                    : c
+            ));
+            
+            alertar("success", `Cliente ${novoStatus ? 'ativado' : 'inativado'} com sucesso!`);
+            
+        } catch (error) {
+            console.error("Erro ao alterar status:", error);
+            alertar("error", "Erro ao alterar status do cliente");
         }
     }
 
@@ -200,14 +190,14 @@ export default function TelaCliente() {
                                     <th>Cliente</th>
                                     <th>Email</th>
                                     <th>Empresa</th>
+                                    <th>Status</th>
                                     <th>Editar</th>
-                                    <th>Excluir</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {(clientes.length === 0 && !loading) || empresas.length === 0 ? (
                                     <tr>
-                                        <td colSpan="5" style={{ textAlign: 'center' }}>
+                                        <td colSpan="6" style={{ textAlign: 'center' }}>
                                             {empresas.length === 0 ? 'Carregando empresas...' : 'Nenhum cliente encontrado'}
                                         </td>
                                     </tr>
@@ -217,20 +207,18 @@ export default function TelaCliente() {
                                             <td>{cliente.nome}</td>
                                             <td>{cliente.email}</td>
                                             <td>{obterNomeEmpresa(cliente.idEmpresa)}</td>
+                                            <td style={{ textAlign: 'left' }}>
+                                                <Toggle 
+                                                    presenca={cliente.ativo !== false}
+                                                    manipular={() => alterarStatus(cliente)}
+                                                />
+                                            </td>
                                             <td>
                                                 <button
                                                     className="btnEditar"
                                                     onClick={() => editarCliente(cliente)}
                                                 >
                                                     <img src={Editar} alt="Editar" className="iconEditar" />
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button
-                                                    className="btnExcluir"
-                                                    onClick={() => excluirCliente(cliente.id || cliente.idUsuario, cliente.nome, cliente)}
-                                                >
-                                                    <img src={Lixeira} alt="Excluir" className="iconLixeira" />
                                                 </button>
                                             </td>
                                         </tr>
