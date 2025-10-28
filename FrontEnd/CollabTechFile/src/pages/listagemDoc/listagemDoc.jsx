@@ -65,11 +65,11 @@ export default function ListagemDoc() {
                                     onMouseEnter={() => setHoverIndex(index)}
                                     onMouseLeave={() => setHoverIndex(null)}
                                 >
-                                    <Link to="/docAndamentoFunc" className="cardDocumento">
+                                    <Link to={`/docAndamentoFunc/${doc.idDocumento}`} className="cardDocumento">
                                         <img src={Pdf} alt="Icone de Pdf" />
                                         <div className="cardInformacoes">
                                             <h1>{doc.nome || "Sem título"}</h1>
-                                            <p>{new Date(doc.criadoEm).toLocaleDateString('pt-BR') || "Sem data"} — {doc.idUsuario || "Autor desconhecido"}</p>
+                                            <p>{new Date(doc.criadoEm).toLocaleDateString('pt-BR') || "Sem data"} — {doc.idUsuarioNavigation?.nome || "Autor desconhecido"}</p>
                                             <p>Versão: <span>{doc.versao || "Sem Versão"}</span></p>
                                         </div>
 

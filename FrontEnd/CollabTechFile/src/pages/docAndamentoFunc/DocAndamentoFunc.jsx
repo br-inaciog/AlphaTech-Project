@@ -9,13 +9,33 @@ import Swal from "sweetalert2";
 import { useState } from "react";
 import { useEffect } from "react";
 import api from "../../Services/Service";
+import { useParams } from "react-router";
 
 
 export default function DocAndamentoFunc() {
-    const [listaCliente, setListaCliente] = useState([]);
-    const [clientesFiltrados, setClientesFiltrados] = useState([]);
+    const { idDocumento } = useParams();
 
-    function alertar() {
+    const [listaCliente, setListaCliente] = useState([]);
+    const [clienteFiltrado, setClienteFiltrado] = useState([]);
+
+    const [listaVersaoDoc, setListaVersaoDoc] = useState([]);
+    const [versaoDoc, setVersaoDoc] = useState([]);
+
+    const [listaRFeRNF, setlistaRFeRNF] = useState([]);
+
+    const [requisitoFuncional, setRequisitoFuncional] = useState("");
+    const [reqFuncional] = useState("RF")
+
+
+    const [requisitoNaoFuncional, setRequisitoNaoFuncional] = useState("");
+    const [reqNaoFuncional] = useState("RNF")
+
+
+    const [listaRN, setListaRN] = useState([]);
+    const [regraDeNegocio, setRegraDeNegocio] = useState("");
+    const [regraNegocio] = useState("Edite sua Regra de Negócio.")
+
+    function alertarSalvar() {
         Swal.fire({
             title: "Do you want to save the changes?",
             showDenyButton: true,
@@ -32,26 +52,135 @@ export default function DocAndamentoFunc() {
         });
     }
 
+    function alertar(icone, mensagem) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            },
+        });
+        Toast.fire({
+            icon: icone,
+            title: mensagem,
+        });
+    }
+
+    async function cadDocumento() {
+        try {
+            alertarSalvar();
+        } catch (error) {
+
+        }
+    }
+
     async function listarCliente() {
         try {
             const resposta = await api.get("usuario")
             setListaCliente(resposta.data);
 
             const apenasClientes = resposta.data.filter(u => u.idTipoUsuario === 3);
-            setClientesFiltrados(apenasClientes);
+            setClienteFiltrado(apenasClientes);
         } catch (error) {
             console.log("Erro ao buscar clientes:", error);
         }
     }
 
-    async function listarVersoes() {
-        const resposta = await api.get("documentosVersoes")
+    async function cadReqFuncional(e) {
+        e.preventDefault()
+
+        try {
+            const novaRequisito = await api.post("Requisito", {
+                tipo: reqFuncional
+            });
+
+            await api.post("ReqDoc", {
+                idDocumento: idDocumento,
+                idRequisito: novaRequisito.data.idRequisito
+            });
+
+            alertar("success", "Requisito cadastrado no documento!");
+            setRequisitoFuncional("");
+            // listaRFeRNF();
+        } catch (error) {
+            alertar("error", "Erro ao cadastrar!");
+            console.log(error);
+        }
+    }
+
+    async function cadReqNaoFuncional(e) {
+        e.preventDefault()
+
+        try {
+            const novaRequisito = await api.post("Requisito", {
+                tipo: reqNaoFuncional
+            });
+
+            await api.post("ReqDoc", {
+                idDocumento: idDocumento,
+                idRequisito: novaRequisito.data.idRequisito
+            });
+
+            alertar("success", "Requisito cadastrado no documento!");
+            setRequisitoNaoFuncional("");
+            // listaRFeRNF();
+        } catch (error) {
+            alertar("error", "Erro ao cadastrar!");
+            console.log(error);
+        }
     }
 
 
+    async function cadastrarRN(e) {
+        e.preventDefault();
+
+        try {
+            const novaRegra = await api.post("Regra", {
+                nome: regraNegocio
+            });
+
+            await api.post("regraDoc", {
+                idDocumento: idDocumento,
+                idRegra: novaRegra.data.idRegra
+            });
+
+            alertar("success", "Regra cadastrada no documento!");
+            setRegraDeNegocio("");
+            listarRN();
+        } catch (error) {
+            alertar("error", "Erro ao cadastrar!");
+            console.log(error);
+        }
+    }
+    async function listarRN() {
+        try {
+            const resposta = await api.get("regraDoc");
+            const regraNegocioDocAtual = resposta.data.filter(r => r.idDocumento == idDocumento);
+            setListaRN(regraNegocioDocAtual);
+        } catch (error) {
+
+        }
+    }
+
+    async function listarVersoes() {
+        try {
+            const resposta = await api.get("documentoVersoes");
+            const versoesDoDocumentoAtual = resposta.data.filter(v => v.idDocumento == idDocumento);
+            setListaVersaoDoc(versoesDoDocumentoAtual);
+        } catch (error) {
+            console.log("Erro ao buscar versões:", error);
+        }
+    }
+
     useEffect(() => {
         listarCliente();
-    }, [listaCliente])
+        listarVersoes();
+        listarRN();
+    }, [])
 
     return (
         <div className="containerGeral'">
@@ -75,7 +204,15 @@ export default function DocAndamentoFunc() {
                                     <p>Versão Documento</p>
                                     <select>
                                         <option disabled selected>Versões</option>
-                                        <option value="versoes">Versão 1.1</option>
+                                        {listaVersaoDoc.length > 0 ? (
+                                            listaVersaoDoc.map(versao => (
+                                                <option key={versao.idVersaoDocumento} value={versao.idVersaoDocumento}>
+                                                    {versao.numeroVersao}
+                                                </option>
+                                            ))
+                                        ) : (
+                                            <option disabled>S/Versões</option>
+                                        )}
                                     </select>
                                 </div>
 
@@ -83,14 +220,14 @@ export default function DocAndamentoFunc() {
                                     <p>Rementente</p>
                                     <select>
                                         <option disabled selected>Destinatário</option>
-                                        {clientesFiltrados.length > 0 ? (
-                                            clientesFiltrados.map((usuario) =>
+                                        {clienteFiltrado.length > 0 ? (
+                                            clienteFiltrado.map((usuario) =>
                                                 <option key={usuario.idUsuario} value={usuario.idUsuario}>
                                                     {usuario.nome}
                                                 </option>
                                             )
                                         ) : (
-                                            <option>Nenhum cliente encontrado</option>
+                                            <option disabled>Nenhum cliente encontrado</option>
                                         )}
                                     </select>
                                 </div>
@@ -105,20 +242,28 @@ export default function DocAndamentoFunc() {
                             <div className="regrasDeNegocio">
                                 <div className="tituloRN">
                                     <h2>Regras de Negócio</h2>
-                                    <button>
+                                    <button type="button" onClick={(e) => cadastrarRN(e)}>
                                         <img className="botaoAdicionar" src={Adicionar} alt="Botao De Adicionar" />
                                     </button>
                                 </div>
 
                                 <section>
-                                    <div className="listaRN">
-                                        <p>RN01: <span>RN01 listadada</span></p>
-
-                                        <div className="iconeRequisitosERegra">
-                                            <img className="botaoExcluir" src={Deletar} alt="Lixeira" />
-                                            <img className="botaoEditar" src={Editar} alt="Caneta de Editar" />
+                                    {listaRN.length > 0 ? (
+                                        listaRN.map((regra) =>
+                                            <div className="listaRN">
+                                                <p>RN01: <span>RN01 listadada</span></p>
+                                                <div className="iconeRequisitosERegra">
+                                                    <img className="botaoExcluir" src={Deletar} alt="Lixeira" />
+                                                    <img className="botaoEditar" src={Editar} alt="Caneta de Editar" />
+                                                </div>
+                                            </div>
+                                        )
+                                    ) : (
+                                        <div className="listaRN">
+                                            <p>Cadastrar Regras de Negócio.</p>
                                         </div>
-                                    </div>
+                                    )
+                                    }
                                 </section>
                             </div>
 
@@ -126,7 +271,7 @@ export default function DocAndamentoFunc() {
                             <div className="requisitosFuncionais">
                                 <div className="tituloRF">
                                     <h2>Requisitos Funcionais</h2>
-                                    <button>
+                                    <button type="button" onClick={(e) => cadReqFuncional(e)}>
                                         <img className="botaoAdicionar" src={Adicionar} alt="Botao De Adicionar" />
                                     </button>
                                 </div>
@@ -147,7 +292,7 @@ export default function DocAndamentoFunc() {
                             <div className="requisitosNaoFuncionais">
                                 <div className="tituloRNF">
                                     <h2>Requisitos não Funcionais</h2>
-                                    <button>
+                                    <button type="button" onClick={(e) => cadReqNaoFuncional(e)}>
                                         <img className="botaoAdicionar" src={Adicionar} alt="Botao De Adicionar" />
                                     </button>
                                 </div>
@@ -164,18 +309,10 @@ export default function DocAndamentoFunc() {
                                 </section>
                             </div>
 
-                            <div className="salvarFinalizarDoc">
-                                <div className="buttonSalvar">
-                                    <button className="salvarDoc" >
-                                        Salvar
-                                    </button>
-                                </div>
-
-                                <div className="buttonFinalizar">
-                                    <button className="finalizarDoc">
-                                        Finalizar
-                                    </button>
-                                </div>
+                            <div className="buttonFinalizar">
+                                <button onClick={cadDocumento} className="finalizarDoc">
+                                    Finalizar
+                                </button>
                             </div>
 
                         </form>

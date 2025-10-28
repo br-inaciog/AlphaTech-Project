@@ -4,7 +4,7 @@ import Lixeira from "../../assets/img/Delete.svg"
 import Editar from '../../assets/img/Editar.png';
 import './telaCliente.css';
 import { useEffect, useState } from 'react';
-import api from '../../Services/service';
+import api from '../../services/Service';
 import Swal from 'sweetalert2';
 
 export default function TelaCliente() {

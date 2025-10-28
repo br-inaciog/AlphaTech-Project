@@ -37,6 +37,8 @@ const Rotas = () => {
             <Route element={<DocFinalizadoClie />} path="/docFinalizadoClie" />
             <Route element={<ModalComentarioCliente />} path="/ModalComentarioCliente" />
             <Route element={<DocFinalizadoFunc />} path="/docFinalizadoFunc" />
+            <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc/:idDocumento" />
+            <Route element={<DocAndamentoClie />} path="/DocAndamentoClie/:idDocumento" />
         </Routes>
     )
 }

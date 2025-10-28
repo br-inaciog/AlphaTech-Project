@@ -1,5 +1,5 @@
-import { Eye, EyeOff } from "lucide-react";
 import "./Cadastro.css";
+import { Eye, EyeOff } from "lucide-react";
 import { IMaskInput } from 'react-imask';
 import { useState } from "react";
 

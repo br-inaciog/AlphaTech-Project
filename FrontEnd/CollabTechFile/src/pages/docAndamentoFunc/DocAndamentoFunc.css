@@ -213,33 +213,6 @@
     transform: scale(1.05);
 }
 
-.salvarDoc {
-    width: 275px;
-    height: 53px;
-    border-radius: 10px;
-
-    font-size: 24px;
-    color: white;
-
-    background-color: #1E3A8A;
-    border: none;
-
-    margin-top: 4%;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.salvarDoc:hover {
-    transform: scale(1.05);
-}
-
-.salvarFinalizarDoc {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 4%;
-    align-items: center;
-}
-
 .areaComentarioDoc {
     width: 100%;
     border-radius: 20px;
