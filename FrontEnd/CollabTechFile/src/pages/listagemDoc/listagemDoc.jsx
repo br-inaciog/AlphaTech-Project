@@ -51,7 +51,7 @@ export default function ListagemDoc() {
                         </div>
 
                         <Link className="botaoLixeiraList" to="/Lixeira">
-                            <img src={Lixeira} alt="Lixeira" />
+                            <img className="IcoLixo" src={Lixeira} alt="Lixeira" />
                             <p>Excluídos</p>
                         </Link>
                     </div>

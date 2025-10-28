@@ -59,8 +59,10 @@ export default function DocFinalizadoFunc() {
                             </div>
 
                             <div className="comentarioDisplay">
-                                <p>Assinar</p>
-                                <img src={Assinatura} alt="Botão de Comentário" />
+                                <div className="divAss" >
+                                <p> Vizualizar Assinatura</p>
+                                <img className="AssIcoF" src={Assinatura} alt="Botão de Comentário" />
+                                </div>
                             </div>
                         </div>
                     </section>

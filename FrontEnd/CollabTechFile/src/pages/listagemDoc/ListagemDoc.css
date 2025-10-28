@@ -127,3 +127,14 @@
     padding: 10px 15px;
     box-shadow: inset 0px 0px 10px 0 rgba(20, 20, 20, 0.2);
 }
+
+
+@media (max-width: 768px) {
+    .IcoLixo{
+        display: none;
+    }
+    .botaoLixeiraList {
+        padding: 15px;
+    }
+
+}

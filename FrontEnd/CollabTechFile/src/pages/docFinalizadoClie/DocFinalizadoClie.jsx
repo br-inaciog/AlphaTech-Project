@@ -60,8 +60,11 @@ export default function DocFinalizadoClie() {
                             </div>
 
                             <div className="comentarioDisplay">
+                                <div className="divAss"  >
+
                                 <p>Assinar</p>
-                                <img src={Assinatura} alt="Botão de Comentário" />
+                                <img className="AssIco" src={Assinatura} alt="Botão de Comentário" />
+                                </div>
                             </div>
                         </div>
                     </section>

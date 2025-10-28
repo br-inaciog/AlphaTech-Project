@@ -78,3 +78,89 @@
 
     margin-top: 5%;
 }
+
+@media (max-width: 768px) {
+  .documento {
+    padding: 6%;
+    min-height: auto; /* evita espaço vazio enorme */
+  }
+
+  .docNome {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .tituloRN h2,
+  .tituloRF h2,
+  .tituloRNF h2 {
+    font-size: 22px;
+  }
+
+  .listaRN,
+  .listaRF,
+  .listaRNF {
+    flex-direction: column; /* empilha conteúdo */
+    align-items: flex-start;
+    gap: 8px;
+    padding: 4%;
+  }
+
+  .listaRF p {
+    width: 100%;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .comentarioDisplay {
+    justify-content: center; /* centraliza botão ou ícone */
+  }
+}
+
+/* 📱 Celulares menores */
+@media (max-width: 480px) {
+  .documento {
+    padding: 5%;
+    border-radius: 15px;
+  }
+
+  .docNome {
+    font-size: 20px;
+  }
+
+  .tituloRN h2,
+  .tituloRF h2,
+  .tituloRNF h2 {
+    font-size: 18px;
+  }
+
+  .listaRN,
+  .listaRF,
+  .listaRNF {
+    font-size: 0.9rem;
+    padding: 5%;
+  }
+
+  .listaRF p {
+    font-size: 0.9rem;
+  }
+
+  .comentarioDisplay {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+  }
+
+  .AssIco{
+    width: 20%;
+    height: 20%;
+  }
+  .divAss{
+    display: flex;
+    align-items: center;
+    
+}
+    .AssIcoF{
+        width: 17%;
+        height: 17%;
+    }
+}

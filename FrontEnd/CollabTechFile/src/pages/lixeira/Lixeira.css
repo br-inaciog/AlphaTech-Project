@@ -14,7 +14,7 @@
     border-radius: 10px;
 
     width: 100%;
-    padding: 15px;
+    padding: 2%;
     gap: 20px;
     border-bottom: 2px solid black;
 
@@ -81,4 +81,56 @@
 
 .infHorarioCard {
     margin-bottom: 3px;
+}
+
+/* 🔁 Responsividade */
+@media (max-width: 768px) {
+  .cardDocumentoLixeira {
+    flex-direction: column; /* empilha os blocos */
+    align-items: flex-start; /* alinha à esquerda */
+    text-align: left;
+    gap: 15px;
+    padding: 4%;
+  }
+
+  .cardInformacoesLixeira {
+    flex-direction: column; /* PDF + texto ficam um embaixo do outro */
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .cardInformacoesLixeira img {
+    width: 60px;
+    height: auto;
+  }
+
+  .cardAcoesLixeira {
+    width: 100%; /* ocupa a largura toda */
+    justify-content: space-between;
+  }
+
+  .info {
+    align-items: flex-start; /* muda alinhamento pra esquerda */
+    text-align: left;
+    font-size: 0.85rem;
+  }
+
+  .lixeiraExcluir {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardDocumentoLixeira {
+    gap: 10px;
+    padding: 5%;
+  }
+
+  .cardInformacoesLixeira p {
+    font-size: 1rem;
+  }
+
+  .imgPdf{
+    display: none;
+  }
 }
