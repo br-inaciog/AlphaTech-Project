@@ -1,4 +1,5 @@
 import "./MenuLateralCliente.css"
+import { useAuth } from "../../contexts/AuthContext";
 
 import LogoMenu from '../../assets/img/logoMenu.png';
 import Casinha from '../../assets/img/Casinha.png';
@@ -8,6 +9,12 @@ import Logout from '../../assets/img/Logout.png';
 import { Link } from 'react-router';
 
 export default function MenuLateralCliente() {
+    const { logout } = useAuth(); 
+    
+        const handleLogout = (e) => {
+            e.preventDefault(); 
+            logout();
+        };
     return (
         <header className="menuLateral">
             <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
@@ -24,8 +31,8 @@ export default function MenuLateralCliente() {
                 </Link>
             </div>
 
-            <Link to="/" className="logout">
-                <img src={Logout} alt="" />
+            <Link onClick={handleLogout} to="/" className="logout">
+                <img src={Logout} alt="Logout" />
                 Sair
             </Link>
         </header>

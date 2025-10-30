@@ -1,52 +1,68 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import secureLocalStorage from "react-secure-storage";
-import { userDecodeToken } from "../auth/Auth"; // ajuste o caminho se necessário
+import { userDecodeToken } from "../auth/Auth";
+import { useNavigate } from "react-router-dom";
 
-// Cria o contexto de autenticação
 const AuthContext = createContext();
 
-// Provider que envolve toda a aplicação
 export const AuthProvider = ({ children }) => {
-  // Estado para armazenar o token JWT
-  const [token, setToken] = useState(() => {
+  const navigate = useNavigate();
+
+  const [token, setToken] = useState(undefined);
+  const [usuario, setUsuario] = useState(undefined);
+
+  // 🔹 Inicializa token e usuário a partir do secureLocalStorage
+  useEffect(() => {
     const savedToken = secureLocalStorage.getItem("tokenLogin");
-    return typeof savedToken === "string" ? savedToken : undefined;
-  });
-
-  // Estado para armazenar o usuário decodificado
-  const [usuario, setUsuario] = useState(() => {
-    if (token && typeof token === "string") {
-      return userDecodeToken(token);
+    if (savedToken && typeof savedToken === "string") {
+      setToken(savedToken);
+      setUsuario(userDecodeToken(savedToken));
     }
-    return undefined;
-  });
+  }, []);
 
-  // Atualiza o usuário quando o token muda
+  // 🔹 Atualiza usuário sempre que o token mudar
   useEffect(() => {
     if (token && typeof token === "string") {
-      const decoded = userDecodeToken(token);
-      setUsuario(decoded);
+      setUsuario(userDecodeToken(token));
     } else {
       setUsuario(undefined);
     }
   }, [token]);
 
-  // Função para atualizar token e salvar no storage
+  // Atualiza token (login ou refresh)
   const atualizarToken = (novoToken) => {
+    if (!novoToken) return;
+
     setToken(novoToken);
-    if (novoToken && typeof novoToken === "string") {
-      secureLocalStorage.setItem("tokenLogin", novoToken);
-    } else {
-      secureLocalStorage.removeItem("tokenLogin");
-    }
+    secureLocalStorage.setItem("tokenLogin", novoToken);
+  };
+
+  //  Logout robusto: remove qualquer token e limpa estado
+  const logout = () => {
+    //  Limpa todos os tokens do secureLocalStorage
+    secureLocalStorage.clear();
+
+    //  Limpa estados React
+    setToken(undefined);
+    setUsuario(undefined);
+
+    //  Redireciona para login
+    navigate("/");
   };
 
   return (
-    <AuthContext.Provider value={{ token, usuario, setUsuario: atualizarToken }}>
+    <AuthContext.Provider
+      value={{
+        token,
+        usuario,
+        atualizarToken,
+        logout,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
 };
 
-// Hook personalizado para acessar o contexto
+// 🔹 Hook personalizado
 export const useAuth = () => useContext(AuthContext);

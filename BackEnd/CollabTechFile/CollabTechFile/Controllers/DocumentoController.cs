@@ -108,6 +108,44 @@ namespace CollabTechFile.Controllers
                 throw;
             }
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult EnviarParaLixeira(int id)
+        {
+            try
+            {
+                // Criar apenas o objeto com o ID e o campo da lixeira
+                var documento = new Documento
+                {
+                    IdDocumento = id,
+                    Status = true
+                };
+
+                // Apenas atualiza o campo no banco (sem buscar antes)
+                _documentoRepository.Editar(id, documento);
+
+                return Ok("Documento enviado para a lixeira com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao enviar para a lixeira: {ex.Message}");
+            }
+        }
+
+
+        //[HttpPut("{id}")]
+        //public IActionResult Put(int id, Documento documento)
+        //{
+        //    try
+        //    {
+        //        documento.IdDocumento = id;
+        //        _documentoRepository.Editar(id, documento);
+        //        return NoContent();
+        //    } catch(Exception e)
+        //    {
+        //        return BadRequest(e.Message);
+        //    }
+        //}
     }
 
 }

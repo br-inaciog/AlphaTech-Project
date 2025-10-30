@@ -22,7 +22,7 @@ export default function Login() {
   };
 
   const navigate = useNavigate();
-  const { setUsuario } = useAuth();
+  const { atualizarToken } = useAuth(); // usa a função certa do contexto
 
   async function realizarAutenticacao(e) {
     e.preventDefault();
@@ -36,19 +36,23 @@ export default function Login() {
         if (token) {
           const tokenDecodificado = userDecodeToken(token);
 
-          setUsuario(tokenDecodificado);
+          // Atualiza o token e o usuário no contexto automaticamente
+          atualizarToken(token);
+
+          // Salva no secureLocalStorage (redundante, mas reforça)
           secureLocalStorage.setItem("tokenLogin", token);
 
-          // ✅ Alerta de sucesso estilizado
+          // Alerta de sucesso
           await Swal.fire({
             theme: 'dark',
             title: "Login realizado!",
             text: "Redirecionando para a página inicial...",
             icon: "success",
             showConfirmButton: false,
-            timer: 500,
+            timer: 800,
           });
 
+          // ✅ Redirecionamento conforme o tipo de usuário
           if (tokenDecodificado.tipoUsuario === "Funcionario") {
             navigate("/Inicio", { replace: true });
           } else if (tokenDecodificado.tipoUsuario === "Cliente") {
@@ -58,7 +62,7 @@ export default function Login() {
           }
         }
       } catch (error) {
-        console.error(error);
+        // console.error(error);
 
         if (error.response?.status === 401) {
           Swal.fire({

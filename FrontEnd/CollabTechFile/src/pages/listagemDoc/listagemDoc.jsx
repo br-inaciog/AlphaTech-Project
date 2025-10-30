@@ -1,5 +1,5 @@
 import "./ListagemDoc.css";
-import api from "../../Services/service";
+import api from "../../Services/Service";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -15,8 +15,7 @@ export default function ListagemDoc() {
     const [listagemDoc, setListagemDoc] = useState([]);
     const [hoverIndex, setHoverIndex] = useState(null);
     const [filtro, setFiltro] = useState("Todos"); //Vai fazer iniciar com todos os documentos
-
-
+    
     // Função para buscar documentos da API
     async function listarDocumentos() {
         try {
@@ -50,13 +49,12 @@ export default function ListagemDoc() {
             }
         });
     }
-
     useEffect(() => {
         listarDocumentos();
     }, []);
-
+    
     const documentosFiltrados = listagemDoc.filter((doc) => { //Serve para filtrar os documentos na base do filtro
-        if (filtro === "Todos") return true;
+        if(filtro === "Todos") return true;
         return doc.status === filtro;
     });
 
@@ -114,6 +112,8 @@ export default function ListagemDoc() {
                                             <div className="infAcoes">
                                                 <img src={Editar} alt="Editar" />
                                             </div>
+
+                                            {/* Ícone de excluir corrigido */}
                                             <div className="infAcoes">
                                                 <img
                                                     src={Excluir}

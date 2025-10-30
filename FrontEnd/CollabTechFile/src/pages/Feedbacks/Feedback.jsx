@@ -3,7 +3,7 @@ import "./Feedback.css";
 import Lixeira from "../../assets/img/Delete.svg";
 import MenuLateral from "../../components/menuLateral/MenuLateral";
 import Cabecalho from "../../components/cabecalho/Cabecalho";
-import api from "../../services/Service";
+import api from "../../Services/service";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 

@@ -39,22 +39,6 @@ const Rotas = () => {
         <Routes>
             <Route element={<Login />} path="/" exact />
 
-            {/* <Route element={<Privado tipoPermitido="Funcionario" Item={Inicio} />} path="/Inicio" />
-      <Route element={<Privado tipoPermitido="Funcionario" Item={ListagemDoc} />} path="/Listagem" />
-      <Route element={<Privado tipoPermitido="Funcionario" Item={CadastroCliente} />} path="/CadastroCliente" />
-      <Route element={<Privado tipoPermitido="Funcionario" Item={CadastroEmpresa} />} path="/CadastroEmpresa" />
-      <Route element={<Privado tipoPermitido="Admin" Item={CadastroFuncionario} />} path="/CadastroFuncionario" />
-      <Route element={<Privado tipoPermitido="Cliente" Item={TelaCliente} />} path="/TelaCliente" />
-      <Route element={<Privado tipoPermitido="Funcionario" Item={Lixeira} />} path="/Lixeira" />
-      <Route element={<Privado tipoPermitido="Funcionario" Item={DocAndamentoFunc} />} path="/docAndamentoFunc" />
-      <Route element={<Privado tipoPermitido="Cliente" Item={DocAndamentoClie} />} path="/docAndamentoClie" />
-      <Route element={<Privado tipoPermitido="Cliente" Item={Feedback} />} path="/FeedBacks" />
-      <Route element={<Privado tipoPermitido="Cliente" Item={FaleConosco} />} path="/FaleConosco" />
-      <Route element={<Privado tipoPermitido="Cliente" Item={InicioCliente} />} path="/InicioCliente" />
-      <Route element={<Privado tipoPermitido="Cliente" Item={DocFinalizadoClie} />} path="/docFinalizadoClie" />
-      <Route element={<Privado tipoPermitido="Cliente" Item={ModalComentarioCliente} />} path="/ModalComentarioCliente" />
-      <Route element={<Privado tipoPermitido="Funcionario" Item={DocFinalizadoFunc} />} path="/docFinalizadoFunc" /> */}
-
             <Route element={<Inicio />} path="/Inicio" />
             <Route element={<ListagemDoc />} path="/Listagem" />
             <Route element={<CadastroCliente />} path="/CadastroCliente" />
