@@ -14,20 +14,25 @@ export default function ListagemFuncionario() {
 
     async function buscarEmpresas() {
         try {
+            console.log("Buscando empresas...");
             const response = await api.get("empresa");
+            console.log("Empresas encontradas:", response.data);
             setEmpresas(response.data);
         } catch (error) {
             console.error("Erro ao buscar empresas:", error);
+            alertar("error", "Erro ao carregar lista de empresas");
         }
     }
 
     async function buscarFuncionarios() {
         setLoading(true);
         try {
+            console.log("Buscando funcionários...");
             const response = await api.get("usuario");
+            console.log("Resposta completa da API:", response.data);
 
-            // Filtrar apenas usuários com idTipoUsuario = 3 (funcionários) - mostrar todos (ativos e inativos)
-            const funcionariosFiltrados = response.data.filter(usuario => usuario.idTipoUsuario === 3);
+            const funcionariosFiltrados = response.data.filter(usuario => usuario.idTipoUsuario === 5);
+            console.log("Funcionários filtrados:", funcionariosFiltrados);
 
             setFuncionarios(funcionariosFiltrados);
         } catch (error) {
@@ -78,7 +83,6 @@ export default function ListagemFuncionario() {
             
             await api.put(`usuario/${funcionarioId}`, dadosAtualizados);
             
-            // Atualizar o estado local para refletir a mudança imediatamente
             setFuncionarios(funcionarios.map(f => 
                 (f.id || f.idUsuario) === funcionarioId 
                     ? { ...f, ativo: novoStatus }
@@ -94,10 +98,27 @@ export default function ListagemFuncionario() {
     }
 
     async function editarFuncionario(funcionario) {
-        // Criar opções do select de empresas
+        console.log("=== INICIANDO EDIÇÃO DO FUNCIONÁRIO ===");
+        console.log("Funcionário recebido:", funcionario);
+        
+        if (empresas.length === 0) {
+            console.log("Empresas não carregadas, buscando...");
+            alertar("warning", "Carregando empresas...");
+            await buscarEmpresas();
+            if (empresas.length === 0) {
+                alertar("error", "Não foi possível carregar a lista de empresas");
+                return;
+            }
+        }
+
         const opcoesEmpresas = empresas.map((empresa, index) =>
             `<option value="${empresa.idEmpresa}" ${empresa.idEmpresa === funcionario.idEmpresa ? 'selected' : ''}>${empresa.nome}</option>`
         ).join('');
+
+        console.log("Funcionário selecionado para edição:", funcionario);
+        console.log("Empresas disponíveis:", empresas);
+        console.log("ID da empresa atual do funcionário:", funcionario.idEmpresa);
+        console.log("Estrutura completa do funcionário:", JSON.stringify(funcionario, null, 2));
 
         const { value: formValues } = await Swal.fire({
             title: 'Editar Funcionário',
@@ -126,7 +147,7 @@ export default function ListagemFuncionario() {
                     return false;
                 }
 
-                return [nome, email, idEmpresa];
+                return [nome, email, idEmpresa || funcionario.idEmpresa];
             },
             showCancelButton: true,
             confirmButtonText: 'Salvar',
@@ -140,23 +161,65 @@ export default function ListagemFuncionario() {
 
             try {
                 const dadosAtualizados = {
-                    ...funcionario,
-                    nome: nome,
-                    email: email,
-                    idEmpresa: idEmpresa ? parseInt(idEmpresa) : funcionario.idEmpresa
+                    id: funcionario.id || funcionario.idUsuario,
+                    nome: nome.trim(),
+                    email: email.trim(),
+                    idEmpresa: idEmpresa ? parseInt(idEmpresa) : funcionario.idEmpresa,
+                    ativo: funcionario.ativo,
+                    idTipoUsuario: funcionario.idTipoUsuario
                 };
 
                 // Usar idUsuario se id não existir
                 const funcionarioId = funcionario.id || funcionario.idUsuario;
+                
+                if (!funcionarioId) {
+                    console.error("ID do funcionário não encontrado:", funcionario);
+                    alertar("error", "Erro: ID do funcionário não encontrado");
+                    return;
+                }
+                
+                console.log("Dados que serão enviados:", dadosAtualizados);
+                console.log("ID do funcionário:", funcionarioId);
+                console.log("URL da requisição:", `usuario/${funcionarioId}`);
 
-                await api.put(`usuario/${funcionarioId}`, dadosAtualizados);
+                const response = await api.put(`usuario/${funcionarioId}`, dadosAtualizados);
+                console.log("Resposta da API:", response.data);
+                
+                // Atualizar o estado local para refletir a mudança imediatamente
+                setFuncionarios(funcionarios.map(f => {
+                    const fId = f.id || f.idUsuario;
+                    if (fId === funcionarioId) {
+                        console.log("Atualizando funcionário no estado local:", { ...f, ...dadosAtualizados });
+                        return { ...f, ...dadosAtualizados };
+                    }
+                    return f;
+                }));
+                
                 alertar("success", "Funcionário atualizado com sucesso!");
-                buscarFuncionarios();
+                
+                // Recarregar dados para garantir consistência
+                setTimeout(() => {
+                    buscarFuncionarios();
+                }, 1000);
 
             } catch (error) {
                 console.error("Erro ao atualizar funcionário:", error);
                 console.error("Detalhes do erro:", error.response?.data);
-                alertar("error", "Erro ao atualizar funcionário");
+                console.error("Status do erro:", error.response?.status);
+                
+                let mensagemErro = "Erro ao atualizar funcionário";
+                
+                if (error.response?.status === 400) {
+                    mensagemErro = "Dados inválidos. Verifique as informações fornecidas.";
+                } else if (error.response?.status === 404) {
+                    mensagemErro = "Funcionário não encontrado.";
+                } else if (error.response?.status === 500) {
+                    mensagemErro = "Erro interno do servidor. Tente novamente.";
+                } else if (error.response?.data?.message) {
+                    mensagemErro = error.response.data.message;
+                }
+                
+                alertar("error", mensagemErro);
             }
         }
     }
