@@ -77,11 +77,16 @@
       "RelativeMoniker": "D:0:0:{8817F269-3307-4A04-B231-97C0EB0E612A}|CollabTechFile\\CollabTechFile.csproj|solutionrelative:collabtechfile\\interfaces\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
+=======
+      "AbsoluteMoniker": "D:0:0:{8817F269-3307-4A04-B231-97C0EB0E612A}|CollabTechFile\\CollabTechFile.csproj|c:\\users\\55562188899\\desktop\\alphatech-project\\backend\\collabtechfile\\collabtechfile\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8817F269-3307-4A04-B231-97C0EB0E612A}|CollabTechFile\\CollabTechFile.csproj|solutionrelative:collabtechfile\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> c5032d26cfc8a3198530abea78ffaee68dd55539
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-<<<<<<< HEAD
-=======
 <<<<<<< HEAD
 >>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
       "AbsoluteMoniker": "D:0:0:{8817F269-3307-4A04-B231-97C0EB0E612A}|CollabTechFile\\CollabTechFile.csproj|c:\\users\\50776884867\\desktop\\alphatech-project\\backend\\collabtechfile\\collabtechfile\\properties\\servicedependencies\\bdalphatech - web deploy\\apis1.arm.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -358,12 +363,24 @@
         {
           "DockedWidth": 200,
 <<<<<<< HEAD
+<<<<<<< HEAD
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+=======
+<<<<<<< HEAD
           "SelectedChildIndex": 1,
-<<<<<<< HEAD
-=======
 =======
 <<<<<<< HEAD
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
+=======
+<<<<<<< HEAD
+          "SelectedChildIndex": 1,
+=======
+<<<<<<< HEAD
+          "SelectedChildIndex": 3,
+>>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
 =======
           "SelectedChildIndex": 7,
 >>>>>>> f568123 (feat: tela de feedbacks concluida, tela de listagem com o filtro ajustado, tela de lixeira modificada, httpdelete de documentocontroller feito e inicio do modal de filtro funcionario)
@@ -458,36 +475,16 @@
               "ViewState": "AgIAAHEAAAAAAAAAAAAAAHEAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-10-23T11:58:02.301Z"
+<<<<<<< HEAD
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 6,
 =======
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Program.cs",
-              "RelativeDocumentMoniker": "CollabTechFile\\Program.cs",
-              "ToolTip": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Program.cs",
-              "RelativeToolTip": "CollabTechFile\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T17:49:04.773Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\appsettings.json",
-              "RelativeDocumentMoniker": "CollabTechFile\\appsettings.json",
-              "ToolTip": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\appsettings.json",
-              "RelativeToolTip": "CollabTechFile\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA2AAAAAAAAAA==",
 =======
+<<<<<<< HEAD
           "SelectedChildIndex": 19,
 >>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
->>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
           "Children": [
             {
               "$type": "Document",
@@ -503,6 +500,7 @@
             },
             {
               "$type": "Document",
+>>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
               "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\appsettings.json",
@@ -538,21 +536,16 @@
 <<<<<<< HEAD
 =======
 =======
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TipoUsuarioRepository.cs",
-              "DocumentMoniker": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
-              "RelativeDocumentMoniker": "CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
-              "ToolTip": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
-              "RelativeToolTip": "CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAqwBYAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T18:20:09.029Z",
-              "EditorCaption": ""
+          "SelectedChildIndex": 6,
+>>>>>>> d6323233bedd07c1a3dd65cc4c9bf5c107dfcb85
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+>>>>>>> c5032d26cfc8a3198530abea78ffaee68dd55539
             },
             {
               "$type": "Document",
->>>>>>> d6323233bedd07c1a3dd65cc4c9bf5c107dfcb85
               "DocumentIndex": 9,
               "Title": "EmpresaController.cs",
               "DocumentMoniker": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Controllers\\EmpresaController.cs",
@@ -567,6 +560,26 @@
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Program.cs",
+<<<<<<< HEAD
+              "DocumentMoniker": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Program.cs",
+              "RelativeDocumentMoniker": "CollabTechFile\\Program.cs",
+              "ToolTip": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Program.cs",
+              "RelativeToolTip": "CollabTechFile\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T17:49:04.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\appsettings.json",
+              "RelativeDocumentMoniker": "CollabTechFile\\appsettings.json",
+              "ToolTip": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\appsettings.json",
+              "RelativeToolTip": "CollabTechFile\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA2AAAAAAAAAA==",
+=======
               "DocumentMoniker": "C:\\Users\\55890867873\\AppData\\Local\\SourceServer\\88d98a98a53ad6d59ea2145fc5ba5a8053f075e8f260374669d4aa954aaba89c\\BackEnd\\CollabTechFile\\CollabTechFile\\Program.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\55890867873\\AppData\\Local\\SourceServer\\88d98a98a53ad6d59ea2145fc5ba5a8053f075e8f260374669d4aa954aaba89c\\BackEnd\\CollabTechFile\\CollabTechFile\\Program.cs",
               "ToolTip": "C:\\Users\\55890867873\\AppData\\Local\\SourceServer\\88d98a98a53ad6d59ea2145fc5ba5a8053f075e8f260374669d4aa954aaba89c\\BackEnd\\CollabTechFile\\CollabTechFile\\Program.cs",
@@ -638,10 +651,6 @@
               "WhenOpened": "2025-10-14T17:46:26.574Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "TipoUsuarioRepository.cs",
@@ -676,40 +685,8 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
-              "DocumentIndex": 7,
-              "Title": "CollabTechFile.http",
-              "DocumentMoniker": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.http",
-              "RelativeDocumentMoniker": "CollabTechFile\\CollabTechFile.http",
-              "ToolTip": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.http",
-=======
-              "DocumentIndex": 10,
-              "Title": "CollabTechFile.http",
-              "DocumentMoniker": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.http",
-              "RelativeDocumentMoniker": "CollabTechFile\\CollabTechFile.http",
-              "ToolTip": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.http",
->>>>>>> 386e025704063c75802f4d939b4705bb9f0161c1
->>>>>>> c5032d26cfc8a3198530abea78ffaee68dd55539
->>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
-              "RelativeToolTip": "CollabTechFile\\CollabTechFile.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-10-14T17:50:05.002Z"
-            },
-            {
-              "$type": "Document",
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-              "DocumentIndex": 10,
-              "Title": "EmpresaController.cs",
-              "DocumentMoniker": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Controllers\\EmpresaController.cs",
-              "RelativeDocumentMoniker": "CollabTechFile\\Controllers\\EmpresaController.cs",
-              "ToolTip": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Controllers\\EmpresaController.cs",
-=======
-<<<<<<< HEAD
->>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
 >>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "EmpresaController.cs",
               "DocumentMoniker": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Controllers\\EmpresaController.cs",
               "RelativeDocumentMoniker": "CollabTechFile\\Controllers\\EmpresaController.cs",
@@ -721,7 +698,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "TipoUsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
               "RelativeDocumentMoniker": "CollabTechFile\\Repositories\\TipoUsuarioRepository.cs",
@@ -733,7 +710,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "EmpresaRepository.cs",
               "DocumentMoniker": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Repositories\\EmpresaRepository.cs",
               "RelativeDocumentMoniker": "CollabTechFile\\Repositories\\EmpresaRepository.cs",
@@ -903,7 +880,7 @@
               "$type": "Document",
 <<<<<<< HEAD
 <<<<<<< HEAD
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
 =======
               "DocumentIndex": 15,
               "Title": "DocumentoController.cs",
@@ -970,7 +947,7 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
 =======
 <<<<<<< HEAD
 >>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
@@ -1033,8 +1010,7 @@
               "DocumentMoniker": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "CollabTechFile\\Controllers\\LoginController.cs",
               "ToolTip": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "CollabTechFile\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAiwCYAAABqAAAAAAAAAA==",
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -1045,18 +1021,30 @@
               "DocumentMoniker": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "CollabTechFile\\Controllers\\LoginController.cs",
               "ToolTip": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "CollabTechFile\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAcwBsAAAAQAAAAAAAAAA==",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+              "DocumentMoniker": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "CollabTechFile\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\Controllers\\LoginController.cs",
+>>>>>>> 386e025704063c75802f4d939b4705bb9f0161c1
+>>>>>>> c5032d26cfc8a3198530abea78ffaee68dd55539
+>>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
 >>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
+>>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
 =======
 >>>>>>> f568123 (feat: tela de feedbacks concluida, tela de listagem com o filtro ajustado, tela de lixeira modificada, httpdelete de documentocontroller feito e inicio do modal de filtro funcionario)
+              "RelativeToolTip": "CollabTechFile\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAiwCYAAABqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-14T17:46:26.567Z"
             },
             {
               "$type": "Document",
 <<<<<<< HEAD
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
 =======
               "DocumentIndex": 18,
               "Title": "ComentarioController.cs",
@@ -1096,7 +1084,7 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
 =======
               "DocumentIndex": 19,
               "Title": "Empresa.cs",
@@ -1187,7 +1175,7 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
 =======
               "DocumentIndex": 21,
               "Title": "RegraDocController.cs",
@@ -1227,7 +1215,7 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
 =======
               "DocumentIndex": 22,
               "Title": "IEmpresaRepository.cs",
@@ -1267,7 +1255,7 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
 =======
               "DocumentIndex": 23,
               "Title": "TipoUsuario.cs",
@@ -1307,7 +1295,7 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
 =======
               "DocumentIndex": 24,
               "Title": "Documento.cs",
@@ -1347,7 +1335,7 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
 =======
               "DocumentIndex": 25,
               "Title": "CollabTechFile",
@@ -1371,7 +1359,8 @@
               "ToolTip": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
               "RelativeToolTip": "CollabTechFile\\CollabTechFile.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-14T17:50:09.173Z"
+              "WhenOpened": "2025-10-14T17:50:09.173Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

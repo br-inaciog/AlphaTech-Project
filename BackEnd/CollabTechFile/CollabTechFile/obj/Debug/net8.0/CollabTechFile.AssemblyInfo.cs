@@ -14,23 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CollabTechFile")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6323233bedd07c1a3dd65cc4c9bf5c107dfcb85")]
-=======
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f391533885fd8be01ad33d21a17cb49c95c9091")]
-=======
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+386e025704063c75802f4d939b4705bb9f0161c1")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5032d26cfc8a3198530abea78ffaee68dd55539")]
->>>>>>> d6323233bedd07c1a3dd65cc4c9bf5c107dfcb85
->>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
->>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+12bd5f3796d46488c08fd72decd7066f736171e8")]
->>>>>>> f568123 (feat: tela de feedbacks concluida, tela de listagem com o filtro ajustado, tela de lixeira modificada, httpdelete de documentocontroller feito e inicio do modal de filtro funcionario)
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1efb8e9ea333df538675f68c105df11614778ee8")]
 [assembly: System.Reflection.AssemblyProductAttribute("CollabTechFile")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CollabTechFile")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
