@@ -160,10 +160,16 @@
 
   .comentarioDisplay {
     font-size: 14px;
+    
   }
 
   .btnComentario{
     width: 20%;
     height: 20%;
+  }
+
+  .imgComentario{
+    height: 20%;
+    width: 20%;
   }
 }

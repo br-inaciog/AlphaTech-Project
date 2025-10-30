@@ -14,7 +14,6 @@ import InicioCliente from "../pages/inicioCliente/InicioCliente"
 import Feedback from "../pages/Feedbacks/Feedback"
 import FaleConosco  from "../pages/faleConosco/FaleConosco"
 import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie" 
-import ModalComentarioCliente from "../pages/cometarioCliente/ModalComentarioCliente"
 import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc"
 
 const Rotas = () => {
@@ -35,7 +34,6 @@ const Rotas = () => {
             <Route element={<InicioCliente />} path="/InicioCliente" />
             <Route element={<Feedback />} path="/FeedBacks" />
             <Route element={<DocFinalizadoClie />} path="/docFinalizadoClie" />
-            <Route element={<ModalComentarioCliente />} path="/ModalComentarioCliente" />
             <Route element={<DocFinalizadoFunc />} path="/docFinalizadoFunc" />
         </Routes>
     )

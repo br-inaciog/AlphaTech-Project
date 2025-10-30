@@ -1,7 +1,6 @@
 import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Cabecalho from '../../components/cabecalho/Cabecalho';
-import Lixeira from "../../assets/img/Delete.svg"
-
+import Lixeira from "../../assets/img/Delete.svg";
 import Editar from '../../assets/img/Editar.png';
 import './telaCliente.css';
 
@@ -13,7 +12,6 @@ export default function TelaCliente() {
         { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
         { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
         { nome: 'Kaue Moura', email: 'Kauehago07@gmail.com', empresa: "SENAI" },
-  
     ];
 
     return (
@@ -25,10 +23,11 @@ export default function TelaCliente() {
                     <div className="titulo">
                         <h1>Tela Clientes</h1>
                     </div>
+
                     <div className="tabelaClienteContainer">
                         <table className="tabelaCliente">
                             <thead>
-                                <tr>
+                                <tr className='titulocabe'>
                                     <th>Cliente</th>
                                     <th>Email</th>
                                     <th>Empresa</th>
@@ -36,18 +35,19 @@ export default function TelaCliente() {
                                     <th>Excluir</th>
                                 </tr>
                             </thead>
+
                             <tbody>
                                 {clientes.map((c, i) => (
                                     <tr key={i}>
-                                        <td>{c.nome}</td>
-                                        <td>{c.email}</td>
-                                        <td>{c.empresa}</td>
-                                        <td>
+                                        <td data-cell="Cliente">{c.nome}</td>
+                                        <td data-cell="Email">{c.email}</td>
+                                        <td data-cell="Empresa">{c.empresa}</td>
+                                        <td data-cell="Editar">
                                             <button className="btnEditar">
                                                 <img src={Editar} alt="Editar" className="iconEditar" />
                                             </button>
                                         </td>
-                                        <td>
+                                        <td data-cell="Excluir">
                                             <button className="btnExcluir">
                                                 <img src={Lixeira} alt="Excluir" className="iconLixeira" />
                                             </button>

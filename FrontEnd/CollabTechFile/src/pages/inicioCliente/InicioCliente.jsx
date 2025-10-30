@@ -1,7 +1,7 @@
 import "./InicioCliente.css"
 
-import MenuLateralCliente from "../../components/menuLateral/MenuLateral"
-import CabecalhoCliente from "../../components/cabecalho/Cabecalho"
+import MenuLateral from "../../components/menuLateral/MenuLateral"
+import Cabecalho from "../../components/cabecalho/Cabecalho"
 
 import Pdf from "../../assets/img/PDF.png"
 
@@ -19,18 +19,15 @@ export default function InicioCliente() {
                         <h1>Documentos</h1>
                     </div>
 
-                    <div className="botoesPAF">
-                        <Link className="botaoPendenteCliente">
-                            <p>Pendente</p>
-                        </Link>
-
-                        <Link className="botaoAndamentoCliente">
-                            <p>Em Andamento</p>
-                        </Link>
-
-                        <Link className="botaoFinalizadoCliente">
-                            <p>Finalizados</p>
-                        </Link>
+                    <div className="botaoFiltraLixeira">
+                        <div className="botaoFiltrar">
+                            <select defaultValue="">
+                                <option value="" disabled>Filtrar</option>
+                                <option value="Pendentes">Pendentes</option>
+                                <option value="Assinados">Assinados</option>
+                                <option value="Finalizados">Finalizados</option>
+                            </select>
+                        </div>
                     </div>
 
                     <section className="list">

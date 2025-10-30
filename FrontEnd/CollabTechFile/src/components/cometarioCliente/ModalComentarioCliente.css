@@ -110,3 +110,74 @@ body, #root {
   border-radius: 50%;
   object-fit: cover;
 }
+
+@media (max-width: 768px) {
+  .modalComentarioContainer {
+    width: 90%;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .modalComentarioCabecalho {
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 6px;
+  }
+
+  .modalComentarioVoltar {
+    font-size: 1.8rem;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+  }
+
+  .modalComentarioTitulo {
+    font-size: 1.3rem;
+  }
+
+  .modalComentarioDocumento {
+    font-size: 1rem;
+  }
+
+  .modalComentarioTexto {
+    height: 100px;
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .modalComentarioBotoes {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .modalComentarioCancelar,
+  .modalComentarioPublicar {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .modalComentarioContainer {
+           width: 84%;
+        padding: 21px;
+  }
+
+  .modalComentarioTitulo {
+    font-size: 1.1rem;
+  }
+
+  .modalComentarioTexto {
+    height: 90px;
+  }
+
+  .modalComentarioVoltar {
+    left: 10px;
+    top: 10px;
+  }
+}

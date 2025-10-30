@@ -87,3 +87,22 @@
    outline: none; 
   border-color: #000407;
 }
+
+.areaSenha {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+.areaSenha input {
+  width: 100%;
+}
+
+.areaSenha button {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
