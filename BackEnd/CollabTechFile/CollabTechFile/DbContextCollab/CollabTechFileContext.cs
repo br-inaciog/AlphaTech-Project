@@ -41,7 +41,27 @@ public partial class CollabTechFileContext : DbContext
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+<<<<<<< HEAD
         => optionsBuilder.UseSqlServer("Server=NOTE36-S28\\SQLEXPRESS; Database=CollabTechFile; User Id=sa; Pwd=Senai@134; TrustServerCertificate=true;");
+=======
+<<<<<<< HEAD
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-S3CGL03\\SQLEXPRESS; Database=CollabTechFile; User id=sa; Pwd=Senai@134; trustServerCertificate=true;");
+=======
+<<<<<<< HEAD
+        => optionsBuilder.UseSqlServer("Server=NOTE36-S28\\SQLEXPRESS; Database=CollabTechFile; User Id=sa; Pwd=Senai@134; TrustServerCertificate=true;");
+=======
+<<<<<<< HEAD
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-S3CGL03\\SQLEXPRESS; Database=CollabTechFile; User id=sa; Pwd=Senai@134; trustServerCertificate=true;");
+=======
+<<<<<<< HEAD
+        => optionsBuilder.UseSqlServer("Server=NOTE36-S28\\SQLEXPRESS; Database=CollabTechFile; User Id=sa; Pwd=Senai@134; TrustServerCertificate=true;");
+=======
+        => optionsBuilder.UseSqlServer("Server = NOTE03-S28\\SQLEXPRESS; Database = CollabTechFile; User Id=sa; Pwd = Senai@134; TrustServerCertificate=true;");
+>>>>>>> 386e025704063c75802f4d939b4705bb9f0161c1
+>>>>>>> c5032d26cfc8a3198530abea78ffaee68dd55539
+>>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
+>>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
+>>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

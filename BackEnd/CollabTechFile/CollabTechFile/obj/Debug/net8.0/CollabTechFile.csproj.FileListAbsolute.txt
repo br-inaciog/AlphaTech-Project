@@ -176,6 +176,7 @@ C:\Users\50776884867\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTech
 C:\Users\50776884867\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTechFile.genruntimeconfig.cache
 C:\Users\50776884867\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\ref\CollabTechFile.dll
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 C:\Users\50526683848\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTechFile.csproj.AssemblyReference.cache
 C:\Users\50526683848\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTechFile.GeneratedMSBuildEditorConfig.editorconfig
@@ -534,3 +535,5 @@ C:\Users\55562188899\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTech
 >>>>>>> c5032d26cfc8a3198530abea78ffaee68dd55539
 C:\Users\55562188899\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\bin\Debug\net8.0\Azure.AI.FormRecognizer.dll
 C:\Users\55562188899\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+=======
+>>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
