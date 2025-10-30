@@ -41,6 +41,7 @@ export default function Login() {
 
           // ✅ Alerta de sucesso estilizado
           await Swal.fire({
+            theme: 'dark',
             title: "Login realizado!",
             text: "Redirecionando para a página inicial...",
             icon: "success",
@@ -61,6 +62,7 @@ export default function Login() {
 
         if (error.response?.status === 401) {
           Swal.fire({
+            theme: 'dark',
             title: "Email ou senha inválidos!",
             text: "Verifique suas credenciais e tente novamente.",
             icon: "error",
@@ -68,6 +70,7 @@ export default function Login() {
           });
         } else {
           Swal.fire({
+            theme: 'dark',
             title: "Erro no servidor!",
             text: "Tente novamente mais tarde.",
             icon: "warning",
@@ -77,6 +80,7 @@ export default function Login() {
       }
     } else {
       Swal.fire({
+        theme: 'dark',
         title: "Campos vazios!",
         text: "Preencha todos os campos para realizar o login.",
         icon: "info",
@@ -119,7 +123,7 @@ export default function Login() {
                   {isShow && <Eye size={18} />}
                   {!isShow && <EyeOff size={18} />}
                 </button>
-                <label>Senha</label>
+                <label className="labelSenha">Senha</label>
               </label>
             </div>
           </div>

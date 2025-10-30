@@ -19,6 +19,7 @@ export default function FaleConosco() {
   function alertar(icone, mensagem) {
     const Toast = Swal.mixin({
       toast: true,
+      theme: 'dark',
       position: "top-end",
       showConfirmButton: false,
       timer: 3000,

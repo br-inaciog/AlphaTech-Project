@@ -1,5 +1,5 @@
-import { Route, Routes, Navigate } from "react-router-dom"; // ✅ adicionado Navigate
-import { useAuth } from "../contexts/AuthContext"; // ✅ adicionado useAuth — ajuste o caminho conforme sua pasta
+import { Route, Routes, Navigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 import Login from "../pages/login/Login";
 import Inicio from "../pages/inicio/Inicio";
@@ -15,7 +15,6 @@ import InicioCliente from "../pages/inicioCliente/InicioCliente";
 import Feedback from "../pages/Feedbacks/Feedback";
 import FaleConosco from "../pages/faleConosco/FaleConosco";
 import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie";
-import ModalComentarioCliente from "../pages/cometarioCliente/ModalComentarioCliente";
 import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc";
 
 const Privado = (props) => {
@@ -69,10 +68,9 @@ const Rotas = () => {
             <Route element={<FaleConosco />} path="/FaleConosco" />
             <Route element={<InicioCliente />} path="/InicioCliente" />
             <Route element={<DocFinalizadoClie />} path="/docFinalizadoClie" />
-            <Route element={<ModalComentarioCliente />} path="/ModalComentarioCliente" />
             <Route element={<DocFinalizadoFunc />} path="/docFinalizadoFunc" />
-            <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc/:idDocumento" />
-            <Route element={<DocAndamentoClie />} path="/DocAndamentoClie/:idDocumento" />
+            <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc/:nomeDocumento/:idDocumento" />
+            <Route element={<DocAndamentoClie />} path="/DocAndamentoClie/:nomeDocumento/:idDocumento" />
         </Routes>
     );
 };

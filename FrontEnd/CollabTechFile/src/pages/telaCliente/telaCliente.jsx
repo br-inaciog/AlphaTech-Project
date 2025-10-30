@@ -4,7 +4,7 @@ import Editar from '../../assets/img/Editar.png';
 import Toggle from '../../components/toogle/toogle';
 import './telaCliente.css';
 import { useEffect, useState } from 'react';
-import api from '../../services/Service';
+import api from '../../Services/service';
 import Swal from 'sweetalert2';
 
 
@@ -28,8 +28,7 @@ export default function TelaCliente() {
         try {
             const response = await api.get("usuario");
 
-            // Filtrar apenas usuários com idTipoUsuario = 4 (clientes) - mostrar todos (ativos e inativos)
-            const clientesFiltrados = response.data.filter(usuario => usuario.idTipoUsuario === 4);
+            const clientesFiltrados = response.data.filter(usuario => usuario.idTipoUsuario === 3);
 
             setClientes(clientesFiltrados);
         } catch (error) {
@@ -40,7 +39,6 @@ export default function TelaCliente() {
         }
     }
 
-    // Função para obter nome da empresa pelo ID
     function obterNomeEmpresa(idEmpresa) {
         if (!idEmpresa) return 'Não informado';
 
@@ -51,6 +49,7 @@ export default function TelaCliente() {
     function alertar(icone, mensagem) {
         const Toast = Swal.mixin({
             toast: true,
+            theme: 'dark',
             position: "top-end",
             showConfirmButton: false,
             timer: 3000,
@@ -66,29 +65,27 @@ export default function TelaCliente() {
         });
     }
 
-    // Função para alterar status ativo/inativo
     async function alterarStatus(cliente) {
         try {
             const novoStatus = !cliente.ativo;
-            
+
             const dadosAtualizados = {
                 ...cliente,
                 ativo: novoStatus
             };
 
             const clienteId = cliente.id || cliente.idUsuario;
-            
+
             await api.put(`usuario/${clienteId}`, dadosAtualizados);
-            
-            // Atualizar o estado local para refletir a mudança imediatamente
-            setClientes(clientes.map(c => 
-                (c.id || c.idUsuario) === clienteId 
+
+            setClientes(clientes.map(c =>
+                (c.id || c.idUsuario) === clienteId
                     ? { ...c, ativo: novoStatus }
                     : c
             ));
-            
+
             alertar("success", `Cliente ${novoStatus ? 'ativado' : 'inativado'} com sucesso!`);
-            
+
         } catch (error) {
             console.error("Erro ao alterar status:", error);
             alertar("error", "Erro ao alterar status do cliente");
@@ -96,7 +93,6 @@ export default function TelaCliente() {
     }
 
     async function editarCliente(cliente) {
-        // Criar opções do select de empresas
         const opcoesEmpresas = empresas.map((empresa, index) =>
             `<option value="${empresa.idEmpresa}" ${empresa.idEmpresa === cliente.idEmpresa ? 'selected' : ''}>${empresa.nome}</option>`
         ).join('');
@@ -107,7 +103,7 @@ export default function TelaCliente() {
                 `<input id="swal-input1" class="swal2-input" placeholder="Nome" value="${cliente.nome}">` +
                 `<input id="swal-input2" class="swal2-input" placeholder="Email" value="${cliente.email}">` +
                 `<select id="swal-input3" class="swal2-input" style="display: flex; text-align: center; text-align-last: center; width: 100%; box-sizing: border-box;">
-                    <option value="">Selecione uma empresa</option>
+                    <option disable>Selecione uma empresa</option>
                     ${opcoesEmpresas}
                 </select>`,
             focusConfirm: false,
@@ -130,11 +126,12 @@ export default function TelaCliente() {
 
                 return [nome, email, idEmpresa];
             },
+            theme: 'dark',
             showCancelButton: true,
             confirmButtonText: 'Salvar',
             cancelButtonText: 'Cancelar',
-            confirmButtonColor: '#001f3f',
-            cancelButtonColor: 'rgba(71, 4, 4, 1)'
+            confirmButtonColor: 'rgba(71, 4, 4, 1)',
+            cancelButtonColor: '#001f3f'
         });
 
         if (formValues) {
@@ -208,7 +205,7 @@ export default function TelaCliente() {
                                             <td>{cliente.email}</td>
                                             <td>{obterNomeEmpresa(cliente.idEmpresa)}</td>
                                             <td style={{ textAlign: 'left' }}>
-                                                <Toggle 
+                                                <Toggle
                                                     presenca={cliente.ativo !== false}
                                                     manipular={() => alterarStatus(cliente)}
                                                 />

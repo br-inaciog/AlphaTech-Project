@@ -1429,6 +1429,12 @@
             "type": "string",
             "nullable": true
           },
+          "textoReq": {
+            "maxLength": 250,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
           "reqDocs": {
             "type": "array",
             "items": {

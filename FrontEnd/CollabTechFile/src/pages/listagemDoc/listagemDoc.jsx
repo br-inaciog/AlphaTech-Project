@@ -1,5 +1,5 @@
 import "./ListagemDoc.css";
-import api from "../../services/Service";
+import api from "../../Services/service";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -9,10 +9,13 @@ import Lixeira from "../../assets/img/Lixeira.png";
 import Pdf from "../../assets/img/PDF.png";
 import Editar from "../../assets/img/Editar.png";
 import Excluir from "../../assets/img/Delete.svg";
+import Swal from "sweetalert2";
 
 export default function ListagemDoc() {
     const [listagemDoc, setListagemDoc] = useState([]);
     const [hoverIndex, setHoverIndex] = useState(null);
+    const [filtro, setFiltro] = useState("Todos"); //Vai fazer iniciar com todos os documentos
+
 
     // Função para buscar documentos da API
     async function listarDocumentos() {
@@ -25,9 +28,37 @@ export default function ListagemDoc() {
         }
     }
 
+    // Função para excluir documento (vai para lixeira)
+    async function excluirDocumento(id) {
+        Swal.fire({
+            title: "Excluir documento?",
+            text: "O documento irá para a lixeira.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sim, excluir!",
+            cancelButtonText: "Cancelar"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    await api.delete(`/Documentos/${id}`); // <- Se sua rota for diferente, ajuste aqui
+                    Swal.fire("Excluído!", "O documento foi enviado para a lixeira.", "success");
+                    listarDocumentos(); // Atualiza lista
+                } catch (error) {
+                    console.error("Erro ao excluir:", error);
+                    Swal.fire("Erro!", "Não foi possível excluir o documento.", "error");
+                }
+            }
+        });
+    }
+
     useEffect(() => {
         listarDocumentos();
     }, []);
+
+    const documentosFiltrados = listagemDoc.filter((doc) => { //Serve para filtrar os documentos na base do filtro
+        if (filtro === "Todos") return true;
+        return doc.status === filtro;
+    });
 
     return (
         <div className="containerGeral">
@@ -42,8 +73,11 @@ export default function ListagemDoc() {
 
                     <div className="botaoFiltraLixeira">
                         <div className="botaoFiltrar">
-                            <select defaultValue="">
-                                <option value="" disabled>Filtrar</option>
+                            <select
+                                value={filtro}
+                                onChange={(e) => setFiltro(e.target.value)}
+                            >
+                                <option value="Todos">Todos</option>
                                 <option value="Pendentes">Pendentes</option>
                                 <option value="Assinados">Assinados</option>
                                 <option value="Finalizados">Finalizados</option>
@@ -57,15 +91,18 @@ export default function ListagemDoc() {
                     </div>
 
                     <section className="list">
-                        {listagemDoc.length > 0 ? (
-                            listagemDoc.map((doc, index) => (
+                        {documentosFiltrados.length > 0 ? (
+                            documentosFiltrados.map((doc, index) => (
                                 <div
                                     key={index}
                                     className="cardContainer"
                                     onMouseEnter={() => setHoverIndex(index)}
                                     onMouseLeave={() => setHoverIndex(null)}
                                 >
-                                    <Link to={`/docAndamentoFunc/${doc.idDocumento}`} className="cardDocumento">
+                                    <Link
+                                        to={`/docAndamentoFunc/${encodeURIComponent(doc.nome.replaceAll(" ", "-"))}/${doc.idDocumento}`}
+                                        className="cardDocumento"
+                                    >   
                                         <img src={Pdf} alt="Icone de Pdf" />
                                         <div className="cardInformacoes">
                                             <h1>{doc.nome || "Sem título"}</h1>
@@ -78,7 +115,16 @@ export default function ListagemDoc() {
                                                 <img src={Editar} alt="Editar" />
                                             </div>
                                             <div className="infAcoes">
-                                                <img src={Excluir} alt="Excluir" />
+                                                <img
+                                                    src={Excluir}
+                                                    alt="Excluir"
+                                                    onClick={(e) => {
+                                                        e.preventDefault();   // Impede abrir o link
+                                                        e.stopPropagation(); // Impede evento do card
+                                                        excluirDocumento(doc.id);
+                                                    }}
+                                                    style={{ cursor: "pointer" }}
+                                                />
                                             </div>
                                         </div>
                                     </Link>

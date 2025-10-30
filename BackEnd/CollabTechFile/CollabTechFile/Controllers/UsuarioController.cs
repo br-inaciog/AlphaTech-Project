@@ -90,14 +90,6 @@ namespace CollabTechFile.Controllers
                 return BadRequest(e.Message);
             }
         }
-<<<<<<< HEAD
-=======
-        //[HttpPut("{id}")]
-        //public IActionResult Put(int id, Usuario usuario)
-        //{
-        //    // Este método é suficiente para edição E exclusão
-        //}
 
->>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
     }
 }

@@ -70,12 +70,6 @@ export default function ModalFiltroFuncionario({ onClose, aberto = true }) {
                                 <td>Documento</td>
                                 <td>25/10/2025</td>
                             </tr>
-                            <tr>
-                                <td>Empresa</td>
-                                <td>Cliente</td>
-                                <td>Documento</td>
-                                <td>25/10/2025</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>

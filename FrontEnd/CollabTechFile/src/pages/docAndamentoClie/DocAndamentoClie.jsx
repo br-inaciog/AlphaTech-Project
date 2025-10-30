@@ -1,12 +1,22 @@
-import "./docAndamentoClie.css"
+import "./docAndamentoClie.css";
 
-import MenuLateralCliente from "../../components/menuLateralCliente/MenuLateralCliente"
-import CabecalhoCliente from "../../components/cabecalhoCliente/CabecalhoCliente"
+import MenuLateralCliente from "../../components/menuLateralCliente/MenuLateralCliente";
+import CabecalhoCliente from "../../components/cabecalhoCliente/CabecalhoCliente";
 
-import Comentario from "../../assets/img/Comentario.png"
-import { Link } from "react-router-dom"
+import Comentario from "../../assets/img/Comentario.png";
+import { useState } from "react";
+import ModalComentarioCliente from "../../components/cometarioCliente/ModalComentarioCliente";
 
 export default function DocAndamentoClie() {
+    const [modalAberto, setModalAberto] = useState(false);
+
+    const abrirModal = () => setModalAberto(true);
+    const fecharModal = () => setModalAberto(false);
+    const publicarComentario = (comentario) => {
+        console.log("Comentário publicado:", comentario);
+        fecharModal();
+    };
+
     return (
         <div className="containerGeral'">
             <MenuLateralCliente />
@@ -26,7 +36,6 @@ export default function DocAndamentoClie() {
                                 <div className="tituloRN">
                                     <h2>Regras de Negócio</h2>
                                 </div>
-
                                 <section>
                                     <div className="listaRN">
                                         <p>RN01: <span>RN01 listadada</span></p>
@@ -34,12 +43,10 @@ export default function DocAndamentoClie() {
                                 </section>
                             </div>
 
-
                             <div className="requisitosFuncionais">
                                 <div className="tituloRF">
                                     <h2>Requisitos Funcionais</h2>
                                 </div>
-
                                 <section>
                                     <div className="listaRF">
                                         <p>RN01: <span>RN01 listadada</span></p>
@@ -47,12 +54,10 @@ export default function DocAndamentoClie() {
                                 </section>
                             </div>
 
-
                             <div className="requisitosNaoFuncionais">
                                 <div className="tituloRNF">
                                     <h2>Requisitos não Funcionais</h2>
                                 </div>
-
                                 <section>
                                     <div className="listaRNF">
                                         <p>RN01: <span>RN01 listadada</span></p>
@@ -60,18 +65,22 @@ export default function DocAndamentoClie() {
                                 </section>
                             </div>
 
-                            {/* <Link to="/ModalComentarioCliente" className="voltar">          */}
-                            <Link to="/ModalComentarioCliente" className="voltar">
-                            <div className="comentarioDisplay">
+                            <div className="comentarioDisplay" onClick={abrirModal}>
                                 <p>Comentar</p>
                                 <img src={Comentario} alt="Botão de Comentário" />
                             </div>
-                            </Link>
-                            {/* </Link> */}
+
+                            {/* Modal de comentário */}
+                            <ModalComentarioCliente
+                                aberto={modalAberto}
+                                nomeDocumento="Nome Documento"
+                                aoCancelar={fecharModal}
+                                aoPublicar={publicarComentario}
+                            />
                         </div>
                     </section>
                 </section>
             </main>
         </div>
-    )
+    );
 }

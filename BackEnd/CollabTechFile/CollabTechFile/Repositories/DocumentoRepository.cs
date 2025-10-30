@@ -37,11 +37,12 @@ namespace CollabTechFile.Repositories
 
         public void Deletar(int id)
         {
-            try { 
-            var doc = _context.Documentos.Find(id);
-            if (doc != null)
-            
-                _context.Documentos.Remove(doc);
+            try
+            {
+                var doc = _context.Documentos.Find(id);
+                if (doc != null)
+
+                    _context.Documentos.Remove(doc);
                 _context.SaveChanges();
             }
 
@@ -55,7 +56,7 @@ namespace CollabTechFile.Repositories
         public List<Documento> Listar()
         {
             return _context.Documentos
-                .Include(d => d.IdUsuarioNavigation) 
+                .Include(d => d.IdUsuarioNavigation)
                 .ToList();
         }
     }
