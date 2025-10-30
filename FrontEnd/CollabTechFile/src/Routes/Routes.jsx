@@ -17,9 +17,10 @@ import FaleConosco from "../pages/faleConosco/FaleConosco";
 import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie";
 import ModalComentarioCliente from "../pages/cometarioCliente/ModalComentarioCliente";
 import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc";
+import ListagemFuncionario from "../pages/listagemFuncionario/listagemFuncionario";
 
 const Privado = (props) => {
-    const { usuario } = useAuth(); // ✅ agora reconhecido corretamente
+    const { usuario } = useAuth(); // agora reconhecido corretamente
 
     // Se não estiver autenticado, redireciona para login
     if (!usuario) {
@@ -71,6 +72,8 @@ const Rotas = () => {
             <Route element={<DocFinalizadoClie />} path="/docFinalizadoClie" />
             <Route element={<ModalComentarioCliente />} path="/ModalComentarioCliente" />
             <Route element={<DocFinalizadoFunc />} path="/docFinalizadoFunc" />
+            <Route element={<ListagemFuncionario />} path="/listagemFuncionario" />
+            
         </Routes>
     );
 };

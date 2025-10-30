@@ -2,15 +2,13 @@ import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Cabecalho from '../../components/cabecalho/Cabecalho';
 import Editar from '../../assets/img/Editar.png';
 import Toggle from '../../components/toogle/toogle';
-import './telaCliente.css';
+import './listagemFuncionario.css';
 import { useEffect, useState } from 'react';
 import api from '../../services/Service';
 import Swal from 'sweetalert2';
 
-
-
-export default function TelaCliente() {
-    const [clientes, setClientes] = useState([]);
+export default function ListagemFuncionario() {
+    const [funcionarios, setFuncionarios] = useState([]);
     const [empresas, setEmpresas] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -23,18 +21,18 @@ export default function TelaCliente() {
         }
     }
 
-    async function buscarClientes() {
+    async function buscarFuncionarios() {
         setLoading(true);
         try {
             const response = await api.get("usuario");
 
-            // Filtrar apenas usuários com idTipoUsuario = 4 (clientes) - mostrar todos (ativos e inativos)
-            const clientesFiltrados = response.data.filter(usuario => usuario.idTipoUsuario === 4);
+            // Filtrar apenas usuários com idTipoUsuario = 3 (funcionários) - mostrar todos (ativos e inativos)
+            const funcionariosFiltrados = response.data.filter(usuario => usuario.idTipoUsuario === 3);
 
-            setClientes(clientesFiltrados);
+            setFuncionarios(funcionariosFiltrados);
         } catch (error) {
-            console.error("Erro ao buscar clientes:", error);
-            alertar("error", "Erro ao carregar a lista de clientes");
+            console.error("Erro ao buscar funcionários:", error);
+            alertar("error", "Erro ao carregar a lista de funcionários");
         } finally {
             setLoading(false);
         }
@@ -67,45 +65,45 @@ export default function TelaCliente() {
     }
 
     // Função para alterar status ativo/inativo
-    async function alterarStatus(cliente) {
+    async function alterarStatus(funcionario) {
         try {
-            const novoStatus = !cliente.ativo;
+            const novoStatus = !funcionario.ativo;
             
             const dadosAtualizados = {
-                ...cliente,
+                ...funcionario,
                 ativo: novoStatus
             };
 
-            const clienteId = cliente.id || cliente.idUsuario;
+            const funcionarioId = funcionario.id || funcionario.idUsuario;
             
-            await api.put(`usuario/${clienteId}`, dadosAtualizados);
+            await api.put(`usuario/${funcionarioId}`, dadosAtualizados);
             
             // Atualizar o estado local para refletir a mudança imediatamente
-            setClientes(clientes.map(c => 
-                (c.id || c.idUsuario) === clienteId 
-                    ? { ...c, ativo: novoStatus }
-                    : c
+            setFuncionarios(funcionarios.map(f => 
+                (f.id || f.idUsuario) === funcionarioId 
+                    ? { ...f, ativo: novoStatus }
+                    : f
             ));
             
-            alertar("success", `Cliente ${novoStatus ? 'ativado' : 'inativado'} com sucesso!`);
+            alertar("success", `Funcionário ${novoStatus ? 'ativado' : 'inativado'} com sucesso!`);
             
         } catch (error) {
             console.error("Erro ao alterar status:", error);
-            alertar("error", "Erro ao alterar status do cliente");
+            alertar("error", "Erro ao alterar status do funcionário");
         }
     }
 
-    async function editarCliente(cliente) {
+    async function editarFuncionario(funcionario) {
         // Criar opções do select de empresas
         const opcoesEmpresas = empresas.map((empresa, index) =>
-            `<option value="${empresa.idEmpresa}" ${empresa.idEmpresa === cliente.idEmpresa ? 'selected' : ''}>${empresa.nome}</option>`
+            `<option value="${empresa.idEmpresa}" ${empresa.idEmpresa === funcionario.idEmpresa ? 'selected' : ''}>${empresa.nome}</option>`
         ).join('');
 
         const { value: formValues } = await Swal.fire({
-            title: 'Editar Cliente',
+            title: 'Editar Funcionário',
             html:
-                `<input id="swal-input1" class="swal2-input" placeholder="Nome" value="${cliente.nome}">` +
-                `<input id="swal-input2" class="swal2-input" placeholder="Email" value="${cliente.email}">` +
+                `<input id="swal-input1" class="swal2-input" placeholder="Nome" value="${funcionario.nome}">` +
+                `<input id="swal-input2" class="swal2-input" placeholder="Email" value="${funcionario.email}">` +
                 `<select id="swal-input3" class="swal2-input" style="display: flex; text-align: center; text-align-last: center; width: 100%; box-sizing: border-box;">
                     <option value="">Selecione uma empresa</option>
                     ${opcoesEmpresas}
@@ -141,34 +139,32 @@ export default function TelaCliente() {
             const [nome, email, idEmpresa] = formValues;
 
             try {
-
                 const dadosAtualizados = {
-                    ...cliente,
+                    ...funcionario,
                     nome: nome,
                     email: email,
-                    idEmpresa: idEmpresa ? parseInt(idEmpresa) : cliente.idEmpresa
+                    idEmpresa: idEmpresa ? parseInt(idEmpresa) : funcionario.idEmpresa
                 };
 
                 // Usar idUsuario se id não existir
-                const clienteId = cliente.id || cliente.idUsuario;
+                const funcionarioId = funcionario.id || funcionario.idUsuario;
 
-                await api.put(`usuario/${clienteId}`, dadosAtualizados);
-                alertar("success", "Cliente atualizado com sucesso!");
-                buscarClientes();
+                await api.put(`usuario/${funcionarioId}`, dadosAtualizados);
+                alertar("success", "Funcionário atualizado com sucesso!");
+                buscarFuncionarios();
 
             } catch (error) {
-                console.error("Erro ao atualizar cliente:", error);
+                console.error("Erro ao atualizar funcionário:", error);
                 console.error("Detalhes do erro:", error.response?.data);
-                alertar("error", "Erro ao atualizar cliente");
+                alertar("error", "Erro ao atualizar funcionário");
             }
         }
     }
 
-
     useEffect(() => {
         async function carregarDados() {
             await buscarEmpresas();
-            await buscarClientes();
+            await buscarFuncionarios();
         }
         carregarDados();
     }, []);
@@ -176,18 +172,18 @@ export default function TelaCliente() {
     return (
         <div className="containerGeral">
             <MenuLateral />
-            <main className="conteudoPrincipal clientePrincipal">
+            <main className="conteudoPrincipal funcionarioPrincipal">
                 <section className="areaTrabalho">
                     <Cabecalho />
                     <div className="titulo">
-                        <h1>Tela Clientes</h1>
+                        <h1>Listagem de Funcionários</h1>
                         {loading && <p>Carregando...</p>}
                     </div>
-                    <div className="tabelaClienteContainer">
-                        <table className="tabelaCliente">
+                    <div className="tabelaFuncionarioContainer">
+                        <table className="tabelaFuncionario">
                             <thead>
                                 <tr>
-                                    <th>Cliente</th>
+                                    <th>Funcionário</th>
                                     <th>Email</th>
                                     <th>Empresa</th>
                                     <th>Status</th>
@@ -195,28 +191,28 @@ export default function TelaCliente() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {(clientes.length === 0 && !loading) || empresas.length === 0 ? (
+                                {(funcionarios.length === 0 && !loading) || empresas.length === 0 ? (
                                     <tr>
-                                        <td colSpan="6" style={{ textAlign: 'center' }}>
-                                            {empresas.length === 0 ? 'Carregando empresas...' : 'Nenhum cliente encontrado'}
+                                        <td colSpan="5" style={{ textAlign: 'center' }}>
+                                            {empresas.length === 0 ? 'Carregando empresas...' : 'Nenhum funcionário encontrado'}
                                         </td>
                                     </tr>
                                 ) : (
-                                    clientes.map((cliente, index) => (
-                                        <tr key={`cliente-${cliente.id}-${index}`}>
-                                            <td>{cliente.nome}</td>
-                                            <td>{cliente.email}</td>
-                                            <td>{obterNomeEmpresa(cliente.idEmpresa)}</td>
+                                    funcionarios.map((funcionario, index) => (
+                                        <tr key={`funcionario-${funcionario.id}-${index}`}>
+                                            <td>{funcionario.nome}</td>
+                                            <td>{funcionario.email}</td>
+                                            <td>{obterNomeEmpresa(funcionario.idEmpresa)}</td>
                                             <td style={{ textAlign: 'left' }}>
                                                 <Toggle 
-                                                    presenca={cliente.ativo !== false}
-                                                    manipular={() => alterarStatus(cliente)}
+                                                    presenca={funcionario.ativo !== false}
+                                                    manipular={() => alterarStatus(funcionario)}
                                                 />
                                             </td>
                                             <td>
                                                 <button
                                                     className="btnEditar"
-                                                    onClick={() => editarCliente(cliente)}
+                                                    onClick={() => editarFuncionario(funcionario)}
                                                 >
                                                     <img src={Editar} alt="Editar" className="iconEditar" />
                                                 </button>

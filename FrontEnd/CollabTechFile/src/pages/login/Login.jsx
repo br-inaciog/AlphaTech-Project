@@ -4,7 +4,7 @@ import User from "../../assets/img/UserModoClaro.png";
 import Logo from "../../assets/img/Logo.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../Services/service";
+import api from "../../services/Service";
 import { userDecodeToken } from "../../auth/Auth";
 import secureLocalStorage from "react-secure-storage";
 import { useAuth } from "../../contexts/AuthContext";
@@ -22,7 +22,7 @@ export default function Login() {
 
     if (senha.trim() !== "" && email.trim() !== "") {
       try {
-        const usuario = { email, senha };
+        const usuario = { Email: email, Senha: senha };
         const resposta = await api.post("Login", usuario);
         const token = resposta.data.token;
 
@@ -32,7 +32,6 @@ export default function Login() {
           setUsuario(tokenDecodificado);
           secureLocalStorage.setItem("tokenLogin", token);
 
-          // ✅ Alerta de sucesso estilizado
           await Swal.fire({
             title: "Login realizado!",
             text: "Redirecionando para a página inicial...",
@@ -50,9 +49,14 @@ export default function Login() {
           }
         }
       } catch (error) {
-        console.error(error);
-
-        if (error.response?.status === 401) {
+        if (error.response?.status === 400) {
+          Swal.fire({
+            title: "Erro no servidor!",
+            text: "O banco de dados não está acessível. Verifique se o SQL Server está rodando.",
+            icon: "error",
+            confirmButtonColor: "#d33",
+          });
+        } else if (error.response?.status === 401) {
           Swal.fire({
             title: "Email ou senha inválidos!",
             text: "Verifique suas credenciais e tente novamente.",
