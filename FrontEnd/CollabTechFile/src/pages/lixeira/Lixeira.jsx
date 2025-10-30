@@ -1,7 +1,7 @@
 import "./Lixeira.css";
 import MenuLateral from "../../components/menuLateral/MenuLateral";
 import Cabecalho from "../../components/cabecalho/Cabecalho";
-import api from "../../services/Service";
+import api from "../../Services/service";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Pdf from "../../assets/img/PDF.png";
@@ -40,7 +40,7 @@ export default function Lixeira() {
                     listarDocLixeira();
                 } catch (error) {
                     console.error("Erro ao excluir o arquivo:", error);
-                    Swal.fire("Erro!", "Não doi possível excluir o arquivo", "error");
+                    Swal.fire("Erro!", "Não foi possível excluir o arquivo", "error");
                 }
             }
         });

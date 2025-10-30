@@ -5009,6 +5009,7 @@
   },
   "packageFolders": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\55562188899\\.nuget\\packages\\": {},
 =======
 <<<<<<< HEAD
@@ -5029,11 +5030,15 @@
 >>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
 >>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
 >>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
+=======
+    "C:\\Users\\50776884867\\.nuget\\packages\\": {},
+>>>>>>> f568123 (feat: tela de feedbacks concluida, tela de listagem com o filtro ajustado, tela de lixeira modificada, httpdelete de documentocontroller feito e inicio do modal de filtro funcionario)
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -5042,11 +5047,14 @@
 =======
 <<<<<<< HEAD
 >>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
+=======
+>>>>>>> f568123 (feat: tela de feedbacks concluida, tela de listagem com o filtro ajustado, tela de lixeira modificada, httpdelete de documentocontroller feito e inicio do modal de filtro funcionario)
       "projectUniqueName": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
       "projectName": "CollabTechFile",
       "projectPath": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
       "packagesPath": "C:\\Users\\50776884867\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -5073,11 +5081,14 @@
 >>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
 >>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
 >>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
+=======
+>>>>>>> f568123 (feat: tela de feedbacks concluida, tela de listagem com o filtro ajustado, tela de lixeira modificada, httpdelete de documentocontroller feito e inicio do modal de filtro funcionario)
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
 <<<<<<< HEAD
         "C:\\Users\\55562188899\\AppData\\Roaming\\NuGet\\NuGet.Config",
 =======
@@ -5099,6 +5110,9 @@
 >>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
 >>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
 >>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
+=======
+        "C:\\Users\\50776884867\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> f568123 (feat: tela de feedbacks concluida, tela de listagem com o filtro ajustado, tela de lixeira modificada, httpdelete de documentocontroller feito e inicio do modal de filtro funcionario)
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5198,7 +5212,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problema ao ler o arquivo de cache C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
 }

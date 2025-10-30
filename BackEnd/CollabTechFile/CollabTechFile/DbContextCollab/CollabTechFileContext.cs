@@ -42,6 +42,7 @@ public partial class CollabTechFileContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 <<<<<<< HEAD
+<<<<<<< HEAD
         => optionsBuilder.UseSqlServer("Server=NOTE36-S28\\SQLEXPRESS; Database=CollabTechFile; User Id=sa; Pwd=Senai@134; TrustServerCertificate=true;");
 =======
 <<<<<<< HEAD
@@ -62,6 +63,10 @@ public partial class CollabTechFileContext : DbContext
 >>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
 >>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
 >>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
+=======
+
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-S3CGL03\\SQLEXPRESS; Database=CollabTechFile; User Id=sa; Pwd=Senai@134; TrustServerCertificate=true;");
+>>>>>>> f568123 (feat: tela de feedbacks concluida, tela de listagem com o filtro ajustado, tela de lixeira modificada, httpdelete de documentocontroller feito e inicio do modal de filtro funcionario)
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -54,7 +54,7 @@ export default function Login() {
           }
         }
       } catch (error) {
-        console.error(error);
+        // console.error(error);
 
         if (error.response?.status === 401) {
           Swal.fire({

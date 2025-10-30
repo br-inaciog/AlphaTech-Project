@@ -6,6 +6,7 @@
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\55562188899\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
 =======
 <<<<<<< HEAD
@@ -26,10 +27,14 @@
 >>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
 >>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
 >>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
+=======
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\50776884867\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
+>>>>>>> f568123 (feat: tela de feedbacks concluida, tela de listagem com o filtro ajustado, tela de lixeira modificada, httpdelete de documentocontroller feito e inicio do modal de filtro funcionario)
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.12.3</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <SourceRoot Include="C:\Users\55562188899\.nuget\packages\" />
 =======
@@ -51,6 +56,9 @@
 >>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
 >>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
 >>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
+=======
+    <SourceRoot Include="C:\Users\50776884867\.nuget\packages\" />
+>>>>>>> f568123 (feat: tela de feedbacks concluida, tela de listagem com o filtro ajustado, tela de lixeira modificada, httpdelete de documentocontroller feito e inicio do modal de filtro funcionario)
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
@@ -61,6 +69,7 @@
     <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore.design\9.0.9\build\net8.0\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore.design\9.0.9\build\net8.0\Microsoft.EntityFrameworkCore.Design.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\55562188899\.nuget\packages\microsoft.extensions.apidescription.server\6.0.5</PkgMicrosoft_Extensions_ApiDescription_Server>
     <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\55562188899\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.4</PkgMicrosoft_CodeAnalysis_Analyzers>
@@ -94,5 +103,10 @@
 >>>>>>> 9f391533885fd8be01ad33d21a17cb49c95c9091
 >>>>>>> cf9bf772081dd9de66c9e2bb3d2de1a2ce6e4c0e
 >>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8
+=======
+    <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\50776884867\.nuget\packages\microsoft.extensions.apidescription.server\6.0.5</PkgMicrosoft_Extensions_ApiDescription_Server>
+    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\50776884867\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.4</PkgMicrosoft_CodeAnalysis_Analyzers>
+    <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\50776884867\.nuget\packages\microsoft.entityframeworkcore.tools\9.0.9</PkgMicrosoft_EntityFrameworkCore_Tools>
+>>>>>>> f568123 (feat: tela de feedbacks concluida, tela de listagem com o filtro ajustado, tela de lixeira modificada, httpdelete de documentocontroller feito e inicio do modal de filtro funcionario)
   </PropertyGroup>
 </Project>
