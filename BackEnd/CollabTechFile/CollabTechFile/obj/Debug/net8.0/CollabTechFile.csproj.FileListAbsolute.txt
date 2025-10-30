@@ -532,3 +532,5 @@ C:\Users\55562188899\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTech
 C:\Users\55562188899\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTechFile.genruntimeconfig.cache
 C:\Users\55562188899\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\ref\CollabTechFile.dll
 >>>>>>> c5032d26cfc8a3198530abea78ffaee68dd55539
+C:\Users\55562188899\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\bin\Debug\net8.0\Azure.AI.FormRecognizer.dll
+C:\Users\55562188899\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
