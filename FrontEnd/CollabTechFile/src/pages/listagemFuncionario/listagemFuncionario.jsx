@@ -2,6 +2,7 @@ import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Cabecalho from '../../components/cabecalho/Cabecalho';
 import Editar from '../../assets/img/Editar.png';
 import Toggle from '../../components/toogle/toogle';
+import ModalFiltroFuncionario from '../filtroFuncionario/ModalFiltroFuncionario';
 import './listagemFuncionario.css';
 import { useEffect, useState } from 'react';
 import api from '../../services/Service';
@@ -9,8 +10,15 @@ import Swal from 'sweetalert2';
 
 export default function ListagemFuncionario() {
     const [funcionarios, setFuncionarios] = useState([]);
+    const [funcionariosFiltrados, setFuncionariosFiltrados] = useState([]);
     const [empresas, setEmpresas] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [modalFiltroAberto, setModalFiltroAberto] = useState(false);
+    const [filtrosAtivos, setFiltrosAtivos] = useState({
+        empresa: '',
+        cliente: '',
+        nome: ''
+    });
 
     async function buscarEmpresas() {
         try {
@@ -35,6 +43,7 @@ export default function ListagemFuncionario() {
             console.log("Funcionários filtrados:", funcionariosFiltrados);
 
             setFuncionarios(funcionariosFiltrados);
+            setFuncionariosFiltrados(funcionariosFiltrados);
         } catch (error) {
             console.error("Erro ao buscar funcionários:", error);
             alertar("error", "Erro ao carregar a lista de funcionários");
@@ -95,6 +104,41 @@ export default function ListagemFuncionario() {
             console.error("Erro ao alterar status:", error);
             alertar("error", "Erro ao alterar status do funcionário");
         }
+    }
+
+    // Função para aplicar filtros
+    function aplicarFiltros(filtros) {
+        setFiltrosAtivos(filtros);
+        
+        let funcionariosFiltradosTemp = [...funcionarios];
+
+        // Filtro por empresa
+        if (filtros.empresa && filtros.empresa !== 'Selecione') {
+            funcionariosFiltradosTemp = funcionariosFiltradosTemp.filter(funcionario => {
+                const nomeEmpresa = obterNomeEmpresa(funcionario.idEmpresa);
+                return nomeEmpresa.toLowerCase().includes(filtros.empresa.toLowerCase());
+            });
+        }
+
+        // Filtro por nome do funcionário
+        if (filtros.nome) {
+            funcionariosFiltradosTemp = funcionariosFiltradosTemp.filter(funcionario => 
+                funcionario.nome.toLowerCase().includes(filtros.nome.toLowerCase())
+            );
+        }
+
+        setFuncionariosFiltrados(funcionariosFiltradosTemp);
+        setModalFiltroAberto(false);
+    }
+
+    // Função para limpar filtros
+    function limparFiltros() {
+        setFiltrosAtivos({
+            empresa: '',
+            cliente: '',
+            nome: ''
+        });
+        setFuncionariosFiltrados(funcionarios);
     }
 
     async function editarFuncionario(funcionario) {
@@ -195,6 +239,14 @@ export default function ListagemFuncionario() {
                     return f;
                 }));
                 
+                setFuncionariosFiltrados(funcionariosFiltrados.map(f => {
+                    const fId = f.id || f.idUsuario;
+                    if (fId === funcionarioId) {
+                        return { ...f, ...dadosAtualizados };
+                    }
+                    return f;
+                }));
+                
                 alertar("success", "Funcionário atualizado com sucesso!");
                 
                 // Recarregar dados para garantir consistência
@@ -240,7 +292,43 @@ export default function ListagemFuncionario() {
                     <Cabecalho />
                     <div className="titulo">
                         <h1>Listagem de Funcionários</h1>
-                        {loading && <p>Carregando...</p>}
+                        <div className="controles">
+                            <button 
+                                className="btnFiltros"
+                                onClick={() => setModalFiltroAberto(true)}
+                                style={{
+                                    padding: '10px 20px',
+                                    backgroundColor: '#001f3f',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '5px',
+                                    cursor: 'pointer',
+                                    marginRight: '10px',
+                                    marginBottom: '15px',
+                                    marginTop: '15px',
+                                    width: '100%'   
+                                }}
+                            >
+                                Filtrar
+                            </button>
+                            {(filtrosAtivos.empresa || filtrosAtivos.nome) && (
+                                <button 
+                                    className="btnLimparFiltros"
+                                    onClick={limparFiltros}
+                                    style={{
+                                        padding: '10px 20px',
+                                        backgroundColor: '#dc3545',
+                                        color: 'white',
+                                        border: 'none',
+                                        borderRadius: '5px',
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                    Limpar Filtros
+                                </button>
+                            )}
+                        </div>
+                        {loading && <p>Carregando...</p>} 
                     </div>
                     <div className="tabelaFuncionarioContainer">
                         <table className="tabelaFuncionario">
@@ -254,14 +342,14 @@ export default function ListagemFuncionario() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {(funcionarios.length === 0 && !loading) || empresas.length === 0 ? (
+                                {(funcionariosFiltrados.length === 0 && !loading) || empresas.length === 0 ? (
                                     <tr>
                                         <td colSpan="5" style={{ textAlign: 'center' }}>
                                             {empresas.length === 0 ? 'Carregando empresas...' : 'Nenhum funcionário encontrado'}
                                         </td>
                                     </tr>
                                 ) : (
-                                    funcionarios.map((funcionario, index) => (
+                                    funcionariosFiltrados.map((funcionario, index) => (
                                         <tr key={`funcionario-${funcionario.id}-${index}`}>
                                             <td>{funcionario.nome}</td>
                                             <td>{funcionario.email}</td>
@@ -288,6 +376,13 @@ export default function ListagemFuncionario() {
                     </div>
                 </section>
             </main>
+            
+            <ModalFiltroFuncionario 
+                aberto={modalFiltroAberto}
+                onClose={() => setModalFiltroAberto(false)}
+                empresas={empresas}
+                onAplicarFiltros={aplicarFiltros}
+            />
         </div>
     );
 }
