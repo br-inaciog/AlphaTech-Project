@@ -1,16 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './ModalFiltroFuncionario.css';
-import calendario from '../../assets/img/Calendario.svg';
 import modalVoltar from '../../assets/img/Voltar.svg';
 
-export default function ModalFiltroFuncionario({ onClose, aberto = true }) {
+export default function ModalFiltroFuncionario({ onClose, aberto = true, empresas = [], onAplicarFiltros }) {
+    const [filtros, setFiltros] = useState({
+        empresa: '',
+        nome: ''
+    });
+
     if (!aberto) return null;
 
     const aoClicarFora = (e) => {
         if (e.target.classList.contains("modalSobreposicao")) {
             onClose();
         }
+    };
+
+    const handleInputChange = (campo, valor) => {
+        setFiltros(prev => ({
+            ...prev,
+            [campo]: valor
+        }));
+    };
+
+    const aplicarFiltros = (e) => {
+        e.preventDefault();
+        if (onAplicarFiltros) {
+            onAplicarFiltros(filtros);
+        }
+    };
+
+    const limparFiltros = () => {
+        setFiltros({
+            empresa: '',
+            nome: ''
+        });
     };
 
     return ReactDOM.createPortal(
@@ -20,38 +45,68 @@ export default function ModalFiltroFuncionario({ onClose, aberto = true }) {
                     <span className="modalVoltar" onClick={onClose}>
                         <img src={modalVoltar} alt="" />
                     </span>
-                    <h2 className="modalTitulo">Filtros</h2>
+                    <h2 className="modalTitulo">Filtrar Funcionários</h2>
                 </div>
                 <hr className="modalDivisor" />
-                <form className="modalForm">
+                <form className="modalForm" onSubmit={aplicarFiltros}>
                     <div className="modalRow">
                         <div className="modalField">
                             <label className="modalLabel">Empresa</label>
-                            <select className="modalInput">
-                                <option>Selecione</option>
-                                <option>Empresa 1</option>
-                                <option>Empresa 2</option>
+                            <select 
+                                className="modalInput"
+                                value={filtros.empresa}
+                                onChange={(e) => handleInputChange('empresa', e.target.value)}
+                            >
+                                <option value="">Selecione uma empresa</option>
+                                {empresas.map(empresa => (
+                                    <option key={empresa.idEmpresa} value={empresa.nome}>
+                                        {empresa.nome}
+                                    </option>
+                                ))}
                             </select>
                         </div>
                         <div className="modalField">
-                            <label className="modalLabel">Cliente</label>
-                            <input className="modalInput" type="text" placeholder="Digite o nome do cliente" />
-                        </div>
-                        <div className="modalField">
-                            <label className="modalLabel">Prazo</label>
-                            <div className="modalInputIcone">
-                                <span role="img" aria-label="calendario" style={{marginRight: 8}} >
-                                    <img src={calendario} alt="" />
-                                </span>
-                                <input className="modalInput" type="text" placeholder="00/00/0000" />
-                            </div>
+                            <label className="modalLabel">Nome do Funcionário</label>
+                            <input 
+                                className="modalInput" 
+                                type="text" 
+                                placeholder="Digite o nome do funcionário"
+                                value={filtros.nome}
+                                onChange={(e) => handleInputChange('nome', e.target.value)}
+                            />
                         </div>
                     </div>
-                    <div className="modalField" style={{marginTop: 24, width: '100%'}}>
-                        <label className="modalLabel">Documento</label>
-                        <input className="modalInput" type="text" placeholder="Digite o documento" />
+                    <div className="modalAcoes" style={{marginTop: 24, display: 'flex', gap: '10px', justifyContent: 'flex-end'}}>
+                        <button 
+                            type="button"
+                            onClick={limparFiltros}
+                            style={{
+                                padding: '10px 20px',
+                                backgroundColor: '#6c757d',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: '5px',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            Limpar
+                        </button>
+                        <button 
+                            type="submit"
+                            style={{
+                                padding: '10px 20px',
+                                backgroundColor: '#001f3f',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: '5px',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            Aplicar Filtros
+                        </button>
                     </div>
                 </form>
+<<<<<<< HEAD
                 <div className="modalDocumentos">
                     <h3 className="modalDocumentosTitulo">Documento disponível para alta</h3>
                     <table className="modalTabela">
@@ -73,6 +128,8 @@ export default function ModalFiltroFuncionario({ onClose, aberto = true }) {
                         </tbody>
                     </table>
                 </div>
+=======
+>>>>>>> 06ffcc351e5d9a097b9ef3149e2d1ab9f2dbcad5
             </div>
         </div>,
         document.body

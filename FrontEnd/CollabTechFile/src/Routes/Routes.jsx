@@ -16,9 +16,11 @@ import Feedback from "../pages/Feedbacks/Feedback";
 import FaleConosco from "../pages/faleConosco/FaleConosco";
 import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie";
 import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc";
+import ListagemFuncionario from "../pages/listagemFuncionario/listagemFuncionario";
+import ModalFiltroFuncionario from "../pages/filtroFuncionario/ModalFiltroFuncionario";
 
 const Privado = (props) => {
-    const { usuario } = useAuth(); // ✅ agora reconhecido corretamente
+    const { usuario } = useAuth(); // agora reconhecido corretamente
 
     // Se não estiver autenticado, redireciona para login
     if (!usuario) {
@@ -39,6 +41,26 @@ const Rotas = () => {
         <Routes>
             <Route element={<Login />} path="/" exact />
 
+<<<<<<< HEAD
+=======
+            <Route element={<Privado tipoPermitido="Funcionario" Item={Inicio} />} path="/Inicio" />
+            <Route element={<Privado tipoPermitido="Funcionario" Item={ListagemDoc} />} path="/Listagem" />
+            <Route element={<Privado tipoPermitido="Funcionario" Item={CadastroCliente} />} path="/CadastroCliente" />
+            <Route element={<Privado tipoPermitido="Funcionario" Item={CadastroEmpresa} />} path="/CadastroEmpresa" />
+            <Route element={<Privado tipoPermitido="Admin" Item={CadastroFuncionario} />} path="/CadastroFuncionario" />
+            <Route element={<Privado tipoPermitido="Funcionario" Item={TelaCliente} />} path="/TelaCliente" />
+            <Route element={<Privado tipoPermitido="Funcionario" Item={Lixeira} />} path="/Lixeira" />
+            <Route element={<Privado tipoPermitido="Funcionario" Item={DocAndamentoFunc} />} path="/docAndamentoFunc" />
+            <Route element={<Privado tipoPermitido="Cliente" Item={DocAndamentoClie} />} path="/docAndamentoClie" />
+            <Route element={<Privado tipoPermitido="Funcionario" Item={Feedback} />} path="/FeedBacks" />
+            <Route element={<Privado tipoPermitido="Cliente" Item={FaleConosco} />} path="/FaleConosco" />
+            <Route element={<Privado tipoPermitido="Cliente" Item={InicioCliente} />} path="/InicioCliente" />
+            <Route element={<Privado tipoPermitido="Cliente" Item={DocFinalizadoClie} />} path="/docFinalizadoClie" />
+            <Route element={<Privado tipoPermitido="Cliente" Item={ModalComentarioCliente} />} path="/ModalComentarioCliente" />
+            <Route element={<Privado tipoPermitido="Funcionario" Item={DocFinalizadoFunc} />} path="/docFinalizadoFunc" />
+
+<<<<<<< HEAD
+>>>>>>> 06ffcc351e5d9a097b9ef3149e2d1ab9f2dbcad5
             <Route element={<Inicio />} path="/Inicio" />
             <Route element={<ListagemDoc />} path="/Listagem" />
             <Route element={<CadastroCliente />} path="/CadastroCliente" />
@@ -52,9 +74,20 @@ const Rotas = () => {
             <Route element={<FaleConosco />} path="/FaleConosco" />
             <Route element={<InicioCliente />} path="/InicioCliente" />
             <Route element={<DocFinalizadoClie />} path="/docFinalizadoClie" />
+<<<<<<< HEAD
             <Route element={<DocFinalizadoFunc />} path="/docFinalizadoFunc" />
             <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc/:nomeDocumento/:idDocumento" />
             <Route element={<DocAndamentoClie />} path="/DocAndamentoClie/:nomeDocumento/:idDocumento" />
+=======
+            <Route element={<ModalComentarioCliente />} path="/ModalComentarioCliente" />
+            <Route element={<DocFinalizadoFunc />} path="/docFinalizadoFunc" />
+            <Route element={<ListagemFuncionario />} path="/listagemFuncionario" />
+            <Route element={<ModalFiltroFuncionario />} path="/ModalFiltroFuncionario" />
+
+=======
+>>>>>>> 9d9e4f5594ebbf35abea1918aada90cfac87ef94
+            
+>>>>>>> 06ffcc351e5d9a097b9ef3149e2d1ab9f2dbcad5
         </Routes>
     );
 };
