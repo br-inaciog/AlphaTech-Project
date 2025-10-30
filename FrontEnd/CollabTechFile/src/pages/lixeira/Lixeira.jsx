@@ -1,7 +1,7 @@
 import "./Lixeira.css";
 import MenuLateral from "../../components/menuLateral/MenuLateral";
 import Cabecalho from "../../components/cabecalho/Cabecalho";
-import api from "../../services/Service";
+import api from "../../Services/service";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Pdf from "../../assets/img/PDF.png";
@@ -22,6 +22,28 @@ export default function Lixeira() {
         } catch (error) {
             console.error("Erro ao listar os documentos!");
         }
+    }
+
+    async function excluirDoc(id) {
+        Swal.fire({
+            title: "Excluir permanentemente?",
+            text: "Você não poderá recuperar este documento depois.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sim, excluir!",
+            cancelButtonAriaLabel: "Cancelar",
+        }).then(async (result) => {
+            if(result.isConfirmed) {
+                try {
+                    await api.delete(`listagemDoc/excluirDoc/${id}`);
+                    Swal.fire("Documento excluído com sucesso", "", "success");
+                    listarDocLixeira();
+                } catch (error) {
+                    console.error("Erro ao excluir o arquivo:", error);
+                    Swal.fire("Erro!", "Não foi possível excluir o arquivo", "error");
+                }
+            }
+        });
     }
 
     async function recuperarDoc(id) {
@@ -78,7 +100,8 @@ export default function Lixeira() {
                                             <img
                                                 src={Excluir}
                                                 alt="Excluir permanentemente"
-                                                style={{ cursor: "not-allowed" }}
+                                                onClick={() => excluirDoc(doc.id)}
+                                                style={{ cursor: "pointer" }}
                                             />
                                         </div>
 
