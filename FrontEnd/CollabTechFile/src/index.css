@@ -49,3 +49,9 @@
 
   background-color: aliceblue;
 }
+
+@media (max-width: 768px) {
+  .areaTrabalho {
+    margin-left: 0;
+  }
+}

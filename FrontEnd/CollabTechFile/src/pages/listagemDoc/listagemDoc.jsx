@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 import MenuLateral from "../../components/menuLateral/MenuLateral";
 import Cabecalho from "../../components/cabecalho/Cabecalho";
-import Lixeira from "../../assets/img/Lixeira.png";
 import Pdf from "../../assets/img/PDF.png";
 import Editar from "../../assets/img/Editar.png";
 import Excluir from "../../assets/img/Delete.svg";
@@ -14,9 +13,8 @@ import Swal from "sweetalert2";
 export default function ListagemDoc() {
     const [listagemDoc, setListagemDoc] = useState([]);
     const [hoverIndex, setHoverIndex] = useState(null);
-    const [filtro, setFiltro] = useState("Todos"); //Vai fazer iniciar com todos os documentos
+    const [filtro, setFiltro] = useState("Todos"); 
 
-    // Função para buscar documentos da API
     async function listarDocumentos() {
         try {
             const resposta = await api.get("Documentos");
@@ -40,9 +38,9 @@ export default function ListagemDoc() {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await api.preventDefault(`/Documentos/${id.idDocumento}`); 
+                    await api.preventDefault(`/Documentos/${id.idDocumento}`);
                     Swal.fire("Excluído!", "O documento foi enviado para a lixeira.", "success");
-                    listarDocumentos(); 
+                    listarDocumentos();
                 } catch (error) {
                     console.error("Erro ao excluir:", error);
                     Swal.fire("Erro!", "Não foi possível excluir o documento.", "error");
@@ -84,7 +82,6 @@ export default function ListagemDoc() {
                         </div>
 
                         <Link className="botaoLixeiraList" to="/Lixeira">
-                            <img src={Lixeira} alt="Lixeira" />
                             <p>Excluídos</p>
                         </Link>
                     </div>
@@ -97,7 +94,7 @@ export default function ListagemDoc() {
                                     className="cardContainer"
                                     onMouseEnter={() => setHoverIndex(index)}
                                     onMouseLeave={() => setHoverIndex(null)}
-                                >
+                                >   
                                     <Link
                                         to={`/docAndamentoFunc/${encodeURIComponent(doc.nome.replaceAll(" ", "-"))}/${doc.idDocumento}`}
                                         className="cardDocumento"
@@ -105,8 +102,9 @@ export default function ListagemDoc() {
                                         <img src={Pdf} alt="Icone de Pdf" />
                                         <div className="cardInformacoes">
                                             <h1>{doc.nome || "Sem título"}</h1>
-                                            <p>{new Date(doc.criadoEm).toLocaleDateString('pt-BR') || "Sem data"} — {doc.idUsuarioNavigation?.nome || "Autor desconhecido"}</p>
+                                            <p>Prazo: <span>{new Date(doc.criadoEm).toLocaleDateString('pt-BR') || "Sem data"}</span></p>
                                             <p>Versão: <span>{doc.versao || "Sem Versão"}</span></p>
+                                            <p>Autor: <span>{doc.idUsuarioNavigation?.nome || "Autor desconhecido"}</span></p>
                                         </div>
 
                                         <div className="cardAcoes">

@@ -8,17 +8,17 @@ import Adicionar from "../../assets/img/Adicionar.svg"
 import Deletar from "../../assets/img/Delete.svg";
 import Editar from "../../assets/img/Editar.png"
 import Swal from "sweetalert2";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import api from "../../services/Service";
 import { useParams } from "react-router";
 
 
 export default function DocAndamentoFunc() {
-    const { idDocumento } = useParams();
+    const { nomeDocumento, idDocumento } = useParams();
+    const nomeCorrigido = nomeDocumento.replaceAll("-", " ");
+
 
     const [showModal, setShowModal] = useState(false);
-
     async function modalSalvarDoc(mensagem) {
         try {
             // Aqui tu pode colocar a lógica real de salvar o documento no backend
@@ -31,7 +31,6 @@ export default function DocAndamentoFunc() {
             console.error(error);
         }
     }
-
     async function cadDocumento(e) {
         e.preventDefault();
         setShowModal(true);
@@ -347,8 +346,8 @@ export default function DocAndamentoFunc() {
                         </div>
 
                         <form action="" className="documento">
-                            <div className="inputNome">
-                                <input type="text" placeholder="Nome Documento" />
+                            <div className="nomeDoc">
+                                <p>Nome: <span>{nomeCorrigido || "Carregando..."}</span></p>
                             </div>
 
                             <div className="infDocumento">

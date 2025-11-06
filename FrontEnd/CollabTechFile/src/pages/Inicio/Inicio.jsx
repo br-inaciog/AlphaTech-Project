@@ -1,13 +1,31 @@
 import './Inicio.css';
 import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Usuario from '../../assets/img/User.png';
-import arquivo from '../../assets/img/Arquivo.png';
 import Adicionar from '../../assets/img/Adicionar.png'
-import Anexar from '../../assets/img/upload.svg'
 import { Link } from 'react-router';
-// import Escaner from '../../assets/img/Escaner.png'
+import { useEffect, useState } from 'react';
+import api from "../../Services/Service";
 
 export default function Inicio() {
+    const [listaCliente, setListaCliente] = useState([]);
+    const [clienteFiltrado, setClienteFiltrado] = useState([]);
+
+    async function listarCliente() {
+        try {
+            const resposta = await api.get("usuario")
+            setListaCliente(resposta.data);
+
+            const apenasClientes = resposta.data.filter(u => u.idTipoUsuario === 3);
+            setClienteFiltrado(apenasClientes);
+        } catch (error) {
+            console.log("Erro ao buscar clientes:", error);
+        }
+    }
+
+    useEffect(() => {
+        listarCliente();
+    }, [])
+
     return (
         <div className="containerGeral">
             <MenuLateral />
@@ -53,57 +71,53 @@ export default function Inicio() {
                     </div>
                     <article className="documentosActions">
                         <form action="" className="docAction">
-                            <img src={arquivo} alt="Imagem Arquivo" className='imgArquivo' />
-                            <div className='divAnexar'>
-                                <h4>Anexar Documentação</h4>
-                                <label className='arquivoLabel'>
-                                    <img src={Anexar} alt="Ícone de upload" />
-                                    Anexar Documento
-                                    <input
-                                        type="file"
-                                        className='arquivoInput'
-                                    />
+                            <h4>Anexar/Criar Documentação</h4>
+                            <div className='docActionFlex'>
+                                <input
+                                    type="text"
+                                    placeholder="Nome do Arquivo"
+                                    className="inputArquivo"
+                                />
+
+                                <input
+                                    type="file"
+                                    id="arquivoInput"
+                                    className="arquivoInput"
+                                    style={{ display: "none" }}
+                                />
+
+                                <label htmlFor="arquivoInput" className="labelArquivo">
+                                    Anexar Documento:
+                                    <img src={Adicionar} alt="Adicionar documento" className="imgEscanear" />
                                 </label>
-                                <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
-                                <button className='botaoEnviarDoc'>Enviar</button>
+
+                                <div className="botaoSelectRemententeInicio">
+                                    <p>Rementente:</p>
+                                    <select>
+                                        <option disabled selected>Destinatário</option>
+                                        {clienteFiltrado.length > 0 ? (
+                                            clienteFiltrado.map((usuario) => (
+                                                <option key={usuario.idUsuario} value={usuario.idUsuario}>
+                                                    {usuario.nome}
+                                                </option>
+                                            ))
+                                        ) : (
+                                            <option disabled>Nenhum cliente encontrado</option>
+                                        )}
+                                    </select>
+                                </div>
+
+                                <div className="prazoEntregaInicio">
+                                    <label>Prazo de Entrega:</label>
+                                    <input type="date" />
+                                </div>
+
+                                <button className="botaoEnviarDoc">Enviar</button>
                             </div>
                         </form>
-
-                        <form action="" className="docAction">
-                            <img src={Adicionar} alt="" className='imgEscanear' />
-                            <div className='docActionDisplay'>
-                                <div className='divEscanear'>
-                                    <h4>Criar Documento</h4>
-                                    <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
-                                    <Link className='botaoEnviarDoc' to="/docAndamentoFunc">
-                                        Enviar
-                                    </Link>
-                                </div>
-                            </div>
-                        </form>
-
-                        {/* <form action="" className="docAction">
-                            <img src={Escaner} alt="" className='imgEscanear' />
-                            <div className='docActionDisplay'>
-                                <div className='divEscanear'>
-                                    <h4>Digitalizar Documento</h4>
-                                    <label className='arquivoLabel'>
-                                        <img src={Anexar} alt="Ícone de upload" />
-                                        Escanear Documento
-                                        <input
-                                            type="file"
-                                            className='arquivoInput'
-                                        />
-                                    </label>
-                                    <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
-                                    <button className='botaoEnviarDoc'>Enviar</button>
-                                </div>
-                            </div>
-                        </form> */}
-
                     </article>
                 </section>
             </main>
-        </div>
+        </div >
     )
 }
