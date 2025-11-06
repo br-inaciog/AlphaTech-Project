@@ -7,7 +7,7 @@ import user from "../../assets/img/user.png"
 import Cadastro from "../../components/cadastro/Cadastro";
 import MenuLateral from "../../components/menuLateral/MenuLateral";
 import { useEffect, useState } from "react";
-import api from "../../Services/service";
+import api from "../../services/Service";
 
 export default function CadastroCliente() {
   const [nome, setNome] = useState("");
@@ -128,13 +128,12 @@ export default function CadastroCliente() {
     <main className="containerGeral">
       <MenuLateral />
       <div className="conteudoPrincipal">
-        <header className="header">
-          <div className="usuario">
+        <div className="campoTipoUsuario">
+          {/* <div className="usuario"> */}
             <img src={user} alt="user" />
             <p>Funcionário</p>
-
-          </div>
-        </header>
+          {/* </div> */}
+        </div>
         <section className="areaTrabalho">
           <div className="conteudo">
 

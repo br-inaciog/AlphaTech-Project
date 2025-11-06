@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import "./MenuLateral.css";
-<<<<<<< HEAD
-
 import LogoMenu from "../../assets/img/logoMenu.png";
 import Casinha from "../../assets/img/Casinha.png";
 import Documents from "../../assets/img/Documents.png";
@@ -17,31 +15,6 @@ const acesso = "funcionario";
 
 export default function MenuLateral() {
   const [menuAberto, setMenuAberto] = useState(false);
-=======
-import { useAuth } from "../../contexts/AuthContext";
-
-import LogoMenu from '../../assets/img/logoMenu.png';
-import Casinha from '../../assets/img/Casinha.png';
-import Documents from '../../assets/img/Documents.png';
-import Cliente from '../../assets/img/Cliente.png';
-import Cadastrar from '../../assets/img/Cadastrar.png';
-import FeedBack from '../../assets/img/Feedback.png';
-import LogoutIcon from '../../assets/img/Logout.png';
-
-import { Link } from 'react-router-dom';
-
-export default function MenuLateral() {
-    const { logout } = useAuth(); // ✅ função do contexto
-
-    const handleLogout = (e) => {
-        e.preventDefault(); // evita o comportamento padrão do Link
-        logout();           // ✅ já apaga o token e redireciona
-    };
-
-    return (
-        <header className="menuLateral">
-            <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
->>>>>>> 9d9e4f5594ebbf35abea1918aada90cfac87ef94
 
   return (
     <>
@@ -50,7 +23,6 @@ export default function MenuLateral() {
         <img src={MenuHb} alt="Abrir menu" />
       </button>
 
-<<<<<<< HEAD
       {/* Sidebar */}
       <header className={`menuLateral ${menuAberto ? "ativo" : ""}`}>
         <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
@@ -135,33 +107,4 @@ export default function MenuLateral() {
       )}
     </>
   );
-=======
-                <Link to="/CadastroCliente" className="links">
-                    <img src={Cadastrar} alt="Usuário" />
-                    Cadastrar Clientes
-                </Link>
-
-                <Link to="/Listagem" className="links">
-                    <img src={Documents} alt="Documentos" />
-                    Documentos
-                </Link>
-
-                <Link to="/TelaCliente" className="links">
-                    <img src={Cliente} alt="Clientes" />
-                    Clientes
-                </Link>
-
-                <Link to="/FeedBacks" className="links">
-                    <img src={FeedBack} alt="FeedBacks" />
-                    FeedBacks
-                </Link>
-            </div>
-
-            <Link onClick={handleLogout} to="/" className="logout">
-                <img src={LogoutIcon} alt="Logout" />
-                Sair
-            </Link>
-        </header>
-    );
->>>>>>> 9d9e4f5594ebbf35abea1918aada90cfac87ef94
 }

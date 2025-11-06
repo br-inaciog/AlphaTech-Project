@@ -20,6 +20,7 @@ export default function TelaCliente() {
             setEmpresas(response.data);
         } catch (error) {
             console.error("Erro ao buscar empresas:", error);
+            alertar("error", "Erro ao carregar a lista de empresas");
         }
     }
 
@@ -29,7 +30,7 @@ export default function TelaCliente() {
             const response = await api.get("usuario");
             const clientesFiltrados = response.data.filter(usuario => usuario.idTipoUsuario === 4);
             setClientes(clientesFiltrados);
-            setClientesFiltrados(clientesFiltrados); // inicializa lista filtrada
+            // Não definir clientesFiltrados aqui - deixar o useEffect cuidar disso
         } catch (error) {
             console.error("Erro ao buscar clientes:", error);
             alertar("error", "Erro ao carregar a lista de clientes");
@@ -89,8 +90,8 @@ export default function TelaCliente() {
         const { value: formValues } = await Swal.fire({
             title: 'Editar Cliente',
             html:
-                `<input id="swal-input1" class="swal2-input" placeholder="Nome" value="${cliente.nome}">` +
-                `<input id="swal-input2" class="swal2-input" placeholder="Email" value="${cliente.email}">` +
+                `<input id="swal-input1" class="swal2-input" placeholder="Nome" value="${cliente.nome || ''}">` +
+                `<input id="swal-input2" class="swal2-input" placeholder="Email" value="${cliente.email || ''}">` +
                 `<select id="swal-input3" class="swal2-input" style="display: flex; text-align: center; text-align-last: center; width: 100%; box-sizing: border-box;">
                     <option value="">Selecione uma empresa</option>
                     ${opcoesEmpresas}
@@ -125,17 +126,50 @@ export default function TelaCliente() {
             try {
                 const dadosAtualizados = {
                     ...cliente,
-                    nome,
-                    email,
-                    idEmpresa: idEmpresa ? parseInt(idEmpresa) : cliente.idEmpresa
+                    nome: nome.trim(),
+                    email: email.trim(),
+                    idEmpresa: idEmpresa && idEmpresa !== "" ? parseInt(idEmpresa) : null
                 };
+                
                 const clienteId = cliente.id || cliente.idUsuario;
-                await api.put(`usuario/${clienteId}`, dadosAtualizados);
+                
+                console.log("Enviando para API:", { clienteId, dadosAtualizados });
+                
+                const response = await api.put(`usuario/${clienteId}`, dadosAtualizados);
+                
+                console.log("Resposta da API:", response.data);
+                
+                // Criar objeto atualizado com os dados que enviamos para a API
+                const clienteAtualizado = {
+                    ...cliente,
+                    nome: nome.trim(),
+                    email: email.trim(),
+                    idEmpresa: dadosAtualizados.idEmpresa
+                };
+                
+                console.log("Atualizando estado local com:", clienteAtualizado);
+                
+                // Atualizar os estados locais com os dados corretos
+                setClientes(prevClientes => {
+                    const novosClientes = prevClientes.map(c => {
+                        const id = c.id || c.idUsuario;
+                        return id === clienteId ? clienteAtualizado : c;
+                    });
+                    console.log("Lista de clientes atualizada:", novosClientes);
+                    return novosClientes;
+                });
+                
                 alertar("success", "Cliente atualizado com sucesso!");
-                buscarClientes();
+                
             } catch (error) {
                 console.error("Erro ao atualizar cliente:", error.response?.data || error);
-                alertar("error", "Erro ao atualizar cliente");
+                let mensagemErro = "Erro ao atualizar cliente";
+                if (error.response?.data?.message) {
+                    mensagemErro = error.response.data.message;
+                } else if (error.response?.data) {
+                    mensagemErro = error.response.data;
+                }
+                alertar("error", mensagemErro);
             }
         }
     }
@@ -144,11 +178,16 @@ export default function TelaCliente() {
     function handlePesquisa(event) {
         const valor = event.target.value;
         setPesquisa(valor);
-        const filtrados = clientes.filter(cliente =>
-            cliente.nome.toLowerCase().includes(valor.toLowerCase()) ||
-            cliente.email.toLowerCase().includes(valor.toLowerCase())
-        );
-        setClientesFiltrados(filtrados);
+        
+        if (valor.trim() === "") {
+            setClientesFiltrados(clientes);
+        } else {
+            const filtrados = clientes.filter(cliente =>
+                cliente.nome.toLowerCase().includes(valor.toLowerCase()) ||
+                cliente.email.toLowerCase().includes(valor.toLowerCase())
+            );
+            setClientesFiltrados(filtrados);
+        }
     }
 
     useEffect(() => {
@@ -158,6 +197,19 @@ export default function TelaCliente() {
         }
         carregarDados();
     }, []);
+
+    // Atualizar lista filtrada quando a lista de clientes mudar
+    useEffect(() => {
+        if (pesquisa.trim() === "") {
+            setClientesFiltrados(clientes);
+        } else {
+            const filtrados = clientes.filter(cliente =>
+                cliente.nome.toLowerCase().includes(pesquisa.toLowerCase()) ||
+                cliente.email.toLowerCase().includes(pesquisa.toLowerCase())
+            );
+            setClientesFiltrados(filtrados);
+        }
+    }, [clientes, pesquisa]);
 
     return (
         <div className="containerGeral">

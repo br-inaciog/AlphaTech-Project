@@ -7,7 +7,7 @@ import user from "../../assets/img/user.png"
 import Left from "../../assets/img/Voltar.svg"
 import Cadastro from "../../components/cadastro/Cadastro";
 import { useEffect, useState } from "react";
-import api from "../../Services/service";
+import api from "../../services/Service";
 
 export default function CadastroFuncionario() {
   const [nome, setNome] = useState("");
@@ -59,7 +59,7 @@ export default function CadastroFuncionario() {
     }
   }
 
-  function validarSenha(senha) {
+  function validarSenha(senha) { // Pelo menos 8 caracteres, incluindo números e símbolos
     const regexSenha = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
     return regexSenha.test(senha);
   }

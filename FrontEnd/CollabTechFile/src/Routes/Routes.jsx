@@ -40,7 +40,7 @@ const Privado = (props) => {
 const Rotas = () => {
     return (
         <Routes>
-            <Route element={<Login />} path="/" exact />
+            {/* <Route element={<Login />} path="/" exact />
 
             <Route element={<Privado tipoPermitido="Funcionario" Item={Inicio} />} path="/Inicio" />
             <Route element={<Privado tipoPermitido="Funcionario" Item={ListagemDoc} />} path="/Listagem" />
@@ -56,9 +56,10 @@ const Rotas = () => {
             <Route element={<Privado tipoPermitido="Cliente" Item={InicioCliente} />} path="/InicioCliente" />
             <Route element={<Privado tipoPermitido="Cliente" Item={DocFinalizadoClie} />} path="/docFinalizadoClie" />
             <Route element={<Privado tipoPermitido="Cliente" Item={ModalComentarioCliente} />} path="/ModalComentarioCliente" />
-            <Route element={<Privado tipoPermitido="Funcionario" Item={DocFinalizadoFunc} />} path="/docFinalizadoFunc" />
+            <Route element={<Privado tipoPermitido="Funcionario" Item={DocFinalizadoFunc} />} path="/docFinalizadoFunc" /> */}
+            
+            <Route element={<Login />} path="/" exact />
 
-<<<<<<< HEAD
             <Route element={<Inicio />} path="/Inicio" />
             <Route element={<ListagemDoc />} path="/Listagem" />
             <Route element={<CadastroCliente />} path="/CadastroCliente" />
@@ -77,8 +78,6 @@ const Rotas = () => {
             <Route element={<ListagemFuncionario />} path="/listagemFuncionario" />
             <Route element={<ModalFiltroFuncionario />} path="/ModalFiltroFuncionario" />
 
-=======
->>>>>>> 9d9e4f5594ebbf35abea1918aada90cfac87ef94
             
         </Routes>
     );

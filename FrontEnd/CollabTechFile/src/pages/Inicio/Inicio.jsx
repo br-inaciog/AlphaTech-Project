@@ -2,7 +2,6 @@ import './Inicio.css';
 import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Usuario from '../../assets/img/User.png';
 import arquivo from '../../assets/img/Arquivo.png';
-import Anexar from '../../assets/img/Upload.svg'
 
 export default function Inicio() {
     return (
@@ -54,7 +53,6 @@ export default function Inicio() {
                                 <div className='divAnexar'>
                                     <h4>Anexar Documentação</h4>
                                     <label className='arquivoLabel'>
-                                        <img src={Anexar} alt="Ícone de upload" />
                                         Anexar Documento
                                         <input
                                             type="file"

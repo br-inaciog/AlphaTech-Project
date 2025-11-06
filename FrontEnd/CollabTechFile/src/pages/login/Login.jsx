@@ -35,10 +35,6 @@ export default function Login() {
           // Salva no secureLocalStorage (redundante, mas reforça)
           secureLocalStorage.setItem("tokenLogin", token);
 
-<<<<<<< HEAD
-=======
-          // Alerta de sucesso
->>>>>>> 9d9e4f5594ebbf35abea1918aada90cfac87ef94
           await Swal.fire({
             title: "Login realizado!",
             text: "Redirecionando para a página inicial...",
@@ -57,7 +53,7 @@ export default function Login() {
           }
         }
       } catch (error) {
-<<<<<<< HEAD
+
         if (error.response?.status === 400) {
           Swal.fire({
             title: "Erro no servidor!",
@@ -66,11 +62,7 @@ export default function Login() {
             confirmButtonColor: "#d33",
           });
         } else if (error.response?.status === 401) {
-=======
-        // console.error(error);
 
-        if (error.response?.status === 401) {
->>>>>>> 9d9e4f5594ebbf35abea1918aada90cfac87ef94
           Swal.fire({
             title: "Email ou senha inválidos!",
             text: "Verifique suas credenciais e tente novamente.",
