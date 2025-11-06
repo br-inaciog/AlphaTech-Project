@@ -1,24 +1,7 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\55890867873\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {}
-=======
-<<<<<<< HEAD
-    "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
-        "projectName": "CollabTechFile",
-        "projectPath": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
-        "packagesPath": "C:\\Users\\50526683848\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
-=======
-    "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {}
->>>>>>> 06ffcc351e5d9a097b9ef3149e2d1ab9f2dbcad5
   },
   "projects": {
     "C:\\Users\\55890867873\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {
@@ -26,30 +9,15 @@
       "restore": {
         "projectUniqueName": "C:\\Users\\55890867873\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
         "projectName": "CollabTechFile",
-<<<<<<< HEAD
         "projectPath": "C:\\Users\\55890867873\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
         "packagesPath": "C:\\Users\\55890867873\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\55890867873\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
-=======
-        "projectPath": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
-        "packagesPath": "C:\\Users\\50776884867\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
->>>>>>> 9d9e4f5594ebbf35abea1918aada90cfac87ef94
->>>>>>> 06ffcc351e5d9a097b9ef3149e2d1ab9f2dbcad5
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\55890867873\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-<<<<<<< HEAD
-          "C:\\Users\\50526683848\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\50776884867\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 9d9e4f5594ebbf35abea1918aada90cfac87ef94
->>>>>>> 06ffcc351e5d9a097b9ef3149e2d1ab9f2dbcad5
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

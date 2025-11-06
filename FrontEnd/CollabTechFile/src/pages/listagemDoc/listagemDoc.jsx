@@ -15,7 +15,7 @@ export default function ListagemDoc() {
     const [listagemDoc, setListagemDoc] = useState([]);
     const [hoverIndex, setHoverIndex] = useState(null);
     const [filtro, setFiltro] = useState("Todos"); //Vai fazer iniciar com todos os documentos
-    
+
     // Função para buscar documentos da API
     async function listarDocumentos() {
         try {
@@ -32,6 +32,7 @@ export default function ListagemDoc() {
         Swal.fire({
             title: "Excluir documento?",
             text: "O documento irá para a lixeira.",
+            theme: "dark",
             icon: "warning",
             showCancelButton: true,
             confirmButtonText: "Sim, excluir!",
@@ -39,9 +40,9 @@ export default function ListagemDoc() {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await api.delete(`/Documentos/${id}`); // <- Se sua rota for diferente, ajuste aqui
+                    await api.preventDefault(`/Documentos/${id.idDocumento}`); 
                     Swal.fire("Excluído!", "O documento foi enviado para a lixeira.", "success");
-                    listarDocumentos(); // Atualiza lista
+                    listarDocumentos(); 
                 } catch (error) {
                     console.error("Erro ao excluir:", error);
                     Swal.fire("Erro!", "Não foi possível excluir o documento.", "error");
@@ -52,9 +53,9 @@ export default function ListagemDoc() {
     useEffect(() => {
         listarDocumentos();
     }, []);
-    
+
     const documentosFiltrados = listagemDoc.filter((doc) => { //Serve para filtrar os documentos na base do filtro
-        if(filtro === "Todos") return true;
+        if (filtro === "Todos") return true;
         return doc.status === filtro;
     });
 
@@ -100,7 +101,7 @@ export default function ListagemDoc() {
                                     <Link
                                         to={`/docAndamentoFunc/${encodeURIComponent(doc.nome.replaceAll(" ", "-"))}/${doc.idDocumento}`}
                                         className="cardDocumento"
-                                    >   
+                                    >
                                         <img src={Pdf} alt="Icone de Pdf" />
                                         <div className="cardInformacoes">
                                             <h1>{doc.nome || "Sem título"}</h1>

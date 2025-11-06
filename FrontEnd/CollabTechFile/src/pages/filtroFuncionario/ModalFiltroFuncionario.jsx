@@ -106,7 +106,6 @@ export default function ModalFiltroFuncionario({ onClose, aberto = true, empresa
                         </button>
                     </div>
                 </form>
-<<<<<<< HEAD
                 <div className="modalDocumentos">
                     <h3 className="modalDocumentosTitulo">Documento disponível para alta</h3>
                     <table className="modalTabela">
@@ -128,8 +127,6 @@ export default function ModalFiltroFuncionario({ onClose, aberto = true, empresa
                         </tbody>
                     </table>
                 </div>
-=======
->>>>>>> 06ffcc351e5d9a097b9ef3149e2d1ab9f2dbcad5
             </div>
         </div>,
         document.body

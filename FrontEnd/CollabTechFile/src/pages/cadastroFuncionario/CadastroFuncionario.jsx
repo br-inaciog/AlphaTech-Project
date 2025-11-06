@@ -120,6 +120,7 @@ export default function CadastroFuncionario() {
 
   useEffect(() => {
     listarEmpresa();
+    listarTipoUsuario();
   }, [listaEmpresa]);
 
   return (

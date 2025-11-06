@@ -1,6 +1,8 @@
 import "./docAndamentoFunc.css"
 import MenuLateral from "../../components/menuLateral/MenuLateral";
 import Cabecalho from "../../components/cabecalho/Cabecalho"
+import ModalSalvarDocumento from "../../components/salvarDocumento/ModalSalvarDocumento";
+
 
 import Adicionar from "../../assets/img/Adicionar.svg"
 import Deletar from "../../assets/img/Delete.svg";
@@ -8,18 +10,42 @@ import Editar from "../../assets/img/Editar.png"
 import Swal from "sweetalert2";
 import { useState } from "react";
 import { useEffect } from "react";
-import api from "../../Services/Service";
+import api from "../../services/Service";
 import { useParams } from "react-router";
 
 
 export default function DocAndamentoFunc() {
     const { idDocumento } = useParams();
 
+    const [showModal, setShowModal] = useState(false);
+
+    async function modalSalvarDoc(mensagem) {
+        try {
+            // Aqui tu pode colocar a lógica real de salvar o documento no backend
+            console.log("Mensagem salva:", mensagem);
+
+            alertar("success", "Documento salvo com sucesso!");
+            setShowModal(false);
+        } catch (error) {
+            alertar("error", "Erro ao salvar o documento!");
+            console.error(error);
+        }
+    }
+
+    async function cadDocumento(e) {
+        e.preventDefault();
+        setShowModal(true);
+    }
+
     const [listaCliente, setListaCliente] = useState([]);
     const [clienteFiltrado, setClienteFiltrado] = useState([]);
 
     const [listaVersaoDoc, setListaVersaoDoc] = useState([]);
     const [versaoDoc, setVersaoDoc] = useState([]);
+
+    const [listaRN, setListaRN] = useState([]);
+    const [regraDeNegocio, setRegraDeNegocio] = useState("");
+    const [regraNegocio] = useState("Edite sua Regra de Negócio.")
 
     const [listaReqFunc, setListaReqFunc] = useState([])
     const [requisitoFuncional, setRequisitoFuncional] = useState("");
@@ -30,28 +56,6 @@ export default function DocAndamentoFunc() {
     const [requisitoNaoFuncional, setRequisitoNaoFuncional] = useState("");
     const [reqNaoFuncional] = useState("RNF")
     const [reqNaoFuncionalText] = useState("Edite seu Requisito não Funcional.")
-
-
-    const [listaRN, setListaRN] = useState([]);
-    const [regraDeNegocio, setRegraDeNegocio] = useState("");
-    const [regraNegocio] = useState("Edite sua Regra de Negócio.")
-
-    function alertarSalvar() {
-        Swal.fire({
-            title: "Do you want to save the changes?",
-            theme: 'dark',
-            showDenyButton: true,
-            showCancelButton: true,
-            confirmButtonText: "Salvar",
-            denyButtonText: `Não Salvar`
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire("Saved!", "", "success");
-            } else if (result.isDenied) {
-                Swal.fire("Changes are not saved", "", "info");
-            }
-        });
-    }
 
     function alertar(icone, mensagem) {
         const Toast = Swal.mixin({
@@ -71,15 +75,6 @@ export default function DocAndamentoFunc() {
             title: mensagem,
         });
     }
-
-    async function cadDocumento() {
-        try {
-            alertarSalvar();
-        } catch (error) {
-
-        }
-    }
-
     async function listarVersoes() {
         try {
             const resposta = await api.get("documentoVersoes");
@@ -89,7 +84,6 @@ export default function DocAndamentoFunc() {
             console.log("Erro ao buscar versões:", error);
         }
     }
-
     async function listarCliente() {
         try {
             const resposta = await api.get("usuario")
@@ -136,7 +130,7 @@ export default function DocAndamentoFunc() {
 
             await api.post("regraDoc", {
                 idDocumento: idDocumento,
-                idRegra: novaRegra.data.idRegra
+                idRegras: novaRegra.data.idRegras
             });
 
             alertar("success", "Regra cadastrada no documento!");
@@ -194,18 +188,21 @@ export default function DocAndamentoFunc() {
             });
 
             if (result.isConfirmed) {
+                const novoNome = result.value;
+
                 await api.put(`Regra/${RN.idRegras}`, {
-                    nome: reqNaoFuncional
+                    nome: novoNome
                 });
 
-                alertar("success", "Dados salvos com sucesso.");
+                alertar("success", "Regra atualizada com sucesso!");
                 listarRN();
             }
         } catch (error) {
             console.log(error);
-            alertar("error", "Não foi possível atualizar.");
+            alertar("error", "Erro ao atualizar a regra!");
         }
     }
+
 
     //Requisito Funcional
     async function listarReqFunc() {
@@ -518,6 +515,13 @@ export default function DocAndamentoFunc() {
                         </div>
                     </section>
                 </section>
+                {showModal && (
+                    <ModalSalvarDocumento
+                        nomeDocumento="Prazo de Entrega"
+                        onCancel={() => setShowModal(false)}
+                        onPublish={modalSalvarDoc}
+                    />
+                )}
             </main>
         </div >
     )

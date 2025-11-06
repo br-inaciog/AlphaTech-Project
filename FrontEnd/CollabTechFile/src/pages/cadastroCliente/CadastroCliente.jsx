@@ -143,6 +143,8 @@ export default function CadastroCliente() {
               titulo="Cadastro de Cliente"
               visibilidade_campo3="none"
               visibilidade_campoCNPJ="none"
+              visibilidade_campo5="none"
+              visibilidade_campo6="none"
               funcCadastro={cadCliente}
 
               //Nome
@@ -166,16 +168,6 @@ export default function CadastroCliente() {
               listaEmpresa={listaEmpresa}
               valorEmpresa={empresa}
               setValorEmpresa={setEmpresa}
-
-              //Senha
-              campo5="Senha"
-              valorInput3={senha}
-              setValorInput3={setSenha}
-
-              //Confirmar Senha
-              campo6="Cofirmar Senha"
-              valorInput4={senhaVerificacao}
-              setValorInput4={setSenhaVerficacao}
             />
           </div>
         </section>

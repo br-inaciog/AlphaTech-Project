@@ -8,28 +8,21 @@ import api from "../../services/Service";
 import { userDecodeToken } from "../../auth/Auth";
 import secureLocalStorage from "react-secure-storage";
 import { useAuth } from "../../contexts/AuthContext";
-import { Eye, EyeOff } from "lucide-react";
-import Swal from "sweetalert2"; // ✅ Import do SweetAlert2
+import Swal from "sweetalert2";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [isShow, setIsShow] = useState(false);
-
-  const handlePassword = (e) => {
-    e.preventDefault();
-    setIsShow(!isShow);
-  };
 
   const navigate = useNavigate();
-  const { atualizarToken } = useAuth(); // usa a função certa do contexto
+  const { atualizarToken } = useAuth(); 
 
   async function realizarAutenticacao(e) {
     e.preventDefault();
 
     if (senha.trim() !== "" && email.trim() !== "") {
       try {
-        const usuario = { Email: email, Senha: senha };
+        const usuario = { email, senha };
         const resposta = await api.post("Login", usuario);
         const token = resposta.data.token;
 
@@ -42,12 +35,8 @@ export default function Login() {
           // Salva no secureLocalStorage (redundante, mas reforça)
           secureLocalStorage.setItem("tokenLogin", token);
 
-<<<<<<< HEAD
-=======
           // Alerta de sucesso
->>>>>>> 9d9e4f5594ebbf35abea1918aada90cfac87ef94
           await Swal.fire({
-            theme: 'dark',
             title: "Login realizado!",
             text: "Redirecionando para a página inicial...",
             icon: "success",
@@ -65,22 +54,10 @@ export default function Login() {
           }
         }
       } catch (error) {
-<<<<<<< HEAD
-        if (error.response?.status === 400) {
-          Swal.fire({
-            title: "Erro no servidor!",
-            text: "O banco de dados não está acessível. Verifique se o SQL Server está rodando.",
-            icon: "error",
-            confirmButtonColor: "#d33",
-          });
-        } else if (error.response?.status === 401) {
-=======
-        // console.error(error);
+        console.error(error);
 
         if (error.response?.status === 401) {
->>>>>>> 9d9e4f5594ebbf35abea1918aada90cfac87ef94
           Swal.fire({
-            theme: 'dark',
             title: "Email ou senha inválidos!",
             text: "Verifique suas credenciais e tente novamente.",
             icon: "error",
@@ -88,7 +65,6 @@ export default function Login() {
           });
         } else {
           Swal.fire({
-            theme: 'dark',
             title: "Erro no servidor!",
             text: "Tente novamente mais tarde.",
             icon: "warning",
@@ -98,7 +74,6 @@ export default function Login() {
       }
     } else {
       Swal.fire({
-        theme: 'dark',
         title: "Campos vazios!",
         text: "Preencha todos os campos para realizar o login.",
         icon: "info",
@@ -128,21 +103,15 @@ export default function Login() {
             </div>
 
             <div className="grupoSenha">
-              <label className="areaSenhaLogin">
-                <input
-                  type={isShow ? "text" : "password"}
-                  minLength={6}
-                  maxLength={8}
-                  value={senha}
-                  onChange={(e) => setSenha(e.target.value)}
-                  required
-                />
-                <button onClick={handlePassword}>
-                  {isShow && <Eye size={18} />}
-                  {!isShow && <EyeOff size={18} />}
-                </button>
-                <label className="labelSenha">Senha</label>
-              </label>
+              <input
+                type="password"
+                minLength={6}
+                maxLength={8}
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+                required
+              />
+              <label>Senha</label>
             </div>
           </div>
         </div>
@@ -150,7 +119,7 @@ export default function Login() {
         <Botao nomeBotao="Login" />
       </div>
 
-      <img src={Logo} alt="Logo CollabTechFile" />
+      <img className="imgLogo" src={Logo} alt="Logo CollabTechFile" />
     </form>
   );
 }

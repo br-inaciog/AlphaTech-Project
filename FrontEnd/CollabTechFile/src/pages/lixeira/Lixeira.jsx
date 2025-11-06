@@ -17,30 +17,30 @@ export default function Lixeira() {
 
     async function listarDocLixeira() {
         try {
-            const response = await api.get("listagemDoc/Lixeira");
+            const response = await api.get("Documentos/Lixeira");
             setDocLixeira(response.data);
         } catch (error) {
-            console.error("Erro ao listar os documentos!");
+            console.error("Erro ao listar os documentos:", error);
         }
     }
 
     async function excluirDoc(id) {
         Swal.fire({
             title: "Excluir permanentemente?",
-            text: "Você não poderá recuperar este documento depois.",
+            text: "Este documento não poderá ser recuperado depois.",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonText: "Sim, excluir!",
-            cancelButtonAriaLabel: "Cancelar",
+            confirmButtonText: "Sim, excluir",
+            cancelButtonText: "Cancelar",
         }).then(async (result) => {
-            if(result.isConfirmed) {
+            if (result.isConfirmed) {
                 try {
-                    await api.delete(`listagemDoc/excluirDoc/${id}`);
-                    Swal.fire("Documento excluído com sucesso", "", "success");
+                    await api.delete(`Documentos/Excluir/${id}`);
+                    Swal.fire("Excluído!", "O documento foi removido definitivamente.", "success");
                     listarDocLixeira();
                 } catch (error) {
-                    console.error("Erro ao excluir o arquivo:", error);
-                    Swal.fire("Erro!", "Não foi possível excluir o arquivo", "error");
+                    console.error("Erro ao excluir:", error);
+                    Swal.fire("Erro", "Não foi possível excluir o documento.", "error");
                 }
             }
         });
@@ -48,21 +48,20 @@ export default function Lixeira() {
 
     async function recuperarDoc(id) {
         Swal.fire({
-            title: "Recuperar documento?",
-            text: "O documento será restaurado para a tela principal.",
+            title: "Restaurar documento?",
             icon: "question",
             showCancelButton: true,
-            confirmButtonText: "Sim, recuperar",
+            confirmButtonText: "Sim, restaurar",
             cancelButtonText: "Cancelar",
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await api.put(`listagemDoc/recuperarDoc/${id}`);
-                    Swal.fire("Documento recuperado!", "", "success");
-                    listarDocLixeira(); // atualiza a tela após restaurar
+                    await api.put(`Documentos/Restaurar/${id}`);
+                    Swal.fire("Restaurado!", "O documento voltou para a listagem.", "success");
+                    listarDocLixeira();
                 } catch (error) {
-                    console.error("Erro ao recuperar o arquivo:", error);
-                    Swal.fire("Erro!", "Não foi possível recuperar o arquivo.", "error");
+                    console.error("Erro ao restaurar:", error);
+                    Swal.fire("Erro", "Não foi possível restaurar o documento.", "error");
                 }
             }
         });
@@ -82,47 +81,25 @@ export default function Lixeira() {
                     <div className="cardInf">
                         {docLixeira.length > 0 ? (
                             docLixeira.map((doc) => (
-                                <div key={doc.id} className="cardDocumentoLixeira">
+                                <div key={doc.idDocumento} className="cardDocumentoLixeira">
                                     <div className="cardInformacoesLixeira">
-                                        <img src={Pdf} alt="Icone de Pdf" />
+                                        <img src={Pdf} alt="PDF" />
                                         <p>{doc.nome || "Documento sem nome"}</p>
                                     </div>
 
                                     <div className="cardAcoesLixeira">
-                                        <div className="lixeiraExcluir">
-                                            <img
-                                                className="lixeiraIco"
-                                                src={Restaurar}
-                                                alt="Restaurar"
-                                                onClick={() => recuperarDoc(doc.id)}
-                                                style={{ cursor: "pointer" }}
-                                            />
-                                            <img
-                                                src={Excluir}
-                                                alt="Excluir permanentemente"
-                                                onClick={() => excluirDoc(doc.id)}
-                                                style={{ cursor: "pointer" }}
-                                            />
-                                        </div>
-
-                                        <div className="info">
-                                            <p className="infHorarioCard">
-                                                Excluído em:{" "}
-                                                <span>
-                                                    {doc.dataExclusao
-                                                        ? new Date(doc.dataExclusao).toLocaleDateString()
-                                                        : "--/--/----"}
-                                                </span>{" "}
-                                                <span>
-                                                    {doc.dataExclusao
-                                                        ? new Date(doc.dataExclusao).toLocaleTimeString()
-                                                        : "--:--"}
-                                                </span>
-                                            </p>
-                                            <p>
-                                                Por: <span>{doc.usuarioExclusao || "Desconhecido"}</span>
-                                            </p>
-                                        </div>
+                                        <img
+                                            src={Restaurar}
+                                            alt="Restaurar"
+                                            onClick={() => recuperarDoc(doc.idDocumento)}
+                                            style={{ cursor: "pointer" }}
+                                        />
+                                        <img
+                                            src={Excluir}
+                                            alt="Excluir"
+                                            onClick={() => excluirDoc(doc.idDocumento)}
+                                            style={{ cursor: "pointer" }}
+                                        />
                                     </div>
                                 </div>
                             ))

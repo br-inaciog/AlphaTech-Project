@@ -52,7 +52,8 @@ export default function InicioCliente() {
                         {listaDoc.length > 0 ? (
                             listaDoc.map((doc) => (
 
-                                <Link to={`/DocAndamentoClie/${doc.nome}`} className="cardDocumento">
+                                <Link to={`/docAndamentoClie/${encodeURIComponent(doc.nome.replaceAll(" ", "-"))}/${doc.idDocumento}`}
+                                    className="cardDocumento">
                                     <img src={Pdf} alt="Icone de Pdf" />
                                     <div className="cardInformacoes">
                                         <h1>{doc.nome || "Sem título"}</h1>

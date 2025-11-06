@@ -27,7 +27,7 @@ export default function TelaCliente() {
         setLoading(true);
         try {
             const response = await api.get("usuario");
-            const clientesFiltrados = response.data.filter(usuario => usuario.idTipoUsuario === 4);
+            const clientesFiltrados = response.data.filter(usuario => usuario.idTipoUsuario === 3);
             setClientes(clientesFiltrados);
             setClientesFiltrados(clientesFiltrados); // inicializa lista filtrada
         } catch (error) {
@@ -63,11 +63,16 @@ export default function TelaCliente() {
     async function alterarStatus(cliente) {
         try {
             const novoStatus = !cliente.ativo;
-
             const clienteId = cliente.id || cliente.idUsuario;
+
+            const dadosAtualizados = {
+                ...cliente,
+                ativo: novoStatus
+            };
 
             await api.put(`usuario/${clienteId}`, dadosAtualizados);
 
+            // Atualiza listas na tela
             setClientes(clientes.map(c =>
                 (c.id || c.idUsuario) === clienteId ? { ...c, ativo: novoStatus } : c
             ));
@@ -84,7 +89,9 @@ export default function TelaCliente() {
 
     async function editarCliente(cliente) {
         const opcoesEmpresas = empresas.map(empresa =>
-            `<option value="${empresa.idEmpresa}" ${empresa.idEmpresa === cliente.idEmpresa ? 'selected' : ''}>${empresa.nome}</option>`
+            `<option value="${empresa.idEmpresa}" ${empresa.idEmpresa === cliente.idEmpresa ? 'selected' : ''}>
+            ${empresa.nome}
+        </option>`
         ).join('');
 
         const { value: formValues } = await Swal.fire({
@@ -93,19 +100,20 @@ export default function TelaCliente() {
                 `<input id="swal-input1" class="swal2-input" placeholder="Nome" value="${cliente.nome}">` +
                 `<input id="swal-input2" class="swal2-input" placeholder="Email" value="${cliente.email}">` +
                 `<select id="swal-input3" class="swal2-input" style="display: flex; text-align: center; text-align-last: center; width: 100%; box-sizing: border-box;">
-                    <option disable>Selecione uma empresa</option>
-                    ${opcoesEmpresas}
-                </select>`,
+                <option disabled>Selecione uma empresa</option>
+                ${opcoesEmpresas}
+            </select>`,
             focusConfirm: false,
             preConfirm: () => {
-                const nome = document.getElementById('swal-input1').value;
-                const email = document.getElementById('swal-input2').value;
+                const nome = document.getElementById('swal-input1').value.trim();
+                const email = document.getElementById('swal-input2').value.trim();
                 const idEmpresa = document.getElementById('swal-input3').value;
 
                 if (!nome || !email) {
                     Swal.showValidationMessage('Nome e email são obrigatórios!');
                     return false;
                 }
+
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) {
                     Swal.showValidationMessage('Por favor, insira um email válido!');
@@ -124,17 +132,28 @@ export default function TelaCliente() {
 
         if (formValues) {
             const [nome, email, idEmpresa] = formValues;
+
             try {
+                const clienteId = cliente.id || cliente.idUsuario;
+
                 const dadosAtualizados = {
                     ...cliente,
                     nome,
                     email,
-                    idEmpresa: idEmpresa ? parseInt(idEmpresa) : cliente.idEmpresa
+                    idEmpresa: parseInt(idEmpresa) || cliente.idEmpresa
                 };
-                const clienteId = cliente.id || cliente.idUsuario;
+
                 await api.put(`usuario/${clienteId}`, dadosAtualizados);
+
+                // Atualiza a lista local de clientes e clientes filtrados
+                setClientes(clientes.map(c =>
+                    (c.id || c.idUsuario) === clienteId ? { ...c, ...dadosAtualizados } : c
+                ));
+                setClientesFiltrados(clientesFiltrados.map(c =>
+                    (c.id || c.idUsuario) === clienteId ? { ...c, ...dadosAtualizados } : c
+                ));
+
                 alertar("success", "Cliente atualizado com sucesso!");
-                buscarClientes();
             } catch (error) {
                 console.error("Erro ao atualizar cliente:", error.response?.data || error);
                 alertar("error", "Erro ao atualizar cliente");
