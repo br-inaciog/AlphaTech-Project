@@ -1,21 +1,10 @@
 import './Inicio.css';
 import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Usuario from '../../assets/img/User.png';
-<<<<<<< HEAD
-=======
-import arquivo from '../../assets/img/Arquivo.png';
-<<<<<<< HEAD
-=======
->>>>>>> 3107e6deda905d8ac4742559aa056f9b71b2bedc
-import Adicionar from '../../assets/img/Adicionar.png'
+import Adicionar from '../../assets/img/Adicionar.png';
 import { Link } from 'react-router';
-<<<<<<< HEAD
 import { useEffect, useState } from 'react';
 import api from "../../Services/Service";
-=======
-// import Escaner from '../../assets/img/Escaner.png'
->>>>>>> 83f8e65fd41ffc1d494fa59ebe079d06b5107cb3
->>>>>>> 3107e6deda905d8ac4742559aa056f9b71b2bedc
 
 export default function Inicio() {
     const [listaCliente, setListaCliente] = useState([]);
@@ -23,7 +12,7 @@ export default function Inicio() {
 
     async function listarCliente() {
         try {
-            const resposta = await api.get("usuario")
+            const resposta = await api.get("usuario");
             setListaCliente(resposta.data);
 
             const apenasClientes = resposta.data.filter(u => u.idTipoUsuario === 3);
@@ -35,7 +24,7 @@ export default function Inicio() {
 
     useEffect(() => {
         listarCliente();
-    }, [])
+    }, []);
 
     return (
         <div className="containerGeral">
@@ -48,9 +37,9 @@ export default function Inicio() {
                             <img src={Usuario} alt="" />
                             Funcionário
                             <span className="iconMoon"></span>
-
                         </div>
                     </div>
+
                     <div className="statusDocumentos">
                         <div className="statusCard">
                             <span className="statusNum">6</span>
@@ -65,8 +54,9 @@ export default function Inicio() {
                             <span className="statusLabel">Finalizados</span>
                         </div>
                     </div>
+
                     <div className="proximaEntregas">
-                        <h3>PROXIMAS ENTREGAS</h3>
+                        <h3>PRÓXIMAS ENTREGAS</h3>
                         <div className="entregaCard entregaVermelho">
                             <span className="entregaNum">15</span>
                             <span className="entrega-label">Documentação Hershey's</span>
@@ -80,11 +70,11 @@ export default function Inicio() {
                             <span className="entrega-label">Documentação Johnson&Johnsons</span>
                         </div>
                     </div>
+
                     <article className="documentosActions">
                         <form action="" className="docAction">
-<<<<<<< HEAD
                             <h4>Anexar/Criar Documentação</h4>
-                            <div className='docActionFlex'>
+                            <div className="docActionFlex">
                                 <input
                                     type="text"
                                     placeholder="Nome do Arquivo"
@@ -101,33 +91,10 @@ export default function Inicio() {
                                 <label htmlFor="arquivoInput" className="labelArquivo">
                                     Anexar Documento:
                                     <img src={Adicionar} alt="Adicionar documento" className="imgEscanear" />
-=======
-                            <img src={arquivo} alt="Imagem Arquivo" className='imgArquivo' />
-<<<<<<< HEAD
-                                <div className='divAnexar'>
-                                    <h4>Anexar Documentação</h4>
-                                    <label className='arquivoLabel'>
-                                        Anexar Documento
-                                        <input
-                                            type="file"
-                                            className='arquivoInput'
-                                        />
-                                    </label>
-=======
-                            <div className='divAnexar'>
-                                <h4>Anexar Documentação</h4>
-                                <label className='arquivoLabel'>
-                                    <img src={Anexar} alt="Ícone de upload" />
-                                    Anexar Documento
-                                    <input
-                                        type="file"
-                                        className='arquivoInput'
-                                    />
->>>>>>> 3107e6deda905d8ac4742559aa056f9b71b2bedc
                                 </label>
 
                                 <div className="botaoSelectRemententeInicio">
-                                    <p>Rementente:</p>
+                                    <p>Remetente:</p>
                                     <select>
                                         <option disabled selected>Destinatário</option>
                                         {clienteFiltrado.length > 0 ? (
@@ -150,46 +117,9 @@ export default function Inicio() {
                                 <button className="botaoEnviarDoc">Enviar</button>
                             </div>
                         </form>
-<<<<<<< HEAD
-=======
-
-                        <form action="" className="docAction">
-                            <img src={Adicionar} alt="" className='imgEscanear' />
-                            <div className='docActionDisplay'>
-                                <div className='divEscanear'>
-                                    <h4>Criar Documento</h4>
->>>>>>> 83f8e65fd41ffc1d494fa59ebe079d06b5107cb3
-                                    <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
-                                    <Link className='botaoEnviarDoc' to="/docAndamentoFunc">
-                                        Enviar
-                                    </Link>
-                                </div>
-                            </div>
-                        </form>
-
-                        {/* <form action="" className="docAction">
-                            <img src={Escaner} alt="" className='imgEscanear' />
-                            <div className='docActionDisplay'>
-                                <div className='divEscanear'>
-                                    <h4>Digitalizar Documento</h4>
-                                    <label className='arquivoLabel'>
-                                        <img src={Anexar} alt="Ícone de upload" />
-                                        Escanear Documento
-                                        <input
-                                            type="file"
-                                            className='arquivoInput'
-                                        />
-                                    </label>
-                                    <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
-                                    <button className='botaoEnviarDoc'>Enviar</button>
-                                </div>
-                            </div>
-                        </form> */}
-
->>>>>>> 3107e6deda905d8ac4742559aa056f9b71b2bedc
                     </article>
                 </section>
             </main>
-        </div >
-    )
+        </div>
+    );
 }

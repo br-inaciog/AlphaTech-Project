@@ -119,7 +119,7 @@ namespace CollabTechFile.Repositories
             return _context.Usuarios.FirstOrDefault(u => u.Email == email)!;
         }
 
-        public Usuario BuscarPorId(int id, Usuario usuario)
+        public Usuario IUsuarioRepository.BuscarPorId(Usuario IdUsuario, int id)
         {
             return _context.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
         }
