@@ -6,6 +6,7 @@ using CollabTechFile.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using CollabTechFile.Utils; // necessário para o hash
 
 namespace CollabTechFile.Controllers
 {
@@ -15,6 +16,8 @@ namespace CollabTechFile.Controllers
     public class LoginController : ControllerBase
     {
         private readonly IUsuarioRepository _UsuarioRepository;
+        private const string senhaPadrao = "Senai@12";
+
         public LoginController(IUsuarioRepository usuarioRepository)
         {
             _UsuarioRepository = usuarioRepository;
@@ -31,16 +34,24 @@ namespace CollabTechFile.Controllers
                 {
                     return NotFound("Usuario não cadastrado!");
                 }
+
+                // ✅ Verifica se a senha digitada é a senha padrão
+                bool ehSenhaPadrao = Criptografia.CompararHash(
+                    loginDTO.Senha,
+                    Criptografia.GerarHash(senhaPadrao)
+                );
+
                 var claims = new[]
                 {
-                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado?.IdUsuario.ToString() ?? string.Empty),
-                    new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado?.Email ?? string.Empty),
-                    new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado?.Nome ?? string.Empty),
-                    new Claim("Tipo do usuario", usuarioBuscado?.IdTipoUsuarioNavigation?.TituloTipoUsuario ?? "Desconhecido")
+                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
+                    new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.Nome),
+                    new Claim("TipoUsuario", usuarioBuscado.IdTipoUsuarioNavigation?.TituloTipoUsuario ?? "Desconhecido")
                 };
 
                 var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("collab-tech-file-chave-autenticacao"));
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
                 var token = new JwtSecurityToken(
                     issuer: "CollabTechFile.WebApi",
                     audience: "CollabTechFile.WebApi",
@@ -48,9 +59,11 @@ namespace CollabTechFile.Controllers
                     expires: DateTime.Now.AddMinutes(5),
                     signingCredentials: creds
                 );
+
                 return Ok(new
                 {
-                    token = new JwtSecurityTokenHandler().WriteToken(token)
+                    token = new JwtSecurityTokenHandler().WriteToken(token),
+                    primeiraSenha = ehSenhaPadrao // ✅ FRONT SABE SE TEM QUE REDIRECIONAR
                 });
             }
             catch (Exception e)

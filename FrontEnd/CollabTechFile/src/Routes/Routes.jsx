@@ -17,6 +17,8 @@ import FaleConosco from "../pages/faleConosco/FaleConosco";
 import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie";
 import ModalComentarioCliente from "../pages/cometarioCliente/ModalComentarioCliente";
 import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc";
+import SenhaCliente from "../pages/senhaCliente/SenhaCliente";
+
 
 const Privado = (props) => {
     const { usuario } = useAuth(); // ✅ agora reconhecido corretamente
@@ -55,6 +57,8 @@ const Rotas = () => {
             <Route element={<Privado tipoPermitido="Cliente" Item={DocFinalizadoClie} />} path="/docFinalizadoClie" />
             <Route element={<Privado tipoPermitido="Cliente" Item={ModalComentarioCliente} />} path="/ModalComentarioCliente" />
             <Route element={<Privado tipoPermitido="Funcionario" Item={DocFinalizadoFunc} />} path="/docFinalizadoFunc" />
+            <Route path="/alterar-senha" element={<SenhaCliente />} />
+
 
             
         </Routes>
