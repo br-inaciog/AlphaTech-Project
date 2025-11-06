@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router"
-
 import Login from "../pages/login/Login"
 import Inicio from "../pages/inicio/Inicio"
 import ListagemDoc from "../pages/listagemDoc/listagemDoc"
@@ -13,6 +12,25 @@ import DocAndamentoClie from "../pages/docAndamentoClie/DocAndamentoClie"
 import InicioCliente from "../pages/inicioCliente/InicioCliente"
 import FaleConosco from "../pages/faleConosco/FaleConosco"
 import VisualizarDoc from "../pages/visualizarDoc/Visualizar"
+import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie" 
+import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc"
+
+const Privado = (props) => {
+    const { usuario } = useAuth(); // ✅ agora reconhecido corretamente
+
+    // Se não estiver autenticado, redireciona para login
+    if (!usuario) {
+        return <Navigate to="/" />;
+    }
+
+    // Se o tipo de usuário não for o permitido, redireciona
+    if (usuario.tipoUsuario !== props.tipoPermitido) {
+        return <Navigate to="/" />;
+    }
+
+    // Caso contrário, renderiza o componente autorizado
+    return <props.Item />;
+};
 
 const Rotas = () => {
     return (
@@ -29,11 +47,10 @@ const Rotas = () => {
             <Route element={<DocAndamentoClie />} path="/docAndamentoClie" />
             <Route element={<FaleConosco />} path="/FaleConosco" />
             <Route element={<InicioCliente />} path="/InicioCliente" />
-            <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc/:nomeDocumento/:idDocumento" />
-            <Route element={<DocAndamentoClie />} path="/DocAndamentoClie/:nomeDocumento/:idDocumento" />
-            <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc" />
-            <Route element={<DocAndamentoClie />} path="/DocAndamentoClie/:nomeDocumento/:idDocumento" />
-            <Route element={<VisualizarDoc />} path="/visualizar-doc/:id" />
+            <Route element={<DocFinalizadoClie />} path="/docFinalizadoClie" />
+            <Route element={<DocFinalizadoFunc />} path="/docFinalizadoFunc" />
+            <Route element={<DocAndamentoFunc />}  path="/docAndamentoFunc/:nomeDocumento/:idDocumento" />
+            <Route element={<DocAndamentoClie />}  path="/DocAndamentoClie/:nomeDocumento/:idDocumento" />
         </Routes>
     )
 }

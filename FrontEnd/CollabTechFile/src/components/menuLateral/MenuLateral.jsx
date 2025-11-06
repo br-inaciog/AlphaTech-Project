@@ -23,88 +23,112 @@ export default function MenuLateral() {
         <img src={MenuHb} alt="Abrir menu" />
       </button>
 
-      {/* Sidebar */}
-      <header className={`menuLateral ${menuAberto ? "ativo" : ""}`}>
+      return (
+      <header className="menuLateral">
         <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
-        {acesso == "funcionario" ? (
-          <div className="linksLateral">
-            <Link
-              to="/Inicio"
-              className="links"
-              onClick={() => setMenuAberto(false)}
-            >
-              <img src={Casinha} alt="Casinha" />
-              Início
-            </Link>
 
-            <Link
-              to="/CadastroCliente"
-              className="links"
-              onClick={() => setMenuAberto(false)}
-            >
-              <img src={Cadastrar} alt="Usuário" />
-              Cadastrar Clientes
-            </Link>
+        <div className="linksLateral">
+          <Link to="/Inicio" className="links">
+            <img src={Casinha} alt="Casinha" />
+            Início
+          </Link>
 
-            <Link
-              to="/Listagem"
-              className="links"
-              onClick={() => setMenuAberto(false)}
-            >
-              <img src={Documents} alt="Documentos" />
-              Documentos
-            </Link>
+          <Link to="/CadastroCliente" className="links">
+            <img src={Cadastrar} alt="Usuário" />
+            Cadastrar Clientes
+          </Link>
 
-            <Link
-              to="/TelaCliente"
-              className="links"
-              onClick={() => setMenuAberto(false)}
-            >
-              <img src={Cliente} alt="Clientes" />
-              Clientes
-            </Link>
+          <Link to="/Listagem" className="links">
+            <img src={Documents} alt="Documentos" />
+            Documentos
+          </Link>
 
-            <Link
-              to="/FeedBacks"
-              className="links"
-              onClick={() => setMenuAberto(false)}
-            >
-              <img src={FeedBack} alt="FeedBacks" />
-              Comentários
-            </Link>
-          </div>
-        ) : (
-          <div className="linksLateral">
-            <Link
-              to="/InicioCliente"
-              className="links"
-              onClick={() => setMenuAberto(false)}
-            >
-              <img src={Casinha} alt="Casinha" />
-              Início
-            </Link>
+          <Link to="/TelaCliente" className="links">
+            <img src={Cliente} alt="Clientes" />
+            Clientes
+          </Link>
 
-            <Link
-              to="/FaleConosco"
-              className="links"
-              onClick={() => setMenuAberto(false)}
-            >
-              <img src={fonezinho} alt="fonezinho" />
-              Fale Conosco
-            </Link>
-          </div>
-        )}
+          <Link to="/FeedBacks" className="links">
+            <img src={FeedBack} alt="FeedBacks" />
+            FeedBacks
+          </Link>
+        </div>
 
-        <Link to="/" className="logout" onClick={() => setMenuAberto(false)}>
-          <img src={Logout} alt="Logout" />
+        <Link onClick={handleLogout} to="/" className="logout">
+          <img src={LogoutIcon} alt="Logout" />
           Sair
         </Link>
-      </header>
 
-      {/* Fundo escuro para fechar menu ao clicar fora */}
-      {menuAberto && (
-        <div className="overlay" onClick={() => setMenuAberto(false)} />
-      )}
+        <Link
+          to="/CadastroCliente"
+          className="links"
+          onClick={() => setMenuAberto(false)}
+        >
+          <img src={Cadastrar} alt="Usuário" />
+          Cadastrar Clientes
+        </Link>
+
+        <Link
+          to="/Listagem"
+          className="links"
+          onClick={() => setMenuAberto(false)}
+        >
+          <img src={Documents} alt="Documentos" />
+          Documentos
+        </Link>
+
+        <Link
+          to="/TelaCliente"
+          className="links"
+          onClick={() => setMenuAberto(false)}
+        >
+          <img src={Cliente} alt="Clientes" />
+          Clientes
+        </Link>
+
+        <Link
+          to="/FeedBacks"
+          className="links"
+          onClick={() => setMenuAberto(false)}
+        >
+          <img src={FeedBack} alt="FeedBacks" />
+          Comentários
+        </Link>
+      </div>
+      ) : (
+      <div className="linksLateral">
+        <Link
+          to="/InicioCliente"
+          className="links"
+          onClick={() => setMenuAberto(false)}
+        >
+          <img src={Casinha} alt="Casinha" />
+          Início
+        </Link>
+
+        <Link
+          to="/FaleConosco"
+          className="links"
+          onClick={() => setMenuAberto(false)}
+        >
+          <img src={fonezinho} alt="fonezinho" />
+          Fale Conosco
+        </Link>
+      </div>
+        )}
+
+      <Link to="/" className="logout" onClick={() => setMenuAberto(false)}>
+        <img src={Logout} alt="Logout" />
+        Sair
+      </Link>
+    </header >
+
+      {/* Fundo escuro para fechar menu ao clicar fora */ }
+  {
+    menuAberto && (
+      <div className="overlay" onClick={() => setMenuAberto(false)} />
+    )
+  }
     </>
   );
 }

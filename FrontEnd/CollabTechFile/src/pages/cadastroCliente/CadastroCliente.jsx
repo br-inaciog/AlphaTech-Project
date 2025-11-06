@@ -51,7 +51,7 @@ export default function CadastroCliente() {
   }
 
   function validarSenha(senha) {
-    // Mínimo 8 caracteres, pelo menos 1 número e 1 símbolo
+    // Mínimo 6 caracteres, pelo menos 1 número e 1 símbolo
     const regexSenha = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,}$/;
     return regexSenha.test(senha);
   }
@@ -66,7 +66,7 @@ export default function CadastroCliente() {
     }
 
     if (!validarSenha(senha)) {
-      alertar("warning", "A senha deve ter mínimo 8 caracteres, com números e símbolos.");
+      alertar("warning", "A senha deve ter mínimo 6 caracteres, com números e símbolos.");
       return;
     }
 

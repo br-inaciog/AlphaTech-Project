@@ -13,7 +13,15 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CollabTechFile")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a0ef24f0fa929ff015a65f7e6ba64a58bd93449")]
+=======
+<<<<<<< HEAD
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac02086b6f05046acf0a9fca55eb8ecf5a29ccd9")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2af949eb2de60f5162c0ba13033d12a40c844509")]
+>>>>>>> 2a0ef24f0fa929ff015a65f7e6ba64a58bd93449
+>>>>>>> 83f8e65fd41ffc1d494fa59ebe079d06b5107cb3
 [assembly: System.Reflection.AssemblyProductAttribute("CollabTechFile")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CollabTechFile")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
