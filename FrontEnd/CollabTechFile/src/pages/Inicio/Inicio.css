@@ -243,4 +243,7 @@
    .btnArea{
     margin-right: 5%;
    }
+   .imgArquivo{
+    display: none;
+   }
 }

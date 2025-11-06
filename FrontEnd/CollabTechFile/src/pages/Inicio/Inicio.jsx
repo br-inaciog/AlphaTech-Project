@@ -50,7 +50,7 @@ export default function Inicio() {
                     </div>
                     <article className="documentosActions">
                         <form action="" className="docAction">
-                            <img src={arquivo} alt="Imagem Arquivo" className='imgArquivo' />
+                            <img  src={arquivo} alt="Imagem Arquivo" className='imgArquivo' />
                                 <div className='divAnexar'>
                                     <h4>Anexar Documentação</h4>
                                     <label className='arquivoLabel'>

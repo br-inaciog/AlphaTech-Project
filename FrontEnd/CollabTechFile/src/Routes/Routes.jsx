@@ -15,6 +15,7 @@ import Feedback from "../pages/Feedbacks/Feedback"
 import FaleConosco  from "../pages/faleConosco/FaleConosco"
 import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie" 
 import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc"
+import SenhaCliente from "../pages/senhaCliente/SenhaCliente"
 
 const Rotas = () => {
     return (
@@ -35,6 +36,7 @@ const Rotas = () => {
             <Route element={<Feedback />} path="/FeedBacks" />
             <Route element={<DocFinalizadoClie />} path="/docFinalizadoClie" />
             <Route element={<DocFinalizadoFunc />} path="/docFinalizadoFunc" />
+            <Route element={<SenhaCliente/>} path="/SenhaCliente" />
         </Routes>
     )
 }
