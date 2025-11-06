@@ -15,6 +15,10 @@ public partial class Requisito
     [Unicode(false)]
     public string? Tipo { get; set; }
 
+    [StringLength(250)]
+    [Unicode(false)]
+    public string? TextoReq { get; set; }
+
     [InverseProperty("IdRequisitoNavigation")]
     public virtual ICollection<ReqDoc> ReqDocs { get; set; } = new List<ReqDoc>();
 }

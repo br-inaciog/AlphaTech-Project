@@ -12,6 +12,7 @@ export default function CadastroEmpresa() {
 
   function alertar(icone, mensagem) {
     const Toast = Swal.mixin({
+      theme: 'dark',
       toast: true,
       position: "top-end",
       showConfirmButton: false,

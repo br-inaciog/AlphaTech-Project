@@ -106,6 +106,27 @@ export default function ModalFiltroFuncionario({ onClose, aberto = true, empresa
                         </button>
                     </div>
                 </form>
+                <div className="modalDocumentos">
+                    <h3 className="modalDocumentosTitulo">Documento disponível para alta</h3>
+                    <table className="modalTabela">
+                        <thead>
+                            <tr>
+                                <th>Empresa</th>
+                                <th>Cliente</th>
+                                <th>Documento</th>
+                                <th>Prazo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Empresa</td>
+                                <td>Cliente</td>
+                                <td>Documento</td>
+                                <td>25/10/2025</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>,
         document.body

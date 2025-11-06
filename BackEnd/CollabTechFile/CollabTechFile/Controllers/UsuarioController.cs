@@ -1,6 +1,8 @@
-﻿using CollabTechFile.Interfaces;
+﻿using CollabTechFile.DTO;
+using CollabTechFile.Interfaces;
 using CollabTechFile.Models;
 using CollabTechFile.Repositories;
+using CollabTechFile.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -90,11 +92,37 @@ namespace CollabTechFile.Controllers
                 return BadRequest(e.Message);
             }
         }
+<<<<<<< HEAD
+
+        [HttpPost("RedefinirSenha")]
+        public IActionResult RedefinirSenha(RedefinirSenhaDTO dto)
+        {
+            try
+            {
+                var usuario = _UsuarioRepository.BuscarPorId(dto.IdUsuario);
+
+                if (usuario == null)
+                    return NotFound("Usuário não encontrado");
+
+                usuario.Senha = Criptografia.GerarHash(dto.novaSenha);
+
+                _UsuarioRepository.Editar(usuario.IdUsuario, usuario);
+
+                return Ok("Senha redefinida com sucesso!");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
         //[HttpPut("{id}")]
         //public IActionResult Put(int id, Usuario usuario)
         //{
         //    // Este método é suficiente para edição E exclusão
         //}
+=======
+>>>>>>> 2a0ef24f0fa929ff015a65f7e6ba64a58bd93449
 
     }
 }

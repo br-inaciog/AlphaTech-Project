@@ -2,10 +2,9 @@ import "./CadastroFuncionario.css";
 
 //Importar o seu SweetAlert
 import Swal from 'sweetalert2';
-import MenuLateral from "../../components/menuLateral/MenuLateral";
 import user from "../../assets/img/user.png"
-import Left from "../../assets/img/Voltar.svg"
 import Cadastro from "../../components/cadastro/Cadastro";
+import MenuLateral from "../../components/menuLateral/MenuLateral";
 import { useEffect, useState } from "react";
 import api from "../../services/Service";
 
@@ -25,6 +24,7 @@ export default function CadastroFuncionario() {
 
   function alertar(icone, mensagem) {
     const Toast = Swal.mixin({
+      theme: 'dark',
       toast: true,
       position: "top-end",
       showConfirmButton: false,
@@ -119,9 +119,9 @@ export default function CadastroFuncionario() {
   }
 
   useEffect(() => {
-    listarTipoUsuario();
     listarEmpresa();
-  }, []);
+    listarTipoUsuario();
+  }, [listaEmpresa]);
 
   return (
     <main className="containerGeral">

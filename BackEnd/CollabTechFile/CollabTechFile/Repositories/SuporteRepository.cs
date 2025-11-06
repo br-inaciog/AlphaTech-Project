@@ -41,5 +41,24 @@ namespace CollabTechFile.Repositories
                 throw;
             }
         }
+
+        public void Deletar(int id)
+        {
+            try
+            {
+                Suporte feedBackBuscado = _context.Suportes.Find(id)!;
+
+                if (feedBackBuscado != null)
+                {
+                    _context.Suportes.Remove(feedBackBuscado);
+                }
+
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
