@@ -2,6 +2,21 @@
     text-align: center;
 }
 
+.inputNome input {
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: transparent;
+    width: 50%;
+    font-size: 30px;
+    height: 40px;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.inputNome input:focus {
+    border-left: none;
+}
+
 .infDocumento {
     display: flex;
 }
@@ -15,6 +30,7 @@
     font-size: 1.5rem;
     font-weight: 600;
 }
+
 
 .botaoFiltrarVersoesDoc select {
     width: 50%;
@@ -50,7 +66,7 @@
     flex-direction: column;
     gap: 5px;
     margin-bottom: 2%;
-    width: 50%;
+    width: 100%;
     align-self: center;
     font-size: 1.5rem;
     font-weight: 600;
@@ -58,20 +74,12 @@
 
 .prazoEntrega input {
     border: none;
-    border-bottom: 2px solid black; 
+    border-bottom: 2px solid black;
     background-color: transparent;
 }
 
-.documento {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 600px;
-    margin-bottom: 4%;
-    padding: 4%;
-    border-radius: 20px;
-
-    background-color: aliceblue;
+.prazoEntrega select:focus {
+    background-color: black;
 }
 
 .tituloRN,
@@ -191,33 +199,6 @@
 
 .finalizarDoc:hover {
     transform: scale(1.05);
-}
-
-.salvarDoc {
-    width: 275px;
-    height: 53px;
-    border-radius: 10px;
-    
-    font-size: 24px;
-    color: white;
-    
-    background-color: #1E3A8A;
-    border: none;
-    
-    margin-top: 4%;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.salvarDoc:hover {
-    transform: scale(1.05);
-}
-
-.salvarFinalizarDoc {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 4%;
-    align-items: center;
 }
 
 .areaComentarioDoc {

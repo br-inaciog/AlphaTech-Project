@@ -1,6 +1,6 @@
 import "./docFinalizadoClie.css"
 
-import MenuLateralCliente from "../../components/menuLateralCliente/MenuLateralCliente"
+import MenuLateral from "../../components/menuLateral/MenuLateral"
 import CabecalhoCliente from "../../components/cabecalhoCliente/CabecalhoCliente"
 
 import Assinatura from "../../assets/img/Assinatura.png"
@@ -8,7 +8,7 @@ import Assinatura from "../../assets/img/Assinatura.png"
 export default function DocFinalizadoClie() {
     return (
         <div className="containerGeral'">
-            <MenuLateralCliente />
+            <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
                     <CabecalhoCliente />

@@ -41,8 +41,12 @@ public partial class CollabTechFileContext : DbContext
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+<<<<<<< HEAD
         => optionsBuilder.UseSqlServer("Server=NOTE36-S28\\SQLEXPRESS; Database=CollabTechFile; User Id=sa; Pwd=Senai@134; TrustServerCertificate=true;");
 
+=======
+        => optionsBuilder.UseSqlServer("Server = NOTE06-S28\\SQLEXPRESS; Database=CollabTechFile; User ID=sa; pwd=Senai@134; TrustServerCertificate=true");
+>>>>>>> 2a0ef24f0fa929ff015a65f7e6ba64a58bd93449
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Comentario>(entity =>

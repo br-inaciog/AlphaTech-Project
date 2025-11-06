@@ -92,6 +92,7 @@ namespace CollabTechFile.Controllers
                 return BadRequest(e.Message);
             }
         }
+<<<<<<< HEAD
 
         [HttpPost("RedefinirSenha")]
         public IActionResult RedefinirSenha(RedefinirSenhaDTO dto)
@@ -120,6 +121,8 @@ namespace CollabTechFile.Controllers
         //{
         //    // Este método é suficiente para edição E exclusão
         //}
+=======
+>>>>>>> 2a0ef24f0fa929ff015a65f7e6ba64a58bd93449
 
     }
 }

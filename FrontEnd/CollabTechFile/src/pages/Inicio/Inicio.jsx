@@ -2,7 +2,10 @@ import './Inicio.css';
 import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Usuario from '../../assets/img/User.png';
 import arquivo from '../../assets/img/Arquivo.png';
-import Anexar from '../../assets/img/Upload.svg'
+import Adicionar from '../../assets/img/Adicionar.png'
+import Anexar from '../../assets/img/upload.svg'
+import { Link } from 'react-router';
+// import Escaner from '../../assets/img/Escaner.png'
 
 export default function Inicio() {
     return (
@@ -51,19 +54,32 @@ export default function Inicio() {
                     <article className="documentosActions">
                         <form action="" className="docAction">
                             <img src={arquivo} alt="Imagem Arquivo" className='imgArquivo' />
-                                <div className='divAnexar'>
-                                    <h4>Anexar Documentação</h4>
-                                    <label className='arquivoLabel'>
-                                        <img src={Anexar} alt="Ícone de upload" />
-                                        Anexar Documento
-                                        <input
-                                            type="file"
-                                            className='arquivoInput'
-                                        />
-                                    </label>
+                            <div className='divAnexar'>
+                                <h4>Anexar Documentação</h4>
+                                <label className='arquivoLabel'>
+                                    <img src={Anexar} alt="Ícone de upload" />
+                                    Anexar Documento
+                                    <input
+                                        type="file"
+                                        className='arquivoInput'
+                                    />
+                                </label>
+                                <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
+                                <button className='botaoEnviarDoc'>Enviar</button>
+                            </div>
+                        </form>
+
+                        <form action="" className="docAction">
+                            <img src={Adicionar} alt="" className='imgEscanear' />
+                            <div className='docActionDisplay'>
+                                <div className='divEscanear'>
+                                    <h4>Criar Documento</h4>
                                     <input type="text" placeholder="Nome do Arquivo" className="inputArquivo" />
-                                    <button className='botaoEnviarDoc'>Enviar</button>
+                                    <Link className='botaoEnviarDoc' to="/docAndamentoFunc">
+                                        Enviar
+                                    </Link>
                                 </div>
+                            </div>
                         </form>
 
                         {/* <form action="" className="docAction">
@@ -84,6 +100,7 @@ export default function Inicio() {
                                 </div>
                             </div>
                         </form> */}
+
                     </article>
                 </section>
             </main>

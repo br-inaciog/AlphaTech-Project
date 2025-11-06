@@ -28,6 +28,7 @@ namespace CollabTechFile.Controllers
         {
             try
             {
+
                 Usuario usuarioBuscado = _UsuarioRepository.BuscarPorEmailESenha(loginDTO.Email, loginDTO.Senha);
 
                 if (usuarioBuscado == null)

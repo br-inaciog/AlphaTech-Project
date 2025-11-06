@@ -1,26 +1,25 @@
 import "./docAndamentoClie.css"
 
-import MenuLateralCliente from "../../components/menuLateralCliente/MenuLateralCliente"
+import MenuLateral from "../../components/menuLateral/MenuLateral"
 import CabecalhoCliente from "../../components/cabecalhoCliente/CabecalhoCliente"
 
-import Comentario from "../../assets/img/Comentario.png"
-import { Link } from "react-router-dom"
+import Comentar from "../../assets/img/Comentario.png"
 
-export default function DocAndamentoClie() {
+export default function DocFinalizadoClie() {
     return (
         <div className="containerGeral'">
-            <MenuLateralCliente />
+            <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
                     <CabecalhoCliente />
 
                     <section className="docAndamento">
                         <div className="titulo">
-                            <h1>Documento em Andamento</h1>
+                            <h1>Documento Finalizado</h1>
                         </div>
 
                         <div className="documento">
-                            <p className="docNome">Nome Documento</p>
+                                <p className="docNome">Nome Documento</p>
 
                             <div className="regrasDeNegocio">
                                 <div className="tituloRN">
@@ -60,14 +59,10 @@ export default function DocAndamentoClie() {
                                 </section>
                             </div>
 
-                            {/* <Link to="/ModalComentarioCliente" className="voltar">          */}
-                            <Link to="/ModalComentarioCliente" className="voltar">
                             <div className="comentarioDisplay">
                                 <p>Comentar</p>
-                                <img src={Comentario} alt="Botão de Comentário" />
+                                <img src={Comentar} alt="Botão de Comentário" />
                             </div>
-                            </Link>
-                            {/* </Link> */}
                         </div>
                     </section>
                 </section>

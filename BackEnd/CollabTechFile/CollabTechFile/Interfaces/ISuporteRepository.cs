@@ -10,5 +10,6 @@ namespace CollabTechFile.Interfaces
 
         List<Suporte> Listar();
 
+        void Deletar(int id);
     }
 }

@@ -1,6 +1,6 @@
-import { Route, Routes, Navigate } from "react-router-dom"; // ✅ adicionado Navigate
-import { useAuth } from "../contexts/AuthContext"; // ✅ adicionado useAuth — ajuste o caminho conforme sua pasta
+import { Route, Routes } from "react-router"
 
+<<<<<<< HEAD
 import Login from "../pages/login/Login";
 import Inicio from "../pages/inicio/Inicio";
 import ListagemDoc from "../pages/listagemDoc/listagemDoc";
@@ -36,11 +36,29 @@ const Privado = (props) => {
     // Caso contrário, renderiza o componente autorizado
     return <props.Item />;
 };
+=======
+import Login from "../pages/login/Login"
+import Inicio from "../pages/inicio/Inicio"
+import ListagemDoc from "../pages/listagemDoc/listagemDoc"
+import CadastroCliente from "../pages/CadastroCliente/CadastroCliente"
+import CadastroEmpresa from "../pages/cadastroEmpresa/CadastroEmpresa"
+import CadastroFuncionario from "../pages/cadastroFuncionario/CadastroFuncionario"
+import TelaCliente from "../pages/telaCliente/telaCliente"
+import Lixeira from "../pages/lixeira/Lixeira"
+import DocAndamentoFunc from "../pages/docAndamentoFunc/DocAndamentoFunc"
+import DocAndamentoClie from "../pages/docAndamentoClie/DocAndamentoClie"
+import InicioCliente from "../pages/inicioCliente/InicioCliente"
+import Feedback from "../pages/Feedbacks/Feedback"
+import FaleConosco  from "../pages/faleConosco/FaleConosco"
+import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie" 
+import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc"
+>>>>>>> 2a0ef24f0fa929ff015a65f7e6ba64a58bd93449
 
 const Rotas = () => {
     return (
         <Routes>
             <Route element={<Login />} path="/" exact />
+<<<<<<< HEAD
 
             <Route element={<Privado tipoPermitido="Funcionario" Item={Inicio} />} path="/Inicio" />
             <Route element={<Privado tipoPermitido="Funcionario" Item={ListagemDoc} />} path="/Listagem" />
@@ -61,8 +79,27 @@ const Rotas = () => {
 
 
             
+=======
+            <Route element={<Inicio />} path="/Inicio" />
+            <Route element={<ListagemDoc />} path="/Listagem" />
+            <Route element={<CadastroCliente />} path="/CadastroCliente" />
+            <Route element={<CadastroEmpresa />} path="/CadastroEmpresa" />
+            <Route element={<CadastroFuncionario />} path="/CadastroFuncionario" />
+            <Route element={<TelaCliente />} path="/TelaCliente" />
+            <Route element={<Lixeira />} path="/Lixeira" />
+            <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc" />
+            <Route element={<DocAndamentoClie />} path="/docAndamentoClie" />
+            <Route element={<Feedback /> } path="/FeedBacks" />
+            <Route element={<FaleConosco/> } path="/FaleConosco" />
+            <Route element={<InicioCliente />} path="/InicioCliente" />
+            <Route element={<Feedback />} path="/FeedBacks" />
+            <Route element={<DocFinalizadoClie />} path="/docFinalizadoClie" />
+            <Route element={<DocFinalizadoFunc />} path="/docFinalizadoFunc" />
+            <Route element={<DocAndamentoFunc />}  path="/docAndamentoFunc/:nomeDocumento/:idDocumento" />
+            <Route element={<DocAndamentoClie />}  path="/DocAndamentoClie/:nomeDocumento/:idDocumento" />
+>>>>>>> 2a0ef24f0fa929ff015a65f7e6ba64a58bd93449
         </Routes>
-    );
-};
+    )
+}
 
 export default Rotas;

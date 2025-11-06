@@ -4,18 +4,18 @@ import User from "../../assets/img/UserModoClaro.png";
 import Logo from "../../assets/img/Logo.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../Services/service";
+import api from "../../services/Service";
 import { userDecodeToken } from "../../auth/Auth";
 import secureLocalStorage from "react-secure-storage";
 import { useAuth } from "../../contexts/AuthContext";
-import Swal from "sweetalert2"; // ✅ Import do SweetAlert2
+import Swal from "sweetalert2";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
   const navigate = useNavigate();
-  const { atualizarToken } = useAuth(); // usa a função certa do contexto
+  const { atualizarToken } = useAuth(); 
 
   async function realizarAutenticacao(e) {
   e.preventDefault();
@@ -73,6 +73,7 @@ export default function Login() {
           navigate("/cadastrofuncionario", { replace: true });
         }
       }
+<<<<<<< HEAD
     } catch (error) {
       console.error(error);
 
@@ -91,6 +92,15 @@ export default function Login() {
           confirmButtonColor: "#3085d6",
         });
       }
+=======
+    } else {
+      Swal.fire({
+        title: "Campos vazios!",
+        text: "Preencha todos os campos para realizar o login.",
+        icon: "info",
+        confirmButtonColor: "#3085d6",
+      });
+>>>>>>> 2a0ef24f0fa929ff015a65f7e6ba64a58bd93449
     }
   } else {
     Swal.fire({
@@ -140,7 +150,7 @@ export default function Login() {
         <Botao nomeBotao="Login" />
       </div>
 
-      <img src={Logo} alt="Logo CollabTechFile" />
+      <img className="imgLogo" src={Logo} alt="Logo CollabTechFile" />
     </form>
   );
 }

@@ -24,7 +24,7 @@
 .modalHeader {
     display: flex;
     align-items: center;
-     gap: 280px;   /*Espaçamento entre o ícone de voltar e o título por preguiça */
+     gap: 135px;   
 }
 
 .modalVoltar img{
