@@ -23,8 +23,52 @@ export default function MenuLateral() {
         <img src={MenuHb} alt="Abrir menu" />
       </button>
 
+<<<<<<< HEAD
       return (
       <header className="menuLateral">
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    return (
+        <header className="menuLateral">
+            <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
+
+            <div className="linksLateral">
+                <Link to="/Inicio" className="links">
+                    <img src={Casinha} alt="Casinha" />
+                    Início
+                </Link>
+
+                <Link to="/CadastroCliente" className="links">
+                    <img src={Cadastrar} alt="Usuário" />
+                    Cadastrar Clientes
+                </Link>
+
+                <Link to="/Listagem" className="links">
+                    <img src={Documents} alt="Documentos" />
+                    Documentos
+                </Link>
+
+                <Link to="/TelaCliente" className="links">
+                    <img src={Cliente} alt="Clientes" />
+                    Clientes
+                </Link>
+
+                <Link to="/FeedBacks" className="links">
+                    <img src={FeedBack} alt="FeedBacks" />
+                    FeedBacks
+                </Link>
+            </div>
+
+            <Link onClick={handleLogout} to="/" className="logout">
+                <img src={LogoutIcon} alt="Logout" />
+                Sair
+=======
+>>>>>>> 83f8e65fd41ffc1d494fa59ebe079d06b5107cb3
+      {/* Sidebar */}
+      <header className={`menuLateral ${menuAberto ? "ativo" : ""}`}>
+>>>>>>> 3107e6deda905d8ac4742559aa056f9b71b2bedc
         <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
 
         <div className="linksLateral">
@@ -131,4 +175,8 @@ export default function MenuLateral() {
   }
     </>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 83f8e65fd41ffc1d494fa59ebe079d06b5107cb3

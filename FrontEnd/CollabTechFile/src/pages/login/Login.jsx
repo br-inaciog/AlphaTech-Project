@@ -36,8 +36,48 @@ export default function Login() {
           secureLocalStorage.setItem("tokenLogin", token);
 
           await Swal.fire({
+<<<<<<< HEAD
+            title: "Login realizado!",
+            text: "Redirecionando para a página inicial...",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 800,
+          });
+
+          // ✅ Redirecionamento conforme o tipo de usuário
+          if (tokenDecodificado.tipoUsuario === "Funcionario") {
+            navigate("/Inicio", { replace: true });
+          } else if (tokenDecodificado.tipoUsuario === "Cliente") {
+            navigate("/InicioCliente", { replace: true });
+          } else {
+            navigate("/cadastrofuncionario", { replace: true });
+          }
+        }
+      } catch (error) {
+
+        if (error.response?.status === 400) {
+          Swal.fire({
+            title: "Erro no servidor!",
+            text: "O banco de dados não está acessível. Verifique se o SQL Server está rodando.",
+            icon: "error",
+            confirmButtonColor: "#d33",
+          });
+        } else if (error.response?.status === 401) {
+
+          Swal.fire({
+            title: "Email ou senha inválidos!",
+            text: "Verifique suas credenciais e tente novamente.",
+            icon: "error",
+            confirmButtonColor: "#d33",
+          });
+        } else {
+          Swal.fire({
+            title: "Erro no servidor!",
+            text: "Tente novamente mais tarde.",
+=======
             title: "Atenção!",
             text: "Você está usando a senha padrão. Por favor, redefina sua senha.",
+>>>>>>> 83f8e65fd41ffc1d494fa59ebe079d06b5107cb3
             icon: "warning",
             confirmButtonColor: "#3085d6",
             confirmButtonText: "OK"

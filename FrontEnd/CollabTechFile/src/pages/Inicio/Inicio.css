@@ -17,11 +17,16 @@
     font-size: 1rem;
 }
 
+.docAction img {
+    width: 19%;
+    height: 48%;
+}
+
 .statusDocumentos {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 16px;
+    margin-bottom: 7%;
 }
 
 .statusCard {

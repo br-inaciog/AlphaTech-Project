@@ -355,7 +355,6 @@ C:\Users\50776884867\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTech
 C:\Users\50776884867\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\CollabTechFile.genruntimeconfig.cache
 C:\Users\50776884867\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\ref\CollabTechFile.dll
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 =======
 >>>>>>> 2a0ef24f0fa929ff015a65f7e6ba64a58bd93449
@@ -718,6 +717,9 @@ C:\Users\55562188899\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTech
 C:\Users\55562188899\Desktop\AlphaTech-Project\BackEnd\CollabTechFile\CollabTechFile\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 >>>>>>> 9d9e4f5594ebbf35abea1918aada90cfac87ef94
 >>>>>>> 2a0ef24f0fa929ff015a65f7e6ba64a58bd93449
+>>>>>>> 83f8e65fd41ffc1d494fa59ebe079d06b5107cb3
 >>>>>>> 12bd5f3796d46488c08fd72decd7066f736171e8

@@ -10,24 +10,11 @@ export default function Cabecalho() {
     return (
         <header>
             <nav className="cabecalho">
-                <div className="grupoPesquisa">
-                    <input type="search" placeholder="Pesquisar..."/>
-                    <img src={Lupa} alt="Imagem Lupa" />
-                </div>
-
-                <div className="infCabecalho">
-                    <div className="infUser">
-                        <img src={User} alt="Usuário Img" />
-                        <p>Funcionario</p>
-                    </div>
-                   
-                </div>
-
+                <Link to="/Inicio">
+                    <img className="setaImg" src={Seta} alt="Seta" />
+                </Link>
             </nav>
-            
-            <Link to="/Inicio">
-                <img className="setaImg" src={Seta} alt="Seta" />
-            </Link>
+
         </header>
     )
 }

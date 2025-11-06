@@ -44,9 +44,10 @@
 }
 
 .linksLateral img {
-  width: 46px;
+  width: 33px;
   margin-right: 16px;
 }
+
 
 .logout {
   display: flex;
@@ -90,6 +91,11 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 900;
+}
+
+.logout img {
+  width: 30px;
+  margin-right: 16px;
 }
 
 @media (max-width: 768px) {
