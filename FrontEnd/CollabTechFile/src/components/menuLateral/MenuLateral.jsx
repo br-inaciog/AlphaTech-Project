@@ -30,33 +30,32 @@ export default function MenuLateral() {
       {/* Sidebar */}
       <header className={`menuLateral ${menuAberto ? "ativo" : ""}`}>
         <img src={LogoMenu} alt="Logo CollabTech Menu" className="logoMenu" />
-
-<<<<<<< HEAD
-                {/* <Link to="/CadastroCliente" className="links">
+        <div>
+          {/* <Link to="/CadastroCliente" className="links">
                     <img src={Cadastrar} alt="Usuário" />
                     Cadastrar Clientes
                 </Link> */}
 
-                <Link to="/Listagem" className="links">
-                    <img src={Documents} alt="Documentos" />
-                    Documentos
-                </Link>
+          <Link to="/Listagem" className="links">
+            <img src={Documents} alt="Documentos" />
+            Documentos
+          </Link>
 
-                <Link to="/TelaCliente" className="links">
-                    <img src={Cliente} alt="Clientes" />
-                    Clientes
-                </Link>
+          <Link to="/TelaCliente" className="links">
+            <img src={Cliente} alt="Clientes" />
+            Clientes
+          </Link>
 
-                <Link to="/FeedBacks" className="links">
-                    <img src={FeedBack} alt="Comentario" />
-                    Comentario
-                </Link>
-            </div>
+          <Link to="/FeedBacks" className="links">
+            <img src={FeedBack} alt="Comentario" />
+            Comentario
+          </Link>
+        </div>
 
-            <Link onClick={handleLogout} to="/" className="logout">
-                <img src={LogoutIcon} alt="Logout" />
-                Sair
-=======
+        <Link onClick={handleLogout} to="/" className="logout">
+          <img src={LogoutIcon} alt="Logout" />
+          Sair
+        </Link>
         {/* Se for funcionário */}
         {acesso === "funcionario" ? (
           <div className="linksLateral">
@@ -67,7 +66,6 @@ export default function MenuLateral() {
             >
               <img src={Casinha} alt="Casinha" />
               Início
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
             </Link>
 
             <Link

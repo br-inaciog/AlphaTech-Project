@@ -1,23 +1,17 @@
 import { useEffect, useState } from 'react';
 import Swal from "sweetalert2";
-import api from "../../Services/Service";
+import api from "../../services/Service";
 import './Inicio.css';
 import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Usuario from '../../assets/img/User.png';
-<<<<<<< HEAD
 import Adicionar from '../../assets/img/Adicionar.svg';
 import { useNavigate } from "react-router-dom";
-=======
-import Adicionar from '../../assets/img/Adicionar.png';
+// import Adicionar from '../../assets/img/Adicionar.png';
 import { Link } from 'react-router';
-import { useEffect, useState } from 'react';
-import api from "../../Services/Service";
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
 
 export default function Inicio() {
     const [listaCliente, setListaCliente] = useState([]);
     const [clienteFiltrado, setClienteFiltrado] = useState([]);
-<<<<<<< HEAD
     const [nomeArquivo, setNomeArquivo] = useState("");
     const [nomeDoc, setNomeDoc] = useState("");
     const [pdf, setPdf] = useState("");
@@ -69,26 +63,18 @@ export default function Inicio() {
         }
     }
 
-    async function listarCliente() {
-        try {
-            const resposta = await api.get("Usuario");
-            setListaCliente(resposta.data);
-=======
+        async function listarCliente() {
+            try {
+                const resposta = await api.get("usuario");
+                setListaCliente(resposta.data);
 
-    async function listarCliente() {
-        try {
-            const resposta = await api.get("usuario");
-            setListaCliente(resposta.data);
-
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
-            const apenasClientes = resposta.data.filter(u => u.idTipoUsuario === 3);
-            setClienteFiltrado(apenasClientes);
-        } catch (error) {
-            console.log("Erro ao buscar clientes:", error);
+                const apenasClientes = resposta.data.filter(u => u.idTipoUsuario === 3);
+                setClienteFiltrado(apenasClientes);
+            } catch (error) {
+                console.log("Erro ao buscar clientes:", error);
+            }
         }
-    }
 
-<<<<<<< HEAD
     async function cadastrarDoc(e) {
         e.preventDefault();
 
@@ -123,11 +109,9 @@ export default function Inicio() {
 
     useEffect(() => {
         listarCliente();
-        listarDocumentosPorStatus();
-=======
+        listarDocumentosPorStatus()});
     useEffect(() => {
         listarCliente();
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
     }, []);
 
     return (
@@ -139,11 +123,7 @@ export default function Inicio() {
                         <button className="btnArea">Área de Trabalho</button>
                         <div className="usuarioArea">
                             <img src={Usuario} alt="" />
-                            Funcionário
-<<<<<<< HEAD
-=======
-                            <span className="iconMoon"></span>
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
+                            Funcionário                            <span className="iconMoon"></span>
                         </div>
                     </div>
 
@@ -175,8 +155,6 @@ export default function Inicio() {
                             <span className="statusLabel">Finalizados</span>
                         </div>
                     </div>
-<<<<<<< HEAD
-=======
 
                     <div className="proximaEntregas">
                         <h3>PRÓXIMAS ENTREGAS</h3>
@@ -241,7 +219,6 @@ export default function Inicio() {
                             </div>
                         </form>
                     </article>
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
                 </section>
             </main>
         </div>

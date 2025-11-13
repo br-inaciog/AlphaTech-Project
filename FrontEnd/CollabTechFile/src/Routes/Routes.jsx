@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Route, Routes, Navigate } from "react-router-dom"; // ✅ adicionado Navigate
 import { useAuth } from "../contexts/AuthContext"; // ✅ adicionado useAuth — ajuste o caminho conforme sua pasta
 
@@ -16,27 +15,8 @@ import InicioCliente from "../pages/inicioCliente/InicioCliente";
 import Feedback from "../pages/Feedbacks/Feedback";
 import FaleConosco from "../pages/faleConosco/FaleConosco";
 import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie";
-import ModalComentarioCliente from "../pages/cometarioCliente/ModalComentarioCliente";
+// import ModalComentarioCliente from "../pages/cometarioCliente/ModalComentarioCliente";
 import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc";
-=======
-import { Route, Routes } from "react-router"
-import Login from "../pages/login/Login"
-import Inicio from "../pages/inicio/Inicio"
-import ListagemDoc from "../pages/listagemDoc/listagemDoc"
-import CadastroCliente from "../pages/CadastroCliente/CadastroCliente"
-import CadastroEmpresa from "../pages/cadastroEmpresa/CadastroEmpresa"
-import CadastroFuncionario from "../pages/cadastroFuncionario/CadastroFuncionario"
-import TelaCliente from "../pages/telaCliente/telaCliente"
-import Lixeira from "../pages/lixeira/Lixeira"
-import DocAndamentoFunc from "../pages/docAndamentoFunc/DocAndamentoFunc"
-import DocAndamentoClie from "../pages/docAndamentoClie/DocAndamentoClie"
-import InicioCliente from "../pages/inicioCliente/InicioCliente"
-import FaleConosco from "../pages/faleConosco/FaleConosco"
-// import VisualizarDoc from "../pages/visualizarDoc/Visualizar"
-import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie" 
-import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc"
-import { useAuth } from "../contexts/AuthContext"
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
 
 const Privado = (props) => {
     const { usuario } = useAuth(); // ✅ agora reconhecido corretamente

@@ -61,9 +61,9 @@ namespace CollabTechFile.Repositories
             return _context.Documentos.FirstOrDefault(x => x.IdDocumento == id);
         }
 
-        public Documento BuscarPorId(int id)
-        {
-            return _context.Documentos.FirstOrDefault(x => x.IdDocumento == id);
-        }
+        //public Documento BuscarPorId(int id)
+        //{
+        //    return _context.Documentos.FirstOrDefault(x => x.IdDocumento == id);
+        //}
     }
 }

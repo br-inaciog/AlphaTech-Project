@@ -1,6 +1,9 @@
 ﻿using CollabTechFile.Models;
 using CollabTechFile.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using CollabTechFile.Services;
+using CollabTechFile.Models;
+
 
 namespace CollabTechFile.Controllers
 {
@@ -9,7 +12,6 @@ namespace CollabTechFile.Controllers
     public class DocumentosController : ControllerBase
     {
         private readonly IDocumentoRepository _documentoRepository;
-<<<<<<< HEAD
         private readonly OCRService _ocrService; 
         private readonly IConfiguration _configuration; 
         public DocumentosController(IDocumentoRepository documentoRepository, OCRService ocrService, IConfiguration configuration) 
@@ -88,12 +90,6 @@ namespace CollabTechFile.Controllers
         //    _documentoRepository = documentoRepository;
         //}
 
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var documentos = _documentoRepository.Listar(); // sem filtro
-=======
-
         public DocumentosController(IDocumentoRepository documentoRepository)
         {
             _documentoRepository = documentoRepository;
@@ -105,7 +101,6 @@ namespace CollabTechFile.Controllers
             var documentos = _documentoRepository.Listar()
                 .Where(d => d.Status == true);
 
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
             return Ok(documentos);
         }
 
@@ -122,7 +117,6 @@ namespace CollabTechFile.Controllers
         public IActionResult Inativar(int id)
         {
             var documento = _documentoRepository.BuscarPorId(id);
-<<<<<<< HEAD
 
             if (documento == null)
                 return NotFound("Documento não encontrado.");
@@ -147,6 +141,42 @@ namespace CollabTechFile.Controllers
             return Ok("Documento restaurado com sucesso.");
         }
 
+        //[HttpDelete("Excluir/{id}")]
+        //public IActionResult Excluir(int id)
+        //{
+        //    var documento = _documentoRepository.BuscarPorId(id);
+
+        //    if (documento == null)
+        //        return NotFound("Documento não encontrado.");
+
+        //    _documentoRepository.Deletar(id);
+        //    return Ok("Documento excluído permanentemente.");
+        //}
+
+
+        //    if (documento == null)
+        //        return NotFound("Documento não encontrado.");
+
+        //    documento.Status = false;
+
+        //    _documentoRepository.Editar(id, documento);
+        //    return Ok("Documento movido para a lixeira com sucesso.");
+        //}
+
+        //[HttpPut("Restaurar/{id}")]
+        //public IActionResult Restaurar(int id)
+        //{
+        //    var documento = _documentoRepository.BuscarPorId(id);
+
+        //    if (documento == null)
+        //        return NotFound("Documento não encontrado.");
+
+        //    documento.Status = true;
+
+        //    _documentoRepository.Editar(id, documento);
+        //    return Ok("Documento restaurado com sucesso.");
+        //}
+
         [HttpDelete("Excluir/{id}")]
         public IActionResult Excluir(int id)
         {
@@ -158,43 +188,5 @@ namespace CollabTechFile.Controllers
             _documentoRepository.Deletar(id);
             return Ok("Documento excluído permanentemente.");
         }
-
-=======
-
-            if (documento == null)
-                return NotFound("Documento não encontrado.");
-
-            documento.Status = false;
-
-            _documentoRepository.Editar(id, documento);
-            return Ok("Documento movido para a lixeira com sucesso.");
-        }
-
-        [HttpPut("Restaurar/{id}")]
-        public IActionResult Restaurar(int id)
-        {
-            var documento = _documentoRepository.BuscarPorId(id);
-
-            if (documento == null)
-                return NotFound("Documento não encontrado.");
-
-            documento.Status = true;
-
-            _documentoRepository.Editar(id, documento);
-            return Ok("Documento restaurado com sucesso.");
-        }
-
-        [HttpDelete("Excluir/{id}")]
-        public IActionResult Excluir(int id)
-        {
-            var documento = _documentoRepository.BuscarPorId(id);
-
-            if (documento == null)
-                return NotFound("Documento não encontrado.");
-
-            _documentoRepository.Deletar(id);
-            return Ok("Documento excluído permanentemente.");
-        }
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
     }
 }

@@ -1,9 +1,5 @@
 import "./ListagemDoc.css";
-<<<<<<< HEAD
 import api from "../../services/Service";
-=======
-import api from "../../Services/Service";
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -17,7 +13,6 @@ import Swal from "sweetalert2";
 export default function ListagemDoc() {
     const [listagemDoc, setListagemDoc] = useState([]);
     const [hoverIndex, setHoverIndex] = useState(null);
-<<<<<<< HEAD
     const [filtro, setFiltro] = useState("Todos");
     const location = useLocation();
     const navigate = useNavigate();
@@ -25,9 +20,7 @@ export default function ListagemDoc() {
     // Pega o status da URL (/documentos?status=pendente)
     const params = new URLSearchParams(location.search);
     const statusFiltro = params.get("status");
-=======
-    const [filtro, setFiltro] = useState("Todos"); 
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
+    // const [filtro, setFiltro] = useState("Todos"); 
 
     async function listarDocumentos() {
         try {
@@ -40,14 +33,11 @@ export default function ListagemDoc() {
 
     async function excluirDocumento(idDocumento) {
         Swal.fire({
-<<<<<<< HEAD
             title: "Mover para a lixeira?",
             text: "O documento NÃO será excluído definitivamente.",
-=======
             title: "Excluir documento?",
             text: "O documento irá para a lixeira.",
             theme: "dark",
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
             icon: "warning",
             showCancelButton: true,
             confirmButtonText: "Mover para lixeira",
@@ -55,13 +45,10 @@ export default function ListagemDoc() {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-<<<<<<< HEAD
                     await api.delete(`/Documentos/${idDocumento}`);
                     Swal.fire("Pronto!", "Documento movido para a lixeira.", "success");
-=======
                     await api.preventDefault(`/Documentos/${id.idDocumento}`);
                     Swal.fire("Excluído!", "O documento foi enviado para a lixeira.", "success");
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
                     listarDocumentos();
                 } catch (error) {
                     console.error("Erro:", error);
@@ -70,7 +57,6 @@ export default function ListagemDoc() {
             }
         });
     }
-<<<<<<< HEAD
 
     // Quando a página carrega, define o filtro inicial baseado na URL
     useEffect(() => {
@@ -107,16 +93,14 @@ export default function ListagemDoc() {
         setFiltro("Todos");
         navigate("/Listagem"); // remove o ?status da URL
     }
-=======
     useEffect(() => {
         listarDocumentos();
     }, []);
 
-    const documentosFiltrados = listagemDoc.filter((doc) => { //Serve para filtrar os documentos na base do filtro
-        if (filtro === "Todos") return true;
-        return doc.status === filtro;
-    });
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
+    // const documentosFiltrados = listagemDoc.filter((doc) => { //Serve para filtrar os documentos na base do filtro
+    //     if (filtro === "Todos") return true;
+    //     return doc.status === filtro;
+    // });
 
     return (
         <div className="containerGeral">
@@ -134,11 +118,7 @@ export default function ListagemDoc() {
                     <div className="botaoFiltraLixeira">
                         <div className="botaoFiltrar">
                             <select
-<<<<<<< HEAD
-                               value={filtro}
-=======
                                 value={filtro}
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
                                 onChange={(e) => setFiltro(e.target.value)}
                             >
                                 <option value="Todos">Todos</option>
@@ -180,18 +160,15 @@ export default function ListagemDoc() {
                                     >
                                         <img src={Pdf} alt="Icone de Pdf" />
                                         <div className="cardInformacoes">
-<<<<<<< HEAD
                                             <h1>{doc.nome}</h1>
                                             <p>{new Date(doc.criadoEm).toLocaleDateString()}</p>
                                             <p>
                                                 Versão: <span>{doc.versao || "1.0"}</span>
                                             </p>
-=======
                                             <h1>{doc.nome || "Sem título"}</h1>
                                             <p>Prazo: <span>{new Date(doc.criadoEm).toLocaleDateString('pt-BR') || "Sem data"}</span></p>
                                             <p>Versão: <span>{doc.versao || "Sem Versão"}</span></p>
                                             <p>Autor: <span>{doc.idUsuarioNavigation?.nome || "Autor desconhecido"}</span></p>
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
                                         </div>
 
                                         <div className="cardAcoes">

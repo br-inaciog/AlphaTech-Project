@@ -10,7 +10,6 @@ export default function Cabecalho(props) {
     return (
         <header>
             <nav className="cabecalho">
-<<<<<<< HEAD
                 {/* <div className="grupoPesquisa">
                     <input type="search" placeholder="Pesquisar..."/>
                     <img src={Lupa} alt="Imagem Lupa" />
@@ -25,17 +24,15 @@ export default function Cabecalho(props) {
                 </div>
 
             </nav>
-            
-            <Link to={`/${props.rota}`}>
-                <img className="setaImg" src={Seta} alt="Seta" />
-            </Link>
-=======
-                <Link to="/Inicio">
+            <nav>
+                <Link to={`/${props.rota}`}>
                     <img className="setaImg" src={Seta} alt="Seta" />
                 </Link>
+                    <Link to="/Inicio">
+                        <img className="setaImg" src={Seta} alt="Seta" />
+                    </Link>
             </nav>
 
->>>>>>> c18272c728dd0f0337659ea63e5a7c9a06eb5bc6
         </header>
     )
 }

@@ -5,7 +5,7 @@ import Cabecalho from "../../components/cabecalho/Cabecalho"
 
 import Comentario from "../../assets/img/Assinatura.png"
 import { useEffect, useState } from "react"
-import api from "../../Services/Service"
+import api from "../../services/Service"
 
 export default function DocFinalizadoFunc() {
 
