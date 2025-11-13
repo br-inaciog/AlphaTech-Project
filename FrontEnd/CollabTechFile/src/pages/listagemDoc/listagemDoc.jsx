@@ -1,7 +1,7 @@
 import "./ListagemDoc.css";
-import api from "../../Services/service";
+import api from "../../services/Service";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import MenuLateral from "../../components/menuLateral/MenuLateral";
 import Cabecalho from "../../components/cabecalho/Cabecalho";
@@ -14,67 +14,98 @@ import Swal from "sweetalert2";
 export default function ListagemDoc() {
     const [listagemDoc, setListagemDoc] = useState([]);
     const [hoverIndex, setHoverIndex] = useState(null);
-    const [filtro, setFiltro] = useState("Todos"); //Vai fazer iniciar com todos os documentos
+    const [filtro, setFiltro] = useState("Todos");
+    const location = useLocation();
+    const navigate = useNavigate();
 
-    
-    // Função para buscar documentos da API
+    // Pega o status da URL (/documentos?status=pendente)
+    const params = new URLSearchParams(location.search);
+    const statusFiltro = params.get("status");
+
     async function listarDocumentos() {
         try {
             const resposta = await api.get("Documentos");
             setListagemDoc(resposta.data);
-            console.log(resposta.data);
         } catch (error) {
             console.error("Erro ao listar documentos:", error);
         }
     }
 
-    // Função para excluir documento (vai para lixeira)
-    async function excluirDocumento(id) {
+    async function excluirDocumento(idDocumento) {
         Swal.fire({
-            title: "Excluir documento?",
-            text: "O documento irá para a lixeira.",
+            title: "Mover para a lixeira?",
+            text: "O documento NÃO será excluído definitivamente.",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonText: "Sim, excluir!",
+            confirmButtonText: "Mover para lixeira",
             cancelButtonText: "Cancelar"
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await api.delete(`/Documentos/${id}`); // <- Se sua rota for diferente, ajuste aqui
-                    Swal.fire("Excluído!", "O documento foi enviado para a lixeira.", "success");
-                    listarDocumentos(); // Atualiza lista
+                    await api.delete(`/Documentos/${idDocumento}`);
+                    Swal.fire("Pronto!", "Documento movido para a lixeira.", "success");
+                    listarDocumentos();
                 } catch (error) {
-                    console.error("Erro ao excluir:", error);
-                    Swal.fire("Erro!", "Não foi possível excluir o documento.", "error");
+                    console.error("Erro:", error);
+                    Swal.fire("Erro!", "Não foi possível mover para a lixeira.", "error");
                 }
             }
         });
     }
-    
+
+    // Quando a página carrega, define o filtro inicial baseado na URL
     useEffect(() => {
         listarDocumentos();
-    }, []);
-    
-    const documentosFiltrados = listagemDoc.filter((doc) => { //Serve para filtrar os documentos na base do filtro
-        if(filtro === "Todos") return true;
-        return doc.status === filtro;
-    });
+
+        if (statusFiltro === "pendente") setFiltro("Pendentes");
+        else if (statusFiltro === "assinado") setFiltro("Assinados");
+        else if (statusFiltro === "finalizado") setFiltro("Finalizados");
+        else setFiltro("Todos");
+    }, [statusFiltro]);
+
+    // Aplica o filtro da URL ou o selecionado
+    let documentosFiltrados = listagemDoc;
+
+    if (filtro === "Pendentes") {
+        documentosFiltrados = listagemDoc.filter((d) => d.status === false);
+    } else if (filtro === "Assinados") {
+            documentosFiltrados = listagemDoc.filter((d) => d.assinadoEm !== null);
+    } else if (filtro === "Finalizados") {
+            documentosFiltrados = listagemDoc.filter((d) => d.status === true);
+    }
+
+    // Define o título dinamicamente
+    const tituloPagina = filtro === "Pendentes"
+        ? "Documentos Pendentes"
+        : filtro === "Assinados"
+        ? "Documentos Assinados"
+        : filtro === "Finalizados"
+        ? "Documentos Finalizados"
+        : "Todos os Documentos"
+    ;
+
+    function limparFiltro() {
+        setFiltro("Todos");
+        navigate("/Listagem"); // remove o ?status da URL
+    }
 
     return (
         <div className="containerGeral">
             <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <Cabecalho />
+                    <Cabecalho 
+                        rota="Inicio"
+                    />
 
                     <div className="titulo">
-                        <h1>Documentos</h1>
+                      <h1>{tituloPagina}</h1>
                     </div>
 
                     <div className="botaoFiltraLixeira">
                         <div className="botaoFiltrar">
-                            <select 
-                                value={filtro}
+                            <select
+                               value={filtro}
                                 onChange={(e) => setFiltro(e.target.value)}
                             >
                                 <option value="Todos">Todos</option>
@@ -82,10 +113,21 @@ export default function ListagemDoc() {
                                 <option value="Assinados">Assinados</option>
                                 <option value="Finalizados">Finalizados</option>
                             </select>
+
+                            <button className="botaoLimparFiltro" onClick={() => setFiltro("Todos")}>
+                                Limpar Filtro
+                            </button>
+
+                            {/* Botão de limpar filtro
+                            <button
+                                onClick={limparFiltro}
+                                className="botaoLimpar"
+                            >
+                                Limpar filtro
+                            </button> */}
                         </div>
 
                         <Link className="botaoLixeiraList" to="/Lixeira">
-                            <img src={Lixeira} alt="Lixeira" />
                             <p>Excluídos</p>
                         </Link>
                     </div>
@@ -94,7 +136,7 @@ export default function ListagemDoc() {
                         {documentosFiltrados.length > 0 ? (
                             documentosFiltrados.map((doc, index) => (
                                 <div
-                                    key={index}
+                                    key={doc.idDocumento}
                                     className="cardContainer"
                                     onMouseEnter={() => setHoverIndex(index)}
                                     onMouseLeave={() => setHoverIndex(null)}
@@ -102,9 +144,11 @@ export default function ListagemDoc() {
                                     <Link to="/docAndamentoFunc" className="cardDocumento">
                                         <img src={Pdf} alt="Icone de Pdf" />
                                         <div className="cardInformacoes">
-                                            <h1>{doc.titulo || "Sem título"}</h1>
-                                            <p>{doc.data || "Sem data"} — {doc.autor || "Autor desconhecido"}</p>
-                                            <p>Versão: <span>{doc.versao || "1.0"}</span></p>
+                                            <h1>{doc.nome}</h1>
+                                            <p>{new Date(doc.criadoEm).toLocaleDateString()}</p>
+                                            <p>
+                                                Versão: <span>{doc.versao || "1.0"}</span>
+                                            </p>
                                         </div>
 
                                         <div className="cardAcoes">
@@ -112,28 +156,20 @@ export default function ListagemDoc() {
                                                 <img src={Editar} alt="Editar" />
                                             </div>
 
-                                            {/* Ícone de excluir corrigido */}
                                             <div className="infAcoes">
                                                 <img
                                                     src={Excluir}
                                                     alt="Excluir"
                                                     onClick={(e) => {
-                                                        e.preventDefault();   // Impede abrir o link
-                                                        e.stopPropagation(); // Impede evento do card
-                                                        excluirDocumento(doc.id);
+                                                        e.preventDefault();
+                                                        e.stopPropagation();
+                                                        excluirDocumento(doc.idDocumento);
                                                     }}
                                                     style={{ cursor: "pointer" }}
                                                 />
                                             </div>
                                         </div>
                                     </Link>
-
-                                    {hoverIndex === index && (
-                                        <div className="mensagemDoc show">
-                                            <p className="tituloMensagem">Anotações:</p>
-                                            <p>{doc.anotacao || "Mensagem escrita pelo proprietário..."}</p>
-                                        </div>
-                                    )}
                                 </div>
                             ))
                         ) : (

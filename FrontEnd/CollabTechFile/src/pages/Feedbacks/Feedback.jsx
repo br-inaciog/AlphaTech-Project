@@ -53,11 +53,13 @@ export default function Feedback() {
             <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <Cabecalho />
+                    <Cabecalho 
+                        rota="Inicio"
+                    />
 
                     <section className="docAndamento">
                         <div className="titulo">
-                            <h1>FeedBack</h1>
+                            <h1>Cometarios</h1>
                         </div>
 
                         <div className="listaFeedbacks">

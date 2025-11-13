@@ -5,17 +5,40 @@
     gap: 2%;
 }
 
+.botaoFiltrar {
+    display: flex;
+}
+
+.botaoLimparFiltro {
+    width: 120px;
+    height: 43px;
+    font-size: 1rem;
+    border-radius: 0 10px 10px 0;
+    padding: 2%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #35486c;
+    transition: 0.3s ease;
+}
+
 .botaoFiltrar select {
     width: 160px;
     height: 43px;
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
     border: none;
     cursor: pointer;
     font-size: 1.1rem;
     padding: 4%;
-
     color: white;
     background-color: #001337;
+    -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius: 10px 0 0 10px;
+    -ms-border-radius: 10px 0 0 10px;
+    -o-border-radius: 10px 0 0 10px;
 }
 
 .botaoLixeiraList {
@@ -127,3 +150,8 @@
     padding: 10px 15px;
     box-shadow: inset 0px 0px 10px 0 rgba(20, 20, 20, 0.2);
 }
+
+/* .botaoLimparFiltro:hover {
+    background-color: #2f2f2f;
+    transform: scale(1.03);
+} */

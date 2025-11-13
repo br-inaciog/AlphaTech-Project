@@ -6,14 +6,14 @@ import User from "../../assets/img/User.png"
 import Seta from "../../assets/img/Seta.png"
 import { Link } from "react-router-dom"
 
-export default function Cabecalho() {
+export default function Cabecalho(props) {
     return (
         <header>
             <nav className="cabecalho">
-                <div className="grupoPesquisa">
+                {/* <div className="grupoPesquisa">
                     <input type="search" placeholder="Pesquisar..."/>
                     <img src={Lupa} alt="Imagem Lupa" />
-                </div>
+                </div> */}
 
                 <div className="infCabecalho">
                     <div className="infUser">
@@ -25,7 +25,7 @@ export default function Cabecalho() {
 
             </nav>
             
-            <Link to="/Inicio">
+            <Link to={`/${props.rota}`}>
                 <img className="setaImg" src={Seta} alt="Seta" />
             </Link>
         </header>

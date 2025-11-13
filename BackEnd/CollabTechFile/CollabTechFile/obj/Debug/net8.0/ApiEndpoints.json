@@ -53,9 +53,51 @@
   },
   {
     "ContainingType": "CollabTechFile.Controllers.DocumentosController",
-    "Method": "EnviarParaLixeira",
-    "RelativePath": "api/Documentos/{id}",
+    "Method": "Excluir",
+    "RelativePath": "api/Documentos/Excluir/{id}",
     "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.DocumentosController",
+    "Method": "Inativar",
+    "RelativePath": "api/Documentos/Inativar/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.DocumentosController",
+    "Method": "ListarLixeira",
+    "RelativePath": "api/Documentos/Lixeira",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CollabTechFile.Controllers.DocumentosController",
+    "Method": "Restaurar",
+    "RelativePath": "api/Documentos/Restaurar/{id}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [

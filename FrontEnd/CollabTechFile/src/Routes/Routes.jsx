@@ -2,7 +2,7 @@ import { Route, Routes, Navigate } from "react-router-dom"; // ✅ adicionado Na
 import { useAuth } from "../contexts/AuthContext"; // ✅ adicionado useAuth — ajuste o caminho conforme sua pasta
 
 import Login from "../pages/login/Login";
-import Inicio from "../pages/inicio/Inicio";
+import Inicio from "../pages/Inicio/Inicio";
 import ListagemDoc from "../pages/listagemDoc/listagemDoc";
 import CadastroCliente from "../pages/cadastroCliente/CadastroCliente";
 import CadastroEmpresa from "../pages/cadastroEmpresa/CadastroEmpresa";

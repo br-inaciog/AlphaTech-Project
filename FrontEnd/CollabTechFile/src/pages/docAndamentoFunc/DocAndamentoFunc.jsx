@@ -12,7 +12,9 @@ export default function DocAndamentoFunc() {
             <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <Cabecalho />
+                    <Cabecalho 
+                        rota="Inicio"
+                    />
 
                     <section className="docAndamento">
                         <div className="titulo">

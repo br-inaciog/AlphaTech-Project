@@ -12,24 +12,18 @@ namespace CollabTechFile.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Produces("application/json")]
     public class DocumentosController : ControllerBase
     {
         private readonly IDocumentoRepository _documentoRepository;
-        private readonly OCRService _ocrService;
-        private readonly IConfiguration _configuration;
-
-        public DocumentosController(
-            IDocumentoRepository documentoRepository,
-            OCRService ocrService,
-            IConfiguration configuration)
-        {
-            _documentoRepository = documentoRepository;
-            _ocrService = ocrService;
-            _configuration = configuration;
+        private readonly OCRService _ocrService; 
+        private readonly IConfiguration _configuration; 
+        public DocumentosController(IDocumentoRepository documentoRepository, OCRService ocrService, IConfiguration configuration) 
+        { 
+            _documentoRepository = documentoRepository; 
+            _ocrService = ocrService; 
+            _configuration = configuration; 
         }
 
-        //[Authorize]
         [HttpPost("upload-ocr")]
         public async Task<IActionResult> UploadOCR([FromForm] UploadOCRRequest request)
         {
@@ -94,59 +88,66 @@ namespace CollabTechFile.Controllers
             }
         }
 
-        //[Authorize]
+        //public DocumentosController(IDocumentoRepository documentoRepository)
+        //{
+        //    _documentoRepository = documentoRepository;
+        //}
+
         [HttpGet]
         public IActionResult Get()
         {
-            try
-            {
-                List<Documento> listarDocumentos = _documentoRepository.Listar();
-                return Ok(listarDocumentos);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var documentos = _documentoRepository.Listar(); // sem filtro
+            return Ok(documentos);
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult EnviarParaLixeira(int id)
+        [HttpGet("Lixeira")]
+        public IActionResult ListarLixeira()
         {
-            try
-            {
-                // Criar apenas o objeto com o ID e o campo da lixeira
-                var documento = new Documento
-                {
-                    IdDocumento = id,
-                    Status = true
-                };
+            var documentos = _documentoRepository.Listar()
+                .Where(d => d.Status == false);
 
-                // Apenas atualiza o campo no banco (sem buscar antes)
-                _documentoRepository.Editar(id, documento);
-
-                return Ok("Documento enviado para a lixeira com sucesso.");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Erro ao enviar para a lixeira: {ex.Message}");
-            }
+            return Ok(documentos);
         }
 
+        [HttpPut("Inativar/{id}")]
+        public IActionResult Inativar(int id)
+        {
+            var documento = _documentoRepository.BuscarPorId(id);
 
-        //[HttpPut("{id}")]
-        //public IActionResult Put(int id, Documento documento)
-        //{
-        //    try
-        //    {
-        //        documento.IdDocumento = id;
-        //        _documentoRepository.Editar(id, documento);
-        //        return NoContent();
-        //    } catch(Exception e)
-        //    {
-        //        return BadRequest(e.Message);
-        //    }
-        //}
+            if (documento == null)
+                return NotFound("Documento não encontrado.");
+
+            documento.Status = false;
+
+            _documentoRepository.Editar(id, documento);
+            return Ok("Documento movido para a lixeira com sucesso.");
+        }
+
+        [HttpPut("Restaurar/{id}")]
+        public IActionResult Restaurar(int id)
+        {
+            var documento = _documentoRepository.BuscarPorId(id);
+
+            if (documento == null)
+                return NotFound("Documento não encontrado.");
+
+            documento.Status = true;
+
+            _documentoRepository.Editar(id, documento);
+            return Ok("Documento restaurado com sucesso.");
+        }
+
+        [HttpDelete("Excluir/{id}")]
+        public IActionResult Excluir(int id)
+        {
+            var documento = _documentoRepository.BuscarPorId(id);
+
+            if (documento == null)
+                return NotFound("Documento não encontrado.");
+
+            _documentoRepository.Deletar(id);
+            return Ok("Documento excluído permanentemente.");
+        }
+
     }
-
 }
-

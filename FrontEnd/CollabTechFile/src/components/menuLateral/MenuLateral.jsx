@@ -29,10 +29,10 @@ export default function MenuLateral() {
                     Início
                 </Link>
 
-                <Link to="/CadastroCliente" className="links">
+                {/* <Link to="/CadastroCliente" className="links">
                     <img src={Cadastrar} alt="Usuário" />
                     Cadastrar Clientes
-                </Link>
+                </Link> */}
 
                 <Link to="/Listagem" className="links">
                     <img src={Documents} alt="Documentos" />
@@ -45,8 +45,8 @@ export default function MenuLateral() {
                 </Link>
 
                 <Link to="/FeedBacks" className="links">
-                    <img src={FeedBack} alt="FeedBacks" />
-                    FeedBacks
+                    <img src={FeedBack} alt="Comentario" />
+                    Comentario
                 </Link>
             </div>
 

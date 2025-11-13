@@ -164,17 +164,19 @@ export default function TelaCliente() {
             <MenuLateral />
             <main className="conteudoPrincipal clientePrincipal">
                 <section className="areaTrabalho">
-                    <Cabecalho />
+                    <Cabecalho 
+                        rota="Inicio"
+                    />
                     <div className="titulo">
                         <h1>Tela Clientes</h1>
                         {loading && <p>Carregando...</p>}
-                        <input
+                        {/* <input
                             type="text"
-                            placeholder="Pesquisar cliente..."
-                            value={pesquisa}
-                            onChange={handlePesquisa}
+                            // placeholder="Pesquisar cliente..."
+                            // value={pesquisa}
+                            // onChange={handlePesquisa}
                             style={{ marginTop: '10px', padding: '5px', width: '250px' }}
-                        />
+                        /> */}
                     </div>
                     <div className="tabelaClienteContainer">
                         <table className="tabelaCliente">
@@ -191,7 +193,7 @@ export default function TelaCliente() {
                                 {(clientesFiltrados.length === 0 && !loading) || empresas.length === 0 ? (
                                     <tr>
                                         <td colSpan="6" style={{ textAlign: 'center' }}>
-                                            {empresas.length === 0 ? 'Carregando empresas...' : 'Nenhum cliente encontrado'}
+                                            {empresas.length === 0 ? 'Carregando clientes...' : 'Nenhum cliente encontrado'}
                                         </td>
                                     </tr>
                                 ) : (

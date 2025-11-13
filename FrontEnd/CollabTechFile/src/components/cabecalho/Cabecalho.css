@@ -1,4 +1,4 @@
-.grupoPesquisa {
+/* .grupoPesquisa {
     position: relative;
 }
 
@@ -32,7 +32,7 @@
 .grupoPesquisa input:focus {
     border-width: 2px;
     border-bottom-color: #0a2a6c;
-}
+} */
 
 .cabecalho {
     display: flex;
