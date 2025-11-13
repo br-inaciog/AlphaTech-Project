@@ -1,22 +1,12 @@
-body, #root {
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background: #fff;
-}
-
-.modal-documento-outer {
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
- background: linear-gradient(135deg, #0d0d0d, #001f3f, #0a2a6c);
   z-index: 999;
+  animation: fadeIn 0.2s ease;
 }
 
 .modal-documento-container {
@@ -26,6 +16,7 @@ body, #root {
   box-shadow: 0 0 24px #0002;
   padding: 32px 24px;
   position: relative;
+  animation: scaleUp 0.2s ease;
 }
 
 .modalDocumentoHeader {
@@ -42,6 +33,13 @@ body, #root {
   font-size: 2rem;
   cursor: pointer;
   margin-right: 16px;
+}
+
+.modalDocumentoVoltar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .modalDocumentoTitulo {
@@ -86,7 +84,7 @@ body, #root {
   cursor: pointer;
 }
 
-.modalDocumentoPublicar{
+.modalDocumentoPublicar {
   background: #1E3A8A;
   color: #fff;
   border: none;
@@ -96,21 +94,7 @@ body, #root {
   cursor: pointer;
 }
 
-.modalDocumentoHeader img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; 
-    object-fit: cover; 
-}
-
 .textoSalvamento {
-    /* font-size: 1.2rem; */
-    font-weight: bold;
-    margin-bottom: 8px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
-
-/* .titleH3 h3 {
-    width: 20px;
-    height: 20px;
-    
-} */

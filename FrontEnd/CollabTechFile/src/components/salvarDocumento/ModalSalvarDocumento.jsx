@@ -1,48 +1,42 @@
-import React, { useState } from "react";
 import "./ModalSalvarDocumento.css";
+import React, { useState } from "react";
 import voltar from "../../assets/img/Voltar.svg";
-import { Link } from "react-router";
 
-const ModalSalvarDocumento = ({ nomeDocumento = "Prazo de entrega ", onCancel, onPublish }) => {
+const ModalSalvarDocumento = ({ nomeDocumento = "Prazo de entrega", onCancel, onPublish }) => {
   const [documento, setDocumento] = useState("");
 
   return (
-    <div className="modal-documento-outer">
-      <div className="modal-documento-container">
-        
+    <div className="modal-overlay">
+      <div className="modal-documento-container modalAnimado">
+
         <div className="modalDocumentoHeader">
-          <Link
-          to="/docAndamentoClie"
-            className="modalCDocumentoVoltar" 
+          <button
+            className="modalDocumentoVoltar"
             onClick={onCancel}
             aria-label="Voltar"
           >
-            <img src={voltar} alt="" />
+            <img src={voltar} alt="Voltar" />
+          </button>
 
-          </Link>
-          <h2 className="modalDocumentoTitulo">
-            Nome Documento
-          </h2>
+          <h2 className="modalDocumentoTitulo">Nome Documento</h2>
           <div style={{ width: "40px" }} />
         </div>
 
-        
         <div className="modalDocumentoDoc">
           {nomeDocumento}
         </div>
 
         <div className="textoSalvamento">
-        <text>Mensagem de Salvamento:</text>
+          <span>Mensagem de Salvamento:</span>
         </div>
 
         <textarea
           className="modalDocumentoTexto"
           placeholder="Digite suas anotações..."
           value={documento}
-          onChange={e => setDocumento(e.target.value)}
+          onChange={(e) => setDocumento(e.target.value)}
         />
 
-        
         <div className="modalDocumentoButtons">
           <button
             className="modalDocumentoCancelar"
