@@ -113,10 +113,15 @@ namespace CollabTechFile.Repositories
                 throw;
             }
         }
-
+            
         public Usuario BuscarPorEmail(string email)
         {
             return _context.Usuarios.FirstOrDefault(u => u.Email == email)!;
+        }
+
+        public Usuario IUsuarioRepository.BuscarPorId(Usuario IdUsuario, int id)
+        {
+            return _context.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
         }
     }
 }

@@ -63,7 +63,7 @@
 }
 
 .tabelaCliente th {
-    text-align: left;
+    text-align: center;
     padding-bottom: 12px;
     font-weight: 700;
     color: #222;
@@ -74,6 +74,7 @@
     padding: 16px 8px;
     border-bottom: 1px solid #bdb7b7;
     color: #222;
+    text-align: center;
 }
 
 .btnExcluir {
@@ -109,3 +110,5 @@
 .iconEditar:hover {
     transform: scale(1.1);
 }
+
+

@@ -1,3 +1,7 @@
+import "./FaleConosco.css";
+
+import Swal from "sweetalert2";
+
 import { useState } from "react";
 import Seta from "../../assets/img/SetaBranca.png"
 import { Link } from "react-router-dom"
@@ -5,24 +9,59 @@ import { Link } from "react-router-dom"
 import Doczinho from "../../assets/img/ImgFaleConosco.png";
 import Mapinha from "../../assets/img/Mapinha.png";
 import Arrobinha from "../../assets/img/@.png";
-import "./FaleConosco.css";
+import api from "../../Services/service";
 
 export default function FaleConosco() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [mensagem, setMensagem] = useState("");
 
-  function enviarEmail(e) {
+  function alertar(icone, mensagem) {
+    const Toast = Swal.mixin({
+      toast: true,
+      theme: 'dark',
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: icone,
+      title: mensagem
+    });
+  }
+
+  async function enviarEmail(e) {
     e.preventDefault();
-    
 
-    const destinatario = "collabtechfile@gmail.com";
-    const assunto = `Contato de ${nome}`;
-    const corpo = `Nome: ${nome}\nEmail: ${email}\n\nMensagem:\n${mensagem}`;
+    console.log(nome);
+    console.log(email);
+    console.log(mensagem);
 
-    window.location.href = `mailto:${destinatario}?subject=${encodeURIComponent(
-      assunto
-    )}&body=${encodeURIComponent(corpo)}`;
+    if (nome.trim() !== "" && email.trim() !== "" && mensagem.trim !== "") {
+      try {
+        await api.post("suporte", {
+          nome: nome,
+          email: email,
+          mensagem: mensagem
+        });
+
+        alertar("success", "Cadastro Realizado!");
+        setNome("");
+        setEmail("");
+        setMensagem("");
+      } catch (error) {
+        alertar("error", "Erro, Servidor em manutenção!");
+
+        console.log(error);
+      }
+    } else {
+      alertar("warning", "O campo precisa estar Preenchido")
+    }
   }
 
   return (

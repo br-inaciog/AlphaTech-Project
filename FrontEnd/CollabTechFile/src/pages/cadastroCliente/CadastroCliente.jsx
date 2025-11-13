@@ -7,7 +7,7 @@ import user from "../../assets/img/user.png"
 import Cadastro from "../../components/cadastro/Cadastro";
 import MenuLateral from "../../components/menuLateral/MenuLateral";
 import { useEffect, useState } from "react";
-import api from "../../Services/service";
+import api from "../../services/Service";
 
 export default function CadastroCliente() {
   const [nome, setNome] = useState("");
@@ -18,7 +18,7 @@ export default function CadastroCliente() {
   const [empresa, setEmpresa] = useState("");
   const [listaEmpresa, setListaEmpresa] = useState([]);
 
-  const [tipoUsuario, setTipoUsuario] = useState("4")
+  const [tipoUsuario, setTipoUsuario] = useState("3")
 
   const [loading, setLoading] = useState(false);
 
@@ -33,6 +33,7 @@ export default function CadastroCliente() {
 
   function alertar(icone, mensagem) {
     const Toast = Swal.mixin({
+      theme: 'dark',
       toast: true,
       position: "top-end",
       showConfirmButton: false,
@@ -50,7 +51,7 @@ export default function CadastroCliente() {
   }
 
   function validarSenha(senha) {
-    // Mínimo 8 caracteres, pelo menos 1 número e 1 símbolo
+    // Mínimo 6 caracteres, pelo menos 1 número e 1 símbolo
     const regexSenha = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,}$/;
     return regexSenha.test(senha);
   }
@@ -65,7 +66,7 @@ export default function CadastroCliente() {
     }
 
     if (!validarSenha(senha)) {
-      alertar("warning", "A senha deve ter mínimo 8 caracteres, com números e símbolos.");
+      alertar("warning", "A senha deve ter mínimo 6 caracteres, com números e símbolos.");
       return;
     }
 
@@ -128,13 +129,12 @@ export default function CadastroCliente() {
     <main className="containerGeral">
       <MenuLateral />
       <div className="conteudoPrincipal">
-        <header className="header">
-          <div className="usuario">
+        <div className="campoTipoUsuario">
+          {/* <div className="usuario"> */}
             <img src={user} alt="user" />
             <p>Funcionário</p>
-
-          </div>
-        </header>
+          {/* </div> */}
+        </div>
         <section className="areaTrabalho">
           <div className="conteudo">
 
@@ -142,6 +142,8 @@ export default function CadastroCliente() {
               titulo="Cadastro de Cliente"
               visibilidade_campo3="none"
               visibilidade_campoCNPJ="none"
+              visibilidade_campo5="none"
+              visibilidade_campo6="none"
               funcCadastro={cadCliente}
 
               //Nome
@@ -165,16 +167,6 @@ export default function CadastroCliente() {
               listaEmpresa={listaEmpresa}
               valorEmpresa={empresa}
               setValorEmpresa={setEmpresa}
-
-              //Senha
-              campo5="Senha"
-              valorInput3={senha}
-              setValorInput3={setSenha}
-
-              //Confirmar Senha
-              campo6="Cofirmar Senha"
-              valorInput4={senhaVerificacao}
-              setValorInput4={setSenhaVerficacao}
             />
           </div>
         </section>

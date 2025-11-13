@@ -2,8 +2,24 @@
     text-align: center;
 }
 
+.nomeDoc {
+    align-self: flex-start;
+    font-size: 1.5rem;
+    margin-bottom: 4%;
+}
+
+.nomeDoc p {
+    font-weight: 600;
+}
+
+.nomeDoc span {
+    font-weight: 300;
+}
+
 .infDocumento {
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 4%;
 }
 
 .botaoFiltrarVersoesDoc,
@@ -17,7 +33,7 @@
 }
 
 .botaoFiltrarVersoesDoc select {
-    width: 50%;
+    width: 80%;
     border: none;
     border-bottom: 2px solid black;
     cursor: pointer;
@@ -33,7 +49,7 @@
 }
 
 .botaoSelectRementente select {
-    width: 50%;
+    width: 80%;
     border: none;
     border-bottom: 2px solid black;
     cursor: pointer;
@@ -49,29 +65,28 @@
     justify-content: center;
     flex-direction: column;
     gap: 5px;
+    width: 100%;
     margin-bottom: 2%;
-    width: 50%;
     align-self: center;
-    font-size: 1.5rem;
     font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.prazoEntrega input {
+    width: 80%;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .prazoEntrega input {
     border: none;
-    border-bottom: 2px solid black; 
+    border-bottom: 2px solid black;
     background-color: transparent;
 }
 
-.documento {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 600px;
-    margin-bottom: 4%;
-    padding: 4%;
-    border-radius: 20px;
-
-    background-color: aliceblue;
+.prazoEntrega select:focus {
+    background-color: black;
 }
 
 .tituloRN,
@@ -191,33 +206,6 @@
 
 .finalizarDoc:hover {
     transform: scale(1.05);
-}
-
-.salvarDoc {
-    width: 275px;
-    height: 53px;
-    border-radius: 10px;
-    
-    font-size: 24px;
-    color: white;
-    
-    background-color: #1E3A8A;
-    border: none;
-    
-    margin-top: 4%;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.salvarDoc:hover {
-    transform: scale(1.05);
-}
-
-.salvarFinalizarDoc {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 4%;
-    align-items: center;
 }
 
 .areaComentarioDoc {

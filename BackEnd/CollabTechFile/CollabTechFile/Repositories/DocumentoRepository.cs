@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using CollabTechFile.DbContextCollab;
 using CollabTechFile.Interfaces;
 using CollabTechFile.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CollabTechFile.Repositories
 {
@@ -50,7 +51,14 @@ namespace CollabTechFile.Repositories
 
         public List<Documento> Listar()
         {
-            return _context.Documentos.ToList();
+            return _context.Documentos
+                .Include(d => d.IdUsuarioNavigation) 
+                .ToList();
+        }
+
+        public Documento BuscarPorId(int id)
+        {
+            return _context.Documentos.FirstOrDefault(x => x.IdDocumento == id);
         }
 
         public Documento BuscarPorId(int id)
