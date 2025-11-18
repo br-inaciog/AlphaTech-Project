@@ -11,11 +11,11 @@ import Lixeira from "../pages/lixeira/Lixeira"
 import DocAndamentoFunc from "../pages/docAndamentoFunc/DocAndamentoFunc"
 import DocAndamentoClie from "../pages/docAndamentoClie/DocAndamentoClie"
 import InicioCliente from "../pages/inicioCliente/InicioCliente"
-import Feedback from "../pages/Feedbacks/Feedback"
 import FaleConosco  from "../pages/faleConosco/FaleConosco"
 import DocFinalizadoClie from "../pages/docFinalizadoClie/docFinalizadoClie" 
 import DocFinalizadoFunc from "../pages/docFinalizadoFunc/DocFinalizadoFunc"
 import SenhaCliente from "../pages/senhaCliente/SenhaCliente"
+import ListagemFuncionario from "../pages/listagemFuncionario/ListagemFuncionario"
 // import Home from "../pages/home/Home"
 
 const Rotas = () => {
@@ -24,6 +24,7 @@ const Rotas = () => {
             <Route element={<Login />} path="/" exact />
             <Route element={<Inicio />} path="/Inicio" />
             <Route element={<ListagemDoc />} path="/Listagem" />
+            <Route element={<ListagemFuncionario />} path="/ListagemFunc" />
             <Route element={<CadastroCliente />} path="/CadastroCliente" />
             <Route element={<CadastroEmpresa />} path="/CadastroEmpresa" />
             <Route element={<CadastroFuncionario />} path="/CadastroFuncionario" />
@@ -31,10 +32,8 @@ const Rotas = () => {
             <Route element={<Lixeira />} path="/Lixeira" />
             <Route element={<DocAndamentoFunc />} path="/docAndamentoFunc" />
             <Route element={<DocAndamentoClie />} path="/docAndamentoClie" />
-            <Route element={<Feedback /> } path="/FeedBacks" />
             <Route element={<FaleConosco/> } path="/FaleConosco" />
             <Route element={<InicioCliente />} path="/InicioCliente" />
-            <Route element={<Feedback />} path="/FeedBacks" />
             <Route element={<DocFinalizadoClie />} path="/docFinalizadoClie" />
             <Route element={<DocFinalizadoFunc />} path="/docFinalizadoFunc" />
             <Route element={<SenhaCliente/>} path="/SenhaCliente" />
