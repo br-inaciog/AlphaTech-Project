@@ -1,28 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {}
-=======
-<<<<<<< HEAD
-    "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {}
->>>>>>> 83f8e65fd41ffc1d494fa59ebe079d06b5107cb3
-  },
-  "projects": {
-    "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
-        "projectName": "CollabTechFile",
-<<<<<<< HEAD
-        "projectPath": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
-        "packagesPath": "C:\\Users\\50526683848\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\50526683848\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
-=======
-        "projectPath": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
-        "packagesPath": "C:\\Users\\55562188899\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\55562188899\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
-=======
     "C:\\Users\\55890867873\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj": {}
   },
   "projects": {
@@ -34,22 +12,12 @@
         "projectPath": "C:\\Users\\55890867873\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
         "packagesPath": "C:\\Users\\55890867873\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\55890867873\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
->>>>>>> 2a0ef24f0fa929ff015a65f7e6ba64a58bd93449
->>>>>>> 83f8e65fd41ffc1d494fa59ebe079d06b5107cb3
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\50526683848\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-<<<<<<< HEAD
-          "C:\\Users\\55562188899\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
           "C:\\Users\\55890867873\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 2a0ef24f0fa929ff015a65f7e6ba64a58bd93449
->>>>>>> 83f8e65fd41ffc1d494fa59ebe079d06b5107cb3
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -90,6 +58,22 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Google.Apis": {
+              "target": "Package",
+              "version": "[1.72.0, )"
+            },
+            "Google.Apis.Auth": {
+              "target": "Package",
+              "version": "[1.72.0, )"
+            },
+            "Google.Apis.Core": {
+              "target": "Package",
+              "version": "[1.72.0, )"
+            },
+            "Google.Apis.Gmail.v1": {
+              "target": "Package",
+              "version": "[1.70.0.3833, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.13, )"
@@ -107,6 +91,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.9, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.14.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

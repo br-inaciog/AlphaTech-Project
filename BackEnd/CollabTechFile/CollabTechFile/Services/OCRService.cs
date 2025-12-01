@@ -1,7 +1,6 @@
 ﻿using Azure.AI.FormRecognizer.DocumentAnalysis;
 using Azure;
 
-
 namespace CollabTechFile.Services
 {
     public class OCRService
@@ -15,13 +14,21 @@ namespace CollabTechFile.Services
             _apiKey = configuration["AzureFormRecognizer:ApiKey"];
         }
 
-        public async Task<Dictionary<string, string>> ExtrairCamposAsync(string caminhoArquivo, string modelId = "prebuilt-document")
+        // 1. Novo método: OCR direto de byte[]
+        public async Task<Dictionary<string, string>> ExtrairCamposAsync(byte[] arquivoBytes, string modelId = "prebuilt-document")
         {
-            var client = new DocumentAnalysisClient(new Uri(_endpoint), new AzureKeyCredential(_apiKey));
+            var client = new DocumentAnalysisClient(
+                new Uri(_endpoint),
+                new AzureKeyCredential(_apiKey)
+            );
 
-            using var stream = File.OpenRead(caminhoArquivo);
+            using var stream = new MemoryStream(arquivoBytes);
 
-            var operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, modelId, stream);
+            var operation = await client.AnalyzeDocumentAsync(
+                WaitUntil.Completed,
+                modelId,
+                stream
+            );
 
             var result = operation.Value;
             var camposExtraidos = new Dictionary<string, string>();
@@ -36,8 +43,12 @@ namespace CollabTechFile.Services
 
             return camposExtraidos;
         }
+
+        // 2. Método antigo mantido para compatibilidade
+        public async Task<Dictionary<string, string>> ExtrairCamposAsync(string caminhoArquivo, string modelId = "prebuilt-document")
+        {
+            var bytes = await File.ReadAllBytesAsync(caminhoArquivo);
+            return await ExtrairCamposAsync(bytes, modelId);
+        }
     }
 }
-
-
-

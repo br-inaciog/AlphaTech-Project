@@ -13,7 +13,6 @@ export default function Cadastro(props) {
 
     return (
         <section className="conteudo">
-
             <div className="titulo">
                 <h1>{props.titulo}</h1>
             </div>

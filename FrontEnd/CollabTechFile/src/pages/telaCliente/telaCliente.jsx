@@ -139,43 +139,6 @@ export default function TelaCliente() {
 
                 const dadosAtualizados = {
                     ...cliente,
-<<<<<<< HEAD
-                    nome: nome.trim(),
-                    email: email.trim(),
-                    idEmpresa: idEmpresa && idEmpresa !== "" ? parseInt(idEmpresa) : null
-                };
-                
-                const clienteId = cliente.id || cliente.idUsuario;
-                
-                console.log("Enviando para API:", { clienteId, dadosAtualizados });
-                
-                const response = await api.put(`usuario/${clienteId}`, dadosAtualizados);
-                
-                console.log("Resposta da API:", response.data);
-                
-                // Criar objeto atualizado com os dados que enviamos para a API
-                const clienteAtualizado = {
-                    ...cliente,
-                    nome: nome.trim(),
-                    email: email.trim(),
-                    idEmpresa: dadosAtualizados.idEmpresa
-                };
-                
-                console.log("Atualizando estado local com:", clienteAtualizado);
-                
-                // Atualizar os estados locais com os dados corretos
-                setClientes(prevClientes => {
-                    const novosClientes = prevClientes.map(c => {
-                        const id = c.id || c.idUsuario;
-                        return id === clienteId ? clienteAtualizado : c;
-                    });
-                    console.log("Lista de clientes atualizada:", novosClientes);
-                    return novosClientes;
-                });
-                
-                alertar("success", "Cliente atualizado com sucesso!");
-                
-=======
                     nome,
                     email,
                     idEmpresa: parseInt(idEmpresa) || cliente.idEmpresa
@@ -192,7 +155,6 @@ export default function TelaCliente() {
                 ));
 
                 alertar("success", "Cliente atualizado com sucesso!");
->>>>>>> 83f8e65fd41ffc1d494fa59ebe079d06b5107cb3
             } catch (error) {
                 console.error("Erro ao atualizar cliente:", error.response?.data || error);
                 let mensagemErro = "Erro ao atualizar cliente";
@@ -210,7 +172,7 @@ export default function TelaCliente() {
     function handlePesquisa(event) {
         const valor = event.target.value;
         setPesquisa(valor);
-        
+
         if (valor.trim() === "") {
             setClientesFiltrados(clientes);
         } else {

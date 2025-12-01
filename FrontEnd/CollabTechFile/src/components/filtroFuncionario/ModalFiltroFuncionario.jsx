@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './ModalFiltroFuncionario.css';
 import modalVoltar from '../../assets/img/Voltar.svg';
@@ -8,6 +8,15 @@ export default function ModalFiltroFuncionario({ onClose, aberto = true, empresa
         empresa: '',
         nome: ''
     });
+
+    useEffect(() => {
+        if (aberto) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+        return () => (document.body.style.overflow = 'auto');
+    }, [aberto]);
 
     if (!aberto) return null;
 
@@ -26,33 +35,29 @@ export default function ModalFiltroFuncionario({ onClose, aberto = true, empresa
 
     const aplicarFiltros = (e) => {
         e.preventDefault();
-        if (onAplicarFiltros) {
-            onAplicarFiltros(filtros);
-        }
+        onAplicarFiltros?.(filtros);
     };
 
     const limparFiltros = () => {
-        setFiltros({
-            empresa: '',
-            nome: ''
-        });
+        setFiltros({ empresa: '', nome: '' });
     };
 
     return ReactDOM.createPortal(
         <div className="modalSobreposicao" onClick={aoClicarFora}>
-            <div className="modalContainer">
+            <div className="modalContainer modalAnimado">
                 <div className="modalHeader">
                     <span className="modalVoltar" onClick={onClose}>
-                        <img src={modalVoltar} alt="" />
+                        <img src={modalVoltar} alt="Voltar" />
                     </span>
                     <h2 className="modalTitulo">Filtrar Funcionários</h2>
                 </div>
                 <hr className="modalDivisor" />
+
                 <form className="modalForm" onSubmit={aplicarFiltros}>
                     <div className="modalRow">
                         <div className="modalField">
                             <label className="modalLabel">Empresa</label>
-                            <select 
+                            <select
                                 className="modalInput"
                                 value={filtros.empresa}
                                 onChange={(e) => handleInputChange('empresa', e.target.value)}
@@ -65,47 +70,29 @@ export default function ModalFiltroFuncionario({ onClose, aberto = true, empresa
                                 ))}
                             </select>
                         </div>
+
                         <div className="modalField">
                             <label className="modalLabel">Nome do Funcionário</label>
-                            <input 
-                                className="modalInput" 
-                                type="text" 
+                            <input
+                                className="modalInput"
+                                type="text"
                                 placeholder="Digite o nome do funcionário"
                                 value={filtros.nome}
                                 onChange={(e) => handleInputChange('nome', e.target.value)}
                             />
                         </div>
                     </div>
-                    <div className="modalAcoes" style={{marginTop: 24, display: 'flex', gap: '10px', justifyContent: 'flex-end'}}>
-                        <button 
-                            type="button"
-                            onClick={limparFiltros}
-                            style={{
-                                padding: '10px 20px',
-                                backgroundColor: '#6c757d',
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: '5px',
-                                cursor: 'pointer'
-                            }}
-                        >
+
+                    <div className="modalAcoes">
+                        <button type="button" onClick={limparFiltros} className="btnCinza">
                             Limpar
                         </button>
-                        <button 
-                            type="submit"
-                            style={{
-                                padding: '10px 20px',
-                                backgroundColor: '#001f3f',
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: '5px',
-                                cursor: 'pointer'
-                            }}
-                        >
+                        <button type="submit" className="btnAzul">
                             Aplicar Filtros
                         </button>
                     </div>
                 </form>
+
                 <div className="modalDocumentos">
                     <h3 className="modalDocumentosTitulo">Documento disponível para alta</h3>
                     <table className="modalTabela">

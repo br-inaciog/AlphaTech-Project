@@ -3,7 +3,6 @@ using CollabTechFile.Interfaces;
 using CollabTechFile.Repositories;
 using Microsoft.EntityFrameworkCore;
 using CollabTechFile.Services;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 
@@ -11,15 +10,21 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("CorsPolicy", builder => builder
-        .AllowAnyOrigin() // Permite requisições de QUALQUER domínio
-        .AllowAnyMethod() // Permite métodos GET, POST, PUT, etc.
-        .AllowAnyHeader()); // Permite quaisquer cabeçalhos na requisição
+    options.AddPolicy("AllowFrontend", policy =>
+        policy.WithOrigins(
+            "http://localhost:5173",
+            "http://127.0.0.1:5173"
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+    );
 });
 
 builder.Services.AddControllers()
     .AddJsonOptions(x =>
-        x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
+        x.JsonSerializerOptions.ReferenceHandler =
+            System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
+
 builder.Services.AddScoped<OCRService>();
 builder.Services.AddScoped<IDocumentoVersoesRepository, DocumentoVersoesRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
@@ -32,20 +37,18 @@ builder.Services.AddScoped<IRequisitoRepository, RequisitoRepository>();
 builder.Services.AddScoped<IRegraRepository, RegraRepository>();
 builder.Services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();
 builder.Services.AddScoped<IEmpresaRepository, EmpresaRepository>();
+
 builder.Services.AddDbContext<CollabTechFileContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = "JwtBearer";
     options.DefaultChallengeScheme = "JwtBearer";
 })
-
 .AddJwtBearer("JwtBearer", options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
-
     {
         ValidateIssuer = true,
         ValidateAudience = true,
@@ -63,7 +66,6 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-
     options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
@@ -87,66 +89,31 @@ builder.Services.AddSwaggerGen(options =>
                     Id = "Bearer"
                 }
             },
-                new string[] { }
+            new string[] { }
         }
     });
-});
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("CorsPolicy",
-        builder =>
-        {
-            builder.AllowAnyOrigin()
-            .AllowAnyHeader()
-            .AllowAnyMethod();
-        });
-});
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowFrontend", policy =>
-        policy.WithOrigins(
-            "http://localhost:5173",
-            "http://127.0.0.1:5173"
-        )
-        .AllowAnyHeader()
-        .AllowAnyMethod()
-    // .AllowCredentials() // só se usar cookies/autenticação via cookie
-    );
 });
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "CollabTechFile API v1");
+        options.RoutePrefix = string.Empty;
+    });
 }
-
-app.UseSwagger(options =>
-{
-    options.SerializeAsV2 = true;
-});
-
-
-app.UseSwaggerUI(options =>
-{
-    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-    options.RoutePrefix = string.Empty;
-});
-
-app.UseRouting();
 
 app.UseHttpsRedirection();
 
-app.UseCors("CorsPolicy");
+app.UseRouting();
 
 app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
-
 app.UseAuthorization();
 
 app.MapControllers();

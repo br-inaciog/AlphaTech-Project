@@ -14,7 +14,7 @@ export default function VisualizarDoc() {
     async function buscarOCR() {
       try {
         // 🔹 Busca o resultado do OCR
-const respostaOCR = await api.get(`/documentos/ocr-detalhado/${id}`);
+        const respostaOCR = await api.get(`/documentos/ocr-detalhado/${id}`);
         setOcrData(respostaOCR.data);
 
         // 🔹 Busca o PDF original (caso o backend forneça um endpoint)

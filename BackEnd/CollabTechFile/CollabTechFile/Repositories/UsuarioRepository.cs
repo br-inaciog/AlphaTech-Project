@@ -18,7 +18,9 @@ namespace CollabTechFile.Repositories
         {
             try
             {
-                usuario.Senha = Criptografia.GerarHash(usuario.Senha!);
+                string senhaPadrao = "Senai@12";
+
+                usuario.Senha = Criptografia.GerarHash(senhaPadrao);
 
                 _context.Usuarios.Add(usuario);
 
@@ -60,9 +62,9 @@ namespace CollabTechFile.Repositories
                 usuarioBuscado.Nome = usuario.Nome;
                 usuarioBuscado.Email = usuario.Email;
 
-                // Se quiser alterar a senha, recripte-a
                 if (!string.IsNullOrEmpty(usuario.Senha))
-                    usuarioBuscado.Senha = Criptografia.GerarHash(usuario.Senha);
+                    usuarioBuscado.Senha = usuario.Senha; // já está hashada
+
 
                 usuarioBuscado.Ativo = usuario.Ativo;
 
@@ -92,7 +94,6 @@ namespace CollabTechFile.Repositories
         {
             try
             {
-                // Inclui o relacionamento com TipoUsuario
                 Usuario usuarioBuscado = _context.Usuarios
                     .Include(u => u.IdTipoUsuarioNavigation)
                     .FirstOrDefault(u => u.Email == email)!;
@@ -116,12 +117,14 @@ namespace CollabTechFile.Repositories
             
         public Usuario BuscarPorEmail(string email)
         {
-            return _context.Usuarios.FirstOrDefault(u => u.Email == email)!;
+            return _context.Usuarios
+                .Include(u => u.IdTipoUsuarioNavigation)
+                .FirstOrDefault(u => u.Email == email)!;
         }
 
-        public Usuario BuscarPorId(int id, Usuario usuario)
+        public Usuario BuscarPorId(int id)
         {
-            return _context.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
+            return _context.Usuarios.FirstOrDefault(u => u.IdUsuario == id)!;
         }
     }
 }

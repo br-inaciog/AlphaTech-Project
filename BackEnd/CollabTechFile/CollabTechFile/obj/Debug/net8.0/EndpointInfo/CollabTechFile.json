@@ -162,6 +162,436 @@
         }
       }
     },
+    "/api/Documentos/upload-ocr": {
+      "post": {
+        "tags": [
+          "Documentos"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Arquivo": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "documento.IdDocumento": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.IdUsuario": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.IdEmpresa": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.Nome": {
+                    "maxLength": 200,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.Prazo": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "documento.Status": {
+                    "type": "boolean"
+                  },
+                  "documento.Versao": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "documento.Arquivo": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "documento.MimeType": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.VersaoAtual": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "documento.CriadoEm": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "documento.NovoStatus": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.AssinadoEm": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "documento.FinalizadoEm": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "documento.UsuarioNavigation.IdUsuario": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.UsuarioNavigation.IdTipoUsuario": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.UsuarioNavigation.IdEmpresa": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.UsuarioNavigation.Nome": {
+                    "maxLength": 200,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.UsuarioNavigation.Email": {
+                    "maxLength": 200,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.UsuarioNavigation.Senha": {
+                    "maxLength": 255,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.UsuarioNavigation.Ativo": {
+                    "type": "boolean"
+                  },
+                  "documento.UsuarioNavigation.Documentos": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Documento"
+                    }
+                  },
+                  "documento.UsuarioNavigation.Comentarios": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Comentario"
+                    }
+                  },
+                  "documento.UsuarioNavigation.Feedbacks": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Feedback"
+                    }
+                  },
+                  "documento.UsuarioNavigation.EmpresaNavigation.IdEmpresa": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.UsuarioNavigation.EmpresaNavigation.Nome": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.UsuarioNavigation.EmpresaNavigation.Cnpj": {
+                    "maxLength": 18,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.UsuarioNavigation.EmpresaNavigation.Ativo": {
+                    "type": "boolean"
+                  },
+                  "documento.UsuarioNavigation.EmpresaNavigation.Usuarios": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Usuario"
+                    }
+                  },
+                  "documento.UsuarioNavigation.EmpresaNavigation.Documentos": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Documento"
+                    }
+                  },
+                  "documento.UsuarioNavigation.IdTipoUsuarioNavigation.IdTipoUsuario": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.UsuarioNavigation.IdTipoUsuarioNavigation.TituloTipoUsuario": {
+                    "maxLength": 200,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.UsuarioNavigation.IdTipoUsuarioNavigation.Usuarios": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Usuario"
+                    }
+                  },
+                  "documento.EmpresaNavigation.IdEmpresa": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "documento.EmpresaNavigation.Nome": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.EmpresaNavigation.Cnpj": {
+                    "maxLength": 18,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "documento.EmpresaNavigation.Ativo": {
+                    "type": "boolean"
+                  },
+                  "documento.EmpresaNavigation.Usuarios": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Usuario"
+                    }
+                  },
+                  "documento.EmpresaNavigation.Documentos": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Documento"
+                    }
+                  },
+                  "documento.Comentarios": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Comentario"
+                    }
+                  },
+                  "documento.DocumentoVersos": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/DocumentoVersoes"
+                    }
+                  },
+                  "documento.RegrasDocs": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RegrasDoc"
+                    }
+                  },
+                  "documento.ReqDocs": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ReqDoc"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Arquivo": {
+                  "style": "form"
+                },
+                "documento.IdDocumento": {
+                  "style": "form"
+                },
+                "documento.IdUsuario": {
+                  "style": "form"
+                },
+                "documento.IdEmpresa": {
+                  "style": "form"
+                },
+                "documento.Nome": {
+                  "style": "form"
+                },
+                "documento.Prazo": {
+                  "style": "form"
+                },
+                "documento.Status": {
+                  "style": "form"
+                },
+                "documento.Versao": {
+                  "style": "form"
+                },
+                "documento.Arquivo": {
+                  "style": "form"
+                },
+                "documento.MimeType": {
+                  "style": "form"
+                },
+                "documento.VersaoAtual": {
+                  "style": "form"
+                },
+                "documento.CriadoEm": {
+                  "style": "form"
+                },
+                "documento.NovoStatus": {
+                  "style": "form"
+                },
+                "documento.AssinadoEm": {
+                  "style": "form"
+                },
+                "documento.FinalizadoEm": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.IdUsuario": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.IdTipoUsuario": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.IdEmpresa": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.Nome": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.Email": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.Senha": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.Ativo": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.Documentos": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.Comentarios": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.Feedbacks": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.EmpresaNavigation.IdEmpresa": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.EmpresaNavigation.Nome": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.EmpresaNavigation.Cnpj": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.EmpresaNavigation.Ativo": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.EmpresaNavigation.Usuarios": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.EmpresaNavigation.Documentos": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.IdTipoUsuarioNavigation.IdTipoUsuario": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.IdTipoUsuarioNavigation.TituloTipoUsuario": {
+                  "style": "form"
+                },
+                "documento.UsuarioNavigation.IdTipoUsuarioNavigation.Usuarios": {
+                  "style": "form"
+                },
+                "documento.EmpresaNavigation.IdEmpresa": {
+                  "style": "form"
+                },
+                "documento.EmpresaNavigation.Nome": {
+                  "style": "form"
+                },
+                "documento.EmpresaNavigation.Cnpj": {
+                  "style": "form"
+                },
+                "documento.EmpresaNavigation.Ativo": {
+                  "style": "form"
+                },
+                "documento.EmpresaNavigation.Usuarios": {
+                  "style": "form"
+                },
+                "documento.EmpresaNavigation.Documentos": {
+                  "style": "form"
+                },
+                "documento.Comentarios": {
+                  "style": "form"
+                },
+                "documento.DocumentoVersos": {
+                  "style": "form"
+                },
+                "documento.RegrasDocs": {
+                  "style": "form"
+                },
+                "documento.ReqDocs": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Documentos/{id}/pdf": {
+      "get": {
+        "tags": [
+          "Documentos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Documentos/{id}/upload": {
+      "put": {
+        "tags": [
+          "Documentos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "arquivo": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "arquivo": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/DocumentoVersoes": {
       "post": {
         "tags": [
@@ -929,6 +1359,48 @@
           }
         }
       }
+    },
+    "/api/Usuario/RedefinirSenha/{id}": {
+      "put": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RedefinirSenhaDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RedefinirSenhaDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RedefinirSenhaDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -977,6 +1449,11 @@
             "format": "int32",
             "nullable": true
           },
+          "idEmpresa": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
           "nome": {
             "maxLength": 200,
             "minLength": 0,
@@ -992,24 +1469,49 @@
             "type": "boolean"
           },
           "versao": {
-            "maxLength": 50,
-            "minLength": 0,
+            "type": "number",
+            "format": "double"
+          },
+          "arquivo": {
             "type": "string",
+            "format": "byte",
             "nullable": true
           },
-          "caminhoArquivo": {
-            "maxLength": 500,
+          "mimeType": {
+            "maxLength": 100,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "versaoAtual": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "criadoEm": {
             "type": "string",
             "format": "date-time"
+          },
+          "novoStatus": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "assinadoEm": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "finalizadoEm": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "usuarioNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          },
+          "empresaNavigation": {
+            "$ref": "#/components/schemas/Empresa"
           },
           "comentarios": {
             "type": "array",
@@ -1024,9 +1526,6 @@
               "$ref": "#/components/schemas/DocumentoVersoes"
             },
             "nullable": true
-          },
-          "idUsuarioNavigation": {
-            "$ref": "#/components/schemas/Usuario"
           },
           "regrasDocs": {
             "type": "array",
@@ -1071,7 +1570,7 @@
             "format": "int32"
           },
           "nome": {
-            "maxLength": 200,
+            "maxLength": 100,
             "minLength": 0,
             "type": "string",
             "nullable": true
@@ -1083,13 +1582,19 @@
             "nullable": true
           },
           "ativo": {
-            "type": "boolean",
-            "nullable": true
+            "type": "boolean"
           },
           "usuarios": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Usuario"
+            },
+            "nullable": true
+          },
+          "documentos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Documento"
             },
             "nullable": true
           }
@@ -1137,6 +1642,16 @@
             "maxLength": 8,
             "minLength": 6,
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RedefinirSenhaDTO": {
+        "type": "object",
+        "properties": {
+          "novaSenha": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1329,27 +1844,21 @@
             "type": "string",
             "nullable": true
           },
-          "empresa": {
-            "maxLength": 50,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
           "ativo": {
             "type": "boolean",
-            "nullable": true
-          },
-          "comentarios": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Comentario"
-            },
             "nullable": true
           },
           "documentos": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Documento"
+            },
+            "nullable": true
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comentario"
             },
             "nullable": true
           },
@@ -1360,7 +1869,7 @@
             },
             "nullable": true
           },
-          "idEmpresaNavigation": {
+          "empresaNavigation": {
             "$ref": "#/components/schemas/Empresa"
           },
           "idTipoUsuarioNavigation": {

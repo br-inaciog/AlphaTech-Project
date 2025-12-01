@@ -31,7 +31,18 @@ namespace CollabTechFile.Repositories
             {
                 doc.Nome = documento.Nome ?? doc.Nome;
                 doc.Prazo = documento.Prazo ?? doc.Prazo;
-                doc.CaminhoArquivo = documento.CaminhoArquivo ?? doc.CaminhoArquivo;
+
+                if (documento.IdUsuario.HasValue)
+                    doc.IdUsuario = documento.IdUsuario;
+
+                if (documento.IdEmpresa.HasValue)
+                    doc.IdEmpresa = documento.IdEmpresa;
+
+                if (documento.Arquivo != null && documento.Arquivo.Length > 0)
+                    doc.Arquivo = documento.Arquivo;
+
+                if (!string.IsNullOrEmpty(documento.MimeType))
+                    doc.MimeType = documento.MimeType;
 
                 doc.Status = documento.Status;
 
@@ -52,13 +63,32 @@ namespace CollabTechFile.Repositories
         public List<Documento> Listar()
         {
             return _context.Documentos
-                .Include(d => d.IdUsuarioNavigation) 
+                .AsNoTracking()
+                .Include(d => d.UsuarioNavigation)
+                .ThenInclude(u => u.EmpresaNavigation) 
+                .Include(d => d.EmpresaNavigation)
                 .ToList();
+        }
+
+        public Documento BuscarPorIdPdf(int id)
+        {
+            return _context.Documentos
+                .Include(d => d.Comentarios)
+                .Include(d => d.UsuarioNavigation)
+                .Include(d => d.EmpresaNavigation)
+                .FirstOrDefault(x => x.IdDocumento == id);
         }
 
         public Documento BuscarPorId(int id)
         {
-            return _context.Documentos.FirstOrDefault(x => x.IdDocumento == id);
+            return _context.Documentos
+                .Include(d => d.UsuarioNavigation)
+                .ThenInclude(u => u.EmpresaNavigation) 
+                .Include(d => d.EmpresaNavigation)
+                .Include(d => d.Comentarios)
+                .Include(d => d.DocumentoVersos)
+                .FirstOrDefault(d => d.IdDocumento == id);
         }
+
     }
 }

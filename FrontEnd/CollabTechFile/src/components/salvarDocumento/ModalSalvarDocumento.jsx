@@ -7,7 +7,7 @@ const ModalSalvarDocumento = ({ nomeDocumento = "Prazo de entrega", onCancel, on
 
   return (
     <div className="modal-overlay">
-      <div className="modal-documento-container">
+      <div className="modal-documento-container modalAnimado">
 
         <div className="modalDocumentoHeader">
           <button

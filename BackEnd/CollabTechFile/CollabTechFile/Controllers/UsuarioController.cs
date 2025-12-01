@@ -15,6 +15,8 @@ namespace CollabTechFile.Controllers
 
     public class UsuarioController : ControllerBase
     {
+        private const string SenhaPadrao = "Senai@12";
+
         private readonly IUsuarioRepository _UsuarioRepository;
 
         public UsuarioController(IUsuarioRepository usuarioRepository)
@@ -39,11 +41,19 @@ namespace CollabTechFile.Controllers
 
         //[Authorize]
         [HttpPost]
-        public IActionResult Post(Usuario usuario)
+        public async Task <IActionResult> Post(Usuario usuario)
         {
+            var gmailService = await GmailServiceFactory.CreateAsync();
+
             try
             {
                 _UsuarioRepository.Cadastrar(usuario);
+
+                var _emailService = new EmailService();
+
+
+                await _emailService.EnviarEmailAsync(gmailService, usuario.Email!);
+
                 return StatusCode(201, usuario);
             }
             catch (Exception)
@@ -69,14 +79,12 @@ namespace CollabTechFile.Controllers
         }
 
 
-
         //[Authorize]
         [HttpGet("BuscarPorEmailESenha")]
         public IActionResult Get(string email, string senha)
         {
             try
             {
-
                 Usuario usuarioBuscado = _UsuarioRepository.BuscarPorEmailESenha(email, senha);
 
                 if (usuarioBuscado != null)
@@ -92,20 +100,26 @@ namespace CollabTechFile.Controllers
                 return BadRequest(e.Message);
             }
         }
-<<<<<<< HEAD
-
-        [HttpPost("RedefinirSenha")]
-        public IActionResult RedefinirSenha(RedefinirSenhaDTO dto)
+        [HttpPut("RedefinirSenha/{id}")]
+        public IActionResult RedefinirSenha(int id, [FromBody] RedefinirSenhaDTO dto)
         {
             try
             {
-                var usuario = _UsuarioRepository.BuscarPorId(dto.IdUsuario);
+                var usuario = _UsuarioRepository.BuscarPorId(id);
 
                 if (usuario == null)
                     return NotFound("Usuário não encontrado");
 
+                // 1. Verifica se a senha do usuário ainda é a senha MOCADA
+                bool usandoSenhaPadrao = Criptografia.CompararHash(SenhaPadrao, usuario.Senha);
+
+                if (!usandoSenhaPadrao)
+                    return BadRequest("A senha já foi alterada anteriormente.");
+
+                // 2. Criptografa a nova senha
                 usuario.Senha = Criptografia.GerarHash(dto.novaSenha);
 
+                // 3. Atualiza no banco
                 _UsuarioRepository.Editar(usuario.IdUsuario, usuario);
 
                 return Ok("Senha redefinida com sucesso!");
@@ -115,14 +129,5 @@ namespace CollabTechFile.Controllers
                 return BadRequest(e.Message);
             }
         }
-
-        //[HttpPut("{id}")]
-        //public IActionResult Put(int id, Usuario usuario)
-        //{
-        //    // Este método é suficiente para edição E exclusão
-        //}
-=======
->>>>>>> 2a0ef24f0fa929ff015a65f7e6ba64a58bd93449
-
     }
 }

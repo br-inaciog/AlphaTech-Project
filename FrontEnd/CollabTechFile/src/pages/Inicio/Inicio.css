@@ -17,11 +17,6 @@
     font-size: 1rem;
 }
 
-.docAction img {
-    width: 19%;
-    height: 48%;
-}
-
 .statusDocumentos {
     display: flex;
     flex-wrap: wrap;
@@ -121,6 +116,7 @@
     border-radius: 20px;
     padding: 2%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin: 2% 0 2% 0;
 
     display: flex;
     flex-direction: column;
@@ -128,9 +124,10 @@
 }
 
 .docAction h4 {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 5%;
     color: #0a1a3f;
 }
 
@@ -138,8 +135,31 @@
     border: none;
 }
 
+.docActionFlex {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.anexoContainer {
+    display: flex;
+    width: 40%;
+}
+
+.inputNomeArquivo {
+    border: 2px solid black;
+    height: 35px;
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 1rem;
+    background-color: transparent;
+    color: #333;
+}
+
 .inputArquivo {
-    width: 50%;
+    width: 40%;
     height: 35px;
     font-size: 1rem;
     padding: 1%;
@@ -152,10 +172,9 @@
 }
 
 .botaoSelectRemententeInicio {
-    width: 100%;
+    width: 40%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin-bottom: 5%;
 }
 
@@ -165,7 +184,7 @@
 }
 
 .botaoSelectRemententeInicio select {
-    width: 60%;
+    width: 100%;
     border: none;
     border-bottom: 2px solid black;
     cursor: pointer;
@@ -176,22 +195,19 @@
 
 .prazoEntregaInicio {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    gap: 5px;
-    width: 100%;
+    width: 40%;
     margin-bottom: 5%;
+    margin-top: 0.5%;
     align-self: center;
     font-weight: 600;
     font-size: 1.1rem;
 }
 
 .prazoEntregaInicio input {
-    width: 60%;
+    width: 100%;
+    margin-bottom: 5%;
     font-size: 1rem;
-    display: flex;
-    justify-content: center;
 }
 
 .prazoEntregaInicio input {
@@ -203,20 +219,25 @@
 .labelArquivo {
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
     margin-bottom: 5%;
     font-weight: 600;
     font-size: 1rem;
 }
 
 .labelArquivo img {
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
+    transition: 0.2s ease;
+}
+
+.labelArquivo img:hover {
+    transform: scale(1.05);
 }
 
 .botaoEnviarDoc {
     height: 40px;
-    width: 100%;
+    width: 50%;
     border-radius: 10px;
     border: none;
     font-size: 1.1rem;
