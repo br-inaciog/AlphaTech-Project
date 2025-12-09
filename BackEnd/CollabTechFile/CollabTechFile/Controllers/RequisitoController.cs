@@ -45,9 +45,9 @@ namespace CollabTechFile.Controllers
                 _RequisitoRepository.Cadastrar(requisitos);
                 return StatusCode(201, requisitos);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                return BadRequest(e.Message); 
             }
         }
 

@@ -1,7 +1,7 @@
 import "./Lixeira.css";
 import MenuLateral from "../../components/menuLateral/MenuLateral";
 import Cabecalho from "../../components/cabecalho/Cabecalho";
-import api from "../../Services/service";
+import api from "../../services/Service";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Pdf from "../../assets/img/PDF.png";
@@ -72,7 +72,9 @@ export default function Lixeira() {
             <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <Cabecalho />
+                    <Cabecalho 
+                        rota="Listagem"
+                    />
 
                     <div className="titulo">
                         <h1>Lixeira</h1>

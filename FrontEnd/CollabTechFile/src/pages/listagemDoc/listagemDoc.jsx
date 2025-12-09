@@ -17,45 +17,98 @@ export default function ListagemDoc() {
     const location = useLocation();
     const navigate = useNavigate();
 
+<<<<<<< HEAD
     const params = new URLSearchParams(location.search);
     const statusFiltro = params.get("status");
+=======
+    // Pega o status da URL (/documentos?status=pendente)
+    const params = new URLSearchParams(location.search);
+    const statusFiltro = params.get("status");
+    // const [filtro, setFiltro] = useState("Todos"); 
+>>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
 
     async function listarDocumentos() {
         try {
             const resposta = await api.get("Documentos");
             setListagemDoc(resposta.data);
-            console.log(resposta.data);
         } catch (error) {
             console.error("Erro ao listar documentos:", error);
         }
     }
 
+<<<<<<< HEAD
     async function excluirDocumento(id) {
+=======
+    async function excluirDocumento(idDocumento) {
+>>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
         Swal.fire({
+            title: "Mover para a lixeira?",
+            text: "O documento NÃO será excluído definitivamente.",
             title: "Excluir documento?",
             text: "O documento irá para a lixeira.",
             theme: "dark",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonText: "Sim, excluir!",
+            confirmButtonText: "Mover para lixeira",
             cancelButtonText: "Cancelar"
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
+                    await api.delete(`/Documentos/${idDocumento}`);
+                    Swal.fire("Pronto!", "Documento movido para a lixeira.", "success");
                     await api.preventDefault(`/Documentos/${id.idDocumento}`);
                     Swal.fire("Excluído!", "O documento foi enviado para a lixeira.", "success");
                     listarDocumentos();
                 } catch (error) {
-                    console.error("Erro ao excluir:", error);
-                    Swal.fire("Erro!", "Não foi possível excluir o documento.", "error");
+                    console.error("Erro:", error);
+                    Swal.fire("Erro!", "Não foi possível mover para a lixeira.", "error");
                 }
             }
         });
     }
 
+<<<<<<< HEAD
+=======
+    // Quando a página carrega, define o filtro inicial baseado na URL
     useEffect(() => {
         listarDocumentos();
 
+        if (statusFiltro === "pendente") setFiltro("Pendentes");
+        else if (statusFiltro === "assinado") setFiltro("Assinados");
+        else if (statusFiltro === "finalizado") setFiltro("Finalizados");
+        else setFiltro("Todos");
+    }, [statusFiltro]);
+
+    // Aplica o filtro da URL ou o selecionado
+    let documentosFiltrados = listagemDoc;
+
+    if (filtro === "Pendentes") {
+        documentosFiltrados = listagemDoc.filter((d) => d.status === false);
+    } else if (filtro === "Assinados") {
+            documentosFiltrados = listagemDoc.filter((d) => d.assinadoEm !== null);
+    } else if (filtro === "Finalizados") {
+            documentosFiltrados = listagemDoc.filter((d) => d.status === true);
+    }
+
+    // Define o título dinamicamente
+    const tituloPagina = filtro === "Pendentes"
+        ? "Documentos Pendentes"
+        : filtro === "Assinados"
+        ? "Documentos Assinados"
+        : filtro === "Finalizados"
+        ? "Documentos Finalizados"
+        : "Todos os Documentos"
+    ;
+
+    function limparFiltro() {
+        setFiltro("Todos");
+        navigate("/Listagem"); // remove o ?status da URL
+    }
+>>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
+    useEffect(() => {
+        listarDocumentos();
+
+<<<<<<< HEAD
         if (statusFiltro === "Em Andamento") setFiltro("Em Andamento");
         else if (statusFiltro === "Assinado") setFiltro("Assinados");
         else if (statusFiltro === "Finalizado") setFiltro("Finalizados");
@@ -85,16 +138,24 @@ export default function ListagemDoc() {
         setFiltro("Todos");
         navigate("/Listagem");
     }
+=======
+    // const documentosFiltrados = listagemDoc.filter((doc) => { //Serve para filtrar os documentos na base do filtro
+    //     if (filtro === "Todos") return true;
+    //     return doc.status === filtro;
+    // });
+>>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
 
     return (
         <div className="containerGeral">
             <MenuLateral />
             <main className="conteudoPrincipal">
                 <section className="areaTrabalho">
-                    <Cabecalho />
+                    <Cabecalho 
+                        rota="Inicio"
+                    />
 
                     <div className="titulo">
-                        <h1>Documentos</h1>
+                      <h1>{tituloPagina}</h1>
                     </div>
 
                     <div className="botaoFiltraLixeira">
@@ -131,7 +192,7 @@ export default function ListagemDoc() {
                         {documentosFiltrados.length > 0 ? (
                             documentosFiltrados.map((doc, index) => (
                                 <div
-                                    key={index}
+                                    key={doc.idDocumento}
                                     className="cardContainer"
                                     onMouseEnter={() => setHoverIndex(index)}
                                     onMouseLeave={() => setHoverIndex(null)}
@@ -142,6 +203,11 @@ export default function ListagemDoc() {
                                         >
                                         <img src={Pdf} alt="Icone de Pdf" />
                                         <div className="cardInformacoes">
+                                            <h1>{doc.nome}</h1>
+                                            <p>{new Date(doc.criadoEm).toLocaleDateString()}</p>
+                                            <p>
+                                                Versão: <span>{doc.versao || "1.0"}</span>
+                                            </p>
                                             <h1>{doc.nome || "Sem título"}</h1>
                                             <p>Prazo: <span>{new Date(doc.criadoEm).toLocaleDateString('pt-BR') || "Sem data"}</span></p>
                                             <p>Versão: <span>{doc.versao || "Sem Versão"}</span></p>
@@ -160,20 +226,17 @@ export default function ListagemDoc() {
                                                     onClick={(e) => {
                                                         e.preventDefault();
                                                         e.stopPropagation();
+<<<<<<< HEAD
                                                         excluirDocumento(doc.id);
+=======
+                                                        excluirDocumento(doc.idDocumento);
+>>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
                                                     }}
                                                     style={{ cursor: "pointer" }}
                                                 />
                                             </div>
                                         </div>
                                     </Link>
-
-                                    {hoverIndex === index && (
-                                        <div className="mensagemDoc show">
-                                            <p className="tituloMensagem">Anotações:</p>
-                                            <p>{doc.anotacao || "Mensagem escrita pelo proprietário..."}</p>
-                                        </div>
-                                    )}
                                 </div>
                             ))
                         ) : (

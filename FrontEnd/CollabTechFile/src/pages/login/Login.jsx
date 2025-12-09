@@ -17,6 +17,7 @@ export default function Login() {
 
   const navigate = useNavigate();
   const { atualizarToken } = useAuth();
+<<<<<<< HEAD
 
   const [isShow, setIsShow] = useState(false);
 
@@ -24,6 +25,8 @@ export default function Login() {
     e.preventDefault();
     setIsShow(!isShow);
   };
+=======
+>>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
 
   async function realizarAutenticacao(e) {
     e.preventDefault();
@@ -34,6 +37,7 @@ export default function Login() {
         const resposta = await api.post("Login", usuario);
 
         const token = resposta.data.token;
+<<<<<<< HEAD
         const primeiraSenha = resposta.data.primeiraSenha;
 
         if (token) {
@@ -41,12 +45,23 @@ export default function Login() {
 
           if (primeiraSenha === true) {
             secureLocalStorage.setItem("token", token);
+=======
+        const primeiraSenha = resposta.data.primeiraSenha; // ✅ veio do backend
+
+        if (token) {
+          // ✅ Se for senha padrão → encaminha para troca de senha
+          if (primeiraSenha === true) {
+
+            // guarda o token temporário para pegar o ID depois
+            secureLocalStorage.setItem("tokenLogin", token);
+>>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
 
             await Swal.fire({
               title: "Atenção!",
               text: "Você está usando a senha padrão. Por favor, redefina sua senha.",
               icon: "warning",
               confirmButtonColor: "#3085d6",
+<<<<<<< HEAD
               confirmButtonText: "OK",
             });
 
@@ -59,6 +74,23 @@ export default function Login() {
 
           atualizarToken(token);
           secureLocalStorage.setItem("token", token);
+=======
+              confirmButtonText: "OK"
+            });
+
+            navigate("/alterar-senha");
+            return; // ✅ evita continuar o login normal
+          }
+
+          // ✅ CASO CONTRÁRIO, LOGIN NORMAL
+          const tokenDecodificado = userDecodeToken(token);
+
+          // Atualiza o token no contexto
+          atualizarToken(token);
+
+          // Salva no storage
+          secureLocalStorage.setItem("tokenLogin", token);
+>>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
 
           await Swal.fire({
             title: "Login realizado!",
@@ -68,9 +100,14 @@ export default function Login() {
             timer: 800,
           });
 
+<<<<<<< HEAD
           const tipo = tokenDecodificado.tipoUsuario;
 
           if (tipo === "Funcionario") {
+=======
+          // ✅ Redirecionamento conforme o tipo
+          if (tokenDecodificado.tipoUsuario === "Funcionario") {
+>>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
             navigate("/Inicio", { replace: true });
           } else if (tipo === "Cliente") {
             navigate("/InicioCliente", { replace: true });
@@ -107,6 +144,10 @@ export default function Login() {
       });
     }
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
 
   return (
     <form className="mainLogin" onSubmit={realizarAutenticacao}>

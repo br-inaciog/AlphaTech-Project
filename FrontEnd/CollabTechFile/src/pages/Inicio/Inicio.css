@@ -252,5 +252,11 @@
 }
 
 .botaoEnviarDoc:hover {
+     transform: scale(1.05);
+}
+
+.filtrosDocumentos button.ativo {
+    background: #5034ff;
+    color: white;
     transform: scale(1.02);
 }

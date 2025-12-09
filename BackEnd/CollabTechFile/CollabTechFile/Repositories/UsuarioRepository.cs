@@ -122,9 +122,20 @@ namespace CollabTechFile.Repositories
                 .FirstOrDefault(u => u.Email == email)!;
         }
 
+<<<<<<< HEAD
         public Usuario BuscarPorId(int id)
         {
             return _context.Usuarios.FirstOrDefault(u => u.IdUsuario == id)!;
+=======
+        public Usuario BuscarPorId(Usuario IdUsuario, int id)
+        {
+            throw new NotImplementedException();
+>>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
         }
+
+        //public Usuario IUsuarioRepository.BuscarPorId(Usuario IdUsuario, int id)
+        //{
+        //    return _context.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
+        //}
     }
 }

@@ -1,8 +1,8 @@
+import './telaCliente.css';
 import MenuLateral from '../../components/menuLateral/MenuLateral';
 import Cabecalho from '../../components/cabecalho/Cabecalho';
 import Editar from '../../assets/img/Editar.png';
 import Toggle from '../../components/toogle/toogle';
-import './telaCliente.css';
 import { useEffect, useState } from 'react';
 import api from '../../services/Service';
 import Swal from 'sweetalert2';
@@ -135,10 +135,9 @@ export default function TelaCliente() {
             const [nome, email, idEmpresa] = formValues;
 
             try {
-                const clienteId = cliente.id || cliente.idUsuario;
-
                 const dadosAtualizados = {
                     ...cliente,
+<<<<<<< HEAD
                     nome,
                     email,
                     idEmpresa: parseInt(idEmpresa) || cliente.idEmpresa
@@ -155,6 +154,43 @@ export default function TelaCliente() {
                 ));
 
                 alertar("success", "Cliente atualizado com sucesso!");
+=======
+                    nome: nome.trim(),
+                    email: email.trim(),
+                    idEmpresa: idEmpresa && idEmpresa !== "" ? parseInt(idEmpresa) : null
+                };
+
+                const clienteId = cliente.id || cliente.idUsuario;
+
+                console.log("Enviando para API:", { clienteId, dadosAtualizados });
+
+                const response = await api.put(`usuario/${clienteId}`, dadosAtualizados);
+
+                console.log("Resposta da API:", response.data);
+
+                // Criar objeto atualizado com os dados que enviamos para a API
+                const clienteAtualizado = {
+                    ...cliente,
+                    nome: nome.trim(),
+                    email: email.trim(),
+                    idEmpresa: dadosAtualizados.idEmpresa
+                };
+
+                console.log("Atualizando estado local com:", clienteAtualizado);
+
+                // Atualizar os estados locais com os dados corretos
+                setClientes(prevClientes => {
+                    const novosClientes = prevClientes.map(c => {
+                        const id = c.id || c.idUsuario;
+                        return id === clienteId ? clienteAtualizado : c;
+                    });
+                    console.log("Lista de clientes atualizada:", novosClientes);
+                    return novosClientes;
+                });
+
+                alertar("success", "Cliente atualizado com sucesso!");
+
+>>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
             } catch (error) {
                 console.error("Erro ao atualizar cliente:", error.response?.data || error);
                 let mensagemErro = "Erro ao atualizar cliente";
@@ -210,17 +246,19 @@ export default function TelaCliente() {
             <MenuLateral />
             <main className="conteudoPrincipal clientePrincipal">
                 <section className="areaTrabalho">
-                    <Cabecalho />
+                    <Cabecalho 
+                        rota="Inicio"
+                    />
                     <div className="titulo">
                         <h1>Tela Clientes</h1>
                         {loading && <p>Carregando...</p>}
-                        <input
+                        {/* <input
                             type="text"
-                            placeholder="Pesquisar cliente..."
-                            value={pesquisa}
-                            onChange={handlePesquisa}
+                            // placeholder="Pesquisar cliente..."
+                            // value={pesquisa}
+                            // onChange={handlePesquisa}
                             style={{ marginTop: '10px', padding: '5px', width: '250px' }}
-                        />
+                        /> */}
                     </div>
                     <div className="tabelaClienteContainer">
                         <table className="tabelaCliente">
@@ -237,7 +275,7 @@ export default function TelaCliente() {
                                 {(clientesFiltrados.length === 0 && !loading) || empresas.length === 0 ? (
                                     <tr>
                                         <td colSpan="6" style={{ textAlign: 'center' }}>
-                                            {empresas.length === 0 ? 'Carregando empresas...' : 'Nenhum cliente encontrado'}
+                                            {empresas.length === 0 ? 'Carregando clientes...' : 'Nenhum cliente encontrado'}
                                         </td>
                                     </tr>
                                 ) : (

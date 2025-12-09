@@ -90,5 +90,12 @@ namespace CollabTechFile.Repositories
                 .FirstOrDefault(d => d.IdDocumento == id);
         }
 
+<<<<<<< HEAD
+=======
+        //public Documento BuscarPorId(int id)
+        //{
+        //    return _context.Documentos.FirstOrDefault(x => x.IdDocumento == id);
+        //}
+>>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
     }
 }
