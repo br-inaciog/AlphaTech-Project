@@ -9,8 +9,8 @@ namespace CollabTechFile.Interfaces
         void Deletar(int id);
         Documento BuscarPorIdPdf(int id);
         Documento BuscarPorId(int id);
-
         List<Documento> Listar();
-
+        void AtualizarVersao(int id, Documento documento);
+        void AtualizarStatus(int id, string novoStatus);
     }
 }

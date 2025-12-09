@@ -77,12 +77,14 @@ namespace CollabTechFile.Repositories
             }
         }
 
-
         public List<Usuario> Listar()
         {
             try
             {
-                return _context.Usuarios.ToList();
+                return _context.Usuarios
+                    .Include(u => u.EmpresaNavigation)     
+                    .Include(u => u.IdTipoUsuarioNavigation) 
+                    .ToList();
             }
             catch (Exception)
             {
@@ -114,28 +116,19 @@ namespace CollabTechFile.Repositories
                 throw;
             }
         }
-            
+
         public Usuario BuscarPorEmail(string email)
         {
             return _context.Usuarios
                 .Include(u => u.IdTipoUsuarioNavigation)
+                .Include(u => u.EmpresaNavigation)
+                .AsNoTracking() 
                 .FirstOrDefault(u => u.Email == email)!;
         }
 
-<<<<<<< HEAD
         public Usuario BuscarPorId(int id)
         {
             return _context.Usuarios.FirstOrDefault(u => u.IdUsuario == id)!;
-=======
-        public Usuario BuscarPorId(Usuario IdUsuario, int id)
-        {
-            throw new NotImplementedException();
->>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
         }
-
-        //public Usuario IUsuarioRepository.BuscarPorId(Usuario IdUsuario, int id)
-        //{
-        //    return _context.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
-        //}
     }
 }

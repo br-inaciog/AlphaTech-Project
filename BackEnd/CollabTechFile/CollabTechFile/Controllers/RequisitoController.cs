@@ -45,9 +45,9 @@ namespace CollabTechFile.Controllers
                 _RequisitoRepository.Cadastrar(requisitos);
                 return StatusCode(201, requisitos);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return BadRequest(e.Message); 
+                throw;
             }
         }
 
@@ -84,6 +84,18 @@ namespace CollabTechFile.Controllers
                 return BadRequest(error.Message);
             }
         }
+
+        [HttpDelete("requisito-completo/{idRequisitoDoc}")]
+        public async Task<IActionResult> DeletarRequisitoCompleto(int idRequisitoDoc)
+        {
+            var ok = await _RequisitoRepository.DeletarRequisitoCompletoAsync(idRequisitoDoc);
+
+            if (!ok)
+                return NotFound();
+
+            return NoContent();
+        }
+
 
     }
 }

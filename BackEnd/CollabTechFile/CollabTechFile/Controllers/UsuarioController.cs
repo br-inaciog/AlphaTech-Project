@@ -78,10 +78,7 @@ namespace CollabTechFile.Controllers
             }
         }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
         //[Authorize]
         [HttpGet("BuscarPorEmailESenha")]
         public IActionResult Get(string email, string senha)
@@ -103,27 +100,16 @@ namespace CollabTechFile.Controllers
                 return BadRequest(e.Message);
             }
         }
-<<<<<<< HEAD
         [HttpPut("RedefinirSenha/{id}")]
         public IActionResult RedefinirSenha(int id, [FromBody] RedefinirSenhaDTO dto)
         {
             try
             {
                 var usuario = _UsuarioRepository.BuscarPorId(id);
-=======
 
-        //[HttpPost("RedefinirSenha")]
-        //public IActionResult RedefinirSenha(RedefinirSenhaDTO dto)
-        //{
-        //    try
-        //    {
-        //        var usuario = _UsuarioRepository.BuscarPorId(dto.IdUsuario);
->>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
+                if (usuario == null)
+                    return NotFound("Usuário não encontrado");
 
-        //        if (usuario == null)
-        //            return NotFound("Usuário não encontrado");
-
-<<<<<<< HEAD
                 // 1. Verifica se a senha do usuário ainda é a senha MOCADA
                 bool usandoSenhaPadrao = Criptografia.CompararHash(SenhaPadrao, usuario.Senha);
 
@@ -143,24 +129,5 @@ namespace CollabTechFile.Controllers
                 return BadRequest(e.Message);
             }
         }
-=======
-        //        usuario.Senha = Criptografia.GerarHash(dto.novaSenha);
-
-        //        _UsuarioRepository.Editar(usuario.IdUsuario, usuario);
-
-        //        return Ok("Senha redefinida com sucesso!");
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return BadRequest(e.Message);
-        //    }
-        //}
-
-        //[HttpPut("{id}")]
-        //public IActionResult Put(int id, Usuario usuario)
-        //{
-        //    // Este método é suficiente para edição E exclusão
-        //}
->>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
     }
 }

@@ -32,7 +32,6 @@ namespace CollabTechFile.Repositories
         {
             try
             {
-                
                 return _context.TipoUsuarios.ToList();
             }
             catch (Exception)

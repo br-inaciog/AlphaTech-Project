@@ -5369,39 +5369,23 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\55890867873\\.nuget\\packages\\": {},
-=======
-    "C:\\Users\\50776884867\\.nuget\\packages\\": {},
->>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\55890867873\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
+      "projectUniqueName": "C:\\Users\\55890867873\\Desktop\\AlphaTech-Pessoal\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
       "projectName": "CollabTechFile",
-      "projectPath": "C:\\Users\\55890867873\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
+      "projectPath": "C:\\Users\\55890867873\\Desktop\\AlphaTech-Pessoal\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
       "packagesPath": "C:\\Users\\55890867873\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\55890867873\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
-      "projectName": "CollabTechFile",
-      "projectPath": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\CollabTechFile.csproj",
-      "packagesPath": "C:\\Users\\50776884867\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
->>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
+      "outputPath": "C:\\Users\\55890867873\\Desktop\\AlphaTech-Pessoal\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\55890867873\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\50776884867\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5515,17 +5499,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
-<<<<<<< HEAD
   }
-=======
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema ao ler o arquivo de cache C:\\Users\\50776884867\\Desktop\\AlphaTech-Project\\BackEnd\\CollabTechFile\\CollabTechFile\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'expectedPackageFiles', line 92, position 0."
-    }
-  ]
->>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
 }

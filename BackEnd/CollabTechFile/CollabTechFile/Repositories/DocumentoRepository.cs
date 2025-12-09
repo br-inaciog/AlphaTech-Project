@@ -32,12 +32,6 @@ namespace CollabTechFile.Repositories
                 doc.Nome = documento.Nome ?? doc.Nome;
                 doc.Prazo = documento.Prazo ?? doc.Prazo;
 
-                if (documento.IdUsuario.HasValue)
-                    doc.IdUsuario = documento.IdUsuario;
-
-                if (documento.IdEmpresa.HasValue)
-                    doc.IdEmpresa = documento.IdEmpresa;
-
                 if (documento.Arquivo != null && documento.Arquivo.Length > 0)
                     doc.Arquivo = documento.Arquivo;
 
@@ -46,6 +40,39 @@ namespace CollabTechFile.Repositories
 
                 doc.Status = documento.Status;
 
+                // ⭐ Campos que estavam faltando:
+                doc.TextoOcr = documento.TextoOcr ?? doc.TextoOcr;
+                doc.Versao = documento.Versao;
+                doc.VersaoAtual = documento.VersaoAtual;
+                doc.AssinadoEm = documento.AssinadoEm ?? doc.AssinadoEm;
+                doc.FinalizadoEm = documento.FinalizadoEm ?? doc.FinalizadoEm;
+                doc.NovoStatus = documento.NovoStatus ?? doc.NovoStatus;
+
+                _context.SaveChanges();
+            }
+        }
+
+        public void AtualizarVersao(int id, Documento documentoComNovaVersao)
+        {
+            var docExistente = _context.Documentos.Find(id);
+
+            if (docExistente != null)
+            {
+                if (documentoComNovaVersao.VersaoAtual > 0)
+                {
+                    docExistente.VersaoAtual = documentoComNovaVersao.VersaoAtual;
+                }
+
+                _context.SaveChanges();
+            }
+        }
+        public void AtualizarStatus(int id, string novoStatus)
+        {
+            var doc = _context.Documentos.Find(id);
+
+            if (doc != null)
+            {
+                doc.NovoStatus = novoStatus;
                 _context.SaveChanges();
             }
         }
@@ -53,21 +80,112 @@ namespace CollabTechFile.Repositories
         public void Deletar(int id)
         {
             var doc = _context.Documentos.Find(id);
-            if (doc != null)
-            {
-                _context.Documentos.Remove(doc);
-                _context.SaveChanges();
-            }
+            if (doc == null) return;
+
+            var versoes = _context.DocumentoVersoes
+                .Where(v => v.IdDocumento == id)
+                .ToList();
+
+            if (versoes.Any())
+                _context.DocumentoVersoes.RemoveRange(versoes);
+
+            var requisitos = _context.ReqDocs
+                .Where(r => r.IdDocumento == id)
+                .ToList();
+
+            if (requisitos.Any())
+                _context.ReqDocs.RemoveRange(requisitos);
+
+            var comentarios = _context.Comentarios
+                .Where(c => c.IdDocumento == id)
+                .ToList();
+
+            if (comentarios.Any())
+                _context.Comentarios.RemoveRange(comentarios);
+
+            // 4) DELETAR REGRAS VINCULADAS
+            var regrasDoc = _context.RegrasDocs
+                .Where(rd => rd.IdDocumento == id)
+                .ToList();
+
+            if (regrasDoc.Any())
+                _context.RegrasDocs.RemoveRange(regrasDoc);
+
+            // 5) DELETAR DOCUMENTO
+            _context.Documentos.Remove(doc);
+
+            // 6) SALVAR TUDO
+            _context.SaveChanges();
         }
 
         public List<Documento> Listar()
         {
             return _context.Documentos
-                .AsNoTracking()
-                .Include(d => d.UsuarioNavigation)
-                .ThenInclude(u => u.EmpresaNavigation) 
-                .Include(d => d.EmpresaNavigation)
-                .ToList();
+            .AsNoTracking()
+            .Include(d => d.UsuarioNavigation)
+            .Include(d => d.EmpresaNavigation)
+            .Include(d => d.ReqDocs)
+                .ThenInclude(rd => rd.IdRequisitoNavigation)
+            .Include(d => d.RegrasDocs)
+                .ThenInclude(rg => rg.IdRegrasNavigation)
+            .Select(d => new Documento
+            {
+                IdDocumento = d.IdDocumento,
+                IdEmpresa = d.IdEmpresa,
+                IdUsuario = d.IdUsuario,
+
+                Nome = d.Nome,
+                Prazo = d.Prazo,
+                Status = d.Status,
+                Versao = d.Versao,
+                VersaoAtual = d.VersaoAtual,
+                CriadoEm = d.CriadoEm,
+                NovoStatus = d.NovoStatus,
+                AssinadoEm = d.AssinadoEm,
+                FinalizadoEm = d.FinalizadoEm,
+                MimeType = d.MimeType,
+                TextoOcr = d.TextoOcr,
+
+                UsuarioNavigation = d.UsuarioNavigation,
+                EmpresaNavigation = d.EmpresaNavigation,
+
+                // Mapeia ReqDocs e a entidade Requisito vinculada
+                ReqDocs = d.ReqDocs.Select(rd => new ReqDoc
+                {
+                    IdReqDoc = rd.IdReqDoc,
+                    IdDocumento = rd.IdDocumento,
+                    IdRequisito = rd.IdRequisito,
+                    // mapa a navegação do requisito
+                    IdRequisitoNavigation = rd.IdRequisitoNavigation == null
+                        ? null
+                        : new Requisito
+                        {
+                            IdRequisito = rd.IdRequisitoNavigation.IdRequisito,
+                            Tipo = rd.IdRequisitoNavigation.Tipo,
+                            TextoReq = rd.IdRequisitoNavigation.TextoReq
+                        }
+                }).ToList(),
+
+                // Mapeia RegrasDocs e a entidade Regra vinculada
+                RegrasDocs = d.RegrasDocs.Select(rg => new RegrasDoc
+                {
+                    IdRegrasDoc = rg.IdRegrasDoc,
+                    IdDocumento = rg.IdDocumento,
+                    IdRegras = rg.IdRegras,
+                    // mapa a navegação da regra
+                    IdRegrasNavigation = rg.IdRegrasNavigation == null
+                        ? null
+                        : new Regra
+                        {
+                            IdRegras = rg.IdRegrasNavigation.IdRegras,
+                            Nome = rg.IdRegrasNavigation.Nome
+                        }
+                }).ToList(),
+
+                // NÃO retorna o PDF para não pesar a resposta
+                Arquivo = null
+            })
+            .ToList();
         }
 
         public Documento BuscarPorIdPdf(int id)
@@ -82,20 +200,72 @@ namespace CollabTechFile.Repositories
         public Documento BuscarPorId(int id)
         {
             return _context.Documentos
+                .AsNoTracking()
                 .Include(d => d.UsuarioNavigation)
-                .ThenInclude(u => u.EmpresaNavigation) 
                 .Include(d => d.EmpresaNavigation)
                 .Include(d => d.Comentarios)
                 .Include(d => d.DocumentoVersos)
+                .Include(d => d.ReqDocs)
+                    .ThenInclude(rd => rd.IdRequisitoNavigation)
+                .Include(d => d.RegrasDocs)
+                    .ThenInclude(rg => rg.IdRegrasNavigation)
+                .Select(d => new Documento
+                {
+                    IdDocumento = d.IdDocumento,
+                    IdEmpresa = d.IdEmpresa,
+                    IdUsuario = d.IdUsuario,
+
+                    Nome = d.Nome,
+                    Prazo = d.Prazo,
+                    Status = d.Status,
+                    Versao = d.Versao,
+                    VersaoAtual = d.VersaoAtual,
+                    CriadoEm = d.CriadoEm,
+                    NovoStatus = d.NovoStatus,
+                    AssinadoEm = d.AssinadoEm,
+                    FinalizadoEm = d.FinalizadoEm,
+                    MimeType = d.MimeType,
+                    TextoOcr = d.TextoOcr,
+
+                    UsuarioNavigation = d.UsuarioNavigation,
+                    EmpresaNavigation = d.EmpresaNavigation,
+
+                    Comentarios = d.Comentarios.ToList(),
+                    DocumentoVersos = d.DocumentoVersos.ToList(),
+
+                    ReqDocs = d.ReqDocs.Select(rd => new ReqDoc
+                    {
+                        IdReqDoc = rd.IdReqDoc,
+                        IdDocumento = rd.IdDocumento,
+                        IdRequisito = rd.IdRequisito,
+                        IdRequisitoNavigation = rd.IdRequisitoNavigation == null
+                            ? null
+                            : new Requisito
+                            {
+                                IdRequisito = rd.IdRequisitoNavigation.IdRequisito,
+                                Tipo = rd.IdRequisitoNavigation.Tipo,
+                                TextoReq = rd.IdRequisitoNavigation.TextoReq
+                            }
+                    }).ToList(),
+
+                    RegrasDocs = d.RegrasDocs.Select(rg => new RegrasDoc
+                    {
+                        IdRegrasDoc = rg.IdRegrasDoc,
+                        IdDocumento = rg.IdDocumento,
+                        IdRegras = rg.IdRegras,
+                        IdRegrasNavigation = rg.IdRegrasNavigation == null
+                            ? null
+                            : new Regra
+                            {
+                                IdRegras = rg.IdRegrasNavigation.IdRegras,
+                                Nome = rg.IdRegrasNavigation.Nome
+                            }
+                    }).ToList(),
+
+                    Arquivo = null
+                })
                 .FirstOrDefault(d => d.IdDocumento == id);
         }
 
-<<<<<<< HEAD
-=======
-        //public Documento BuscarPorId(int id)
-        //{
-        //    return _context.Documentos.FirstOrDefault(x => x.IdDocumento == id);
-        //}
->>>>>>> b4057c42bb6d03e0812a9307fa0abab8c69125f3
     }
 }
